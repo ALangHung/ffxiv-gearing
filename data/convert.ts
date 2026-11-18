@@ -49,25 +49,30 @@ const jobs: G.Job[] = [
 ];
 
 const sourceOfId: Record<number, string | undefined> = {};
+const patchOfId: Record<number, string | undefined> = {};
 {
   const sourcesLines = fs.readFileSync('./in/sources.txt', 'utf8').split(/\r?\n/);
   let source: string | undefined;
+  let patch: string | undefined;
   for (let line of sourcesLines) {
     if (line === '') {
       source = undefined;
+      patch = undefined;
+      continue;
+    }
+    if (source === undefined) {
+      patch = /@(\d+\.\d+)/.exec(line)?.[1];
+      source = line.replace(/\s*[#@].*/, '');
       continue;
     }
     line = line.replace(/\s*[#@].*/, '');
-    if (source === undefined) {
-      source = line;
-      continue;
-    }
     const parts = line.split('-');
     const begin = +parts[0];
     const end = +parts.at(-1)!;
     for (let i = begin; i <= end; i++) {
       if (i in sourceOfId) throw Error(`装备 ${i} 来源存在冲突。`);
       sourceOfId[i] = source;
+      patchOfId[i] = patch;
     }
   }
 }
@@ -79,6 +84,12 @@ const Item = loadExd('Item.csv');
 const ItemAction = loadExd('ItemAction.csv');
 const ItemFood = loadExd('ItemFood.csv');
 const ItemLevel = loadExd('ItemLevel.csv');
+
+// 道具名稱優先使用繁中客戶端資料，繁中服尚未實裝的道具沿用國服名稱
+const itemNamesTc: Record<string, string | undefined> = {};
+for (const x of loadExd('ItemTc.csv')) {
+  if (x['Name']) itemNamesTc[x['#']] = x['Name'];
+}
 
 const slotComposite: Record<number, number[]> = {
   15: [4, 3],
@@ -125,7 +136,7 @@ const gears = Item
 
     const ret = {} as G.Gear;
     ret.id = +x['#'] as G.GearId;
-    ret.name = x['Name'];
+    ret.name = itemNamesTc[x['#']] ?? x['Name'];
     ret.level = +x['LevelItem'];
     ret.rarity = +x['Rarity'];
     ret.slot = +x['EquipSlotCategory'];
@@ -143,8 +154,9 @@ const gears = Item
     ret.stats = {};
     ret.hq = x['CanBeHq'] === 'True' ? true : undefined;
     ret.source = sourceOfId[ret.id];
-    ret.obsolete = (ret.rarity === 7 && ret.source !== '危命任务' && !(ret.slot >= 9 && ret.slot <= 12)) ||
-      ret.source?.endsWith('已废弃') || ret.source === '旧空岛' ? true : undefined;
+    ret.patch = patchOfId[ret.id];
+    ret.obsolete = (ret.rarity === 7 && ret.source !== '危命任務' && !(ret.slot >= 9 && ret.slot <= 12)) ||
+      ret.source?.endsWith('已廢棄') || ret.source === '舊空島' ? true : undefined;
 
     // stats
     const rawStats: Record<string, number> = {};
@@ -241,7 +253,7 @@ const foods = Item
 
     const ret = {} as G.Food;
     ret.id = +x['#'] as G.GearId;
-    ret.name = x['Name'];
+    ret.name = itemNamesTc[x['#']] ?? x['Name'];
     ret.level = +x['LevelItem'];
     ret.slot = isFood ? -1 : -2;
     ret.jobCategory = undefined as any;

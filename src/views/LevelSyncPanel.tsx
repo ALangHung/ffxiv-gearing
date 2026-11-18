@@ -22,7 +22,7 @@ export const LevelSyncPanel = mobxReact.observer<DropdownPopperProps>(({ toggle 
               <Ripple surface={false}>
                 <li tabIndex={0} className="level-sync_group mdc-list-item">
                   <RippleSurface className="mdc-list-item__ripple" />
-                  <span className="mdc-list-item__text">{jobLevel}级</span>
+                  <span className="mdc-list-item__text">{jobLevel}級</span>
                   <i className="mdc-list-item__meta" aria-hidden="true">
                     <Icon className="level-sync_group-icon" name="chevron-right" />
                   </i>
@@ -58,7 +58,7 @@ export const LevelSyncPanel = mobxReact.observer<DropdownPopperProps>(({ toggle 
                         store.setSyncLevel(undefined, jobLevel);
                         toggle();
                       }}
-                      children="仅同步等级"
+                      children="僅同步等級"
                     />
                   </RippleLazy>
                 )}

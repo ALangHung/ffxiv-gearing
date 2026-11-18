@@ -53,13 +53,13 @@ export const MateriaPanel = mobxReact.observer<{
         </tr>
       ))}
       <tr>
-        <td className="materias_meldable-title" colSpan={2}>可镶嵌值</td>
+        <td className="materias_meldable-title" colSpan={2}>可鑲嵌值</td>
         <td
           className={classNames('materias_remove', materia.stat === undefined && '-selected')}
           colSpan={materia.meldableGrades.length - (materia.canRestricted ? 1 : 0)}
           onClick={() => materia.meld(undefined)}
         >
-          不镶嵌魔晶石
+          不鑲嵌魔晶石
         </td>
         {materia.canRestricted && (
           <td

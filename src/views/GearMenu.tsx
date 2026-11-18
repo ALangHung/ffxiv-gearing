@@ -20,7 +20,7 @@ export const GearMenu = mobxReact.observer<{
             navigator.clipboard.writeText(gear.name);
           }}
         >
-          复制道具名
+          複製道具名稱
           {!gear.isFood && gear.source && store.setting.gearDisplayName === 'source' && (
             '：' + gear.name
           )}
@@ -28,12 +28,12 @@ export const GearMenu = mobxReact.observer<{
       </RippleLazy>
       <div className="gear-menu_divider" />
       {!gear.isFood && gear.source && store.setting.gearDisplayName === 'name' && (
-        <div className="gear-menu_item">获取途径：{gear.source}</div>
+        <div className="gear-menu_item">取得途徑：{gear.source}</div>
       )}
       {gear.stats.PDMG !== undefined && <div className="gear-menu_item">物理基本性能：{gear.stats.PDMG}</div>}
       {gear.stats.MDMG !== undefined && <div className="gear-menu_item">魔法基本性能：{gear.stats.MDMG}</div>}
       {gear.stats.DLY !== undefined && (
-        <div className="gear-menu_item">攻击间隔：{(gear.stats.DLY / 1000).toFixed(2)}</div>
+        <div className="gear-menu_item">攻擊間隔：{(gear.stats.DLY / 1000).toFixed(2)}</div>
       )}
       <div className="gear-menu_divider" />
       <RippleLazy>
@@ -43,7 +43,7 @@ export const GearMenu = mobxReact.observer<{
           target="_blank"
           tabIndex={0}
         >
-          在 最终幻想XIV中文维基 中查看 <Icon className="gear-menu_external" name="open-in-new" />
+          在 最終幻想XIV中文維基 中查看 <Icon className="gear-menu_external" name="open-in-new" />
         </a>
       </RippleLazy>
       <RippleLazy>
@@ -53,7 +53,7 @@ export const GearMenu = mobxReact.observer<{
           target="garlandtools"
           tabIndex={0}
         >
-          在 Garland 数据 中查看 <Icon className="gear-menu_external" name="open-in-new" />
+          在 Garland 資料 中查看 <Icon className="gear-menu_external" name="open-in-new" />
         </a>
       </RippleLazy>
       <RippleLazy>

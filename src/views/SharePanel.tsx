@@ -7,12 +7,12 @@ export const SharePanel = mobxReact.observer(() => {
   return (
     <div className="share card">
       <a className="share_url" href={store.shareUrl} target="_blank">{store.shareUrl}</a>
-      <div className="share_tip">分享时只会包含选中的装备。</div>
+      <div className="share_tip">分享時只會包含選取的裝備。</div>
       <span
         className="share_copy"
         onClick={() => navigator.clipboard.writeText(store.shareUrl)}
       >
-        <Button>复制</Button>
+        <Button>複製</Button>
       </span>
     </div>
   );

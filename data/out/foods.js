@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 4640,
-    name: '渡渡鸟烤肉',
+    name: '渡渡鳥烤肉',
     level: 11,
     slot: -1,
     jobCategory: 30,
@@ -35,7 +35,7 @@ export default [
   },
   {
     id: 4641,
-    name: '鼹鼠肉糕',
+    name: '鼴鼠肉糕',
     level: 12,
     slot: -1,
     jobCategory: 30,
@@ -53,7 +53,7 @@ export default [
   },
   {
     id: 4642,
-    name: '猫魅风味山珍烤串',
+    name: '貓魅風味山珍烤串',
     level: 15,
     slot: -1,
     jobCategory: 59,
@@ -107,7 +107,7 @@ export default [
   },
   {
     id: 4645,
-    name: '盗龙熏肉',
+    name: '盜龍燻肉',
     level: 31,
     slot: -1,
     jobCategory: 30,
@@ -125,7 +125,7 @@ export default [
   },
   {
     id: 4646,
-    name: '牛肉干',
+    name: '牛肉乾',
     level: 41,
     slot: -1,
     jobCategory: 30,
@@ -161,7 +161,7 @@ export default [
   },
   {
     id: 4648,
-    name: '葡萄酒煎豹肉',
+    name: '葡萄酒煎夸爾肉',
     level: 70,
     slot: -1,
     jobCategory: 30,
@@ -179,7 +179,7 @@ export default [
   },
   {
     id: 4649,
-    name: '烤全渡渡鸟',
+    name: '烤全渡渡鳥',
     level: 24,
     slot: -1,
     jobCategory: 30,
@@ -211,7 +211,7 @@ export default [
   },
   {
     id: 4651,
-    name: '渡渡鸟蛋煎蛋卷',
+    name: '渡渡鳥蛋煎蛋捲',
     level: 15,
     slot: -1,
     jobCategory: 34,
@@ -300,7 +300,7 @@ export default [
   },
   {
     id: 4656,
-    name: '碧企鹅蛋卷',
+    name: '碧企鵝蛋捲',
     level: 70,
     slot: -1,
     jobCategory: 34,
@@ -318,7 +318,7 @@ export default [
   },
   {
     id: 4657,
-    name: '红焖皮皮拉鱼',
+    name: '紅燜皮皮拉魚',
     level: 7,
     slot: -1,
     jobCategory: 30,
@@ -334,7 +334,7 @@ export default [
   },
   {
     id: 4658,
-    name: '绿树蟾蜍腿',
+    name: '綠樹蟾蜍腿',
     level: 7,
     slot: -1,
     jobCategory: 31,
@@ -350,7 +350,7 @@ export default [
   },
   {
     id: 4659,
-    name: '水煮蝲蛄',
+    name: '水煮螯蝦',
     level: 8,
     slot: -1,
     jobCategory: 31,
@@ -367,7 +367,7 @@ export default [
   },
   {
     id: 4660,
-    name: '盐烤公主鳟',
+    name: '鹽烤公主鱒',
     level: 8,
     slot: -1,
     jobCategory: 34,
@@ -384,7 +384,7 @@ export default [
   },
   {
     id: 4661,
-    name: '盐烤鲤鱼',
+    name: '鹽烤鯉魚',
     level: 15,
     slot: -1,
     jobCategory: 30,
@@ -402,7 +402,7 @@ export default [
   },
   {
     id: 4662,
-    name: '鲑鱼排',
+    name: '鮭魚排',
     level: 23,
     slot: -1,
     jobCategory: 34,
@@ -420,7 +420,7 @@ export default [
   },
   {
     id: 4663,
-    name: '艾蒿烤鲤鱼',
+    name: '艾蒿烤鯉魚',
     level: 38,
     slot: -1,
     jobCategory: 34,
@@ -438,7 +438,7 @@ export default [
   },
   {
     id: 4664,
-    name: '包心甘蓝',
+    name: '包心甘藍',
     level: 45,
     slot: -1,
     jobCategory: 34,
@@ -474,7 +474,7 @@ export default [
   },
   {
     id: 4666,
-    name: '盐渍鳕鱼',
+    name: '鹽漬鱈魚',
     level: 9,
     slot: -1,
     jobCategory: 33,
@@ -488,7 +488,7 @@ export default [
   },
   {
     id: 4667,
-    name: '生鲜牡蛎',
+    name: '生鮮牡蠣',
     level: 17,
     slot: -1,
     jobCategory: 33,
@@ -502,7 +502,7 @@ export default [
   },
   {
     id: 4668,
-    name: '水煮鲷鱼',
+    name: '水煮鯛魚',
     level: 27,
     slot: -1,
     jobCategory: 33,
@@ -516,7 +516,7 @@ export default [
   },
   {
     id: 4669,
-    name: '烤黑鳎',
+    name: '烤黑鰨',
     level: 29,
     slot: -1,
     jobCategory: 33,
@@ -530,7 +530,7 @@ export default [
   },
   {
     id: 4670,
-    name: '猫魅风味海产烤串',
+    name: '貓魅風味海產烤串',
     level: 32,
     slot: -1,
     jobCategory: 33,
@@ -544,7 +544,7 @@ export default [
   },
   {
     id: 4671,
-    name: '油炸盐渍鳕鱼丸',
+    name: '油炸鹽漬鱈魚丸',
     level: 42,
     slot: -1,
     jobCategory: 33,
@@ -558,7 +558,7 @@ export default [
   },
   {
     id: 4672,
-    name: '油炸鲯鳅块',
+    name: '油炸鯕鰍塊',
     level: 55,
     slot: -1,
     jobCategory: 33,
@@ -572,7 +572,7 @@ export default [
   },
   {
     id: 4673,
-    name: '清炖羊肉',
+    name: '清燉羊肉',
     level: 9,
     slot: -1,
     jobCategory: 32,
@@ -604,7 +604,7 @@ export default [
   },
   {
     id: 4675,
-    name: '清炖羚羊肉',
+    name: '清燉羚羊肉',
     level: 20,
     slot: -1,
     jobCategory: 32,
@@ -620,7 +620,7 @@ export default [
   },
   {
     id: 4676,
-    name: '清炖鬼鮟鱇',
+    name: '清燉歐羅彭',
     level: 28,
     slot: -1,
     jobCategory: 32,
@@ -636,7 +636,7 @@ export default [
   },
   {
     id: 4677,
-    name: '香烩时蔬',
+    name: '香燴時蔬',
     level: 37,
     slot: -1,
     jobCategory: 32,
@@ -652,7 +652,7 @@ export default [
   },
   {
     id: 4678,
-    name: '清炖牛肉',
+    name: '清燉牛肉',
     level: 50,
     slot: -1,
     jobCategory: 32,
@@ -668,7 +668,7 @@ export default [
   },
   {
     id: 4679,
-    name: '泽梅尔家风味焗菜',
+    name: '澤梅爾家風味焗菜',
     level: 55,
     slot: -1,
     jobCategory: 32,
@@ -684,7 +684,7 @@ export default [
   },
   {
     id: 4680,
-    name: '杂煮',
+    name: '雜煮',
     level: 9,
     slot: -1,
     jobCategory: 32,
@@ -699,7 +699,7 @@ export default [
   },
   {
     id: 4681,
-    name: '杰克南瓜灯',
+    name: '傑克南瓜燈',
     level: 10,
     slot: -1,
     jobCategory: 32,
@@ -713,7 +713,7 @@ export default [
   },
   {
     id: 4682,
-    name: '高山萝卜沙拉',
+    name: '高山蘿蔔沙拉',
     level: 13,
     slot: -1,
     jobCategory: 32,
@@ -729,7 +729,7 @@ export default [
   },
   {
     id: 4683,
-    name: '烤仙人掌叶',
+    name: '烤仙人掌葉',
     level: 16,
     slot: -1,
     jobCategory: 32,
@@ -761,7 +761,7 @@ export default [
   },
   {
     id: 4685,
-    name: '鳄梨色拉',
+    name: '鱷梨沙拉',
     level: 30,
     slot: -1,
     jobCategory: 32,
@@ -793,7 +793,7 @@ export default [
   },
   {
     id: 4687,
-    name: '包心球蓟',
+    name: '包心球薊',
     level: 39,
     slot: -1,
     jobCategory: 32,
@@ -825,7 +825,7 @@ export default [
   },
   {
     id: 4689,
-    name: '煎鸡油菌',
+    name: '煎雞油菇',
     level: 7,
     slot: -1,
     jobCategory: 34,
@@ -839,7 +839,7 @@ export default [
   },
   {
     id: 4690,
-    name: '金钱蘑炒鸡肉',
+    name: '金錢蘑炒雞肉',
     level: 19,
     slot: -1,
     jobCategory: 34,
@@ -857,7 +857,7 @@ export default [
   },
   {
     id: 4691,
-    name: '猫魅风味森鲜烤串',
+    name: '貓魅風味森鮮烤串',
     level: 30,
     slot: -1,
     jobCategory: 34,
@@ -875,7 +875,7 @@ export default [
   },
   {
     id: 4692,
-    name: '清炖盗龙肉',
+    name: '清燉盜龍肉',
     level: 39,
     slot: -1,
     jobCategory: 34,
@@ -911,7 +911,7 @@ export default [
   },
   {
     id: 4694,
-    name: '草菇甘蓝卷',
+    name: '草菇甘藍卷',
     level: 50,
     slot: -1,
     jobCategory: 34,
@@ -929,7 +929,7 @@ export default [
   },
   {
     id: 4695,
-    name: '黑松露烩饭',
+    name: '黑松露燴飯',
     level: 70,
     slot: -1,
     jobCategory: 34,
@@ -947,7 +947,7 @@ export default [
   },
   {
     id: 4696,
-    name: '煎饼',
+    name: '煎餅',
     level: 5,
     slot: -1,
     jobCategory: 59,
@@ -963,7 +963,7 @@ export default [
   },
   {
     id: 4697,
-    name: '胡桃面包',
+    name: '胡桃麵包',
     level: 17,
     slot: -1,
     jobCategory: 59,
@@ -981,7 +981,7 @@ export default [
   },
   {
     id: 4698,
-    name: '蜂蜜松饼',
+    name: '蜂蜜瑪芬',
     level: 21,
     slot: -1,
     jobCategory: 59,
@@ -999,7 +999,7 @@ export default [
   },
   {
     id: 4699,
-    name: '心形卷饼',
+    name: '心形卷餅',
     level: 23,
     slot: -1,
     jobCategory: 59,
@@ -1017,7 +1017,7 @@ export default [
   },
   {
     id: 4700,
-    name: '玉米面包',
+    name: '玉米麵包',
     level: 30,
     slot: -1,
     jobCategory: 59,
@@ -1035,7 +1035,7 @@ export default [
   },
   {
     id: 4701,
-    name: '橡果饼干',
+    name: '橡果餅乾',
     level: 33,
     slot: -1,
     jobCategory: 59,
@@ -1053,7 +1053,7 @@ export default [
   },
   {
     id: 4702,
-    name: '骑士面包',
+    name: '騎士麵包',
     level: 38,
     slot: -1,
     jobCategory: 59,
@@ -1071,7 +1071,7 @@ export default [
   },
   {
     id: 4703,
-    name: '拉诺西亚吐司',
+    name: '拉諾西亞吐司',
     level: 47,
     slot: -1,
     jobCategory: 59,
@@ -1089,7 +1089,7 @@ export default [
   },
   {
     id: 4704,
-    name: '俾斯麦鸡蛋三明治',
+    name: '俾斯麥雞蛋三明治',
     level: 70,
     slot: -1,
     jobCategory: 59,
@@ -1123,7 +1123,7 @@ export default [
   },
   {
     id: 4709,
-    name: '苹果挞',
+    name: '蘋果塔',
     level: 17,
     slot: -1,
     jobCategory: 32,
@@ -1155,7 +1155,7 @@ export default [
   },
   {
     id: 4711,
-    name: '鳗鱼派',
+    name: '鰻魚派',
     level: 25,
     slot: -1,
     jobCategory: 32,
@@ -1171,7 +1171,7 @@ export default [
   },
   {
     id: 4712,
-    name: '血红奇异果挞',
+    name: '血紅奇異果塔',
     level: 32,
     slot: -1,
     jobCategory: 32,
@@ -1219,7 +1219,7 @@ export default [
   },
   {
     id: 4715,
-    name: '猎人风味水蜥饼',
+    name: '獵人風味水蜥餅',
     level: 50,
     slot: -1,
     jobCategory: 32,
@@ -1235,7 +1235,7 @@ export default [
   },
   {
     id: 4716,
-    name: '羊奶麦粥',
+    name: '羊奶麥粥',
     level: 4,
     slot: -1,
     jobCategory: 33,
@@ -1249,7 +1249,7 @@ export default [
   },
   {
     id: 4717,
-    name: '石子汤',
+    name: '石子湯',
     level: 17,
     slot: -1,
     jobCategory: 33,
@@ -1263,7 +1263,7 @@ export default [
   },
   {
     id: 4718,
-    name: '翡翠豆汤',
+    name: '翡翠豆湯',
     level: 26,
     slot: -1,
     jobCategory: 33,
@@ -1277,7 +1277,7 @@ export default [
   },
   {
     id: 4719,
-    name: '盐韭洋葱汤',
+    name: '韭蔥洋蔥湯',
     level: 34,
     slot: -1,
     jobCategory: 33,
@@ -1291,7 +1291,7 @@ export default [
   },
   {
     id: 4720,
-    name: '白鱼汤',
+    name: '白魚湯',
     level: 43,
     slot: -1,
     jobCategory: 33,
@@ -1305,7 +1305,7 @@ export default [
   },
   {
     id: 4721,
-    name: '五海杂烩汤',
+    name: '五海雜燴湯',
     level: 55,
     slot: -1,
     jobCategory: 33,
@@ -1333,7 +1333,7 @@ export default [
   },
   {
     id: 4723,
-    name: '奶酪烩饭',
+    name: '乳酪燴飯',
     level: 27,
     slot: -1,
     jobCategory: 33,
@@ -1347,7 +1347,7 @@ export default [
   },
   {
     id: 4724,
-    name: '奶酪蛋奶酥',
+    name: '乳酪蛋奶酥',
     level: 36,
     slot: -1,
     jobCategory: 33,
@@ -1361,7 +1361,7 @@ export default [
   },
   {
     id: 4725,
-    name: '罗兰莓奶酪蛋糕',
+    name: '羅蘭莓乳酪蛋糕',
     level: 55,
     slot: -1,
     jobCategory: 33,
@@ -1375,7 +1375,7 @@ export default [
   },
   {
     id: 4726,
-    name: '薄荷酸奶昔',
+    name: '薄荷優酪奶昔',
     level: 10,
     slot: -1,
     jobCategory: 33,
@@ -1389,7 +1389,7 @@ export default [
   },
   {
     id: 4727,
-    name: '罗兰莓酸奶昔',
+    name: '羅蘭莓優酪奶昔',
     level: 46,
     slot: -1,
     jobCategory: 33,
@@ -1403,7 +1403,7 @@ export default [
   },
   {
     id: 4728,
-    name: '葡萄干',
+    name: '葡萄乾',
     level: 3,
     slot: -1,
     jobCategory: 31,
@@ -1433,7 +1433,7 @@ export default [
   },
   {
     id: 4730,
-    name: '梅干',
+    name: '梅乾',
     level: 21,
     slot: -1,
     jobCategory: 31,
@@ -1451,7 +1451,7 @@ export default [
   },
   {
     id: 4731,
-    name: '生姜饼干',
+    name: '生薑餅乾',
     level: 25,
     slot: -1,
     jobCategory: 31,
@@ -1469,7 +1469,7 @@ export default [
   },
   {
     id: 4732,
-    name: '小圆饼',
+    name: '小圓餅',
     level: 28,
     slot: -1,
     jobCategory: 64,
@@ -1487,7 +1487,7 @@ export default [
   },
   {
     id: 4733,
-    name: '鱼糕',
+    name: '魚糕',
     level: 40,
     slot: -1,
     jobCategory: 64,
@@ -1505,7 +1505,7 @@ export default [
   },
   {
     id: 4734,
-    name: '菠萝蛋糕',
+    name: '鳳梨蛋糕',
     level: 70,
     slot: -1,
     jobCategory: 64,
@@ -1559,7 +1559,7 @@ export default [
   },
   {
     id: 4737,
-    name: '爱心白巧克力',
+    name: '愛心白巧克力',
     level: 14,
     slot: -1,
     jobCategory: 34,
@@ -1573,7 +1573,7 @@ export default [
   },
   {
     id: 4738,
-    name: '爱心巧克力',
+    name: '愛心巧克力',
     level: 14,
     slot: -1,
     jobCategory: 34,
@@ -1613,7 +1613,7 @@ export default [
   },
   {
     id: 4741,
-    name: '灵矿蛋糕',
+    name: '靈礦蛋糕',
     level: 9,
     slot: -1,
     jobCategory: 34,
@@ -1641,7 +1641,7 @@ export default [
   },
   {
     id: 4744,
-    name: '菱饼',
+    name: '菱餅',
     level: 14,
     slot: -1,
     jobCategory: 34,
@@ -1655,7 +1655,7 @@ export default [
   },
   {
     id: 4745,
-    name: '橙汁',
+    name: '柳橙汁',
     level: 6,
     slot: -1,
     jobCategory: 64,
@@ -1687,7 +1687,7 @@ export default [
   },
   {
     id: 4747,
-    name: '苹果汁',
+    name: '蘋果汁',
     level: 40,
     slot: -1,
     jobCategory: 64,
@@ -1705,7 +1705,7 @@ export default [
   },
   {
     id: 4748,
-    name: '菠萝汁',
+    name: '鳳梨汁',
     level: 70,
     slot: -1,
     jobCategory: 64,
@@ -1759,7 +1759,7 @@ export default [
   },
   {
     id: 4754,
-    name: '农家奶酪',
+    name: '農家乳酪',
     level: 15,
     slot: -1,
     jobCategory: 34,
@@ -1773,7 +1773,7 @@ export default [
   },
   {
     id: 4756,
-    name: '奶油奶酪',
+    name: '奶油乳酪',
     level: 37,
     slot: -1,
     jobCategory: 34,
@@ -1787,7 +1787,7 @@ export default [
   },
   {
     id: 4757,
-    name: '罗兰莓奶酪',
+    name: '羅蘭莓乳酪',
     level: 43,
     slot: -1,
     jobCategory: 34,
@@ -1801,7 +1801,7 @@ export default [
   },
   {
     id: 6142,
-    name: '盐烤暖水鳟',
+    name: '鹽烤暖水鱒',
     level: 20,
     slot: -1,
     jobCategory: 30,
@@ -1819,7 +1819,7 @@ export default [
   },
   {
     id: 6143,
-    name: '盐烤求雨鱼',
+    name: '鹽烤求雨魚',
     level: 40,
     slot: -1,
     jobCategory: 30,
@@ -1837,7 +1837,7 @@ export default [
   },
   {
     id: 6144,
-    name: '海神汤',
+    name: '海神湯',
     level: 50,
     slot: -1,
     jobCategory: 33,
@@ -1851,7 +1851,7 @@ export default [
   },
   {
     id: 7570,
-    name: '酒香蒸鲶鱼',
+    name: '酒香蒸鯰魚',
     level: 90,
     slot: -1,
     jobCategory: 34,
@@ -1869,7 +1869,7 @@ export default [
   },
   {
     id: 7571,
-    name: '新薯煎饼',
+    name: '新薯鬆餅',
     level: 90,
     slot: -1,
     jobCategory: 59,
@@ -1887,7 +1887,7 @@ export default [
   },
   {
     id: 7572,
-    name: '香烤填鸭',
+    name: '香烤填鴨',
     level: 90,
     slot: -1,
     jobCategory: 30,
@@ -1905,7 +1905,7 @@ export default [
   },
   {
     id: 7573,
-    name: '萨赫蛋糕',
+    name: '薩赫蛋糕',
     level: 90,
     slot: -1,
     jobCategory: 31,
@@ -1923,7 +1923,7 @@ export default [
   },
   {
     id: 7574,
-    name: '新薯冷汤',
+    name: '新薯冷湯',
     level: 70,
     slot: -1,
     jobCategory: 33,
@@ -1939,7 +1939,7 @@ export default [
   },
   {
     id: 7575,
-    name: '菠菜乳蛋饼',
+    name: '菠菜乳蛋餅',
     level: 70,
     slot: -1,
     jobCategory: 32,
@@ -1955,7 +1955,7 @@ export default [
   },
   {
     id: 9330,
-    name: '浓缩康宝蓝',
+    name: '三倍鮮奶油咖啡',
     level: 110,
     slot: -1,
     jobCategory: 64,
@@ -1973,7 +1973,7 @@ export default [
   },
   {
     id: 9331,
-    name: '烟肉麦穗面包',
+    name: '煙燻肉麥穗麵包',
     level: 110,
     slot: -1,
     jobCategory: 59,
@@ -1991,7 +1991,7 @@ export default [
   },
   {
     id: 9332,
-    name: '煌黑鱼子酱',
+    name: '煌黑魚子醬',
     level: 110,
     slot: -1,
     jobCategory: 34,
@@ -2009,7 +2009,7 @@ export default [
   },
   {
     id: 9333,
-    name: '鱼翅汤',
+    name: '魚翅湯',
     level: 90,
     slot: -1,
     jobCategory: 33,
@@ -2025,7 +2025,7 @@ export default [
   },
   {
     id: 9334,
-    name: '黑线鳕沙拉',
+    name: '黑線鱈沙拉',
     level: 90,
     slot: -1,
     jobCategory: 32,
@@ -2041,7 +2041,7 @@ export default [
   },
   {
     id: 12842,
-    name: '伊修加德奶茶',
+    name: '伊修加爾德奶茶',
     level: 130,
     slot: -1,
     jobCategory: 64,
@@ -2059,7 +2059,7 @@ export default [
   },
   {
     id: 12843,
-    name: '冻雾鸡尾酒',
+    name: '凍霧雞尾酒',
     level: 142,
     slot: -1,
     jobCategory: 64,
@@ -2077,7 +2077,7 @@ export default [
   },
   {
     id: 12844,
-    name: '热巧克力',
+    name: '熱巧克力',
     level: 160,
     slot: -1,
     jobCategory: 64,
@@ -2095,7 +2095,7 @@ export default [
   },
   {
     id: 12845,
-    name: '无花果奶冻',
+    name: '無花果奶凍',
     level: 125,
     slot: -1,
     jobCategory: 31,
@@ -2113,7 +2113,7 @@ export default [
   },
   {
     id: 12846,
-    name: '索姆阿尔栗子蛋糕',
+    name: '索姆阿爾栗子蛋糕',
     level: 136,
     slot: -1,
     jobCategory: 31,
@@ -2149,7 +2149,7 @@ export default [
   },
   {
     id: 12848,
-    name: '焦糖牛奶沙司',
+    name: '焦糖烤布蕾',
     level: 160,
     slot: -1,
     jobCategory: 31,
@@ -2167,7 +2167,7 @@ export default [
   },
   {
     id: 12849,
-    name: '凯撒面包',
+    name: '凱撒麵包',
     level: 139,
     slot: -1,
     jobCategory: 59,
@@ -2185,7 +2185,7 @@ export default [
   },
   {
     id: 12850,
-    name: '伊修加德松饼',
+    name: '伊修加爾德瑪芬',
     level: 130,
     slot: -1,
     jobCategory: 59,
@@ -2203,7 +2203,7 @@ export default [
   },
   {
     id: 12851,
-    name: '伊修加德三明治',
+    name: '伊修加爾德三明治',
     level: 148,
     slot: -1,
     jobCategory: 59,
@@ -2221,7 +2221,7 @@ export default [
   },
   {
     id: 12852,
-    name: '扁桃仁牛角面包',
+    name: '扁桃仁牛角麵包',
     level: 160,
     slot: -1,
     jobCategory: 59,
@@ -2257,7 +2257,7 @@ export default [
   },
   {
     id: 12854,
-    name: '蘑菇沙拉',
+    name: '傘蘑沙拉',
     level: 150,
     slot: -1,
     jobCategory: 30,
@@ -2275,7 +2275,7 @@ export default [
   },
   {
     id: 12855,
-    name: '盐烤香鱼',
+    name: '鹽烤香魚',
     level: 133,
     slot: -1,
     jobCategory: 34,
@@ -2293,7 +2293,7 @@ export default [
   },
   {
     id: 12856,
-    name: '菌蒸皮皮拉鱼',
+    name: '菌蒸皮皮拉魚',
     level: 145,
     slot: -1,
     jobCategory: 34,
@@ -2311,7 +2311,7 @@ export default [
   },
   {
     id: 12857,
-    name: '香烤湖胆',
+    name: '香烤湖膽',
     level: 160,
     slot: -1,
     jobCategory: 34,
@@ -2329,7 +2329,7 @@ export default [
   },
   {
     id: 12858,
-    name: '魔蛇鸟肉丸',
+    name: '石化雞蛇肉丸',
     level: 145,
     slot: -1,
     jobCategory: 30,
@@ -2383,7 +2383,7 @@ export default [
   },
   {
     id: 12861,
-    name: '芝士焗洋葱汤',
+    name: '起司焗洋蔥湯',
     level: 125,
     slot: -1,
     jobCategory: 33,
@@ -2399,7 +2399,7 @@ export default [
   },
   {
     id: 12862,
-    name: '洛夫坦山羊汤',
+    name: '洛夫坦山羊湯',
     level: 133,
     slot: -1,
     jobCategory: 33,
@@ -2415,7 +2415,7 @@ export default [
   },
   {
     id: 12863,
-    name: '绿宝石汤',
+    name: '綠寶石湯',
     level: 139,
     slot: -1,
     jobCategory: 33,
@@ -2431,7 +2431,7 @@ export default [
   },
   {
     id: 12864,
-    name: '鲜贝羹',
+    name: '鮮貝羹',
     level: 150,
     slot: -1,
     jobCategory: 33,
@@ -2447,7 +2447,7 @@ export default [
   },
   {
     id: 12865,
-    name: '炖番茄',
+    name: '番茄海鮮濃湯',
     level: 160,
     slot: -1,
     jobCategory: 33,
@@ -2479,7 +2479,7 @@ export default [
   },
   {
     id: 12867,
-    name: '千层长颈驼焗野菜',
+    name: '千層長頸駝焗野菜',
     level: 133,
     slot: -1,
     jobCategory: 32,
@@ -2495,7 +2495,7 @@ export default [
   },
   {
     id: 12868,
-    name: '包心卡贝基',
+    name: '包心卡貝基',
     level: 150,
     slot: -1,
     jobCategory: 32,
@@ -2511,7 +2511,7 @@ export default [
   },
   {
     id: 12869,
-    name: '千层长颈驼炖野菜',
+    name: '千層長頸駝燉野菜',
     level: 139,
     slot: -1,
     jobCategory: 32,
@@ -2527,7 +2527,7 @@ export default [
   },
   {
     id: 12870,
-    name: '鲜红罗兰莓派',
+    name: '鮮紅羅蘭莓派',
     level: 160,
     slot: -1,
     jobCategory: 32,
@@ -2543,7 +2543,7 @@ export default [
   },
   {
     id: 13742,
-    name: '清蒸风神鱼',
+    name: '清蒸風神魚',
     level: 160,
     slot: -1,
     jobCategory: 30,
@@ -2561,7 +2561,7 @@ export default [
   },
   {
     id: 13743,
-    name: '芝麻饼干',
+    name: '芝麻餅乾',
     level: 139,
     slot: -1,
     jobCategory: 64,
@@ -2579,7 +2579,7 @@ export default [
   },
   {
     id: 14134,
-    name: '果香特饮',
+    name: '果香特飲',
     level: 180,
     slot: -1,
     jobCategory: 64,
@@ -2597,7 +2597,7 @@ export default [
   },
   {
     id: 14135,
-    name: '苹果卷',
+    name: '蘋果卷',
     level: 210,
     slot: -1,
     jobCategory: 31,
@@ -2615,7 +2615,7 @@ export default [
   },
   {
     id: 14136,
-    name: '风味拌细面',
+    name: '風味拌細麵',
     level: 180,
     slot: -1,
     jobCategory: 59,
@@ -2633,7 +2633,7 @@ export default [
   },
   {
     id: 14137,
-    name: '山珍番茄面',
+    name: '山珍番茄麵',
     level: 210,
     slot: -1,
     jobCategory: 34,
@@ -2669,7 +2669,7 @@ export default [
   },
   {
     id: 14139,
-    name: '油封牡蛎',
+    name: '油封牡蠣',
     level: 180,
     slot: -1,
     jobCategory: 33,
@@ -2685,7 +2685,7 @@ export default [
   },
   {
     id: 14140,
-    name: '炖鮟鱇',
+    name: '燉鮟鱇',
     level: 210,
     slot: -1,
     jobCategory: 32,
@@ -2717,7 +2717,7 @@ export default [
   },
   {
     id: 15650,
-    name: '苍穹鸡蛋汤',
+    name: '蒼天雞蛋湯',
     level: 220,
     slot: -1,
     jobCategory: 33,
@@ -2736,7 +2736,7 @@ export default [
   },
   {
     id: 15651,
-    name: '田园番茄面',
+    name: '田園番茄麵',
     level: 220,
     slot: -1,
     jobCategory: 32,
@@ -2755,7 +2755,7 @@ export default [
   },
   {
     id: 16709,
-    name: '苍穹蛋奶酒',
+    name: '蒼天蛋奶酒',
     level: 250,
     slot: -1,
     jobCategory: 64,
@@ -2773,7 +2773,7 @@ export default [
   },
   {
     id: 16710,
-    name: '苹果芙纽多',
+    name: '蘋果芙紐多',
     level: 250,
     slot: -1,
     jobCategory: 31,
@@ -2791,7 +2791,7 @@ export default [
   },
   {
     id: 16711,
-    name: '烟肉蛋酱拌面',
+    name: '煙燻肉蛋醬拌麵',
     level: 250,
     slot: -1,
     jobCategory: 59,
@@ -2828,7 +2828,7 @@ export default [
   },
   {
     id: 16713,
-    name: '海鲜拌面',
+    name: '海鮮拌麵',
     level: 250,
     slot: -1,
     jobCategory: 34,
@@ -2846,7 +2846,7 @@ export default [
   },
   {
     id: 16714,
-    name: '蓝带肉排',
+    name: '藍帶肉排',
     level: 250,
     slot: -1,
     jobCategory: 30,
@@ -2864,7 +2864,7 @@ export default [
   },
   {
     id: 16715,
-    name: '祭司蛋包饭',
+    name: '祭司蛋包飯',
     level: 250,
     slot: -1,
     jobCategory: 34,
@@ -2882,7 +2882,7 @@ export default [
   },
   {
     id: 19807,
-    name: '多玛茶',
+    name: '多瑪茶',
     level: 285,
     slot: -1,
     jobCategory: 64,
@@ -2900,7 +2900,7 @@ export default [
   },
   {
     id: 19808,
-    name: '枇杷果饮',
+    name: '枇杷果飲',
     level: 260,
     slot: -1,
     jobCategory: 64,
@@ -2916,7 +2916,7 @@ export default [
   },
   {
     id: 19809,
-    name: '荞麦茶',
+    name: '蕎麥茶',
     level: 265,
     slot: -1,
     jobCategory: 30,
@@ -2950,7 +2950,7 @@ export default [
   },
   {
     id: 19811,
-    name: '果仁蜜饼',
+    name: '果仁蜜餅',
     level: 260,
     slot: -1,
     jobCategory: 31,
@@ -2966,7 +2966,7 @@ export default [
   },
   {
     id: 19812,
-    name: '糖煮水果果冻',
+    name: '糖煮水果果凍',
     level: 300,
     slot: -1,
     jobCategory: 34,
@@ -3002,7 +3002,7 @@ export default [
   },
   {
     id: 19814,
-    name: '散寿司',
+    name: '散壽司',
     level: 288,
     slot: -1,
     jobCategory: 59,
@@ -3020,7 +3020,7 @@ export default [
   },
   {
     id: 19815,
-    name: '柿叶寿司',
+    name: '柿葉壽司',
     level: 300,
     slot: -1,
     jobCategory: 34,
@@ -3038,7 +3038,7 @@ export default [
   },
   {
     id: 19816,
-    name: '山芋泥荞麦面',
+    name: '山芋泥蕎麥麵',
     level: 270,
     slot: -1,
     jobCategory: 59,
@@ -3072,7 +3072,7 @@ export default [
   },
   {
     id: 19818,
-    name: '炖猪肉',
+    name: '燉豬肉',
     level: 320,
     slot: -1,
     jobCategory: 34,
@@ -3090,7 +3090,7 @@ export default [
   },
   {
     id: 19819,
-    name: '长颈骆肉干',
+    name: '長頸駱肉乾',
     level: 288,
     slot: -1,
     jobCategory: 30,
@@ -3126,7 +3126,7 @@ export default [
   },
   {
     id: 19821,
-    name: '鬼壳烧',
+    name: '鬼殼燒',
     level: 285,
     slot: -1,
     jobCategory: 34,
@@ -3160,7 +3160,7 @@ export default [
   },
   {
     id: 19823,
-    name: '炖黄尾鰤鱼头',
+    name: '燉黃尾鰤魚頭',
     level: 285,
     slot: -1,
     jobCategory: 31,
@@ -3178,7 +3178,7 @@ export default [
   },
   {
     id: 19824,
-    name: '清蒸赤点石斑鱼',
+    name: '清蒸赤點石斑魚',
     level: 290,
     slot: -1,
     jobCategory: 33,
@@ -3194,7 +3194,7 @@ export default [
   },
   {
     id: 19825,
-    name: '浇汁菜蛙',
+    name: '澆汁菜蛙',
     level: 276,
     slot: -1,
     jobCategory: 34,
@@ -3210,7 +3210,7 @@ export default [
   },
   {
     id: 19826,
-    name: '天妇罗拼盘',
+    name: '天婦羅拼盤',
     level: 279,
     slot: -1,
     jobCategory: 33,
@@ -3226,7 +3226,7 @@ export default [
   },
   {
     id: 19827,
-    name: '炖河鲷',
+    name: '燉河鯛',
     level: 290,
     slot: -1,
     jobCategory: 31,
@@ -3244,7 +3244,7 @@ export default [
   },
   {
     id: 19828,
-    name: '盐烤石楠嘉鱼',
+    name: '鹽烤石楠嘉魚',
     level: 265,
     slot: -1,
     jobCategory: 34,
@@ -3260,7 +3260,7 @@ export default [
   },
   {
     id: 19829,
-    name: '味噌田乐',
+    name: '味噌田樂',
     level: 288,
     slot: -1,
     jobCategory: 30,
@@ -3278,7 +3278,7 @@ export default [
   },
   {
     id: 19830,
-    name: '长颈骆焗菜',
+    name: '長頸駱焗菜',
     level: 290,
     slot: -1,
     jobCategory: 32,
@@ -3294,7 +3294,7 @@ export default [
   },
   {
     id: 19831,
-    name: '煮杂菜',
+    name: '筑前煮',
     level: 276,
     slot: -1,
     jobCategory: 32,
@@ -3328,7 +3328,7 @@ export default [
   },
   {
     id: 19833,
-    name: '油炸蟹肉饼',
+    name: '油炸蟹肉餅',
     level: 273,
     slot: -1,
     jobCategory: 31,
@@ -3361,7 +3361,7 @@ export default [
   },
   {
     id: 19835,
-    name: '鱼汁',
+    name: '魚汁',
     level: 282,
     slot: -1,
     jobCategory: 30,
@@ -3380,7 +3380,7 @@ export default [
   },
   {
     id: 19836,
-    name: '猪肉酱汤',
+    name: '豬肉醬湯',
     level: 320,
     slot: -1,
     jobCategory: 59,
@@ -3398,7 +3398,7 @@ export default [
   },
   {
     id: 19837,
-    name: '暮晖牛肉汤',
+    name: '暮暉牛肉湯',
     level: 279,
     slot: -1,
     jobCategory: 33,
@@ -3414,7 +3414,7 @@ export default [
   },
   {
     id: 19838,
-    name: '荞麦糊',
+    name: '蕎麥糊',
     level: 265,
     slot: -1,
     jobCategory: 32,
@@ -3430,7 +3430,7 @@ export default [
   },
   {
     id: 19839,
-    name: '游牧民风味肉饼',
+    name: '遊牧民風味肉餅',
     level: 279,
     slot: -1,
     jobCategory: 32,
@@ -3446,7 +3446,7 @@ export default [
   },
   {
     id: 19882,
-    name: '名匠药茶',
+    name: '名匠藥茶',
     level: 273,
     slot: -2,
     jobCategory: 33,
@@ -3460,7 +3460,7 @@ export default [
   },
   {
     id: 19883,
-    name: '巨匠药茶',
+    name: '巨匠藥茶',
     level: 276,
     slot: -2,
     jobCategory: 33,
@@ -3474,7 +3474,7 @@ export default [
   },
   {
     id: 19884,
-    name: '魔匠药茶',
+    name: '魔匠藥茶',
     level: 282,
     slot: -2,
     jobCategory: 33,
@@ -3488,7 +3488,7 @@ export default [
   },
   {
     id: 21087,
-    name: '王室鲑鱼排',
+    name: '王室鮭魚排',
     level: 320,
     slot: -1,
     jobCategory: 30,
@@ -3506,7 +3506,7 @@ export default [
   },
   {
     id: 21088,
-    name: '蒸蛋羹',
+    name: '茶碗蒸',
     level: 320,
     slot: -1,
     jobCategory: 31,
@@ -3524,7 +3524,7 @@ export default [
   },
   {
     id: 22432,
-    name: '章鱼烧',
+    name: '章魚燒',
     level: 340,
     slot: -1,
     jobCategory: 34,
@@ -3542,7 +3542,7 @@ export default [
   },
   {
     id: 22433,
-    name: '什锦寿司卷',
+    name: '什錦壽司卷',
     level: 340,
     slot: -1,
     jobCategory: 34,
@@ -3560,7 +3560,7 @@ export default [
   },
   {
     id: 22434,
-    name: '炖点',
+    name: '關東煮',
     level: 340,
     slot: -1,
     jobCategory: 31,
@@ -3596,7 +3596,7 @@ export default [
   },
   {
     id: 22436,
-    name: '红莲特饮',
+    name: '紅蓮特飲',
     level: 340,
     slot: -1,
     jobCategory: 34,
@@ -3614,7 +3614,7 @@ export default [
   },
   {
     id: 22437,
-    name: '煎绿韭葱',
+    name: '煎綠韭蔥',
     level: 340,
     slot: -1,
     jobCategory: 30,
@@ -3632,7 +3632,7 @@ export default [
   },
   {
     id: 22445,
-    name: '豆腐煎饼',
+    name: '豆腐鬆餅',
     level: 340,
     slot: -1,
     jobCategory: 64,
@@ -3666,7 +3666,7 @@ export default [
   },
   {
     id: 23186,
-    name: '纳夏煎饼',
+    name: '納夏煎餅',
     level: 340,
     slot: -1,
     jobCategory: 30,
@@ -3700,7 +3700,7 @@ export default [
   },
   {
     id: 23188,
-    name: '辣椒焗奶酪',
+    name: '辣椒焗乳酪',
     level: 340,
     slot: -1,
     jobCategory: 31,
@@ -3718,7 +3718,7 @@ export default [
   },
   {
     id: 24274,
-    name: '路易波士红茶',
+    name: '路易波士紅茶',
     level: 370,
     slot: -1,
     jobCategory: 34,
@@ -3736,7 +3736,7 @@ export default [
   },
   {
     id: 24275,
-    name: '生姜沙拉',
+    name: '生薑沙拉',
     level: 370,
     slot: -1,
     jobCategory: 30,
@@ -3754,7 +3754,7 @@ export default [
   },
   {
     id: 24276,
-    name: '拉条子',
+    name: '拉格曼',
     level: 370,
     slot: -1,
     jobCategory: 59,
@@ -3772,7 +3772,7 @@ export default [
   },
   {
     id: 24277,
-    name: '僧厥镶茄子',
+    name: '僧厥鑲茄子',
     level: 370,
     slot: -1,
     jobCategory: 31,
@@ -3790,7 +3790,7 @@ export default [
   },
   {
     id: 24278,
-    name: '奶酪甜甜圈',
+    name: '乳酪甜甜圈',
     level: 370,
     slot: -1,
     jobCategory: 64,
@@ -3808,7 +3808,7 @@ export default [
   },
   {
     id: 24279,
-    name: '鲑鱼松饼',
+    name: '鮭魚瑪芬',
     level: 370,
     slot: -1,
     jobCategory: 34,
@@ -3826,7 +3826,7 @@ export default [
   },
   {
     id: 24280,
-    name: '番茄炖蛋',
+    name: '番茄燉蛋',
     level: 370,
     slot: -1,
     jobCategory: 34,
@@ -3845,7 +3845,7 @@ export default [
   },
   {
     id: 27853,
-    name: '秧鸡烤肉',
+    name: '秧雞烤肉',
     level: 390,
     slot: -1,
     jobCategory: 34,
@@ -3861,7 +3861,7 @@ export default [
   },
   {
     id: 27854,
-    name: '紫胡萝卜果汁',
+    name: '紫胡蘿蔔果汁',
     level: 390,
     slot: -1,
     jobCategory: 30,
@@ -3893,7 +3893,7 @@ export default [
   },
   {
     id: 27856,
-    name: '蚕豆汤',
+    name: '蠶豆湯',
     level: 395,
     slot: -1,
     jobCategory: 59,
@@ -3909,7 +3909,7 @@ export default [
   },
   {
     id: 27857,
-    name: '黑色酱汁直面',
+    name: '黑色醬汁直麵',
     level: 400,
     slot: -1,
     jobCategory: 34,
@@ -3925,7 +3925,7 @@ export default [
   },
   {
     id: 27858,
-    name: '蚕豆沙拉',
+    name: '蠶豆沙拉',
     level: 400,
     slot: -1,
     jobCategory: 31,
@@ -3941,7 +3941,7 @@ export default [
   },
   {
     id: 27859,
-    name: '盐烤白金鲷鱼',
+    name: '鹽烤白金鯛魚',
     level: 400,
     slot: -1,
     jobCategory: 34,
@@ -3957,7 +3957,7 @@ export default [
   },
   {
     id: 27860,
-    name: '长棍面包',
+    name: '長棍麵包',
     level: 403,
     slot: -1,
     jobCategory: 59,
@@ -3989,7 +3989,7 @@ export default [
   },
   {
     id: 27862,
-    name: '仙子苹果派',
+    name: '仙子蘋果派',
     level: 403,
     slot: -1,
     jobCategory: 64,
@@ -4005,7 +4005,7 @@ export default [
   },
   {
     id: 27863,
-    name: '坚果糕',
+    name: '堅果糕',
     level: 406,
     slot: -1,
     jobCategory: 31,
@@ -4053,7 +4053,7 @@ export default [
   },
   {
     id: 27866,
-    name: '香肠',
+    name: '香腸',
     level: 409,
     slot: -1,
     jobCategory: 59,
@@ -4107,7 +4107,7 @@ export default [
   },
   {
     id: 27869,
-    name: '菌蒸巨型水虎鱼',
+    name: '菌蒸巨型水虎魚',
     level: 409,
     slot: -1,
     jobCategory: 31,
@@ -4141,7 +4141,7 @@ export default [
   },
   {
     id: 27871,
-    name: '焗黄新薯',
+    name: '焗黃新薯',
     level: 412,
     slot: -1,
     jobCategory: 33,
@@ -4157,7 +4157,7 @@ export default [
   },
   {
     id: 27872,
-    name: '马萨拉奶茶',
+    name: '馬薩拉奶茶',
     level: 412,
     slot: -1,
     jobCategory: 64,
@@ -4175,7 +4175,7 @@ export default [
   },
   {
     id: 27873,
-    name: '墨汁炖饭',
+    name: '墨汁燉飯',
     level: 415,
     slot: -1,
     jobCategory: 31,
@@ -4193,7 +4193,7 @@ export default [
   },
   {
     id: 27874,
-    name: '浓缩奶油咖啡',
+    name: '鮮奶油咖啡',
     level: 415,
     slot: -1,
     jobCategory: 34,
@@ -4212,7 +4212,7 @@ export default [
   },
   {
     id: 27875,
-    name: '黄油煎迷雾菠菜',
+    name: '奶油煎迷霧菠菜',
     level: 415,
     slot: -1,
     jobCategory: 30,
@@ -4231,7 +4231,7 @@ export default [
   },
   {
     id: 27876,
-    name: '血色五海杂烩汤',
+    name: '血色五海雜燴湯',
     level: 418,
     slot: -1,
     jobCategory: 33,
@@ -4247,7 +4247,7 @@ export default [
   },
   {
     id: 27877,
-    name: '海鲜烩饭',
+    name: '海鮮燴飯',
     level: 418,
     slot: -1,
     jobCategory: 59,
@@ -4265,7 +4265,7 @@ export default [
   },
   {
     id: 27878,
-    name: '咖啡曲奇',
+    name: '咖啡餅乾',
     level: 418,
     slot: -1,
     jobCategory: 32,
@@ -4281,7 +4281,7 @@ export default [
   },
   {
     id: 27879,
-    name: '力山羊肉蓝带肉排',
+    name: '力山羊肉藍帶肉排',
     level: 430,
     slot: -1,
     jobCategory: 30,
@@ -4299,7 +4299,7 @@ export default [
   },
   {
     id: 27880,
-    name: '柠檬水',
+    name: '檸檬水',
     level: 430,
     slot: -1,
     jobCategory: 31,
@@ -4317,7 +4317,7 @@ export default [
   },
   {
     id: 27881,
-    name: '香杏果冻',
+    name: '香杏果凍',
     level: 430,
     slot: -1,
     jobCategory: 64,
@@ -4335,7 +4335,7 @@ export default [
   },
   {
     id: 27882,
-    name: '生吃食用蚝',
+    name: '生吃食用蠔',
     level: 430,
     slot: -1,
     jobCategory: 34,
@@ -4353,7 +4353,7 @@ export default [
   },
   {
     id: 27883,
-    name: '鲑鱼奶油面',
+    name: '鮭魚奶油麵',
     level: 450,
     slot: -1,
     jobCategory: 34,
@@ -4371,7 +4371,7 @@ export default [
   },
   {
     id: 27884,
-    name: '帝王鲑鱼排',
+    name: '帝王鮭魚排',
     level: 450,
     slot: -1,
     jobCategory: 30,
@@ -4407,7 +4407,7 @@ export default [
   },
   {
     id: 27886,
-    name: '巫师莴苣沙拉',
+    name: '巫師萵苣沙拉',
     level: 450,
     slot: -1,
     jobCategory: 34,
@@ -4443,7 +4443,7 @@ export default [
   },
   {
     id: 27888,
-    name: '仙子莓奶酪蛋糕',
+    name: '仙子莓乳酪蛋糕',
     level: 450,
     slot: -1,
     jobCategory: 64,
@@ -4461,7 +4461,7 @@ export default [
   },
   {
     id: 27889,
-    name: '可可面包干',
+    name: '可可麵包乾',
     level: 450,
     slot: -1,
     jobCategory: 31,
@@ -4479,7 +4479,7 @@ export default [
   },
   {
     id: 27890,
-    name: '柠檬萨赫蛋糕',
+    name: '檸檬薩赫蛋糕',
     level: 450,
     slot: -1,
     jobCategory: 31,
@@ -4497,7 +4497,7 @@ export default [
   },
   {
     id: 27891,
-    name: '高级烤牛肉',
+    name: '高級烤牛肉',
     level: 450,
     slot: -1,
     jobCategory: 59,
@@ -4515,7 +4515,7 @@ export default [
   },
   {
     id: 27892,
-    name: '高级清炖牛肉',
+    name: '高級清燉牛肉',
     level: 450,
     slot: -1,
     jobCategory: 59,
@@ -4533,7 +4533,7 @@ export default [
   },
   {
     id: 27957,
-    name: '名匠药水',
+    name: '名匠藥水',
     level: 406,
     slot: -2,
     jobCategory: 33,
@@ -4547,7 +4547,7 @@ export default [
   },
   {
     id: 27958,
-    name: '巨匠药水',
+    name: '巨匠藥水',
     level: 412,
     slot: -2,
     jobCategory: 33,
@@ -4561,7 +4561,7 @@ export default [
   },
   {
     id: 27959,
-    name: '魔匠药水',
+    name: '魔匠藥水',
     level: 412,
     slot: -2,
     jobCategory: 33,
@@ -4575,7 +4575,7 @@ export default [
   },
   {
     id: 28720,
-    name: '蒜炒贻贝',
+    name: '蒜炒貽貝',
     level: 460,
     slot: -1,
     jobCategory: 33,
@@ -4591,7 +4591,7 @@ export default [
   },
   {
     id: 28721,
-    name: '乌贼墨汁炒饭',
+    name: '烏賊墨汁炒飯',
     level: 460,
     slot: -1,
     jobCategory: 32,
@@ -4625,7 +4625,7 @@ export default [
   },
   {
     id: 29498,
-    name: '莫尔斯',
+    name: '莫爾斯',
     level: 480,
     slot: -1,
     jobCategory: 30,
@@ -4643,7 +4643,7 @@ export default [
   },
   {
     id: 29499,
-    name: '柠檬华夫饼',
+    name: '檸檬格子鬆餅',
     level: 480,
     slot: -1,
     jobCategory: 64,
@@ -4661,7 +4661,7 @@ export default [
   },
   {
     id: 29500,
-    name: '蜂蜜牛角面包',
+    name: '蜂蜜牛角麵包',
     level: 480,
     slot: -1,
     jobCategory: 64,
@@ -4679,7 +4679,7 @@ export default [
   },
   {
     id: 29501,
-    name: '香肠泡菜',
+    name: '香腸泡菜',
     level: 480,
     slot: -1,
     jobCategory: 30,
@@ -4697,7 +4697,7 @@ export default [
   },
   {
     id: 29502,
-    name: '高地风味菜肉卷',
+    name: '高地風味菜肉卷',
     level: 480,
     slot: -1,
     jobCategory: 34,
@@ -4715,7 +4715,7 @@ export default [
   },
   {
     id: 29503,
-    name: '腌鲱鱼',
+    name: '醃鯡魚',
     level: 480,
     slot: -1,
     jobCategory: 31,
@@ -4733,7 +4733,7 @@ export default [
   },
   {
     id: 29504,
-    name: '鲱鱼派',
+    name: '鯡魚派',
     level: 480,
     slot: -1,
     jobCategory: 31,
@@ -4751,7 +4751,7 @@ export default [
   },
   {
     id: 29505,
-    name: '农场早餐',
+    name: '農場早餐',
     level: 480,
     slot: -1,
     jobCategory: 59,
@@ -4769,7 +4769,7 @@ export default [
   },
   {
     id: 29506,
-    name: '乌鸡布丁',
+    name: '烏雞布丁',
     level: 480,
     slot: -1,
     jobCategory: 59,
@@ -4787,7 +4787,7 @@ export default [
   },
   {
     id: 30481,
-    name: '炸蟹饼',
+    name: '炸蟹餅',
     level: 490,
     slot: -1,
     jobCategory: 32,
@@ -4804,7 +4804,7 @@ export default [
   },
   {
     id: 30482,
-    name: '辣酱炒全蟹',
+    name: '辣醬炒全蟹',
     level: 490,
     slot: -1,
     jobCategory: 33,
@@ -4820,7 +4820,7 @@ export default [
   },
   {
     id: 31898,
-    name: '披萨',
+    name: '披薩',
     level: 510,
     slot: -1,
     jobCategory: 34,
@@ -4838,7 +4838,7 @@ export default [
   },
   {
     id: 31899,
-    name: '迷雾菠菜乳蛋饼',
+    name: '迷霧菠菜乳蛋餅',
     level: 510,
     slot: -1,
     jobCategory: 30,
@@ -4856,7 +4856,7 @@ export default [
   },
   {
     id: 31900,
-    name: '奶油鸡肉宽面',
+    name: '奶油雞肉寬面',
     level: 510,
     slot: -1,
     jobCategory: 30,
@@ -4874,7 +4874,7 @@ export default [
   },
   {
     id: 31901,
-    name: '烟熏鸡肉',
+    name: '煙燻雞肉',
     level: 510,
     slot: -1,
     jobCategory: 34,
@@ -4892,7 +4892,7 @@ export default [
   },
   {
     id: 31902,
-    name: '黄金菠萝汁',
+    name: '黃金鳳梨汁',
     level: 510,
     slot: -1,
     jobCategory: 64,
@@ -4910,7 +4910,7 @@ export default [
   },
   {
     id: 31903,
-    name: '菠萝沙拉',
+    name: '鳳梨沙拉',
     level: 510,
     slot: -1,
     jobCategory: 64,
@@ -4928,7 +4928,7 @@ export default [
   },
   {
     id: 31904,
-    name: '软果糕',
+    name: '軟果糕',
     level: 510,
     slot: -1,
     jobCategory: 31,
@@ -4946,7 +4946,7 @@ export default [
   },
   {
     id: 31905,
-    name: '苹果新薯沙拉',
+    name: '蘋果新薯沙拉',
     level: 510,
     slot: -1,
     jobCategory: 31,
@@ -4964,7 +4964,7 @@ export default [
   },
   {
     id: 31906,
-    name: '豆子咖喱',
+    name: '豆子咖哩',
     level: 510,
     slot: -1,
     jobCategory: 59,
@@ -4982,7 +4982,7 @@ export default [
   },
   {
     id: 31907,
-    name: '柠檬松饼',
+    name: '檸檬瑪芬',
     level: 510,
     slot: -1,
     jobCategory: 59,
@@ -5000,7 +5000,7 @@ export default [
   },
   {
     id: 36036,
-    name: '贤人面包',
+    name: '賢人麵包',
     level: 520,
     slot: -1,
     jobCategory: 30,
@@ -5016,7 +5016,7 @@ export default [
   },
   {
     id: 36037,
-    name: '裸麦酸汤',
+    name: '裸麥酸湯',
     level: 520,
     slot: -1,
     jobCategory: 64,
@@ -5032,7 +5032,7 @@ export default [
   },
   {
     id: 36038,
-    name: '庵摩罗果沙拉',
+    name: '庵摩羅果沙拉',
     level: 525,
     slot: -1,
     jobCategory: 59,
@@ -5048,7 +5048,7 @@ export default [
   },
   {
     id: 36039,
-    name: '庵摩罗果酸奶昔',
+    name: '庵摩羅果優酪奶昔',
     level: 525,
     slot: -1,
     jobCategory: 34,
@@ -5064,7 +5064,7 @@ export default [
   },
   {
     id: 36040,
-    name: '猫魅风味岛萃烤串',
+    name: '貓魅風味島萃烤串',
     level: 525,
     slot: -1,
     jobCategory: 31,
@@ -5080,7 +5080,7 @@ export default [
   },
   {
     id: 36041,
-    name: '炸帝王蟹饼',
+    name: '炸帝王蟹餅',
     level: 530,
     slot: -1,
     jobCategory: 34,
@@ -5096,7 +5096,7 @@ export default [
   },
   {
     id: 36042,
-    name: '鱼蔬清汤',
+    name: '魚蔬清湯',
     level: 530,
     slot: -1,
     jobCategory: 59,
@@ -5112,7 +5112,7 @@ export default [
   },
   {
     id: 36043,
-    name: '红菜汤',
+    name: '紅菜湯',
     level: 530,
     slot: -1,
     jobCategory: 34,
@@ -5128,7 +5128,7 @@ export default [
   },
   {
     id: 36044,
-    name: '奶油紫汤',
+    name: '奶油紫湯',
     level: 533,
     slot: -1,
     jobCategory: 64,
@@ -5144,7 +5144,7 @@ export default [
   },
   {
     id: 36045,
-    name: '皇帝浓汤',
+    name: '皇帝濃湯',
     level: 533,
     slot: -1,
     jobCategory: 31,
@@ -5160,7 +5160,7 @@ export default [
   },
   {
     id: 36046,
-    name: '开心汁',
+    name: '開心汁',
     level: 527,
     slot: -1,
     jobCategory: 33,
@@ -5176,7 +5176,7 @@ export default [
   },
   {
     id: 36047,
-    name: '胡萝卜丝',
+    name: '胡蘿蔔絲',
     level: 527,
     slot: -1,
     jobCategory: 32,
@@ -5192,7 +5192,7 @@ export default [
   },
   {
     id: 36048,
-    name: '桓娑鸟肉咖喱',
+    name: '恆娑鳥肉咖哩',
     level: 539,
     slot: -1,
     jobCategory: 59,
@@ -5210,7 +5210,7 @@ export default [
   },
   {
     id: 36049,
-    name: '茄子镶桓娑鸟肉',
+    name: '茄子鑲恆娑鳥肉',
     level: 539,
     slot: -1,
     jobCategory: 59,
@@ -5228,7 +5228,7 @@ export default [
   },
   {
     id: 36050,
-    name: '辣味番茄炖蛋',
+    name: '辣味番茄燉蛋',
     level: 539,
     slot: -1,
     jobCategory: 31,
@@ -5246,7 +5246,7 @@ export default [
   },
   {
     id: 36051,
-    name: '小扁豆咖喱',
+    name: '小扁豆咖哩',
     level: 539,
     slot: -1,
     jobCategory: 31,
@@ -5264,7 +5264,7 @@ export default [
   },
   {
     id: 36052,
-    name: '北洋酸奶',
+    name: '北洋優酪乳',
     level: 539,
     slot: -1,
     jobCategory: 64,
@@ -5282,7 +5282,7 @@ export default [
   },
   {
     id: 36053,
-    name: '巨人鱼子泥沙拉',
+    name: '巨人魚子泥沙拉',
     level: 540,
     slot: -1,
     jobCategory: 33,
@@ -5298,7 +5298,7 @@ export default [
   },
   {
     id: 36054,
-    name: '亚考牛慕沙卡',
+    name: '亞考牛慕沙卡',
     level: 540,
     slot: -1,
     jobCategory: 32,
@@ -5314,7 +5314,7 @@ export default [
   },
   {
     id: 36055,
-    name: '贤人三明治',
+    name: '賢人三明治',
     level: 545,
     slot: -1,
     jobCategory: 31,
@@ -5332,7 +5332,7 @@ export default [
   },
   {
     id: 36056,
-    name: '盐烤浅滩鳕鱼',
+    name: '鹽烤淺灘鱈魚',
     level: 545,
     slot: -1,
     jobCategory: 64,
@@ -5350,7 +5350,7 @@ export default [
   },
   {
     id: 36057,
-    name: '椰香鱼羹',
+    name: '椰香魚羹',
     level: 545,
     slot: -1,
     jobCategory: 34,
@@ -5368,7 +5368,7 @@ export default [
   },
   {
     id: 36058,
-    name: '厄尔庇斯之面',
+    name: '厄爾庇斯之麵',
     level: 545,
     slot: -1,
     jobCategory: 34,
@@ -5386,7 +5386,7 @@ export default [
   },
   {
     id: 36059,
-    name: '巨人新薯煎饼',
+    name: '巨人新薯鬆餅',
     level: 545,
     slot: -1,
     jobCategory: 59,
@@ -5420,7 +5420,7 @@ export default [
   },
   {
     id: 36061,
-    name: '高山茶饼干',
+    name: '高山茶餅乾',
     level: 554,
     slot: -1,
     jobCategory: 32,
@@ -5436,7 +5436,7 @@ export default [
   },
   {
     id: 36062,
-    name: '厄尔庇斯佳肴',
+    name: '厄爾庇斯佳餚',
     level: 560,
     slot: -1,
     jobCategory: 59,
@@ -5454,7 +5454,7 @@ export default [
   },
   {
     id: 36063,
-    name: '星外洋葱汤',
+    name: '星外洋蔥湯',
     level: 560,
     slot: -1,
     jobCategory: 30,
@@ -5472,7 +5472,7 @@ export default [
   },
   {
     id: 36064,
-    name: '无花果沙拉',
+    name: '無花果沙拉',
     level: 560,
     slot: -1,
     jobCategory: 31,
@@ -5490,7 +5490,7 @@ export default [
   },
   {
     id: 36065,
-    name: '无花果蜜饯',
+    name: '無花果蜜餞',
     level: 560,
     slot: -1,
     jobCategory: 64,
@@ -5508,7 +5508,7 @@ export default [
   },
   {
     id: 36066,
-    name: '无花果冻糕',
+    name: '無花果凍糕',
     level: 560,
     slot: -1,
     jobCategory: 34,
@@ -5526,7 +5526,7 @@ export default [
   },
   {
     id: 36067,
-    name: '贤人汉堡',
+    name: '賢人漢堡',
     level: 580,
     slot: -1,
     jobCategory: 34,
@@ -5562,7 +5562,7 @@ export default [
   },
   {
     id: 36069,
-    name: '南瓜香烩时蔬',
+    name: '南瓜香燴時蔬',
     level: 580,
     slot: -1,
     jobCategory: 30,
@@ -5580,7 +5580,7 @@ export default [
   },
   {
     id: 36070,
-    name: '南瓜浓汤',
+    name: '南瓜濃湯',
     level: 580,
     slot: -1,
     jobCategory: 34,
@@ -5616,7 +5616,7 @@ export default [
   },
   {
     id: 36072,
-    name: '白桃挞',
+    name: '白桃塔',
     level: 580,
     slot: -1,
     jobCategory: 64,
@@ -5634,7 +5634,7 @@ export default [
   },
   {
     id: 36073,
-    name: '无花果饼干',
+    name: '無花果餅乾',
     level: 580,
     slot: -1,
     jobCategory: 31,
@@ -5652,7 +5652,7 @@ export default [
   },
   {
     id: 36074,
-    name: '萨维奈奶茶',
+    name: '薩維奈奶茶',
     level: 580,
     slot: -1,
     jobCategory: 31,
@@ -5670,7 +5670,7 @@ export default [
   },
   {
     id: 36075,
-    name: '扇贝沙拉',
+    name: '扇貝沙拉',
     level: 580,
     slot: -1,
     jobCategory: 59,
@@ -5688,7 +5688,7 @@ export default [
   },
   {
     id: 36076,
-    name: '扇贝咖喱',
+    name: '扇貝咖哩',
     level: 580,
     slot: -1,
     jobCategory: 59,
@@ -5706,7 +5706,7 @@ export default [
   },
   {
     id: 36114,
-    name: '名匠药酒',
+    name: '名匠藥酒',
     level: 527,
     slot: -2,
     jobCategory: 33,
@@ -5720,7 +5720,7 @@ export default [
   },
   {
     id: 36115,
-    name: '巨匠药酒',
+    name: '巨匠藥酒',
     level: 540,
     slot: -2,
     jobCategory: 33,
@@ -5734,7 +5734,7 @@ export default [
   },
   {
     id: 36116,
-    name: '魔匠药酒',
+    name: '魔匠藥酒',
     level: 554,
     slot: -2,
     jobCategory: 33,
@@ -5748,7 +5748,7 @@ export default [
   },
   {
     id: 37282,
-    name: '镶烤墨鱼',
+    name: '鑲烤墨魚',
     level: 590,
     slot: -1,
     jobCategory: 33,
@@ -5764,7 +5764,7 @@ export default [
   },
   {
     id: 37283,
-    name: '炸墨鱼圈',
+    name: '炸墨魚圈',
     level: 590,
     slot: -1,
     jobCategory: 32,
@@ -5780,7 +5780,7 @@ export default [
   },
   {
     id: 38261,
-    name: '蜜瓜派',
+    name: '甜瓜派',
     level: 610,
     slot: -1,
     jobCategory: 34,
@@ -5798,7 +5798,7 @@ export default [
   },
   {
     id: 38262,
-    name: '蜜瓜果汁',
+    name: '甜瓜汁',
     level: 610,
     slot: -1,
     jobCategory: 30,
@@ -5816,7 +5816,7 @@ export default [
   },
   {
     id: 38263,
-    name: '落日胡萝卜丝',
+    name: '落日胡蘿蔔絲',
     level: 610,
     slot: -1,
     jobCategory: 30,
@@ -5834,7 +5834,7 @@ export default [
   },
   {
     id: 38264,
-    name: '胡萝卜布丁',
+    name: '胡蘿蔔布丁',
     level: 610,
     slot: -1,
     jobCategory: 34,
@@ -5852,7 +5852,7 @@ export default [
   },
   {
     id: 38265,
-    name: '旋转烤肉卷饼',
+    name: '旋轉烤肉卷餅',
     level: 610,
     slot: -1,
     jobCategory: 64,
@@ -5888,7 +5888,7 @@ export default [
   },
   {
     id: 38267,
-    name: '悬挂番茄沙拉',
+    name: '懸掛番茄沙拉',
     level: 610,
     slot: -1,
     jobCategory: 31,
@@ -5906,7 +5906,7 @@ export default [
   },
   {
     id: 38268,
-    name: '加雷马披萨',
+    name: '加雷馬披薩',
     level: 610,
     slot: -1,
     jobCategory: 31,
@@ -5924,7 +5924,7 @@ export default [
   },
   {
     id: 38269,
-    name: '帝王海胆奶油面',
+    name: '帝王海膽奶油麵',
     level: 610,
     slot: -1,
     jobCategory: 59,
@@ -5942,7 +5942,7 @@ export default [
   },
   {
     id: 38270,
-    name: '焗帝王海胆佐面包',
+    name: '焗帝王海膽佐麵包',
     level: 610,
     slot: -1,
     jobCategory: 59,
@@ -5960,7 +5960,7 @@ export default [
   },
   {
     id: 38929,
-    name: '近东虾香饭',
+    name: '近東蝦香飯',
     level: 620,
     slot: -1,
     jobCategory: 33,
@@ -5976,7 +5976,7 @@ export default [
   },
   {
     id: 38930,
-    name: '近东虾咖喱',
+    name: '近東蝦咖哩',
     level: 620,
     slot: -1,
     jobCategory: 32,
@@ -5993,7 +5993,7 @@ export default [
   },
   {
     id: 39869,
-    name: '蜜浸火龙果',
+    name: '蜜浸火龍果',
     level: 640,
     slot: -1,
     jobCategory: 34,
@@ -6011,7 +6011,7 @@ export default [
   },
   {
     id: 39870,
-    name: '火龙果果昔',
+    name: '火龍果果昔',
     level: 640,
     slot: -1,
     jobCategory: 30,
@@ -6029,7 +6029,7 @@ export default [
   },
   {
     id: 39871,
-    name: '茄泥酱',
+    name: '茄泥醬',
     level: 640,
     slot: -1,
     jobCategory: 30,
@@ -6047,7 +6047,7 @@ export default [
   },
   {
     id: 39872,
-    name: '烧烤暗色茄子',
+    name: '燒烤暗色茄子',
     level: 640,
     slot: -1,
     jobCategory: 34,
@@ -6065,7 +6065,7 @@ export default [
   },
   {
     id: 39873,
-    name: '宇宙香辣汤',
+    name: '宇宙香辣湯',
     level: 640,
     slot: -1,
     jobCategory: 64,
@@ -6083,7 +6083,7 @@ export default [
   },
   {
     id: 39874,
-    name: '窑烤盗龙腿',
+    name: '窯烤盜龍腿',
     level: 640,
     slot: -1,
     jobCategory: 64,
@@ -6101,7 +6101,7 @@ export default [
   },
   {
     id: 39875,
-    name: '鱼子酱三明治',
+    name: '魚子醬三明治',
     level: 640,
     slot: -1,
     jobCategory: 31,
@@ -6119,7 +6119,7 @@ export default [
   },
   {
     id: 39876,
-    name: '鱼子酱佐小饼干',
+    name: '魚子醬佐小餅乾',
     level: 640,
     slot: -1,
     jobCategory: 31,
@@ -6137,7 +6137,7 @@ export default [
   },
   {
     id: 39877,
-    name: '浅腌球形甘蓝',
+    name: '淺醃球形甘藍',
     level: 640,
     slot: -1,
     jobCategory: 59,
@@ -6155,7 +6155,7 @@ export default [
   },
   {
     id: 39878,
-    name: '球形甘蓝炖菜',
+    name: '球形甘藍燉菜',
     level: 640,
     slot: -1,
     jobCategory: 59,
@@ -6173,7 +6173,7 @@ export default [
   },
   {
     id: 44073,
-    name: '炖煮羊驼肉排',
+    name: '燉煮羊駝肉排',
     level: 650,
     slot: -1,
     jobCategory: 30,
@@ -6189,7 +6189,7 @@ export default [
   },
   {
     id: 44074,
-    name: '梅斯卡香煎沼泽鬼鱼肉',
+    name: '梅斯卡香煎沼澤鬼魚肉',
     level: 653,
     slot: -1,
     jobCategory: 34,
@@ -6205,7 +6205,7 @@ export default [
   },
   {
     id: 44076,
-    name: '番茄水煮鱼',
+    name: '番茄水煮魚',
     level: 680,
     slot: -1,
     jobCategory: 59,
@@ -6223,7 +6223,7 @@ export default [
   },
   {
     id: 44077,
-    name: '鲑鱼干',
+    name: '鮭魚乾',
     level: 670,
     slot: -1,
     jobCategory: 33,
@@ -6240,7 +6240,7 @@ export default [
   },
   {
     id: 44078,
-    name: '酱炒饭',
+    name: '醬炒飯',
     level: 670,
     slot: -1,
     jobCategory: 32,
@@ -6257,7 +6257,7 @@ export default [
   },
   {
     id: 44079,
-    name: '酱汁蘸虾',
+    name: '醬汁蘸蝦',
     level: 650,
     slot: -1,
     jobCategory: 59,
@@ -6273,7 +6273,7 @@ export default [
   },
   {
     id: 44081,
-    name: '蛋包饭',
+    name: '蛋包飯',
     level: 650,
     slot: -1,
     jobCategory: 64,
@@ -6289,7 +6289,7 @@ export default [
   },
   {
     id: 44082,
-    name: '高级吐司',
+    name: '高級吐司',
     level: 656,
     slot: -1,
     jobCategory: 34,
@@ -6321,7 +6321,7 @@ export default [
   },
   {
     id: 44084,
-    name: '照烧枫糖鸡肉',
+    name: '照燒楓糖雞肉',
     level: 656,
     slot: -1,
     jobCategory: 34,
@@ -6337,7 +6337,7 @@ export default [
   },
   {
     id: 44085,
-    name: '纸杯甜松糕',
+    name: '紙杯甜瑪芬',
     level: 660,
     slot: -1,
     jobCategory: 31,
@@ -6353,7 +6353,7 @@ export default [
   },
   {
     id: 44086,
-    name: '奶油热巧克力',
+    name: '奶油熱巧克力',
     level: 670,
     slot: -1,
     jobCategory: 59,
@@ -6372,7 +6372,7 @@ export default [
   },
   {
     id: 44087,
-    name: '羊驼奶油面',
+    name: '羊駝奶油麵',
     level: 690,
     slot: -1,
     jobCategory: 31,
@@ -6407,7 +6407,7 @@ export default [
   },
   {
     id: 44089,
-    name: '圆扇刺梨蛋糕',
+    name: '圓扇刺刺梨蛋糕',
     level: 670,
     slot: -1,
     jobCategory: 64,
@@ -6426,7 +6426,7 @@ export default [
   },
   {
     id: 44090,
-    name: '西兰花炒菠菜',
+    name: '花椰菜炒菠菜',
     level: 690,
     slot: -1,
     jobCategory: 64,
@@ -6478,7 +6478,7 @@ export default [
   },
   {
     id: 44093,
-    name: '双油风味拌细面',
+    name: '雙油風味拌細麵',
     level: 660,
     slot: -1,
     jobCategory: 64,
@@ -6494,7 +6494,7 @@ export default [
   },
   {
     id: 44094,
-    name: '盐烤奥阔鳟',
+    name: '鹽烤奧闊鱒',
     level: 653,
     slot: -1,
     jobCategory: 31,
@@ -6510,7 +6510,7 @@ export default [
   },
   {
     id: 44095,
-    name: '鲶鱼派',
+    name: '鯰魚派',
     level: 680,
     slot: -1,
     jobCategory: 34,
@@ -6528,7 +6528,7 @@ export default [
   },
   {
     id: 44096,
-    name: '蔬菜汤',
+    name: '蔬菜湯',
     level: 690,
     slot: -1,
     jobCategory: 34,
@@ -6546,7 +6546,7 @@ export default [
   },
   {
     id: 44097,
-    name: '牧豆树豆汁',
+    name: '牧豆樹豆飲',
     level: 680,
     slot: -1,
     jobCategory: 64,
@@ -6564,7 +6564,7 @@ export default [
   },
   {
     id: 44098,
-    name: '牧豆树豆汤',
+    name: '牧豆樹豆湯',
     level: 690,
     slot: -1,
     jobCategory: 30,
@@ -6582,7 +6582,7 @@ export default [
   },
   {
     id: 44099,
-    name: '图拉尔菠萝蛋糕',
+    name: '圖拉爾鳳梨蛋糕',
     level: 657,
     slot: -1,
     jobCategory: 32,
@@ -6598,7 +6598,7 @@ export default [
   },
   {
     id: 44100,
-    name: '芦荟水果冻',
+    name: '蘆薈水果凍',
     level: 680,
     slot: -1,
     jobCategory: 34,
@@ -6616,7 +6616,7 @@ export default [
   },
   {
     id: 44101,
-    name: '图拉尔水果挞',
+    name: '圖拉爾水果塔',
     level: 670,
     slot: -1,
     jobCategory: 31,
@@ -6653,7 +6653,7 @@ export default [
   },
   {
     id: 44103,
-    name: '酿柿子椒',
+    name: '釀柿子椒',
     level: 684,
     slot: -1,
     jobCategory: 32,
@@ -6670,7 +6670,7 @@ export default [
   },
   {
     id: 44104,
-    name: '烤牛肉夹饼',
+    name: '烤牛肉塔可餅',
     level: 690,
     slot: -1,
     jobCategory: 59,
@@ -6688,7 +6688,7 @@ export default [
   },
   {
     id: 44105,
-    name: '牧羊人夹饼',
+    name: '牧羊人塔可餅',
     level: 670,
     slot: -1,
     jobCategory: 59,
@@ -6707,7 +6707,7 @@ export default [
   },
   {
     id: 44167,
-    name: '名匠药液',
+    name: '名匠藥液',
     level: 665,
     slot: -2,
     jobCategory: 33,
@@ -6722,7 +6722,7 @@ export default [
   },
   {
     id: 44168,
-    name: '巨匠药液',
+    name: '巨匠藥液',
     level: 670,
     slot: -2,
     jobCategory: 33,
@@ -6737,7 +6737,7 @@ export default [
   },
   {
     id: 44169,
-    name: '魔匠药液',
+    name: '魔匠藥液',
     level: 675,
     slot: -2,
     jobCategory: 33,
@@ -6752,7 +6752,7 @@ export default [
   },
   {
     id: 44175,
-    name: '烤鸡',
+    name: '烤雞',
     level: 710,
     slot: -1,
     jobCategory: 34,
@@ -6770,7 +6770,7 @@ export default [
   },
   {
     id: 44176,
-    name: '鸡肉奶油面',
+    name: '雞肉奶油麵',
     level: 710,
     slot: -1,
     jobCategory: 30,
@@ -6788,7 +6788,7 @@ export default [
   },
   {
     id: 44177,
-    name: '图莱尤拉烤犎牛肉',
+    name: '圖萊尤拉烤犎牛肉',
     level: 710,
     slot: -1,
     jobCategory: 30,
@@ -6806,7 +6806,7 @@ export default [
   },
   {
     id: 44178,
-    name: '图莱尤拉炖沼泽鬼鱼',
+    name: '圖萊尤拉燉沼澤鬼魚',
     level: 710,
     slot: -1,
     jobCategory: 34,
@@ -6824,7 +6824,7 @@ export default [
   },
   {
     id: 44179,
-    name: '泡沫奶油肉桂咖啡',
+    name: '奶泡奶油肉桂咖啡',
     level: 710,
     slot: -1,
     jobCategory: 64,
@@ -6842,7 +6842,7 @@ export default [
   },
   {
     id: 44180,
-    name: '咖啡可可甜脆',
+    name: '咖啡可可麵包乾',
     level: 710,
     slot: -1,
     jobCategory: 64,
@@ -6860,7 +6860,7 @@ export default [
   },
   {
     id: 44181,
-    name: '脐橙饼干',
+    name: '臍橙餅乾',
     level: 710,
     slot: -1,
     jobCategory: 31,
@@ -6878,7 +6878,7 @@ export default [
   },
   {
     id: 44182,
-    name: '菠萝脐橙果冻',
+    name: '鳳梨臍橙果凍',
     level: 710,
     slot: -1,
     jobCategory: 31,
@@ -6896,7 +6896,7 @@ export default [
   },
   {
     id: 44183,
-    name: '龙虾浓汤',
+    name: '龍蝦濃湯',
     level: 710,
     slot: -1,
     jobCategory: 59,
@@ -6914,7 +6914,7 @@ export default [
   },
   {
     id: 44184,
-    name: '汆烫龙虾',
+    name: '川燙龍蝦',
     level: 710,
     slot: -1,
     jobCategory: 59,
@@ -6932,7 +6932,7 @@ export default [
   },
   {
     id: 44842,
-    name: '酸柠檬腌鱼',
+    name: '酸檸檬醃魚',
     level: 720,
     slot: -1,
     jobCategory: 33,
@@ -6949,7 +6949,7 @@ export default [
   },
   {
     id: 44843,
-    name: '香煎面拖旗鱼',
+    name: '香煎旗魚排',
     level: 720,
     slot: -1,
     jobCategory: 32,
@@ -6966,7 +6966,7 @@ export default [
   },
   {
     id: 46000,
-    name: '奶酪木薯包',
+    name: '乳酪麵包球',
     level: 740,
     slot: -1,
     jobCategory: 34,
@@ -7002,7 +7002,7 @@ export default [
   },
   {
     id: 46002,
-    name: '甜马黛茶',
+    name: '甜瑪黛茶',
     level: 740,
     slot: -1,
     jobCategory: 30,
@@ -7020,7 +7020,7 @@ export default [
   },
   {
     id: 46003,
-    name: '高级马黛茶饼干',
+    name: '高級瑪黛茶餅乾',
     level: 740,
     slot: -1,
     jobCategory: 34,
@@ -7038,7 +7038,7 @@ export default [
   },
   {
     id: 46004,
-    name: '羊驼浓汤',
+    name: '羊駝濃湯',
     level: 740,
     slot: -1,
     jobCategory: 64,
@@ -7074,7 +7074,7 @@ export default [
   },
   {
     id: 46006,
-    name: '奶酪沙拉',
+    name: '圖拉爾沙拉',
     level: 740,
     slot: -1,
     jobCategory: 31,
@@ -7092,7 +7092,7 @@ export default [
   },
   {
     id: 46007,
-    name: '奶酪莫雷特',
+    name: '烤乳酪莫雷特',
     level: 740,
     slot: -1,
     jobCategory: 31,
@@ -7110,7 +7110,7 @@ export default [
   },
   {
     id: 46008,
-    name: '鬃背兽肉饼',
+    name: '鬃背獸漢堡',
     level: 740,
     slot: -1,
     jobCategory: 59,
@@ -7128,7 +7128,7 @@ export default [
   },
   {
     id: 46009,
-    name: '鬃背兽肉排',
+    name: '鬃背獸肉排',
     level: 740,
     slot: -1,
     jobCategory: 59,
@@ -7146,7 +7146,7 @@ export default [
   },
   {
     id: 46253,
-    name: '椒麻鳗鱼',
+    name: '椒麻鰻魚',
     level: 750,
     slot: -1,
     jobCategory: 33,
@@ -7163,7 +7163,7 @@ export default [
   },
   {
     id: 46254,
-    name: '黄金鳗鱼派',
+    name: '黃金鰻魚派',
     level: 750,
     slot: -1,
     jobCategory: 32,

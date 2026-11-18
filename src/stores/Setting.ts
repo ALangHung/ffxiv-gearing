@@ -4,6 +4,8 @@ type GearDisplayName = 'name' | 'source';
 type GearColorScheme = 'source' | 'rarity' | 'none';
 type MateriaDisplayName = 'stat' | 'materia';
 type AppTheme = 'light' | 'light-hs' | 'dark';
+// 信念／直擊最佳化時可使用的禁斷孔數量，5 表示全部禁斷孔（滿禁斷）
+export type MateriaOvermeldLimit = 0 | 1 | 2 | 5;
 
 const storageKey = 'ffxiv-gearing.dt.setting';
 
@@ -15,6 +17,8 @@ export const Setting = mst.types
     displayMeldedStats: mst.types.optional(mst.types.boolean, true),
     hideObsoleteGears: mst.types.optional(mst.types.boolean, true),
     appTheme: mst.types.optional(mst.types.string as mst.ISimpleType<AppTheme>, 'light'),
+    materiaOvermeldLimit: mst.types.optional(mst.types.number as mst.ISimpleType<MateriaOvermeldLimit>, 5),
+    materiaGcdTarget: mst.types.optional(mst.types.number, 2.5),
   })
   .actions(self => ({
     afterCreate(): void {
@@ -42,6 +46,12 @@ export const Setting = mst.types
     },
     setAppTheme(appTheme: AppTheme): void {
       self.appTheme = appTheme;
+    },
+    setMateriaOvermeldLimit(materiaOvermeldLimit: MateriaOvermeldLimit): void {
+      self.materiaOvermeldLimit = materiaOvermeldLimit;
+    },
+    setMateriaGcdTarget(materiaGcdTarget: number): void {
+      self.materiaGcdTarget = materiaGcdTarget;
     },
   }));
 

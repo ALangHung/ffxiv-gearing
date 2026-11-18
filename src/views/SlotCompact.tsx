@@ -10,7 +10,7 @@ export const SlotCompact = mobxReact.observer(() => {
     <table className="gears_slot table card">
       <thead>
       <tr>
-        <th className="gears_left-compact">装备</th>
+        <th className="gears_left-compact">裝備</th>
         <th className="gears_materias">魔晶石</th>
         {store.schema.stats.map(stat => (
           <th key={stat} className="gears_stat">

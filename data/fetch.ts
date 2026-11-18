@@ -11,10 +11,12 @@ const resources = [
   'https://raw.githubusercontent.com/skyborn-industries/xiv-data/main/exd/chs/ItemAction.csv',
   'https://raw.githubusercontent.com/skyborn-industries/xiv-data/main/exd/chs/ItemFood.csv',
   'https://raw.githubusercontent.com/skyborn-industries/xiv-data/main/exd/chs/ItemLevel.csv',
+  ['https://raw.githubusercontent.com/skyborn-industries/xiv-data/main/exd/tc/Item.csv', 'ItemTc.csv'],
   'https://raw.githubusercontent.com/Asvel/ffxiv-lodestone-item-id/master/lodestone-item-id.txt',
 ];
 
-for (const url of resources) {
-  const path = `./in/${url.slice(url.lastIndexOf('/') + 1)}`;
+for (const resource of resources) {
+  const [ url, filename ] = Array.isArray(resource) ? resource : [resource, resource.slice(resource.lastIndexOf('/') + 1)];
+  const path = `./in/${filename}`;
   https.get(url, res => res.pipe(fs.createWriteStream(path)));
 }

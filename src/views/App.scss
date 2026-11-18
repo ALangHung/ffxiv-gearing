@@ -183,6 +183,7 @@ svg {
 @include meta.load-css("./About");
 
 @include meta.load-css("./FilterPanel");
+@include meta.load-css("./SourceFilterPanel");
 @include meta.load-css("./LevelSyncPanel");
 @include meta.load-css("./MateriaOverallPanel");
 @include meta.load-css("./SharePanel");

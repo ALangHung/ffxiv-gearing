@@ -21,7 +21,7 @@ export const GearRow = mobxReact.observer<{
     <tr className={classNames('gears_item', isGroupEnd && '-group-end')}>
       <td className="gears_left">
         {slot !== undefined && <span className="gears_inline-slot">{(slot.shortName ?? slot.name).slice(0, 2)}</span>}
-        <span className="gears_empty">{store.isViewing ? '无装备' : '无匹配'}</span>
+        <span className="gears_empty">{store.isViewing ? '無裝備' : '無符合項目'}</span>
       </td>
       <td className="gears_materias" />
       <td colSpan={store.schema.stats.length}/>

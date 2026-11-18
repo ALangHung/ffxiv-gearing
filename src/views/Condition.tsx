@@ -12,6 +12,7 @@ import { Dropdown } from './components/Dropdown';
 import { BadgeButton } from './components/BadgeButton';
 import { JobSelector } from './JobSelector';
 import { FilterPanel } from './FilterPanel';
+import { SourceFilterPanel } from './SourceFilterPanel';
 import { LevelSyncPanel } from './LevelSyncPanel';
 import { MateriaOverallPanel } from './MateriaOverallPanel';
 import { SharePanel } from './SharePanel';
@@ -28,13 +29,13 @@ export const Condition = mobxReact.observer(() => {
   return (
     <div className="condition card" style={store.job === undefined ? { width: '900px' } : {}}>
       {welcoming && (
-        <span className="condition_job -empty">选择一个职业开始配装</span>
+        <span className="condition_job -empty">選擇一個職業開始配裝</span>
       )}
       {welcoming && (
         <a
           className={classNames('condition_tip', store.promotion.get('legacyLink') && '-highlight')}
           href="./ew/"
-          children="此工具已适配至《金曦之遗辉》资料片，如需使用《晓月之终途》版本请点击此处"
+          children="此工具已適用《黃金遺產》資料片，如需使用《曉月之終途》版本請點擊此處"
           onClick={store.promotion.get('legacyLink') ? () => store.promotion.off('legacyLink') : undefined}
           onMouseLeave={store.promotion.get('legacyLink') ? () => store.promotion.off('legacyLink') : undefined}
         />
@@ -53,7 +54,7 @@ export const Condition = mobxReact.observer(() => {
             <div className="job-select-panel card">
               <JobSelector />
               <div className="job-select-panel_tip">
-                中键点击职业（或右键菜单-在新标签页中打开链接）可新建一份空白配装
+                以滑鼠中鍵點擊職業（或右鍵選單－在新分頁中開啟連結）可新增一份空白配裝
               </div>
             </div>
           )}
@@ -81,8 +82,22 @@ export const Condition = mobxReact.observer(() => {
               onChange={value => store.setMaxLevel(value)}
             />
           </span>
-          品级
+          品級
         </span>
+      )}
+      {editing && (
+        <Dropdown
+          label={({ ref, toggle }) => (
+            <Button ref={ref} className="condition_button condition_source-filter" onClick={toggle}>
+              裝備來源
+              {store.hiddenSources.length > 0 && (
+                <span className="condition_source-filter-hidden">{`隱藏 ${store.hiddenSources.length}`}</span>
+              )}
+            </Button>
+          )}
+          popper={SourceFilterPanel}
+          placement="bottom-start"
+        />
       )}
       {editing && (
         <Dropdown
@@ -92,7 +107,7 @@ export const Condition = mobxReact.observer(() => {
               className="condition_button condition_filter"
               promotion="filter"
               onClick={toggle}
-              children="筛选"
+              children="篩選"
             />
           )}
           popper={FilterPanel}
@@ -114,7 +129,7 @@ export const Condition = mobxReact.observer(() => {
           label={({ ref, toggle }) => (
             <Button ref={ref} className="condition_button" onClick={toggle}>
               {store.syncLevelText !== undefined && <Icon className="condition_level-sync-icon" name="sync" />}
-              {store.syncLevelText ?? '品级同步'}
+              {store.syncLevelText ?? '品級同步'}
             </Button>
           )}
           popper={LevelSyncPanel}
@@ -149,7 +164,7 @@ export const Condition = mobxReact.observer(() => {
         {(welcoming || editing) && (
           <Dropdown
             label={({ ref, toggle }) => (
-              <Button ref={ref} className="condition_button" onClick={toggle}>导入</Button>
+              <Button ref={ref} className="condition_button" onClick={toggle}>匯入</Button>
             )}
             popper={ImportPanel}
             placement="bottom-end"
@@ -162,26 +177,26 @@ export const Condition = mobxReact.observer(() => {
               store.startEditing();
               window.history.pushState(null, document.title, window.location.href.replace(/\?.*$/, ''));
             }}
-            children="编辑"
+            children="編輯"
           />
         )}
         {(editing || viewing) && (
           <Dropdown
             label={({ ref, toggle }) => (
-              <Button ref={ref} className="condition_button condition_setting" onClick={toggle}>设置</Button>
+              <Button ref={ref} className="condition_button condition_setting" onClick={toggle}>設定</Button>
             )}
             popper={SettingPanel}
             placement="bottom-end"
           />
         )}
         <span className="condition_divider" />
-        <span className="condition_text">数据版本 {__PATCH__}</span>
+        <span className="condition_text">資料版本 {__PATCH__}</span>
       </span>
       {welcoming && <JobSelector />}
       {welcoming && (
         <a
           href="https://www.bilibili.com/video/BV1pt4y1W7pX"
-          title="【视频】如何自助配装？高难本配装原理详解"
+          title="【影片】如何自行配裝？高難度副本配裝原理詳解"
           target="_blank"
         >
           <img

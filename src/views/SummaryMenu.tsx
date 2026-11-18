@@ -17,7 +17,7 @@ export const SummaryMenu = mobxReact.observer<{
           target="garlandtools"
           tabIndex={0}
         >
-          在 Garland 数据 中以工具组查看 <Icon className="gear-menu_external" name="open-in-new" />
+          在 Garland 資料 中以工具組查看 <Icon className="gear-menu_external" name="open-in-new" />
         </a>
       </RippleLazy>
       <div className="gear-menu_divider" />
@@ -29,7 +29,7 @@ export const SummaryMenu = mobxReact.observer<{
             navigator.clipboard.writeText(store.equippedStatsText);
           }}
         >
-          复制套装总属性值
+          複製套裝總屬性值
         </div>
       </RippleLazy>
     </div>

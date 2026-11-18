@@ -9,13 +9,13 @@ export const JobSelector = mobxReact.observer(() => {
   return (
     <div className="job-selector">
       <div className="job-selector_column">
-        <JobGroup name="防护职业">
+        <JobGroup name="防護職業">
           <JobItem job="PLD" />
           <JobItem job="WAR" />
           <JobItem job="DRK" />
           <JobItem job="GNB" />
         </JobGroup>
-        <JobGroup name="近战职业">
+        <JobGroup name="近戰職業">
           <JobItem job="MNK" />
           <JobItem job="DRG" />
           <JobItem job="NIN" />
@@ -26,18 +26,18 @@ export const JobSelector = mobxReact.observer(() => {
         </JobGroup>
       </div>
       <div className="job-selector_column">
-        <JobGroup name="治疗职业">
+        <JobGroup name="治療職業">
           <JobItem job="WHM" />
           <JobItem job="SCH" />
           <JobItem job="AST" />
           <JobItem job="SGE" />
         </JobGroup>
-        <JobGroup name="远程物理职业">
+        <JobGroup name="遠程物理職業">
           <JobItem job="BRD" />
           <JobItem job="MCH" />
           <JobItem job="DNC" />
         </JobGroup>
-        <JobGroup name="远程魔法职业">
+        <JobGroup name="遠程魔法職業">
           <JobItem job="BLM" />
           <JobItem job="SMN" />
           <JobItem job="RDM" />

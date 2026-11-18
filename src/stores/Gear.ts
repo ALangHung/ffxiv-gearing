@@ -179,9 +179,9 @@ const rarityColors: { [index: number]: GearColor } = {
 
 // noinspection NonAsciiCharacters
 const sourceColors: { [index: string]: GearColor } = {
-  '点数': 'red',
-  '天书': 'purple',
-  '绝境': 'purple',
+  '點數': 'red',
+  '天書': 'purple',
+  '絕境': 'purple',
 };
 
 export interface IGear extends mst.Instance<typeof Gear> {}

@@ -51,7 +51,7 @@ export const Summary = mobxReact.observer(() => {
         {effects && (
           <Button
             className="summary_tiers-toggle"
-            children={`${store.tiersShown ? '隐藏' : '显示'}阈值(差值)`}
+            children={`${store.tiersShown ? '隱藏' : '顯示'}閾值（差值）`}
             onClick={store.toggleTiersShown}
           />
         )}
@@ -61,14 +61,14 @@ export const Summary = mobxReact.observer(() => {
             <span
               className="summary_damage-tip"
               aria-label={
-                store.job === 'BST' ? '包括食品，不包括组队加成，不包括其他各种临时增益' :
-                store.job === 'BLU' ? '包括食品和1%组队加成，包括“以太复制：进攻”，不包括其他各种临时增益' :
-                '包括食品和5%组队加成，不包括其他各种临时增益（如爆发药、连环计、身形、天语等）'
+                store.job === 'BST' ? '包括食品，不包括組隊加成，不包括其他各種臨時增益' :
+                store.job === 'BLU' ? '包括食品和1%組隊加成，包括「以太複製：進攻」，不包括其他各種臨時增益' :
+                '包括食品和5%組隊加成，不包括其他各種臨時增益（如爆發藥、連環計、身形、天語等）'
               }
               role="tooltip"
               children={<Icon name="help" />}
             />
-             <div className="summary_stat-name">每威力伤害期望</div>
+             <div className="summary_stat-name">每威力傷害期望</div>
           </span>
         )}
       </span>

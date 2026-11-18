@@ -192,9 +192,9 @@
     const importUrl = origin + '?import-' + encodeURIComponent(JSON.stringify(data));
     console.log(importUrl);
     if (window.open(importUrl) === null) {
-      prompt('打开此链接进行导入：', importUrl);
+      prompt('開啟此連結進行匯入：', importUrl);
     }
   } else {
-    alert('未能在此页面中找到支持导入的数据。');
+    alert('無法在此頁面中找到支援匯入的資料。');
   }
 })();

@@ -7,17 +7,17 @@ export const SettingPanel = mobxReact.observer(() => {
   return (
     <div className="setting card">
       <div className="setting_section">
-        <span className="setting_title">主题</span>
-        <span className="setting_sub">如果高亮颜色难以辨识可以选用高饱和主题</span>
+        <span className="setting_title">主題</span>
+        <span className="setting_sub">如果醒目標示的顏色難以辨識，可以選用高飽和主題</span>
       </div>
       <div className="setting_controls">
         <Radio
-          label="浅色"
+          label="淺色"
           checked={store.setting.appTheme === 'light'}
           onChange={() => store.setting.setAppTheme('light')}
         />
         <Radio
-          label="浅色（高饱和）"
+          label="淺色（高飽和）"
           checked={store.setting.appTheme === 'light-hs'}
           onChange={() => store.setting.setAppTheme('light-hs')}
         />
@@ -28,32 +28,32 @@ export const SettingPanel = mobxReact.observer(() => {
         />
       </div>
       <div className="setting_section">
-        <span className="setting_title">装备名显示方式</span>
-        <span className="setting_sub">国服未实装的装备总会显示为获取途径</span>
+        <span className="setting_title">裝備名稱顯示方式</span>
+        <span className="setting_sub">國服尚未實裝的裝備一律顯示為取得途徑</span>
       </div>
       <div className="setting_controls">
         <Radio
-          label="显示装备名"
+          label="顯示裝備名稱"
           checked={store.setting.gearDisplayName === 'name'}
           onChange={() => store.setting.setGearDisplayName('name')}
         />
         <Radio
-          label="显示获取途径"
+          label="顯示取得途徑"
           checked={store.setting.gearDisplayName === 'source'}
           onChange={() => store.setting.setGearDisplayName('source')}
         />
       </div>
       <div className="setting_section">
-        <span className="setting_title">装备颜色方案</span>
+        <span className="setting_title">裝備顏色配置</span>
       </div>
       <div className="setting_controls">
         <Radio
-          label="区分竞品"
+          label="區分競品"
           checked={store.setting.gearColorScheme === 'source'}
           onChange={() => store.setting.setGearColorScheme('source')}
         />
         <Radio
-          label="按稀有度上色"
+          label="依稀有度上色"
           checked={store.setting.gearColorScheme === 'rarity'}
           onChange={() => store.setting.setGearColorScheme('rarity')}
         />
@@ -64,47 +64,47 @@ export const SettingPanel = mobxReact.observer(() => {
         />
       </div>
       <div className="setting_section">
-        <span className="setting_title">魔晶石显示方式</span>
+        <span className="setting_title">魔晶石顯示方式</span>
       </div>
       <div className="setting_controls">
         <Radio
-          label="显示增益的属性"
+          label="顯示增益的屬性"
           checked={store.setting.materiaDisplayName === 'stat'}
           onChange={() => store.setting.setMateriaDisplayName('stat')}
         />
         <Radio
-          label="显示魔晶石本身的名字"
+          label="顯示魔晶石本身的名稱"
           checked={store.setting.materiaDisplayName === 'materia'}
           onChange={() => store.setting.setMateriaDisplayName('materia')}
         />
       </div>
       <div className="setting_section">
-        <span className="setting_title">展示包含魔晶石增益的装备属性</span>
+        <span className="setting_title">顯示包含魔晶石增益的裝備屬性</span>
       </div>
       <div className="setting_controls">
         <Radio
-          label="是，展示实际生效的属性"
+          label="是，顯示實際生效的屬性"
           checked={store.setting.displayMeldedStats}
           onChange={() => store.setting.setDisplayMeldedStats(true)}
         />
         <Radio
-          label="否，展示装备的原始属性"
+          label="否，顯示裝備的原始屬性"
           checked={!store.setting.displayMeldedStats}
           onChange={() => store.setting.setDisplayMeldedStats(false)}
         />
       </div>
       <div className="setting_section">
-        <span className="setting_title">隐藏已废弃的装备</span>
-        <span className="setting_sub">部分粉色稀有度的装备、未强化的旧点数装备</span>
+        <span className="setting_title">隱藏已廢棄的裝備</span>
+        <span className="setting_sub">部分粉色稀有度的裝備、未強化的舊點數裝備</span>
       </div>
       <div className="setting_controls">
         <Radio
-          label="隐藏"
+          label="隱藏"
           checked={store.setting.hideObsoleteGears}
           onChange={() => store.setting.setHideObsoleteGears(true)}
         />
         <Radio
-          label="显示"
+          label="顯示"
           checked={!store.setting.hideObsoleteGears}
           onChange={() => store.setting.setHideObsoleteGears(false)}
         />

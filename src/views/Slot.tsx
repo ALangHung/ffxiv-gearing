@@ -19,14 +19,14 @@ export const Slot = mobxReact.observer<{ slot: G.SlotSchema }>(({ slot }) => {
           {slot.slot === -1 && (
             <Button
               className="gears_toogle-all-foods"
-              children={store.showAllFoods ? '显示最优' :'显示全部'}
+              children={store.showAllFoods ? '顯示最佳' :'顯示全部'}
               onClick={store.toggleShowAllFoods}
             />
           )}
           {slot.slot === -2 && (
             <Button
               className="gears_toogle-all-foods"
-              children={store.showAllPotions ? '显示最优' :'显示全部'}
+              children={store.showAllPotions ? '顯示最佳' :'顯示全部'}
               onClick={store.toggleShowAllPotions}
             />
           )}

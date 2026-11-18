@@ -22,6 +22,7 @@ export interface Gear extends GearBase {
   bonusType?: 9 | 11,
   bonusStats?: Stats,
   source?: string,
+  patch?: string,
 }
 export interface Food extends GearBase {
   statRates: Stats,
@@ -42,10 +43,10 @@ export interface Gearset {
 export type GearsetMaterias = ([Stat, MateriaGrade] | null)[];
 
 export const statNames = {
-  STR: '力量', DEX: '灵巧', INT: '智力', MND: '精神', VIT: '耐力',
-  CRT: '暴击', DHT: '直击', DET: '信念', SKS: '技速', SPS: '咏速', TEN: '坚韧', PIE: '信仰',
-  CMS: '作业精度', CRL: '加工精度', CP: '制作力', GTH: '获得力', PCP: '鉴别力', GP: '采集力',
-  PDMG: '物理基本性能', MDMG: '魔法基本性能', DLY: '攻击间隔',
+  STR: '力量', DEX: '靈巧', INT: '智力', MND: '精神', VIT: '耐力',
+  CRT: '暴擊', DHT: '直擊', DET: '信念', SKS: '技速', SPS: '詠速', TEN: '堅韌', PIE: '信仰',
+  CMS: '作業精度', CRL: '加工精度', CP: '製作力', GTH: '獲得力', PCP: '鑑別力', GP: '採集力',
+  PDMG: '物理基本性能', MDMG: '魔法基本性能', DLY: '攻擊間隔',
   main: 'unreachable', secondary: 'unreachable',
 };
 export type Stat = keyof typeof statNames;
@@ -136,14 +137,14 @@ export interface SlotSchema {
   uiGroup: string,
 }
 const slotSchemaCommon: SlotSchema[] = [
-  { slot: 3, name: '头部防具', uiGroup: 'left' },
-  { slot: 4, name: '身体防具', uiGroup: 'left' },
+  { slot: 3, name: '頭部防具', uiGroup: 'left' },
+  { slot: 4, name: '身體防具', uiGroup: 'left' },
   { slot: 5, name: '手部防具', uiGroup: 'left' },
   { slot: 7, name: '腿部防具', uiGroup: 'left' },
-  { slot: 8, name: '脚部防具', uiGroup: 'left' },
-  { slot: 9, name: '耳饰', uiGroup: 'right' },
-  { slot: 10, name: '项链', uiGroup: 'right' },
-  { slot: 11, name: '手镯', uiGroup: 'right' },
+  { slot: 8, name: '腳部防具', uiGroup: 'left' },
+  { slot: 9, name: '耳飾', uiGroup: 'right' },
+  { slot: 10, name: '項鍊', uiGroup: 'right' },
+  { slot: 11, name: '手鐲', uiGroup: 'right' },
   { slot: 12, name: '戒指', uiGroup: 'right' },
   { slot: -12, name: '戒指', uiGroup: 'right' },
   { slot: -1, name: '食品', levelWeight: 0, uiGroup: 'misc' },
@@ -159,9 +160,9 @@ const slotSchemaGathering = [
 ];
 const slotSchemaCrafting = [
   ...slotSchemaGathering.slice(0, -1),
-  { slot: 17, name: '灵魂水晶', shortName: '水晶', levelWeight: 0, uiGroup: 'misc' },
+  { slot: 17, name: '靈魂水晶', shortName: '水晶', levelWeight: 0, uiGroup: 'misc' },
   slotSchemaGathering[slotSchemaGathering.length - 1],
-  { slot: -2, name: '药品', levelWeight: 0, uiGroup: 'misc' },
+  { slot: -2, name: '藥品', levelWeight: 0, uiGroup: 'misc' },
 ];
 
 const defaultItemLevelCombat = [780, 795];
@@ -196,7 +197,7 @@ export interface JobSchema {
 export const jobSchemas = {
   /* eslint-disable @typescript-eslint/consistent-type-assertions */
   PLD: {
-    name: '骑士',
+    name: '騎士',
     stats: statSchemas.tank,
     slots: [
       { slot: 1, name: '武器', uiGroup: 'weapon' },
@@ -212,7 +213,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1,
   } as JobSchema,
   WAR: {
-    name: '战士',
+    name: '戰士',
     stats: statSchemas.tank,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -224,7 +225,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1,
   } as JobSchema,
   DRK: {
-    name: '暗黑骑士',
+    name: '暗黑騎士',
     stats: statSchemas.tank,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -236,7 +237,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1,
   } as JobSchema,
   GNB: {
-    name: '绝枪战士',
+    name: '絕槍戰士',
     stats: statSchemas.tank,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -248,7 +249,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1,
   } as JobSchema,
   WHM: {
-    name: '白魔法师',
+    name: '白魔道士',
     stats: statSchemas.healer,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -260,7 +261,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   SCH: {
-    name: '学者',
+    name: '學者',
     stats: statSchemas.healer,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -272,7 +273,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   AST: {
-    name: '占星术士',
+    name: '占星術師',
     stats: statSchemas.healer,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -284,7 +285,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   SGE: {
-    name: '贤者',
+    name: '賢者',
     stats: statSchemas.healer,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -302,13 +303,13 @@ export const jobSchemas = {
     defaultItemLevel: defaultItemLevelCombat,
     jobLevel: jobLevelMax,
     levelSyncable: true,
-    statModifiers: { STR: 110, VIT: 100, hp: 110, gcd: 80, gcdReason: '“疾风迅雷”状态中' },
+    statModifiers: { STR: 110, VIT: 100, hp: 110, gcd: 80, gcdReason: '「疾風迅雷」狀態中' },
     mainStat: 'STR',
     secondaryStat: 'DHT',
     traitDamageMultiplier: 1,
   } as JobSchema,
   DRG: {
-    name: '龙骑士',
+    name: '龍騎士',
     stats: statSchemas.dpsStr,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -326,7 +327,7 @@ export const jobSchemas = {
     defaultItemLevel: defaultItemLevelCombat,
     jobLevel: jobLevelMax,
     levelSyncable: true,
-    statModifiers: { DEX: 110, VIT: 100, hp: 108, gcd: 85, gcdReason: '“风遁”状态中' },
+    statModifiers: { DEX: 110, VIT: 100, hp: 108, gcd: 85, gcdReason: '「風遁」狀態中' },
     mainStat: 'DEX',
     secondaryStat: 'DHT',
     traitDamageMultiplier: 1,
@@ -338,13 +339,13 @@ export const jobSchemas = {
     defaultItemLevel: defaultItemLevelCombat,
     jobLevel: jobLevelMax,
     levelSyncable: true,
-    statModifiers: { STR: 112, VIT: 100, hp: 109, gcd: 87, gcdReason: '“风花”状态中' },
+    statModifiers: { STR: 112, VIT: 100, hp: 109, gcd: 87, gcdReason: '「風花」狀態中' },
     mainStat: 'STR',
     secondaryStat: 'DHT',
     traitDamageMultiplier: 1,
   } as JobSchema,
   RPR: {
-    name: '钐镰客',
+    name: '奪魂者',
     stats: statSchemas.dpsStr,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -356,19 +357,19 @@ export const jobSchemas = {
     traitDamageMultiplier: 1,
   } as JobSchema,
   VPR: {
-    name: '蝰蛇剑士',
+    name: '毒蛇劍士',
     stats: statSchemas.dpsDex,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
     jobLevel: jobLevelMax,
     levelSyncable: true,
-    statModifiers: { DEX: 110, VIT: 100, hp: 111, gcd: 85, gcdReason: '“疾速”状态中' },
+    statModifiers: { DEX: 110, VIT: 100, hp: 111, gcd: 85, gcdReason: '「疾速」狀態中' },
     mainStat: 'DEX',
     secondaryStat: 'DHT',
     traitDamageMultiplier: 1,
   } as JobSchema,
   BST: {
-    name: '驯兽师',
+    name: '馴獸師',
     stats: statSchemas.dpsStr,
     slots: [
       { slot: 1, name: '武器', uiGroup: 'weapon' },
@@ -385,7 +386,7 @@ export const jobSchemas = {
     partyBonus: 1,  // TODO: 确认驯兽师终盘玩法组队情况
   } as JobSchema,
   BRD: {
-    name: '吟游诗人',
+    name: '吟遊詩人',
     stats: statSchemas.dpsDex,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -397,7 +398,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.2,
   } as JobSchema,
   MCH: {
-    name: '机工士',
+    name: '機工士',
     stats: statSchemas.dpsDex,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -421,7 +422,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.2,
   } as JobSchema,
   BLM: {
-    name: '黑魔法师',
+    name: '黑魔道士',
     stats: statSchemas.dpsInt,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -433,7 +434,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   SMN: {
-    name: '召唤师',
+    name: '召喚士',
     stats: statSchemas.dpsInt,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -445,7 +446,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   RDM: {
-    name: '赤魔法师',
+    name: '赤魔道士',
     stats: statSchemas.dpsInt,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -457,7 +458,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   PCT: {
-    name: '绘灵法师',
+    name: '繪靈法師',
     stats: statSchemas.dpsInt,
     slots: slotSchemaCombat,
     defaultItemLevel: defaultItemLevelCombat,
@@ -469,7 +470,7 @@ export const jobSchemas = {
     traitDamageMultiplier: 1.3,
   } as JobSchema,
   BLU: {
-    name: '青魔法师',
+    name: '青魔道士',
     stats: statSchemas.dpsInt,
     slots: [
       { slot: 13, name: '武器', levelWeight: 0, uiGroup: 'weapon' },
@@ -485,7 +486,7 @@ export const jobSchemas = {
     partyBonus: 1.01,
   } as JobSchema,
   CRP: {
-    name: '刻木匠',
+    name: '木工師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -494,7 +495,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   BSM: {
-    name: '锻铁匠',
+    name: '鍛造師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -503,7 +504,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   ARM: {
-    name: '铸甲匠',
+    name: '甲冑師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -512,7 +513,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   GSM: {
-    name: '雕金匠',
+    name: '金工師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -521,7 +522,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   LTW: {
-    name: '制革匠',
+    name: '皮革師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -530,7 +531,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   WVR: {
-    name: '裁衣匠',
+    name: '裁縫師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -539,7 +540,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   ALC: {
-    name: '炼金术士',
+    name: '鍊金術師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -548,7 +549,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   CUL: {
-    name: '烹调师',
+    name: '烹調師',
     stats: statSchemas.crafting,
     slots: slotSchemaCrafting,
     defaultItemLevel: defaultItemLevelCrafting,
@@ -557,7 +558,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 8,
   } as JobSchema,
   MIN: {
-    name: '采矿工',
+    name: '採掘師',
     stats: statSchemas.gathering,
     slots: slotSchemaGathering,
     defaultItemLevel: defaultItemLevelGathering,
@@ -566,7 +567,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 2,
   } as JobSchema,
   BTN: {
-    name: '园艺工',
+    name: '園藝師',
     stats: statSchemas.gathering,
     slots: slotSchemaGathering,
     defaultItemLevel: defaultItemLevelGathering,
@@ -575,7 +576,7 @@ export const jobSchemas = {
     toolMateriaDuplicates: 2,
   } as JobSchema,
   FSH: {
-    name: '捕鱼人',
+    name: '漁師',
     stats: statSchemas.gathering,
     slots: slotSchemaGathering,
     defaultItemLevel: defaultItemLevelGathering,
@@ -620,10 +621,10 @@ export const materiaSuccessRates: number[][] = [
   [16, 16, 14, 12, 5, 0, 5, 0, 5, 0, 5, 0],
 ];
 export const materiaNames: { [index in Stat]?: string } = {
-  CRT: '武略', DHT: '神眼', DET: '雄略', SKS: '战技', SPS: '咏唱', TEN: '刚柔', PIE: '信力',
-  CMS: '名匠', CRL: '巨匠', CP: '魔匠', GTH: '达识', PCP: '博识', GP: '器识',
+  CRT: '武略', DHT: '神眼', DET: '雄略', SKS: '戰技', SPS: '詠唱', TEN: '剛柔', PIE: '信力',
+  CMS: '名匠', CRL: '巨匠', CP: '魔匠', GTH: '達識', PCP: '博識', GP: '器識',
 };
-export const materiaGradeNames: string[] = ['壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '拾壹', '拾贰'];
+export const materiaGradeNames: string[] = ['壹', '貳', '參', '肆', '伍', '陸', '柒', '捌', '玖', '拾', '拾壹', '拾貳'];
 export const materiaStatNames = { ...statNames, CP: 'CP', GP: 'GP' };
 export function getMateriaName(stat: Stat, grade: MateriaGrade, useStat: boolean, maxLength=4) {
   return useStat ? materiaStatNames[stat].slice(0, 2) + materias[stat]![grade - 1] :
@@ -632,23 +633,23 @@ export function getMateriaName(stat: Stat, grade: MateriaGrade, useStat: boolean
 
 export const races = [
   '人族',
-  '精灵族',
-  '拉拉菲尔族',
-  '猫魅族',
-  '鲁加族',
-  '敖龙族',
-  '硌狮族',
-  '维埃拉族',
+  '精靈族',
+  '拉拉菲爾族',
+  '貓魅族',
+  '魯加族',
+  '敖龍族',
+  '硌獅族',
+  '維艾拉族',
 ];
 
 export const clans = [
   '中原之民', '高地之民',
   '森林之民', '黑影之民',
   '平原之民', '沙漠之民',
-  '逐日之民', '护月之民',
-  '北洋之民', '红焰之民',
-  '晨曦之民', '暮晖之民',
-  '掠日之民', '迷踪之民',
+  '逐日之民', '護月之民',
+  '北洋之民', '紅焰之民',
+  '晨曦之民', '暮暉之民',
+  '掠日之民', '迷蹤之民',
   '密林之民', '山林之民',
 ];
 

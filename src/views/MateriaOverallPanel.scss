@@ -76,7 +76,7 @@
 }
 
 .materia-det-dht-optimization {
-  width: 360px;
+  width: 440px;
 }
 .materia-det-dht-optimization_introduce {
   padding: 9px 16px 4px;
@@ -85,6 +85,51 @@
   p {
     margin-top: 0;
     margin-bottom: 5px;
+  }
+}
+.materia-det-dht-optimization_option {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 40px;
+  padding: 0 8px 0 16px;
+  border-bottom: 1px solid var(--color-divider);
+  > .mdc-form-field {
+    margin-right: 0;
+    > label {
+      padding-left: 0;
+    }
+  }
+}
+.materia-det-dht-optimization_option-title {
+  min-width: 60px;
+  margin-right: 2px;
+  font-weight: bold;
+}
+.materia-det-dht-optimization_option-sub {
+  margin-left: 10px;
+  font-size: 12px;
+  color: rgb(var(--color-text-base), .60);
+}
+.materia-det-dht-optimization_gcd-input {
+  width: 52px;
+  .mdc-text-field__input {
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+.materia-det-dht-optimization_summary {
+  padding: 8px 16px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-divider);
+  &.-warning > div {
+    margin-top: 2px;
+    font-weight: normal;
+    color: var(--mdc-theme-error);
   }
 }
 .materia-det-dht-optimization_solutions {
