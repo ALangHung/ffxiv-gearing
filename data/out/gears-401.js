@@ -4040,6 +4040,7 @@ export default [
       DET: 50,
       SKS: 71,
     },
+    unique: true,
     source: '迷宮挑戰/神影洞',
   },
   {
@@ -4058,6 +4059,7 @@ export default [
       DHT: 71,
       DET: 50,
     },
+    unique: true,
     source: '迷宮挑戰/神影洞',
   },
   {
@@ -4076,6 +4078,7 @@ export default [
       DHT: 50,
       DET: 71,
     },
+    unique: true,
     source: '迷宮挑戰/神影洞',
   },
   {
@@ -4094,6 +4097,7 @@ export default [
       DET: 50,
       SPS: 71,
     },
+    unique: true,
     source: '迷宮挑戰/神影洞',
   },
   {
@@ -4112,6 +4116,7 @@ export default [
       DET: 50,
       SPS: 71,
     },
+    unique: true,
     source: '迷宮挑戰/神影洞',
   },
   {
@@ -7211,6 +7216,7 @@ export default [
       CRT: 51,
       DET: 73,
     },
+    unique: true,
     source: '迷宮挑戰/馬利卡大井',
   },
   {
@@ -7229,6 +7235,7 @@ export default [
       DHT: 51,
       DET: 73,
     },
+    unique: true,
     source: '迷宮挑戰/馬利卡大井',
   },
   {
@@ -7247,6 +7254,7 @@ export default [
       DHT: 73,
       SKS: 51,
     },
+    unique: true,
     source: '迷宮挑戰/馬利卡大井',
   },
   {
@@ -7265,6 +7273,7 @@ export default [
       DET: 73,
       SPS: 51,
     },
+    unique: true,
     source: '迷宮挑戰/馬利卡大井',
   },
   {
@@ -7283,6 +7292,7 @@ export default [
       DHT: 51,
       DET: 73,
     },
+    unique: true,
     source: '迷宮挑戰/馬利卡大井',
   },
   {
@@ -10382,6 +10392,7 @@ export default [
       DET: 76,
       SKS: 53,
     },
+    unique: true,
     source: '迷宮挑戰/格魯格火山',
   },
   {
@@ -10400,6 +10411,7 @@ export default [
       DET: 76,
       SKS: 53,
     },
+    unique: true,
     source: '迷宮挑戰/格魯格火山',
   },
   {
@@ -10418,6 +10430,7 @@ export default [
       DHT: 76,
       CRT: 53,
     },
+    unique: true,
     source: '迷宮挑戰/格魯格火山',
   },
   {
@@ -10436,6 +10449,7 @@ export default [
       CRT: 76,
       DET: 53,
     },
+    unique: true,
     source: '迷宮挑戰/格魯格火山',
   },
   {
@@ -10454,6 +10468,7 @@ export default [
       DHT: 76,
       SPS: 53,
     },
+    unique: true,
     source: '迷宮挑戰/格魯格火山',
   },
   {
@@ -12789,6 +12804,7 @@ export default [
       DET: 79,
       SKS: 55,
     },
+    unique: true,
     source: '迷宮挑戰/亞馬烏羅提、孿晶塔、阿尼德羅學院',
   },
   {
@@ -12807,6 +12823,7 @@ export default [
       CRT: 55,
       DET: 79,
     },
+    unique: true,
     source: '迷宮挑戰/亞馬烏羅提、孿晶塔、阿尼德羅學院',
   },
   {
@@ -12825,6 +12842,7 @@ export default [
       CRT: 79,
       SKS: 55,
     },
+    unique: true,
     source: '迷宮挑戰/亞馬烏羅提、孿晶塔、阿尼德羅學院',
   },
   {
@@ -12843,6 +12861,7 @@ export default [
       CRT: 55,
       DET: 79,
     },
+    unique: true,
     source: '迷宮挑戰/亞馬烏羅提、孿晶塔、阿尼德羅學院',
   },
   {
@@ -12861,6 +12880,7 @@ export default [
       CRT: 79,
       DET: 55,
     },
+    unique: true,
     source: '迷宮挑戰/亞馬烏羅提、孿晶塔、阿尼德羅學院',
   },
   {
@@ -19831,6 +19851,7 @@ export default [
       TEN: 82,
       DET: 57,
     },
+    unique: true,
     source: '迷宮挑戰/宇宙宮',
   },
   {
@@ -19849,6 +19870,7 @@ export default [
       DET: 57,
       SKS: 82,
     },
+    unique: true,
     source: '迷宮挑戰/宇宙宮',
   },
   {
@@ -19867,6 +19889,7 @@ export default [
       CRT: 57,
       SKS: 82,
     },
+    unique: true,
     source: '迷宮挑戰/宇宙宮',
   },
   {
@@ -19885,6 +19908,7 @@ export default [
       PIE: 57,
       CRT: 82,
     },
+    unique: true,
     source: '迷宮挑戰/宇宙宮',
   },
   {
@@ -19903,6 +19927,7 @@ export default [
       DET: 57,
       SPS: 82,
     },
+    unique: true,
     source: '迷宮挑戰/宇宙宮',
   },
   {
@@ -22700,6 +22725,7 @@ export default [
       TEN: 58,
       CRT: 83,
     },
+    unique: true,
     source: '大型任務/覺醒之章',
   },
   {
@@ -22718,6 +22744,7 @@ export default [
       DHT: 83,
       DET: 58,
     },
+    unique: true,
     source: '大型任務/覺醒之章',
   },
   {
@@ -22736,6 +22763,7 @@ export default [
       DHT: 83,
       CRT: 58,
     },
+    unique: true,
     source: '大型任務/覺醒之章',
   },
   {
@@ -22754,6 +22782,7 @@ export default [
       PIE: 58,
       SPS: 83,
     },
+    unique: true,
     source: '大型任務/覺醒之章',
   },
   {
@@ -22772,6 +22801,7 @@ export default [
       CRT: 58,
       DET: 83,
     },
+    unique: true,
     source: '大型任務/覺醒之章',
   },
   {
@@ -23412,6 +23442,7 @@ export default [
       CRT: 83,
       DET: 58,
     },
+    unique: true,
     source: '殲殛戰/無瑕靈君',
   },
   {
@@ -23430,6 +23461,7 @@ export default [
       CRT: 58,
       SKS: 83,
     },
+    unique: true,
     source: '殲殛戰/無瑕靈君',
   },
   {
@@ -23448,6 +23480,7 @@ export default [
       CRT: 58,
       DET: 83,
     },
+    unique: true,
     source: '殲殛戰/無瑕靈君',
   },
   {
@@ -23466,6 +23499,7 @@ export default [
       PIE: 83,
       DET: 58,
     },
+    unique: true,
     source: '殲殛戰/無瑕靈君',
   },
   {
@@ -23484,6 +23518,7 @@ export default [
       DHT: 58,
       DET: 83,
     },
+    unique: true,
     source: '殲殛戰/無瑕靈君',
   },
   {
@@ -24528,6 +24563,7 @@ export default [
       DET: 59,
       SKS: 84,
     },
+    unique: true,
     source: '迷宮挑戰/追憶館',
   },
   {
@@ -24546,6 +24582,7 @@ export default [
       DHT: 84,
       CRT: 59,
     },
+    unique: true,
     source: '迷宮挑戰/追憶館',
   },
   {
@@ -24564,6 +24601,7 @@ export default [
       CRT: 84,
       DET: 59,
     },
+    unique: true,
     source: '迷宮挑戰/追憶館',
   },
   {
@@ -24582,6 +24620,7 @@ export default [
       PIE: 84,
       SPS: 59,
     },
+    unique: true,
     source: '迷宮挑戰/追憶館',
   },
   {
@@ -24600,6 +24639,7 @@ export default [
       CRT: 84,
       SPS: 59,
     },
+    unique: true,
     source: '迷宮挑戰/追憶館',
   },
   {
@@ -26250,6 +26290,7 @@ export default [
       TEN: 60,
       DET: 85,
     },
+    unique: true,
     source: '點數/幻想→已廢棄',
     obsolete: true,
   },
@@ -26269,6 +26310,7 @@ export default [
       DHT: 85,
       CRT: 60,
     },
+    unique: true,
     source: '點數/幻想→已廢棄',
     obsolete: true,
   },
@@ -26288,6 +26330,7 @@ export default [
       DHT: 60,
       DET: 85,
     },
+    unique: true,
     source: '點數/幻想→已廢棄',
     obsolete: true,
   },
@@ -26307,6 +26350,7 @@ export default [
       CRT: 85,
       SPS: 60,
     },
+    unique: true,
     source: '點數/幻想→已廢棄',
     obsolete: true,
   },
@@ -26326,6 +26370,7 @@ export default [
       DHT: 60,
       CRT: 85,
     },
+    unique: true,
     source: '點數/幻想→已廢棄',
     obsolete: true,
   },

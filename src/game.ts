@@ -18,6 +18,7 @@ export interface Gear extends GearBase {
   materiaSlot: number,
   materiaAdvanced?: true,
   hq?: true,
+  unique?: true,  // 唯一裝備，目前只標記戒指
   customizable?: true,
   bonusType?: 9 | 11,
   bonusStats?: Stats,

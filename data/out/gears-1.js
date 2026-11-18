@@ -20840,6 +20840,7 @@ export default [
     stats: {
       DHT: 1,
     },
+    unique: true,
   },
   {
     id: 4428,
@@ -20854,6 +20855,7 @@ export default [
     stats: {
       DHT: 1,
     },
+    unique: true,
   },
   {
     id: 4429,
@@ -20868,6 +20870,7 @@ export default [
     stats: {
       DHT: 1,
     },
+    unique: true,
   },
   {
     id: 8661,
@@ -29129,6 +29132,7 @@ export default [
       VIT: 3,
       DET: 3,
     },
+    unique: true,
   },
   {
     id: 4437,
@@ -29146,6 +29150,7 @@ export default [
       VIT: 3,
       DET: 3,
     },
+    unique: true,
   },
   {
     id: 4438,
@@ -29163,6 +29168,7 @@ export default [
       VIT: 3,
       DET: 3,
     },
+    unique: true,
   },
   {
     id: 27638,
@@ -34555,6 +34561,7 @@ export default [
       INT: 3,
       MND: 3,
     },
+    unique: true,
   },
   {
     id: 15208,
@@ -38679,6 +38686,7 @@ export default [
       VIT: 4,
       TEN: 5,
     },
+    unique: true,
   },
   {
     id: 4458,
@@ -38695,6 +38703,7 @@ export default [
       VIT: 4,
       DET: 5,
     },
+    unique: true,
   },
   {
     id: 4459,
@@ -38711,6 +38720,7 @@ export default [
       VIT: 4,
       CRT: 5,
     },
+    unique: true,
   },
   {
     id: 4460,
@@ -38727,6 +38737,7 @@ export default [
       VIT: 4,
       SKS: 5,
     },
+    unique: true,
   },
   {
     id: 4461,
@@ -38743,6 +38754,7 @@ export default [
       MND: 4,
       SPS: 5,
     },
+    unique: true,
   },
   {
     id: 4462,
@@ -38759,6 +38771,7 @@ export default [
       INT: 4,
       SPS: 5,
     },
+    unique: true,
   },
   {
     id: 4463,
@@ -38775,6 +38788,7 @@ export default [
       VIT: 4,
       DET: 5,
     },
+    unique: true,
   },
   {
     id: 4464,
@@ -38792,6 +38806,7 @@ export default [
       MND: 4,
       DET: 5,
     },
+    unique: true,
   },
   {
     id: 8665,
@@ -38846,6 +38861,7 @@ export default [
       VIT: 4,
       CRT: 5,
     },
+    unique: true,
   },
   {
     id: 10401,
@@ -55936,6 +55952,7 @@ export default [
     stats: {
       CP: 15,
     },
+    unique: true,
   },
   {
     id: 4489,
@@ -55950,6 +55967,7 @@ export default [
     stats: {
       GP: 21,
     },
+    unique: true,
   },
   {
     id: 4490,
@@ -55964,6 +55982,7 @@ export default [
     stats: {
       CP: 15,
     },
+    unique: true,
   },
   {
     id: 4491,
@@ -55978,6 +55997,7 @@ export default [
     stats: {
       GP: 21,
     },
+    unique: true,
   },
   {
     id: 4492,
@@ -55992,6 +56012,7 @@ export default [
     stats: {
       CP: 15,
     },
+    unique: true,
   },
   {
     id: 4493,
@@ -56006,6 +56027,7 @@ export default [
     stats: {
       GP: 21,
     },
+    unique: true,
   },
   {
     id: 4497,
@@ -57566,6 +57588,7 @@ export default [
       VIT: 8,
       DHT: 10,
     },
+    unique: true,
   },
   {
     id: 4495,
@@ -57582,6 +57605,7 @@ export default [
       INT: 6,
       CRT: 10,
     },
+    unique: true,
   },
   {
     id: 4496,
@@ -57599,6 +57623,7 @@ export default [
       VIT: 8,
       CRT: 10,
     },
+    unique: true,
   },
   {
     id: 10405,
@@ -61479,6 +61504,7 @@ export default [
       STR: 6,
       VIT: 8,
     },
+    unique: true,
     source: '危命任務',
   },
   {
@@ -66018,6 +66044,7 @@ export default [
       DET: 8,
       SKS: 12,
     },
+    unique: true,
     source: '遺產裝備→雇員探險',
   },
   {
@@ -66036,6 +66063,7 @@ export default [
       DHT: 12,
       DET: 8,
     },
+    unique: true,
     source: '遺產裝備→雇員探險',
   },
   {
@@ -66054,6 +66082,7 @@ export default [
       TEN: 8,
       DHT: 12,
     },
+    unique: true,
     source: '遺產裝備→雇員探險',
   },
   {
@@ -66072,6 +66101,7 @@ export default [
       PIE: 8,
       SPS: 12,
     },
+    unique: true,
     source: '遺產裝備→雇員探險',
   },
   {
@@ -69676,6 +69706,7 @@ export default [
     stats: {
       GP: 22,
     },
+    unique: true,
     source: '成就/大國防聯軍',
   },
   {
@@ -69691,6 +69722,7 @@ export default [
     stats: {
       GP: 22,
     },
+    unique: true,
     source: '成就/大國防聯軍',
   },
   {
@@ -69706,6 +69738,7 @@ export default [
     stats: {
       GP: 22,
     },
+    unique: true,
     source: '成就/大國防聯軍',
   },
   {
@@ -69743,6 +69776,7 @@ export default [
       TEN: 12,
       CRT: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69761,6 +69795,7 @@ export default [
       DET: 12,
       SKS: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69779,6 +69814,7 @@ export default [
       TEN: 8,
       DHT: 12,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69797,6 +69833,7 @@ export default [
       CRT: 12,
       DET: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69815,6 +69852,7 @@ export default [
       DHT: 12,
       CRT: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69833,6 +69871,7 @@ export default [
       PIE: 12,
       DET: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69851,6 +69890,7 @@ export default [
       DET: 12,
       SPS: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69870,6 +69910,7 @@ export default [
       CRT: 8,
       SPS: 12,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -69885,6 +69926,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69900,6 +69942,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69915,6 +69958,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69930,6 +69974,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69945,6 +69990,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69960,6 +70006,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69975,6 +70022,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -69990,6 +70038,7 @@ export default [
     stats: {
       CP: 17,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -70005,6 +70054,7 @@ export default [
     stats: {
       GP: 22,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -70020,6 +70070,7 @@ export default [
     stats: {
       GP: 22,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -70035,6 +70086,7 @@ export default [
     stats: {
       GP: 22,
     },
+    unique: true,
     source: '成就/筆記完成度',
   },
   {
@@ -72066,6 +72118,7 @@ export default [
       CRT: 12,
       DET: 8,
     },
+    unique: true,
     source: '成就/討伐筆記',
   },
   {
@@ -73084,6 +73137,7 @@ export default [
       TEN: 9,
       DHT: 13,
     },
+    unique: true,
     source: '迷宮挑戰/天狼星燈塔、銅鈴銅山、靜語莊園',
   },
   {
@@ -73264,6 +73318,7 @@ export default [
       DHT: 9,
       SKS: 13,
     },
+    unique: true,
     source: '迷宮挑戰/天狼星燈塔、銅鈴銅山、靜語莊園',
   },
   {
@@ -73431,6 +73486,7 @@ export default [
       DHT: 9,
       DET: 13,
     },
+    unique: true,
     source: '迷宮挑戰/天狼星燈塔、銅鈴銅山、靜語莊園',
   },
   {
@@ -73575,6 +73631,7 @@ export default [
       DHT: 13,
       DET: 9,
     },
+    unique: true,
     source: '迷宮挑戰/天狼星燈塔、銅鈴銅山、靜語莊園',
   },
   {
@@ -73647,6 +73704,7 @@ export default [
       PIE: 9,
       SPS: 13,
     },
+    unique: true,
     source: '迷宮挑戰/天狼星燈塔、銅鈴銅山、靜語莊園',
   },
   {

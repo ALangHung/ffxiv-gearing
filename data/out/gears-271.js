@@ -3545,6 +3545,7 @@ export default [
       DET: 34,
       SKS: 48,
     },
+    unique: true,
     source: '迷宮挑戰/巴兒達木霸道',
   },
   {
@@ -3563,6 +3564,7 @@ export default [
       DHT: 34,
       CRT: 48,
     },
+    unique: true,
     source: '迷宮挑戰/巴兒達木霸道',
   },
   {
@@ -3581,6 +3583,7 @@ export default [
       DHT: 48,
       CRT: 34,
     },
+    unique: true,
     source: '迷宮挑戰/巴兒達木霸道',
   },
   {
@@ -3599,6 +3602,7 @@ export default [
       PIE: 48,
       CRT: 34,
     },
+    unique: true,
     source: '迷宮挑戰/巴兒達木霸道',
   },
   {
@@ -3617,6 +3621,7 @@ export default [
       DHT: 48,
       DET: 34,
     },
+    unique: true,
     source: '迷宮挑戰/巴兒達木霸道',
   },
   {
@@ -6968,6 +6973,7 @@ export default [
       TEN: 35,
       CRT: 50,
     },
+    unique: true,
     source: '迷宮挑戰/多瑪王城',
   },
   {
@@ -6986,6 +6992,7 @@ export default [
       DHT: 35,
       SKS: 50,
     },
+    unique: true,
     source: '迷宮挑戰/多瑪王城',
   },
   {
@@ -7004,6 +7011,7 @@ export default [
       DHT: 50,
       CRT: 35,
     },
+    unique: true,
     source: '迷宮挑戰/多瑪王城',
   },
   {
@@ -7022,6 +7030,7 @@ export default [
       PIE: 35,
       DET: 50,
     },
+    unique: true,
     source: '迷宮挑戰/多瑪王城',
   },
   {
@@ -7040,6 +7049,7 @@ export default [
       DHT: 50,
       CRT: 35,
     },
+    unique: true,
     source: '迷宮挑戰/多瑪王城',
   },
   {
@@ -10057,6 +10067,7 @@ export default [
       CRT: 36,
       DET: 52,
     },
+    unique: true,
     source: '迷宮挑戰/白山堡',
   },
   {
@@ -10075,6 +10086,7 @@ export default [
       DHT: 36,
       SKS: 52,
     },
+    unique: true,
     source: '迷宮挑戰/白山堡',
   },
   {
@@ -10093,6 +10105,7 @@ export default [
       DHT: 52,
       SKS: 36,
     },
+    unique: true,
     source: '迷宮挑戰/白山堡',
   },
   {
@@ -10111,6 +10124,7 @@ export default [
       CRT: 36,
       SPS: 52,
     },
+    unique: true,
     source: '迷宮挑戰/白山堡',
   },
   {
@@ -10129,6 +10143,7 @@ export default [
       DHT: 52,
       SPS: 36,
     },
+    unique: true,
     source: '迷宮挑戰/白山堡',
   },
   {
@@ -16770,6 +16785,7 @@ export default [
       CRT: 39,
       SKS: 55,
     },
+    unique: true,
     source: '迷宮挑戰/阿拉米格、黃金閣、星導寺',
   },
   {
@@ -16788,6 +16804,7 @@ export default [
       DHT: 39,
       CRT: 55,
     },
+    unique: true,
     source: '迷宮挑戰/阿拉米格、黃金閣、星導寺',
   },
   {
@@ -16806,6 +16823,7 @@ export default [
       DHT: 55,
       CRT: 39,
     },
+    unique: true,
     source: '迷宮挑戰/阿拉米格、黃金閣、星導寺',
   },
   {
@@ -16824,6 +16842,7 @@ export default [
       CRT: 39,
       SPS: 55,
     },
+    unique: true,
     source: '迷宮挑戰/阿拉米格、黃金閣、星導寺',
   },
   {
@@ -16842,6 +16861,7 @@ export default [
       DHT: 39,
       CRT: 55,
     },
+    unique: true,
     source: '迷宮挑戰/阿拉米格、黃金閣、星導寺',
   },
   {
@@ -20606,6 +20626,7 @@ export default [
       TEN: 40,
       CRT: 57,
     },
+    unique: true,
     source: '迷宮挑戰/斯卡拉遺跡',
   },
   {
@@ -20624,6 +20645,7 @@ export default [
       DHT: 57,
       SKS: 40,
     },
+    unique: true,
     source: '迷宮挑戰/斯卡拉遺跡',
   },
   {
@@ -20642,6 +20664,7 @@ export default [
       CRT: 40,
       DET: 57,
     },
+    unique: true,
     source: '迷宮挑戰/斯卡拉遺跡',
   },
   {
@@ -20660,6 +20683,7 @@ export default [
       PIE: 40,
       SPS: 57,
     },
+    unique: true,
     source: '迷宮挑戰/斯卡拉遺跡',
   },
   {
@@ -20678,6 +20702,7 @@ export default [
       DET: 40,
       SPS: 57,
     },
+    unique: true,
     source: '迷宮挑戰/斯卡拉遺跡',
   },
   {
@@ -23299,6 +23324,7 @@ export default [
       TEN: 40,
       DET: 57,
     },
+    unique: true,
     source: '大型任務/德爾塔幻境',
   },
   {
@@ -23317,6 +23343,7 @@ export default [
       CRT: 57,
       DET: 40,
     },
+    unique: true,
     source: '大型任務/德爾塔幻境',
   },
   {
@@ -23335,6 +23362,7 @@ export default [
       DHT: 57,
       SKS: 40,
     },
+    unique: true,
     source: '大型任務/德爾塔幻境',
   },
   {
@@ -23353,6 +23381,7 @@ export default [
       CRT: 57,
       DET: 40,
     },
+    unique: true,
     source: '大型任務/德爾塔幻境',
   },
   {
@@ -23371,6 +23400,7 @@ export default [
       DHT: 40,
       CRT: 57,
     },
+    unique: true,
     source: '大型任務/德爾塔幻境',
   },
   {
@@ -24468,6 +24498,7 @@ export default [
       CRT: 57,
       SKS: 40,
     },
+    unique: true,
     source: '殲殛戰/美神',
   },
   {
@@ -24486,6 +24517,7 @@ export default [
       DHT: 57,
       CRT: 40,
     },
+    unique: true,
     source: '殲殛戰/美神',
   },
   {
@@ -24504,6 +24536,7 @@ export default [
       DET: 57,
       SKS: 40,
     },
+    unique: true,
     source: '殲殛戰/美神',
   },
   {
@@ -24522,6 +24555,7 @@ export default [
       PIE: 57,
       CRT: 40,
     },
+    unique: true,
     source: '殲殛戰/美神',
   },
   {
@@ -24540,6 +24574,7 @@ export default [
       DHT: 57,
       SPS: 40,
     },
+    unique: true,
     source: '殲殛戰/美神',
   },
   {
@@ -25785,6 +25820,7 @@ export default [
       CRT: 41,
       DET: 58,
     },
+    unique: true,
     source: '迷宮挑戰/獄之蓋、無限回廊',
   },
   {
@@ -25803,6 +25839,7 @@ export default [
       DHT: 58,
       DET: 41,
     },
+    unique: true,
     source: '迷宮挑戰/獄之蓋、無限回廊',
   },
   {
@@ -25821,6 +25858,7 @@ export default [
       DHT: 58,
       DET: 41,
     },
+    unique: true,
     source: '迷宮挑戰/獄之蓋、無限回廊',
   },
   {
@@ -25839,6 +25877,7 @@ export default [
       CRT: 41,
       SPS: 58,
     },
+    unique: true,
     source: '迷宮挑戰/獄之蓋、無限回廊',
   },
   {
@@ -25857,6 +25896,7 @@ export default [
       CRT: 58,
       DET: 41,
     },
+    unique: true,
     source: '迷宮挑戰/獄之蓋、無限回廊',
   },
   {
@@ -27466,6 +27506,7 @@ export default [
       CRT: 41,
       SKS: 59,
     },
+    unique: true,
     source: '點數/萬物→已廢棄',
     obsolete: true,
   },
@@ -27485,6 +27526,7 @@ export default [
       DHT: 41,
       SKS: 59,
     },
+    unique: true,
     source: '點數/萬物→已廢棄',
     obsolete: true,
   },
@@ -27504,6 +27546,7 @@ export default [
       CRT: 41,
       DET: 59,
     },
+    unique: true,
     source: '點數/萬物→已廢棄',
     obsolete: true,
   },
@@ -27523,6 +27566,7 @@ export default [
       CRT: 41,
       DET: 59,
     },
+    unique: true,
     source: '點數/萬物→已廢棄',
     obsolete: true,
   },
@@ -27542,6 +27586,7 @@ export default [
       CRT: 41,
       SPS: 59,
     },
+    unique: true,
     source: '點數/萬物→已廢棄',
     obsolete: true,
   },

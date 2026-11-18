@@ -4887,6 +4887,7 @@ export default [
       TEN: 45,
       CRT: 32,
     },
+    unique: true,
     source: '點數/聖典→已廢棄',
     obsolete: true,
   },
@@ -4906,6 +4907,7 @@ export default [
       DET: 45,
       SKS: 32,
     },
+    unique: true,
     source: '點數/聖典→已廢棄',
     obsolete: true,
   },
@@ -4925,6 +4927,7 @@ export default [
       CRT: 45,
       DET: 32,
     },
+    unique: true,
     source: '點數/聖典→已廢棄',
     obsolete: true,
   },
@@ -4944,6 +4947,7 @@ export default [
       DET: 45,
       SPS: 32,
     },
+    unique: true,
     source: '點數/聖典→已廢棄',
     obsolete: true,
   },
@@ -4963,6 +4967,7 @@ export default [
       CRT: 32,
       SPS: 45,
     },
+    unique: true,
     source: '點數/聖典→已廢棄',
     obsolete: true,
   },
@@ -7076,6 +7081,7 @@ export default [
       CRT: 45,
       DET: 32,
     },
+    unique: true,
     source: '迷宮挑戰/妖歌海',
   },
   {
@@ -7094,6 +7100,7 @@ export default [
       CRT: 32,
       SKS: 45,
     },
+    unique: true,
     source: '迷宮挑戰/妖歌海',
   },
   {
@@ -7112,6 +7119,7 @@ export default [
       DHT: 45,
       SKS: 32,
     },
+    unique: true,
     source: '迷宮挑戰/妖歌海',
   },
   {
@@ -7130,6 +7138,7 @@ export default [
       PIE: 32,
       CRT: 45,
     },
+    unique: true,
     source: '迷宮挑戰/妖歌海',
   },
   {
@@ -7148,6 +7157,7 @@ export default [
       DHT: 45,
       SPS: 32,
     },
+    unique: true,
     source: '迷宮挑戰/妖歌海',
   },
   {
@@ -13316,6 +13326,7 @@ export default [
       CRT: 46,
       SKS: 32,
     },
+    unique: true,
     source: '零式/天動之章',
   },
   {
@@ -13334,6 +13345,7 @@ export default [
       CRT: 46,
       DET: 32,
     },
+    unique: true,
     source: '零式/天動之章',
   },
   {
@@ -13352,6 +13364,7 @@ export default [
       DET: 46,
       SKS: 32,
     },
+    unique: true,
     source: '零式/天動之章',
   },
   {
@@ -13370,6 +13383,7 @@ export default [
       CRT: 32,
       SPS: 46,
     },
+    unique: true,
     source: '零式/天動之章',
   },
   {
@@ -13388,6 +13402,7 @@ export default [
       CRT: 32,
       DET: 46,
     },
+    unique: true,
     source: '零式/天動之章',
   },
   {
@@ -13460,6 +13475,7 @@ export default [
       TEN: 32,
       DET: 46,
     },
+    unique: true,
     source: '團隊任務/影之國周常',
   },
   {
@@ -13532,6 +13548,7 @@ export default [
       CRT: 32,
       SKS: 46,
     },
+    unique: true,
     source: '團隊任務/影之國周常',
   },
   {
@@ -13604,6 +13621,7 @@ export default [
       CRT: 32,
       SKS: 46,
     },
+    unique: true,
     source: '團隊任務/影之國周常',
   },
   {
@@ -13676,6 +13694,7 @@ export default [
       CRT: 46,
       DET: 32,
     },
+    unique: true,
     source: '團隊任務/影之國周常',
   },
   {
@@ -13748,6 +13767,7 @@ export default [
       DET: 32,
       SPS: 46,
     },
+    unique: true,
     source: '團隊任務/影之國周常',
   },
   {
@@ -15104,6 +15124,7 @@ export default [
       DET: 46,
       SKS: 32,
     },
+    unique: true,
     source: '迷宮挑戰/紫水宮',
   },
   {
@@ -15122,6 +15143,7 @@ export default [
       DHT: 46,
       CRT: 32,
     },
+    unique: true,
     source: '迷宮挑戰/紫水宮',
   },
   {
@@ -15140,6 +15162,7 @@ export default [
       DHT: 32,
       CRT: 46,
     },
+    unique: true,
     source: '迷宮挑戰/紫水宮',
   },
   {
@@ -15158,6 +15181,7 @@ export default [
       PIE: 46,
       CRT: 32,
     },
+    unique: true,
     source: '迷宮挑戰/紫水宮',
   },
   {
@@ -15176,6 +15200,7 @@ export default [
       DHT: 32,
       DET: 46,
     },
+    unique: true,
     source: '迷宮挑戰/紫水宮',
   },
   {
@@ -15382,6 +15407,7 @@ export default [
       DHT: 46,
       SPS: 32,
     },
+    unique: true,
     source: '同盟徽章',
   },
   {

@@ -3783,6 +3783,7 @@ export default [
       CRT: 101,
       DET: 71,
     },
+    unique: true,
     source: '迷宮挑戰/萬相森國',
   },
   {
@@ -3801,6 +3802,7 @@ export default [
       DHT: 71,
       CRT: 101,
     },
+    unique: true,
     source: '迷宮挑戰/萬相森國',
   },
   {
@@ -3819,6 +3821,7 @@ export default [
       DHT: 101,
       SKS: 71,
     },
+    unique: true,
     source: '迷宮挑戰/萬相森國',
   },
   {
@@ -3837,6 +3840,7 @@ export default [
       DET: 101,
       SPS: 71,
     },
+    unique: true,
     source: '迷宮挑戰/萬相森國',
   },
   {
@@ -3855,6 +3859,7 @@ export default [
       DHT: 71,
       DET: 101,
     },
+    unique: true,
     source: '迷宮挑戰/萬相森國',
   },
   {
@@ -7344,6 +7349,7 @@ export default [
       TEN: 102,
       DET: 71,
     },
+    unique: true,
     source: '迷宮挑戰/極北造物院',
   },
   {
@@ -7362,6 +7368,7 @@ export default [
       DHT: 71,
       CRT: 102,
     },
+    unique: true,
     source: '迷宮挑戰/極北造物院',
   },
   {
@@ -7380,6 +7387,7 @@ export default [
       DHT: 71,
       DET: 102,
     },
+    unique: true,
     source: '迷宮挑戰/極北造物院',
   },
   {
@@ -7398,6 +7406,7 @@ export default [
       DET: 71,
       SPS: 102,
     },
+    unique: true,
     source: '迷宮挑戰/極北造物院',
   },
   {
@@ -7416,6 +7425,7 @@ export default [
       DHT: 102,
       SPS: 71,
     },
+    unique: true,
     source: '迷宮挑戰/極北造物院',
   },
   {
@@ -9316,6 +9326,7 @@ export default [
       CRT: 72,
       DET: 103,
     },
+    unique: true,
     source: '迷宮挑戰/尋因星晶鏡',
   },
   {
@@ -9334,6 +9345,7 @@ export default [
       DHT: 72,
       DET: 103,
     },
+    unique: true,
     source: '迷宮挑戰/尋因星晶鏡',
   },
   {
@@ -9352,6 +9364,7 @@ export default [
       DHT: 103,
       CRT: 72,
     },
+    unique: true,
     source: '迷宮挑戰/尋因星晶鏡',
   },
   {
@@ -9370,6 +9383,7 @@ export default [
       CRT: 103,
       DET: 72,
     },
+    unique: true,
     source: '迷宮挑戰/尋因星晶鏡',
   },
   {
@@ -9388,6 +9402,7 @@ export default [
       DET: 72,
       SPS: 103,
     },
+    unique: true,
     source: '迷宮挑戰/尋因星晶鏡',
   },
   {
@@ -11892,6 +11907,7 @@ export default [
       CRT: 111,
       DET: 78,
     },
+    unique: true,
     source: '迷宮挑戰/末世遺跡、笑笑鎮、斯提格瑪四',
   },
   {
@@ -11910,6 +11926,7 @@ export default [
       CRT: 111,
       DET: 78,
     },
+    unique: true,
     source: '迷宮挑戰/末世遺跡、笑笑鎮、斯提格瑪四',
   },
   {
@@ -11928,6 +11945,7 @@ export default [
       DHT: 78,
       CRT: 111,
     },
+    unique: true,
     source: '迷宮挑戰/末世遺跡、笑笑鎮、斯提格瑪四',
   },
   {
@@ -11946,6 +11964,7 @@ export default [
       PIE: 111,
       DET: 78,
     },
+    unique: true,
     source: '迷宮挑戰/末世遺跡、笑笑鎮、斯提格瑪四',
   },
   {
@@ -11964,6 +11983,7 @@ export default [
       DET: 111,
       SPS: 78,
     },
+    unique: true,
     source: '迷宮挑戰/末世遺跡、笑笑鎮、斯提格瑪四',
   },
   {
@@ -17128,6 +17148,7 @@ export default [
       TEN: 84,
       CRT: 120,
     },
+    unique: true,
     source: '迷宮挑戰/海底遺跡群',
   },
   {
@@ -17146,6 +17167,7 @@ export default [
       CRT: 120,
       SKS: 84,
     },
+    unique: true,
     source: '迷宮挑戰/海底遺跡群',
   },
   {
@@ -17164,6 +17186,7 @@ export default [
       DHT: 84,
       SKS: 120,
     },
+    unique: true,
     source: '迷宮挑戰/海底遺跡群',
   },
   {
@@ -17182,6 +17205,7 @@ export default [
       CRT: 120,
       SPS: 84,
     },
+    unique: true,
     source: '迷宮挑戰/海底遺跡群',
   },
   {
@@ -17200,6 +17224,7 @@ export default [
       DHT: 120,
       SPS: 84,
     },
+    unique: true,
     source: '迷宮挑戰/海底遺跡群',
   },
   {
@@ -17879,6 +17904,7 @@ export default [
       TEN: 121,
       CRT: 85,
     },
+    unique: true,
     source: '殲殛戰/佐迪亞克',
   },
   {
@@ -17897,6 +17923,7 @@ export default [
       DHT: 121,
       SKS: 85,
     },
+    unique: true,
     source: '殲殛戰/佐迪亞克',
   },
   {
@@ -17915,6 +17942,7 @@ export default [
       DHT: 85,
       DET: 121,
     },
+    unique: true,
     source: '殲殛戰/佐迪亞克',
   },
   {
@@ -17933,6 +17961,7 @@ export default [
       DET: 121,
       SPS: 85,
     },
+    unique: true,
     source: '殲殛戰/佐迪亞克',
   },
   {
@@ -17951,6 +17980,7 @@ export default [
       DET: 85,
       SPS: 121,
     },
+    unique: true,
     source: '殲殛戰/佐迪亞克',
   },
   {
@@ -18869,6 +18899,7 @@ export default [
       CRT: 121,
       SKS: 85,
     },
+    unique: true,
     source: '大型任務/邊境之獄',
   },
   {
@@ -18887,6 +18918,7 @@ export default [
       DHT: 121,
       DET: 85,
     },
+    unique: true,
     source: '大型任務/邊境之獄',
   },
   {
@@ -18905,6 +18937,7 @@ export default [
       DHT: 121,
       CRT: 85,
     },
+    unique: true,
     source: '大型任務/邊境之獄',
   },
   {
@@ -18923,6 +18956,7 @@ export default [
       PIE: 121,
       CRT: 85,
     },
+    unique: true,
     source: '大型任務/邊境之獄',
   },
   {
@@ -18941,6 +18975,7 @@ export default [
       DHT: 121,
       SPS: 85,
     },
+    unique: true,
     source: '大型任務/邊境之獄',
   },
   {
@@ -21983,6 +22018,7 @@ export default [
       TEN: 124,
       SKS: 87,
     },
+    unique: true,
     source: '點數/天文→已廢棄',
     obsolete: true,
   },
@@ -22002,6 +22038,7 @@ export default [
       CRT: 124,
       DET: 87,
     },
+    unique: true,
     source: '點數/天文→已廢棄',
     obsolete: true,
   },
@@ -22021,6 +22058,7 @@ export default [
       DHT: 87,
       DET: 124,
     },
+    unique: true,
     source: '點數/天文→已廢棄',
     obsolete: true,
   },
@@ -22040,6 +22078,7 @@ export default [
       PIE: 87,
       CRT: 124,
     },
+    unique: true,
     source: '點數/天文→已廢棄',
     obsolete: true,
   },
@@ -22059,6 +22098,7 @@ export default [
       DHT: 87,
       CRT: 124,
     },
+    unique: true,
     source: '點數/天文→已廢棄',
     obsolete: true,
   },
@@ -26800,6 +26840,7 @@ export default [
       TEN: 88,
       DET: 126,
     },
+    unique: true,
     source: '迷宮挑戰/特羅亞宮廷',
     patch: '6.2',
   },
@@ -26819,6 +26860,7 @@ export default [
       DHT: 88,
       DET: 126,
     },
+    unique: true,
     source: '迷宮挑戰/特羅亞宮廷',
     patch: '6.2',
   },
@@ -26838,6 +26880,7 @@ export default [
       DHT: 88,
       DET: 126,
     },
+    unique: true,
     source: '迷宮挑戰/特羅亞宮廷',
     patch: '6.2',
   },
@@ -26857,6 +26900,7 @@ export default [
       CRT: 88,
       DET: 126,
     },
+    unique: true,
     source: '迷宮挑戰/特羅亞宮廷',
     patch: '6.2',
   },
@@ -26876,6 +26920,7 @@ export default [
       DHT: 126,
       DET: 88,
     },
+    unique: true,
     source: '迷宮挑戰/特羅亞宮廷',
     patch: '6.2',
   },

@@ -2469,6 +2469,7 @@ export default [
       TEN: 60,
       SKS: 42,
     },
+    unique: true,
     source: '零式/德爾塔幻境',
   },
   {
@@ -2487,6 +2488,7 @@ export default [
       DHT: 42,
       CRT: 60,
     },
+    unique: true,
     source: '零式/德爾塔幻境',
   },
   {
@@ -2505,6 +2507,7 @@ export default [
       DHT: 60,
       CRT: 42,
     },
+    unique: true,
     source: '零式/德爾塔幻境',
   },
   {
@@ -2523,6 +2526,7 @@ export default [
       PIE: 60,
       SPS: 42,
     },
+    unique: true,
     source: '零式/德爾塔幻境',
   },
   {
@@ -2541,6 +2545,7 @@ export default [
       DHT: 42,
       DET: 60,
     },
+    unique: true,
     source: '零式/德爾塔幻境',
   },
   {
@@ -8069,6 +8074,7 @@ export default [
       CRT: 43,
       DET: 61,
     },
+    unique: true,
     source: '迷宮挑戰/岩燕廟',
   },
   {
@@ -8087,6 +8093,7 @@ export default [
       DHT: 43,
       DET: 61,
     },
+    unique: true,
     source: '迷宮挑戰/岩燕廟',
   },
   {
@@ -8105,6 +8112,7 @@ export default [
       DHT: 43,
       CRT: 61,
     },
+    unique: true,
     source: '迷宮挑戰/岩燕廟',
   },
   {
@@ -8123,6 +8131,7 @@ export default [
       CRT: 61,
       SPS: 43,
     },
+    unique: true,
     source: '迷宮挑戰/岩燕廟',
   },
   {
@@ -8141,6 +8150,7 @@ export default [
       CRT: 43,
       DET: 61,
     },
+    unique: true,
     source: '迷宮挑戰/岩燕廟',
   },
   {
@@ -9386,6 +9396,7 @@ export default [
       DET: 43,
       SKS: 62,
     },
+    unique: true,
     source: '大型任務/西格瑪幻境',
   },
   {
@@ -9404,6 +9415,7 @@ export default [
       CRT: 62,
       SKS: 43,
     },
+    unique: true,
     source: '大型任務/西格瑪幻境',
   },
   {
@@ -9422,6 +9434,7 @@ export default [
       DHT: 62,
       CRT: 43,
     },
+    unique: true,
     source: '大型任務/西格瑪幻境',
   },
   {
@@ -9440,6 +9453,7 @@ export default [
       DET: 43,
       SPS: 62,
     },
+    unique: true,
     source: '大型任務/西格瑪幻境',
   },
   {
@@ -9458,6 +9472,7 @@ export default [
       DHT: 43,
       SPS: 62,
     },
+    unique: true,
     source: '大型任務/西格瑪幻境',
   },
   {
@@ -14862,6 +14877,7 @@ export default [
       TEN: 62,
       DET: 43,
     },
+    unique: true,
     source: '迷宮挑戰/終末焦土、植物園',
   },
   {
@@ -14880,6 +14896,7 @@ export default [
       DHT: 62,
       DET: 43,
     },
+    unique: true,
     source: '迷宮挑戰/終末焦土、植物園',
   },
   {
@@ -14898,6 +14915,7 @@ export default [
       CRT: 62,
       DET: 43,
     },
+    unique: true,
     source: '迷宮挑戰/終末焦土、植物園',
   },
   {
@@ -14916,6 +14934,7 @@ export default [
       CRT: 62,
       SPS: 43,
     },
+    unique: true,
     source: '迷宮挑戰/終末焦土、植物園',
   },
   {
@@ -14934,6 +14953,7 @@ export default [
       DET: 43,
       SPS: 62,
     },
+    unique: true,
     source: '迷宮挑戰/終末焦土、植物園',
   },
   {
@@ -16363,6 +16383,7 @@ export default [
       DET: 44,
       SKS: 63,
     },
+    unique: true,
     source: '點數/虛構→已廢棄',
     obsolete: true,
   },
@@ -16382,6 +16403,7 @@ export default [
       DET: 63,
       SKS: 44,
     },
+    unique: true,
     source: '點數/虛構→已廢棄',
     obsolete: true,
   },
@@ -16401,6 +16423,7 @@ export default [
       CRT: 63,
       SKS: 44,
     },
+    unique: true,
     source: '點數/虛構→已廢棄',
     obsolete: true,
   },
@@ -16420,6 +16443,7 @@ export default [
       PIE: 44,
       DET: 63,
     },
+    unique: true,
     source: '點數/虛構→已廢棄',
     obsolete: true,
   },
@@ -16439,6 +16463,7 @@ export default [
       DHT: 63,
       CRT: 44,
     },
+    unique: true,
     source: '點數/虛構→已廢棄',
     obsolete: true,
   },
@@ -22582,6 +22607,7 @@ export default [
       CRT: 45,
       DET: 64,
     },
+    unique: true,
     source: '零式/西格瑪幻境',
   },
   {
@@ -22600,6 +22626,7 @@ export default [
       CRT: 45,
       SKS: 64,
     },
+    unique: true,
     source: '零式/西格瑪幻境',
   },
   {
@@ -22618,6 +22645,7 @@ export default [
       DHT: 64,
       DET: 45,
     },
+    unique: true,
     source: '零式/西格瑪幻境',
   },
   {
@@ -22636,6 +22664,7 @@ export default [
       CRT: 64,
       SPS: 45,
     },
+    unique: true,
     source: '零式/西格瑪幻境',
   },
   {
@@ -22654,6 +22683,7 @@ export default [
       DET: 64,
       SPS: 45,
     },
+    unique: true,
     source: '零式/西格瑪幻境',
   },
   {
@@ -25554,6 +25584,7 @@ export default [
       CRT: 46,
       DET: 65,
     },
+    unique: true,
     source: '迷宮挑戰/國境戰線',
   },
   {
@@ -25572,6 +25603,7 @@ export default [
       CRT: 65,
       DET: 46,
     },
+    unique: true,
     source: '迷宮挑戰/國境戰線',
   },
   {
@@ -25590,6 +25622,7 @@ export default [
       DHT: 46,
       CRT: 65,
     },
+    unique: true,
     source: '迷宮挑戰/國境戰線',
   },
   {
@@ -25608,6 +25641,7 @@ export default [
       PIE: 65,
       CRT: 46,
     },
+    unique: true,
     source: '迷宮挑戰/國境戰線',
   },
   {
@@ -25626,6 +25660,7 @@ export default [
       DHT: 65,
       SPS: 46,
     },
+    unique: true,
     source: '迷宮挑戰/國境戰線',
   },
   {
@@ -26788,6 +26823,7 @@ export default [
       CRT: 66,
       DET: 46,
     },
+    unique: true,
     source: '大型任務/阿爾法幻境',
   },
   {
@@ -26806,6 +26842,7 @@ export default [
       DHT: 66,
       CRT: 46,
     },
+    unique: true,
     source: '大型任務/阿爾法幻境',
   },
   {
@@ -26824,6 +26861,7 @@ export default [
       DHT: 66,
       DET: 46,
     },
+    unique: true,
     source: '大型任務/阿爾法幻境',
   },
   {
@@ -26842,6 +26880,7 @@ export default [
       CRT: 66,
       DET: 46,
     },
+    unique: true,
     source: '大型任務/阿爾法幻境',
   },
   {
@@ -26860,6 +26899,7 @@ export default [
       DET: 66,
       SPS: 46,
     },
+    unique: true,
     source: '大型任務/阿爾法幻境',
   },
   {

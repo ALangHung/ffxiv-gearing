@@ -3915,6 +3915,7 @@ export default [
       TEN: 97,
       SKS: 68,
     },
+    unique: true,
     source: '點數/默示→已廢棄',
     obsolete: true,
   },
@@ -3934,6 +3935,7 @@ export default [
       DHT: 97,
       CRT: 68,
     },
+    unique: true,
     source: '點數/默示→已廢棄',
     obsolete: true,
   },
@@ -3953,6 +3955,7 @@ export default [
       CRT: 68,
       DET: 97,
     },
+    unique: true,
     source: '點數/默示→已廢棄',
     obsolete: true,
   },
@@ -3972,6 +3975,7 @@ export default [
       PIE: 97,
       DET: 68,
     },
+    unique: true,
     source: '點數/默示→已廢棄',
     obsolete: true,
   },
@@ -3991,6 +3995,7 @@ export default [
       DHT: 68,
       CRT: 97,
     },
+    unique: true,
     source: '點數/默示→已廢棄',
     obsolete: true,
   },
@@ -7479,6 +7484,7 @@ export default [
       CRT: 68,
       DET: 97,
     },
+    unique: true,
     source: '迷宮挑戰/佐特塔',
   },
   {
@@ -7497,6 +7503,7 @@ export default [
       CRT: 97,
       DET: 68,
     },
+    unique: true,
     source: '迷宮挑戰/佐特塔',
   },
   {
@@ -7515,6 +7522,7 @@ export default [
       DHT: 68,
       CRT: 97,
     },
+    unique: true,
     source: '迷宮挑戰/佐特塔',
   },
   {
@@ -7533,6 +7541,7 @@ export default [
       PIE: 97,
       DET: 68,
     },
+    unique: true,
     source: '迷宮挑戰/佐特塔',
   },
   {
@@ -7551,6 +7560,7 @@ export default [
       CRT: 97,
       DET: 68,
     },
+    unique: true,
     source: '迷宮挑戰/佐特塔',
   },
   {
@@ -11757,6 +11767,7 @@ export default [
       CRT: 99,
       DET: 69,
     },
+    unique: true,
     source: '零式/再生之章',
   },
   {
@@ -11775,6 +11786,7 @@ export default [
       CRT: 99,
       DET: 69,
     },
+    unique: true,
     source: '零式/再生之章',
   },
   {
@@ -11793,6 +11805,7 @@ export default [
       DHT: 69,
       CRT: 99,
     },
+    unique: true,
     source: '零式/再生之章',
   },
   {
@@ -11811,6 +11824,7 @@ export default [
       CRT: 99,
       SPS: 69,
     },
+    unique: true,
     source: '零式/再生之章',
   },
   {
@@ -11829,6 +11843,7 @@ export default [
       DHT: 69,
       SPS: 99,
     },
+    unique: true,
     source: '零式/再生之章',
   },
   {
@@ -14606,6 +14621,7 @@ export default [
       CRT: 69,
       SKS: 99,
     },
+    unique: true,
     source: '迷宮挑戰/巴別塔',
   },
   {
@@ -14624,6 +14640,7 @@ export default [
       DHT: 69,
       CRT: 99,
     },
+    unique: true,
     source: '迷宮挑戰/巴別塔',
   },
   {
@@ -14642,6 +14659,7 @@ export default [
       DET: 99,
       SKS: 69,
     },
+    unique: true,
     source: '迷宮挑戰/巴別塔',
   },
   {
@@ -14660,6 +14678,7 @@ export default [
       CRT: 99,
       DET: 69,
     },
+    unique: true,
     source: '迷宮挑戰/巴別塔',
   },
   {
@@ -14678,6 +14697,7 @@ export default [
       DHT: 99,
       CRT: 69,
     },
+    unique: true,
     source: '迷宮挑戰/巴別塔',
   },
   {
@@ -14903,6 +14923,7 @@ export default [
       CRT: 69,
       DET: 99,
     },
+    unique: true,
     source: '同盟徽章',
     patch: '6.45',
   },

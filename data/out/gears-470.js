@@ -2509,6 +2509,7 @@ export default [
       TEN: 87,
       CRT: 61,
     },
+    unique: true,
     source: '零式/覺醒之章',
   },
   {
@@ -2527,6 +2528,7 @@ export default [
       CRT: 87,
       DET: 61,
     },
+    unique: true,
     source: '零式/覺醒之章',
   },
   {
@@ -2545,6 +2547,7 @@ export default [
       CRT: 61,
       SKS: 87,
     },
+    unique: true,
     source: '零式/覺醒之章',
   },
   {
@@ -2563,6 +2566,7 @@ export default [
       PIE: 87,
       DET: 61,
     },
+    unique: true,
     source: '零式/覺醒之章',
   },
   {
@@ -2581,6 +2585,7 @@ export default [
       DHT: 87,
       DET: 61,
     },
+    unique: true,
     source: '零式/覺醒之章',
   },
   {
@@ -5014,6 +5019,7 @@ export default [
       TEN: 88,
       SKS: 62,
     },
+    unique: true,
     source: '迷宮挑戰/諾弗蘭特',
   },
   {
@@ -5032,6 +5038,7 @@ export default [
       CRT: 88,
       DET: 62,
     },
+    unique: true,
     source: '迷宮挑戰/諾弗蘭特',
   },
   {
@@ -5050,6 +5057,7 @@ export default [
       CRT: 88,
       DET: 62,
     },
+    unique: true,
     source: '迷宮挑戰/諾弗蘭特',
   },
   {
@@ -5068,6 +5076,7 @@ export default [
       CRT: 62,
       DET: 88,
     },
+    unique: true,
     source: '迷宮挑戰/諾弗蘭特',
   },
   {
@@ -5086,6 +5095,7 @@ export default [
       DHT: 62,
       CRT: 88,
     },
+    unique: true,
     source: '迷宮挑戰/諾弗蘭特',
   },
   {
@@ -6130,6 +6140,7 @@ export default [
       DET: 62,
       SKS: 89,
     },
+    unique: true,
     source: '大型任務/共鳴之章',
   },
   {
@@ -6148,6 +6159,7 @@ export default [
       CRT: 89,
       DET: 62,
     },
+    unique: true,
     source: '大型任務/共鳴之章',
   },
   {
@@ -6166,6 +6178,7 @@ export default [
       DHT: 62,
       CRT: 89,
     },
+    unique: true,
     source: '大型任務/共鳴之章',
   },
   {
@@ -6184,6 +6197,7 @@ export default [
       PIE: 89,
       DET: 62,
     },
+    unique: true,
     source: '大型任務/共鳴之章',
   },
   {
@@ -6202,6 +6216,7 @@ export default [
       CRT: 89,
       SPS: 62,
     },
+    unique: true,
     source: '大型任務/共鳴之章',
   },
   {
@@ -12120,6 +12135,7 @@ export default [
       CRT: 90,
       DET: 63,
     },
+    unique: true,
     source: '迷宮挑戰/瑪托雅工作室',
   },
   {
@@ -12138,6 +12154,7 @@ export default [
       CRT: 90,
       DET: 63,
     },
+    unique: true,
     source: '迷宮挑戰/瑪托雅工作室',
   },
   {
@@ -12156,6 +12173,7 @@ export default [
       DHT: 63,
       DET: 90,
     },
+    unique: true,
     source: '迷宮挑戰/瑪托雅工作室',
   },
   {
@@ -12174,6 +12192,7 @@ export default [
       CRT: 63,
       DET: 90,
     },
+    unique: true,
     source: '迷宮挑戰/瑪托雅工作室',
   },
   {
@@ -12192,6 +12211,7 @@ export default [
       DHT: 63,
       CRT: 90,
     },
+    unique: true,
     source: '迷宮挑戰/瑪托雅工作室',
   },
   {
@@ -13663,6 +13683,7 @@ export default [
       CRT: 64,
       DET: 91,
     },
+    unique: true,
     source: '點數/奇譚→已廢棄',
     obsolete: true,
   },
@@ -13682,6 +13703,7 @@ export default [
       DHT: 91,
       CRT: 64,
     },
+    unique: true,
     source: '點數/奇譚→已廢棄',
     obsolete: true,
   },
@@ -13701,6 +13723,7 @@ export default [
       CRT: 64,
       DET: 91,
     },
+    unique: true,
     source: '點數/奇譚→已廢棄',
     obsolete: true,
   },
@@ -13720,6 +13743,7 @@ export default [
       CRT: 64,
       DET: 91,
     },
+    unique: true,
     source: '點數/奇譚→已廢棄',
     obsolete: true,
   },
@@ -13739,6 +13763,7 @@ export default [
       CRT: 64,
       DET: 91,
     },
+    unique: true,
     source: '點數/奇譚→已廢棄',
     obsolete: true,
   },
@@ -19314,6 +19339,7 @@ export default [
       TEN: 65,
       CRT: 93,
     },
+    unique: true,
     source: '零式/共鳴之章',
   },
   {
@@ -19332,6 +19358,7 @@ export default [
       CRT: 93,
       SKS: 65,
     },
+    unique: true,
     source: '零式/共鳴之章',
   },
   {
@@ -19350,6 +19377,7 @@ export default [
       DHT: 65,
       CRT: 93,
     },
+    unique: true,
     source: '零式/共鳴之章',
   },
   {
@@ -19368,6 +19396,7 @@ export default [
       CRT: 93,
       SPS: 65,
     },
+    unique: true,
     source: '零式/共鳴之章',
   },
   {
@@ -19386,6 +19415,7 @@ export default [
       DHT: 93,
       DET: 65,
     },
+    unique: true,
     source: '零式/共鳴之章',
   },
   {
@@ -24022,6 +24052,7 @@ export default [
       TEN: 94,
       DET: 66,
     },
+    unique: true,
     source: '迷宮挑戰/帕戈爾贊草原',
   },
   {
@@ -24040,6 +24071,7 @@ export default [
       DHT: 66,
       CRT: 94,
     },
+    unique: true,
     source: '迷宮挑戰/帕戈爾贊草原',
   },
   {
@@ -24058,6 +24090,7 @@ export default [
       CRT: 94,
       SKS: 66,
     },
+    unique: true,
     source: '迷宮挑戰/帕戈爾贊草原',
   },
   {
@@ -24076,6 +24109,7 @@ export default [
       CRT: 94,
       DET: 66,
     },
+    unique: true,
     source: '迷宮挑戰/帕戈爾贊草原',
   },
   {
@@ -24094,6 +24128,7 @@ export default [
       DHT: 66,
       CRT: 94,
     },
+    unique: true,
     source: '迷宮挑戰/帕戈爾贊草原',
   },
   {
@@ -26948,6 +26983,7 @@ export default [
       TEN: 95,
       DET: 67,
     },
+    unique: true,
     source: '大型任務/再生之章',
   },
   {
@@ -26966,6 +27002,7 @@ export default [
       DET: 95,
       SKS: 67,
     },
+    unique: true,
     source: '大型任務/再生之章',
   },
   {
@@ -26984,6 +27021,7 @@ export default [
       DHT: 67,
       DET: 95,
     },
+    unique: true,
     source: '大型任務/再生之章',
   },
   {
@@ -27002,6 +27040,7 @@ export default [
       CRT: 67,
       SPS: 95,
     },
+    unique: true,
     source: '大型任務/再生之章',
   },
   {
@@ -27020,6 +27059,7 @@ export default [
       DHT: 67,
       SPS: 95,
     },
+    unique: true,
     source: '大型任務/再生之章',
   },
   {

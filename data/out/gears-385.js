@@ -3878,6 +3878,7 @@ export default [
       TEN: 67,
       DET: 47,
     },
+    unique: true,
     source: '點數/創世→已廢棄',
     obsolete: true,
   },
@@ -3897,6 +3898,7 @@ export default [
       CRT: 67,
       SKS: 47,
     },
+    unique: true,
     source: '點數/創世→已廢棄',
     obsolete: true,
   },
@@ -3916,6 +3918,7 @@ export default [
       DHT: 47,
       CRT: 67,
     },
+    unique: true,
     source: '點數/創世→已廢棄',
     obsolete: true,
   },
@@ -3935,6 +3938,7 @@ export default [
       DET: 47,
       SPS: 67,
     },
+    unique: true,
     source: '點數/創世→已廢棄',
     obsolete: true,
   },
@@ -3954,6 +3958,7 @@ export default [
       CRT: 47,
       DET: 67,
     },
+    unique: true,
     source: '點數/創世→已廢棄',
     obsolete: true,
   },
@@ -9169,6 +9174,7 @@ export default [
       TEN: 67,
       CRT: 47,
     },
+    unique: true,
     source: '迷宮挑戰/水灘村',
   },
   {
@@ -9187,6 +9193,7 @@ export default [
       DHT: 47,
       CRT: 67,
     },
+    unique: true,
     source: '迷宮挑戰/水灘村',
   },
   {
@@ -9205,6 +9212,7 @@ export default [
       DET: 67,
       SKS: 47,
     },
+    unique: true,
     source: '迷宮挑戰/水灘村',
   },
   {
@@ -9223,6 +9231,7 @@ export default [
       CRT: 47,
       SPS: 67,
     },
+    unique: true,
     source: '迷宮挑戰/水灘村',
   },
   {
@@ -9241,6 +9250,7 @@ export default [
       DHT: 47,
       SPS: 67,
     },
+    unique: true,
     source: '迷宮挑戰/水灘村',
   },
   {
@@ -14238,6 +14248,7 @@ export default [
       CRT: 48,
       SKS: 69,
     },
+    unique: true,
     source: '零式/阿爾法幻境',
   },
   {
@@ -14256,6 +14267,7 @@ export default [
       DHT: 48,
       SKS: 69,
     },
+    unique: true,
     source: '零式/阿爾法幻境',
   },
   {
@@ -14274,6 +14286,7 @@ export default [
       DHT: 48,
       SKS: 69,
     },
+    unique: true,
     source: '零式/阿爾法幻境',
   },
   {
@@ -14292,6 +14305,7 @@ export default [
       PIE: 69,
       CRT: 48,
     },
+    unique: true,
     source: '零式/阿爾法幻境',
   },
   {
@@ -14310,6 +14324,7 @@ export default [
       DHT: 48,
       CRT: 69,
     },
+    unique: true,
     source: '零式/阿爾法幻境',
   },
   {
@@ -16002,6 +16017,7 @@ export default [
       TEN: 69,
       DET: 48,
     },
+    unique: true,
     source: '迷宮挑戰/水妖幻園',
   },
   {
@@ -16020,6 +16036,7 @@ export default [
       CRT: 69,
       DET: 48,
     },
+    unique: true,
     source: '迷宮挑戰/水妖幻園',
   },
   {
@@ -16038,6 +16055,7 @@ export default [
       DET: 69,
       SKS: 48,
     },
+    unique: true,
     source: '迷宮挑戰/水妖幻園',
   },
   {
@@ -16056,6 +16074,7 @@ export default [
       CRT: 69,
       DET: 48,
     },
+    unique: true,
     source: '迷宮挑戰/水妖幻園',
   },
   {
@@ -16074,6 +16093,7 @@ export default [
       DET: 69,
       SPS: 48,
     },
+    unique: true,
     source: '迷宮挑戰/水妖幻園',
   },
   {
@@ -16754,6 +16774,7 @@ export default [
       DHT: 69,
       CRT: 48,
     },
+    unique: true,
     source: '同盟徽章',
   },
   {

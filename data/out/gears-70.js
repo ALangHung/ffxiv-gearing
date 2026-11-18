@@ -2419,6 +2419,7 @@ export default [
       CRT: 10,
       SKS: 14,
     },
+    unique: true,
     source: '點數/哲學→無限城古跡、日影地修煉所、野營地',
   },
   {
@@ -2437,6 +2438,7 @@ export default [
       CRT: 10,
       DET: 14,
     },
+    unique: true,
     source: '點數/哲學→無限城古跡、日影地修煉所、野營地',
   },
   {
@@ -2455,6 +2457,7 @@ export default [
       PIE: 14,
       SPS: 10,
     },
+    unique: true,
     source: '點數/哲學→無限城古跡、日影地修煉所、野營地',
   },
   {
@@ -2473,6 +2476,7 @@ export default [
       TEN: 14,
       DHT: 10,
     },
+    unique: true,
     source: '點數/哲學→無限城古跡、日影地修煉所、野營地',
   },
   {
@@ -2491,6 +2495,7 @@ export default [
       DHT: 14,
       SKS: 10,
     },
+    unique: true,
     source: '點數/哲學→無限城古跡、日影地修煉所、野營地',
   },
   {
@@ -2509,6 +2514,7 @@ export default [
       DHT: 14,
       DET: 10,
     },
+    unique: true,
     source: '點數/哲學→無限城古跡、日影地修煉所、野營地',
   },
   {
@@ -3689,6 +3695,7 @@ export default [
       CRT: 14,
       SKS: 10,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -3707,6 +3714,7 @@ export default [
       DET: 10,
       SKS: 14,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -3725,6 +3733,7 @@ export default [
       DET: 14,
       SKS: 10,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -3743,6 +3752,7 @@ export default [
       CRT: 14,
       SPS: 10,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -3761,6 +3771,7 @@ export default [
       DET: 10,
       SPS: 14,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -8548,6 +8559,7 @@ export default [
       TEN: 16,
       DET: 11,
     },
+    unique: true,
     source: '殲殛戰/究極神兵',
   },
   {
@@ -8566,6 +8578,7 @@ export default [
       CRT: 11,
       SKS: 16,
     },
+    unique: true,
     source: '殲殛戰/究極神兵',
   },
   {
@@ -8584,6 +8597,7 @@ export default [
       DHT: 11,
       DET: 16,
     },
+    unique: true,
     source: '殲殛戰/究極神兵',
   },
   {
@@ -8602,6 +8616,7 @@ export default [
       CRT: 11,
       DET: 16,
     },
+    unique: true,
     source: '殲殛戰/究極神兵',
   },
   {
@@ -8620,6 +8635,7 @@ export default [
       PIE: 11,
       SPS: 16,
     },
+    unique: true,
     source: '殲殛戰/究極神兵',
   },
   {
@@ -9366,6 +9382,7 @@ export default [
       DHT: 11,
       CRT: 16,
     },
+    unique: true,
     source: '迷宮挑戰/破艦島、墓園、石衛塔',
   },
   {
@@ -9438,6 +9455,7 @@ export default [
       DHT: 11,
       DET: 16,
     },
+    unique: true,
     source: '迷宮挑戰/破艦島、墓園、石衛塔',
   },
   {
@@ -9510,6 +9528,7 @@ export default [
       CRT: 16,
       DET: 11,
     },
+    unique: true,
     source: '迷宮挑戰/破艦島、墓園、石衛塔',
   },
   {
@@ -9582,6 +9601,7 @@ export default [
       CRT: 16,
       DET: 11,
     },
+    unique: true,
     source: '迷宮挑戰/破艦島、墓園、石衛塔',
   },
   {
@@ -9654,6 +9674,7 @@ export default [
       DHT: 16,
       SPS: 11,
     },
+    unique: true,
     source: '迷宮挑戰/破艦島、墓園、石衛塔',
   },
   {
@@ -11438,6 +11459,7 @@ export default [
       CRT: 13,
       DET: 18,
     },
+    unique: true,
     source: '殲殛戰/風神',
   },
   {
@@ -11456,6 +11478,7 @@ export default [
       DHT: 13,
       CRT: 18,
     },
+    unique: true,
     source: '殲殛戰/風神',
   },
   {
@@ -11582,6 +11605,7 @@ export default [
       CRT: 13,
       SKS: 18,
     },
+    unique: true,
     source: '殲殛戰/風神',
   },
   {
@@ -11600,6 +11624,7 @@ export default [
       DHT: 18,
       DET: 13,
     },
+    unique: true,
     source: '殲殛戰/風神',
   },
   {
@@ -11618,6 +11643,7 @@ export default [
       DET: 18,
       SPS: 13,
     },
+    unique: true,
     source: '殲殛戰/風神',
   },
   {
@@ -11636,6 +11662,7 @@ export default [
       DHT: 18,
       DET: 13,
     },
+    unique: true,
     source: '殲殛戰/老三神周常',
   },
   {
@@ -11654,6 +11681,7 @@ export default [
       DHT: 18,
       SKS: 13,
     },
+    unique: true,
     source: '殲殛戰/老三神周常',
   },
   {
@@ -11672,6 +11700,7 @@ export default [
       PIE: 18,
       DET: 13,
     },
+    unique: true,
     source: '殲殛戰/老三神周常',
   },
   {
@@ -11690,6 +11719,7 @@ export default [
       TEN: 18,
       SKS: 13,
     },
+    unique: true,
     source: '殲殛戰/老三神周常',
   },
   {
@@ -11708,6 +11738,7 @@ export default [
       DHT: 13,
       DET: 18,
     },
+    unique: true,
     source: '殲殛戰/老三神周常',
   },
   {
@@ -11726,6 +11757,7 @@ export default [
       DHT: 13,
       SPS: 18,
     },
+    unique: true,
     source: '殲殛戰/老三神周常',
   },
   {
@@ -13041,6 +13073,7 @@ export default [
       TEN: 13,
       DHT: 18,
     },
+    unique: true,
     source: '迷宮挑戰/大冰壁、溶洞、聖堂',
   },
   {
@@ -13059,6 +13092,7 @@ export default [
       DET: 18,
       SKS: 13,
     },
+    unique: true,
     source: '迷宮挑戰/大冰壁、溶洞、聖堂',
   },
   {
@@ -13077,6 +13111,7 @@ export default [
       CRT: 18,
       DET: 13,
     },
+    unique: true,
     source: '迷宮挑戰/大冰壁、溶洞、聖堂',
   },
   {
@@ -13095,6 +13130,7 @@ export default [
       CRT: 18,
       SPS: 13,
     },
+    unique: true,
     source: '迷宮挑戰/大冰壁、溶洞、聖堂',
   },
   {
@@ -13113,6 +13149,7 @@ export default [
       PIE: 13,
       CRT: 18,
     },
+    unique: true,
     source: '迷宮挑戰/大冰壁、溶洞、聖堂',
   },
   {
@@ -14464,6 +14501,7 @@ export default [
       DET: 18,
       SKS: 13,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -14482,6 +14520,7 @@ export default [
       CRT: 18,
       DET: 13,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -14500,6 +14539,7 @@ export default [
       DET: 13,
       SKS: 18,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -14518,6 +14558,7 @@ export default [
       DET: 13,
       SPS: 18,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -14536,6 +14577,7 @@ export default [
       CRT: 18,
       SPS: 13,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -18905,6 +18947,7 @@ export default [
       TEN: 13,
       DHT: 19,
     },
+    unique: true,
     source: '點數/戰記→已廢棄',
     obsolete: true,
   },
@@ -19215,6 +19258,7 @@ export default [
       DHT: 13,
       DET: 19,
     },
+    unique: true,
     source: '點數/戰記→已廢棄',
     obsolete: true,
   },
@@ -19405,6 +19449,7 @@ export default [
       DHT: 13,
       SKS: 19,
     },
+    unique: true,
     source: '點數/戰記→已廢棄',
     obsolete: true,
   },
@@ -19605,6 +19650,7 @@ export default [
       DHT: 4,
       DET: 13,
     },
+    unique: true,
     source: '點數/戰記→已廢棄',
     obsolete: true,
   },
@@ -19795,6 +19841,7 @@ export default [
       DHT: 19,
       CRT: 13,
     },
+    unique: true,
     source: '點數/戰記→已廢棄',
     obsolete: true,
   },
@@ -21091,6 +21138,7 @@ export default [
       CRT: 13,
       DET: 19,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -21163,6 +21211,7 @@ export default [
       CRT: 19,
       SKS: 13,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -21235,6 +21284,7 @@ export default [
       CRT: 13,
       SKS: 19,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -21307,6 +21357,7 @@ export default [
       CRT: 19,
       SPS: 13,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -21379,6 +21430,7 @@ export default [
       DET: 13,
       SPS: 19,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -24203,6 +24255,7 @@ export default [
       DHT: 13,
       CRT: 19,
     },
+    unique: true,
     source: '迷宮挑戰/密約之塔、放浪神古神殿、無限城古堡',
   },
   {
@@ -24275,6 +24328,7 @@ export default [
       DET: 19,
       SKS: 13,
     },
+    unique: true,
     source: '迷宮挑戰/密約之塔、放浪神古神殿、無限城古堡',
   },
   {
@@ -24347,6 +24401,7 @@ export default [
       CRT: 13,
       DET: 19,
     },
+    unique: true,
     source: '迷宮挑戰/密約之塔、放浪神古神殿、無限城古堡',
   },
   {
@@ -24423,6 +24478,7 @@ export default [
       CRT: 13,
       DET: 19,
     },
+    unique: true,
     source: '迷宮挑戰/密約之塔、放浪神古神殿、無限城古堡',
   },
   {
@@ -24495,6 +24551,7 @@ export default [
       CRT: 13,
       DET: 19,
     },
+    unique: true,
     source: '迷宮挑戰/密約之塔、放浪神古神殿、無限城古堡',
   },
   {
@@ -26012,6 +26069,7 @@ export default [
       TEN: 15,
       DET: 21,
     },
+    unique: true,
     source: '大型任務/入侵之章',
   },
   {
@@ -26306,6 +26364,7 @@ export default [
       DHT: 21,
       SKS: 15,
     },
+    unique: true,
     source: '大型任務/入侵之章',
   },
   {
@@ -26486,6 +26545,7 @@ export default [
       DHT: 21,
       DET: 15,
     },
+    unique: true,
     source: '大型任務/入侵之章',
   },
   {
@@ -26676,6 +26736,7 @@ export default [
       DHT: 4,
       SPS: 15,
     },
+    unique: true,
     source: '大型任務/入侵之章',
   },
   {
@@ -26856,6 +26917,7 @@ export default [
       DHT: 21,
       SPS: 15,
     },
+    unique: true,
     source: '大型任務/入侵之章',
   },
   {
@@ -28278,6 +28340,7 @@ export default [
       DHT: 15,
       CRT: 21,
     },
+    unique: true,
     source: '殲殛戰/雷神',
   },
   {
@@ -28296,6 +28359,7 @@ export default [
       CRT: 21,
       DET: 15,
     },
+    unique: true,
     source: '殲殛戰/雷神',
   },
   {
@@ -28314,6 +28378,7 @@ export default [
       CRT: 21,
       SKS: 15,
     },
+    unique: true,
     source: '殲殛戰/雷神',
   },
   {
@@ -28333,6 +28398,7 @@ export default [
       CRT: 15,
       DET: 21,
     },
+    unique: true,
     source: '殲殛戰/雷神',
   },
   {
@@ -28351,6 +28417,7 @@ export default [
       CRT: 21,
       DET: 15,
     },
+    unique: true,
     source: '殲殛戰/雷神',
   },
   {
@@ -31111,6 +31178,7 @@ export default [
       CRT: 15,
       SKS: 21,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -31183,6 +31251,7 @@ export default [
       CRT: 21,
       SKS: 15,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -31255,6 +31324,7 @@ export default [
       CRT: 21,
       DET: 15,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -31327,6 +31397,7 @@ export default [
       CRT: 21,
       SPS: 15,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -31399,6 +31470,7 @@ export default [
       CRT: 15,
       SPS: 21,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -35896,6 +35968,7 @@ export default [
       TEN: 23,
       DET: 16,
     },
+    unique: true,
     source: '點數/詩學→已廢棄',
     obsolete: true,
   },
@@ -36200,6 +36273,7 @@ export default [
       DHT: 23,
       CRT: 16,
     },
+    unique: true,
     source: '點數/詩學→已廢棄',
     obsolete: true,
   },
@@ -36390,6 +36464,7 @@ export default [
       DHT: 23,
       CRT: 16,
     },
+    unique: true,
     source: '點數/詩學→已廢棄',
     obsolete: true,
   },
@@ -36590,6 +36665,7 @@ export default [
       DHT: 5,
       DET: 16,
     },
+    unique: true,
     source: '點數/詩學→已廢棄',
     obsolete: true,
   },
@@ -36780,6 +36856,7 @@ export default [
       DHT: 23,
       DET: 16,
     },
+    unique: true,
     source: '點數/詩學→已廢棄',
     obsolete: true,
   },
@@ -39371,6 +39448,7 @@ export default [
       DHT: 16,
       CRT: 23,
     },
+    unique: true,
     source: '迷宮挑戰/暮衛塔',
   },
   {
@@ -39443,6 +39521,7 @@ export default [
       CRT: 16,
       DET: 23,
     },
+    unique: true,
     source: '迷宮挑戰/暮衛塔',
   },
   {
@@ -39515,6 +39594,7 @@ export default [
       DET: 16,
       SKS: 23,
     },
+    unique: true,
     source: '迷宮挑戰/暮衛塔',
   },
   {
@@ -39587,6 +39667,7 @@ export default [
       PIE: 16,
       SPS: 23,
     },
+    unique: true,
     source: '迷宮挑戰/暮衛塔',
   },
   {
@@ -39659,6 +39740,7 @@ export default [
       CRT: 23,
       DET: 16,
     },
+    unique: true,
     source: '迷宮挑戰/暮衛塔',
   },
   {
@@ -43103,6 +43185,7 @@ export default [
       DHT: 17,
       CRT: 24,
     },
+    unique: true,
     source: '大型任務/真源之章',
   },
   {
@@ -43391,6 +43474,7 @@ export default [
       DHT: 17,
       DET: 24,
     },
+    unique: true,
     source: '大型任務/真源之章',
   },
   {
@@ -43571,6 +43655,7 @@ export default [
       DET: 17,
       SKS: 24,
     },
+    unique: true,
     source: '大型任務/真源之章',
   },
   {
@@ -43761,6 +43846,7 @@ export default [
       CRT: 17,
       SPS: 24,
     },
+    unique: true,
     source: '大型任務/真源之章',
   },
   {
@@ -43941,6 +44027,7 @@ export default [
       CRT: 24,
       SPS: 17,
     },
+    unique: true,
     source: '大型任務/真源之章',
   },
   {
@@ -45505,6 +45592,7 @@ export default [
       CRT: 17,
       DET: 24,
     },
+    unique: true,
     source: '迷宮挑戰/索姆阿爾靈峰',
   },
   {
@@ -45577,6 +45665,7 @@ export default [
       DET: 17,
       SKS: 24,
     },
+    unique: true,
     source: '迷宮挑戰/索姆阿爾靈峰',
   },
   {
@@ -45649,6 +45738,7 @@ export default [
       DHT: 24,
       DET: 17,
     },
+    unique: true,
     source: '迷宮挑戰/索姆阿爾靈峰',
   },
   {
@@ -45721,6 +45811,7 @@ export default [
       DET: 17,
       SPS: 24,
     },
+    unique: true,
     source: '迷宮挑戰/索姆阿爾靈峰',
   },
   {
@@ -45793,6 +45884,7 @@ export default [
       DHT: 24,
       CRT: 17,
     },
+    unique: true,
     source: '迷宮挑戰/索姆阿爾靈峰',
   },
   {

@@ -1098,6 +1098,7 @@ export default [
       TEN: 26,
       DHT: 18,
     },
+    unique: true,
     source: '迷宮挑戰/龍巢神殿',
   },
   {
@@ -1170,6 +1171,7 @@ export default [
       CRT: 26,
       DET: 18,
     },
+    unique: true,
     source: '迷宮挑戰/龍巢神殿',
   },
   {
@@ -1242,6 +1244,7 @@ export default [
       DHT: 18,
       SKS: 26,
     },
+    unique: true,
     source: '迷宮挑戰/龍巢神殿',
   },
   {
@@ -1314,6 +1317,7 @@ export default [
       PIE: 18,
       CRT: 26,
     },
+    unique: true,
     source: '迷宮挑戰/龍巢神殿',
   },
   {
@@ -1386,6 +1390,7 @@ export default [
       DHT: 18,
       SPS: 26,
     },
+    unique: true,
     source: '迷宮挑戰/龍巢神殿',
   },
   {
@@ -4402,6 +4407,7 @@ export default [
       DHT: 30,
       SKS: 21,
     },
+    unique: true,
     source: '迷宮挑戰/教皇廳',
   },
   {
@@ -4474,6 +4480,7 @@ export default [
       DHT: 30,
       SKS: 21,
     },
+    unique: true,
     source: '迷宮挑戰/教皇廳',
   },
   {
@@ -4546,6 +4553,7 @@ export default [
       DET: 21,
       SKS: 30,
     },
+    unique: true,
     source: '迷宮挑戰/教皇廳',
   },
   {
@@ -4618,6 +4626,7 @@ export default [
       PIE: 30,
       CRT: 21,
     },
+    unique: true,
     source: '迷宮挑戰/教皇廳',
   },
   {
@@ -4690,6 +4699,7 @@ export default [
       DHT: 30,
       CRT: 21,
     },
+    unique: true,
     source: '迷宮挑戰/教皇廳',
   },
   {
@@ -7407,6 +7417,7 @@ export default [
       DHT: 24,
       CRT: 34,
     },
+    unique: true,
     source: '迷宮挑戰/圖書館',
   },
   {
@@ -7479,6 +7490,7 @@ export default [
       DET: 34,
       SKS: 24,
     },
+    unique: true,
     source: '迷宮挑戰/圖書館',
   },
   {
@@ -7551,6 +7563,7 @@ export default [
       DHT: 34,
       CRT: 24,
     },
+    unique: true,
     source: '迷宮挑戰/圖書館',
   },
   {
@@ -7623,6 +7636,7 @@ export default [
       PIE: 24,
       DET: 34,
     },
+    unique: true,
     source: '迷宮挑戰/圖書館',
   },
   {
@@ -7695,6 +7709,7 @@ export default [
       DHT: 24,
       CRT: 34,
     },
+    unique: true,
     source: '迷宮挑戰/圖書館',
   },
   {
@@ -9702,6 +9717,7 @@ export default [
       main: 29,
       secondary: 35,
     },
+    unique: true,
   },
   {
     id: 45624,
@@ -11011,6 +11027,7 @@ export default [
       DET: 36,
       SKS: 25,
     },
+    unique: true,
     source: '迷宮挑戰/不獲島、無限回廊',
   },
   {
@@ -11083,6 +11100,7 @@ export default [
       DHT: 25,
       SKS: 36,
     },
+    unique: true,
     source: '迷宮挑戰/不獲島、無限回廊',
   },
   {
@@ -11155,6 +11173,7 @@ export default [
       DHT: 36,
       DET: 25,
     },
+    unique: true,
     source: '迷宮挑戰/不獲島、無限回廊',
   },
   {
@@ -11227,6 +11246,7 @@ export default [
       CRT: 36,
       DET: 25,
     },
+    unique: true,
     source: '迷宮挑戰/不獲島、無限回廊',
   },
   {
@@ -11299,6 +11319,7 @@ export default [
       CRT: 36,
       SPS: 25,
     },
+    unique: true,
     source: '迷宮挑戰/不獲島、無限回廊',
   },
   {
@@ -14015,6 +14036,7 @@ export default [
       DET: 37,
       SKS: 26,
     },
+    unique: true,
     source: '點數/法典→已廢棄',
     obsolete: true,
   },
@@ -14034,6 +14056,7 @@ export default [
       DHT: 26,
       SKS: 37,
     },
+    unique: true,
     source: '點數/法典→已廢棄',
     obsolete: true,
   },
@@ -14053,6 +14076,7 @@ export default [
       DHT: 26,
       CRT: 37,
     },
+    unique: true,
     source: '點數/法典→已廢棄',
     obsolete: true,
   },
@@ -14072,6 +14096,7 @@ export default [
       PIE: 37,
       CRT: 26,
     },
+    unique: true,
     source: '點數/法典→已廢棄',
     obsolete: true,
   },
@@ -14091,6 +14116,7 @@ export default [
       DHT: 26,
       CRT: 37,
     },
+    unique: true,
     source: '點數/法典→已廢棄',
     obsolete: true,
   },
@@ -20567,6 +20593,7 @@ export default [
       DHT: 27,
       SKS: 38,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -20639,6 +20666,7 @@ export default [
       CRT: 27,
       DET: 38,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -20711,6 +20739,7 @@ export default [
       DHT: 27,
       DET: 38,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -20783,6 +20812,7 @@ export default [
       PIE: 38,
       DET: 27,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -20855,6 +20885,7 @@ export default [
       DET: 27,
       SPS: 38,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -25806,6 +25837,7 @@ export default [
       DET: 38,
       SKS: 27,
     },
+    unique: true,
     source: '迷宮挑戰/植物園、天狼星燈塔',
   },
   {
@@ -25878,6 +25910,7 @@ export default [
       CRT: 38,
       DET: 27,
     },
+    unique: true,
     source: '迷宮挑戰/植物園、天狼星燈塔',
   },
   {
@@ -25950,6 +25983,7 @@ export default [
       CRT: 38,
       DET: 27,
     },
+    unique: true,
     source: '迷宮挑戰/植物園、天狼星燈塔',
   },
   {
@@ -26022,6 +26056,7 @@ export default [
       CRT: 38,
       DET: 27,
     },
+    unique: true,
     source: '迷宮挑戰/植物園、天狼星燈塔',
   },
   {
@@ -26094,6 +26129,7 @@ export default [
       CRT: 38,
       DET: 27,
     },
+    unique: true,
     source: '迷宮挑戰/植物園、天狼星燈塔',
   },
   {
@@ -28076,6 +28112,7 @@ export default [
       DHT: 39,
       DET: 27,
     },
+    unique: true,
     source: '大型任務/啟動之章',
   },
   {
@@ -28094,6 +28131,7 @@ export default [
       CRT: 39,
       DET: 27,
     },
+    unique: true,
     source: '大型任務/啟動之章',
   },
   {
@@ -28112,6 +28150,7 @@ export default [
       DHT: 27,
       DET: 39,
     },
+    unique: true,
     source: '大型任務/啟動之章',
   },
   {
@@ -28130,6 +28169,7 @@ export default [
       PIE: 27,
       DET: 39,
     },
+    unique: true,
     source: '大型任務/啟動之章',
   },
   {
@@ -28148,6 +28188,7 @@ export default [
       CRT: 27,
       SPS: 39,
     },
+    unique: true,
     source: '大型任務/啟動之章',
   },
   {
@@ -29778,6 +29819,7 @@ export default [
       DHT: 39,
       DET: 27,
     },
+    unique: true,
     source: '迷宮挑戰/顛倒塔、無限城市街',
   },
   {
@@ -29850,6 +29892,7 @@ export default [
       DET: 39,
       SKS: 27,
     },
+    unique: true,
     source: '迷宮挑戰/顛倒塔、無限城市街',
   },
   {
@@ -29922,6 +29965,7 @@ export default [
       DHT: 39,
       CRT: 27,
     },
+    unique: true,
     source: '迷宮挑戰/顛倒塔、無限城市街',
   },
   {
@@ -29994,6 +30038,7 @@ export default [
       PIE: 27,
       CRT: 39,
     },
+    unique: true,
     source: '迷宮挑戰/顛倒塔、無限城市街',
   },
   {
@@ -30066,6 +30111,7 @@ export default [
       DHT: 39,
       CRT: 27,
     },
+    unique: true,
     source: '迷宮挑戰/顛倒塔、無限城市街',
   },
   {
@@ -32405,6 +32451,7 @@ export default [
       TEN: 27,
       DET: 39,
     },
+    unique: true,
     source: '點數/禁書→已廢棄',
     obsolete: true,
   },
@@ -32424,6 +32471,7 @@ export default [
       DHT: 27,
       SKS: 39,
     },
+    unique: true,
     source: '點數/禁書→已廢棄',
     obsolete: true,
   },
@@ -32443,6 +32491,7 @@ export default [
       DET: 27,
       SKS: 39,
     },
+    unique: true,
     source: '點數/禁書→已廢棄',
     obsolete: true,
   },
@@ -32462,6 +32511,7 @@ export default [
       DET: 27,
       SPS: 39,
     },
+    unique: true,
     source: '點數/禁書→已廢棄',
     obsolete: true,
   },
@@ -32481,6 +32531,7 @@ export default [
       DET: 39,
       SPS: 27,
     },
+    unique: true,
     source: '點數/禁書→已廢棄',
     obsolete: true,
   },
@@ -37021,6 +37072,7 @@ export default [
       DHT: 40,
       DET: 28,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -37093,6 +37145,7 @@ export default [
       DHT: 28,
       DET: 40,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -37165,6 +37218,7 @@ export default [
       DHT: 40,
       CRT: 28,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -37237,6 +37291,7 @@ export default [
       PIE: 28,
       SPS: 40,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {
@@ -37309,6 +37364,7 @@ export default [
       DHT: 40,
       CRT: 28,
     },
+    unique: true,
     source: '狼印戰績',
   },
   {

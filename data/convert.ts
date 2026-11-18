@@ -153,6 +153,8 @@ const gears = Item
     ret.materiaAdvanced = x['IsAdvancedMeldingPermitted'] === 'True' ? true : undefined;
     ret.stats = {};
     ret.hq = x['CanBeHq'] === 'True' ? true : undefined;
+    // 唯一裝備只對戒指有意義（兩個戒指欄位不能同時裝備同一件唯一戒指），為控制資料大小只輸出戒指的標記
+    ret.unique = ret.slot === 12 && x['IsUnique'] === 'True' ? true : undefined;
     ret.source = sourceOfId[ret.id];
     ret.patch = patchOfId[ret.id];
     ret.obsolete = (ret.rarity === 7 && ret.source !== '危命任務' && !(ret.slot >= 9 && ret.slot <= 12)) ||

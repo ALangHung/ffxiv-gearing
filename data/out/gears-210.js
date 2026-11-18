@@ -1314,6 +1314,7 @@ export default [
       DHT: 40,
       CRT: 28,
     },
+    unique: true,
     source: '零式/啟動之章',
   },
   {
@@ -1332,6 +1333,7 @@ export default [
       DHT: 40,
       CRT: 28,
     },
+    unique: true,
     source: '零式/啟動之章',
   },
   {
@@ -1350,6 +1352,7 @@ export default [
       DHT: 28,
       CRT: 40,
     },
+    unique: true,
     source: '零式/啟動之章',
   },
   {
@@ -1368,6 +1371,7 @@ export default [
       PIE: 28,
       CRT: 40,
     },
+    unique: true,
     source: '零式/啟動之章',
   },
   {
@@ -1386,6 +1390,7 @@ export default [
       DHT: 40,
       CRT: 28,
     },
+    unique: true,
     source: '零式/啟動之章',
   },
   {
@@ -5509,6 +5514,7 @@ export default [
       CRT: 41,
       SKS: 29,
     },
+    unique: true,
     source: '迷宮挑戰/憶罪宮、破艦島',
   },
   {
@@ -5581,6 +5587,7 @@ export default [
       DET: 41,
       SKS: 29,
     },
+    unique: true,
     source: '迷宮挑戰/憶罪宮、破艦島',
   },
   {
@@ -5653,6 +5660,7 @@ export default [
       CRT: 29,
       DET: 41,
     },
+    unique: true,
     source: '迷宮挑戰/憶罪宮、破艦島',
   },
   {
@@ -5725,6 +5733,7 @@ export default [
       CRT: 29,
       SPS: 41,
     },
+    unique: true,
     source: '迷宮挑戰/憶罪宮、破艦島',
   },
   {
@@ -5797,6 +5806,7 @@ export default [
       DHT: 29,
       DET: 41,
     },
+    unique: true,
     source: '迷宮挑戰/憶罪宮、破艦島',
   },
   {
@@ -7514,6 +7524,7 @@ export default [
       TEN: 29,
       SKS: 41,
     },
+    unique: true,
     source: '大型任務/律動之章',
   },
   {
@@ -7532,6 +7543,7 @@ export default [
       DHT: 41,
       DET: 29,
     },
+    unique: true,
     source: '大型任務/律動之章',
   },
   {
@@ -7550,6 +7562,7 @@ export default [
       DHT: 41,
       CRT: 29,
     },
+    unique: true,
     source: '大型任務/律動之章',
   },
   {
@@ -7568,6 +7581,7 @@ export default [
       PIE: 29,
       DET: 41,
     },
+    unique: true,
     source: '大型任務/律動之章',
   },
   {
@@ -7586,6 +7600,7 @@ export default [
       DHT: 29,
       SPS: 41,
     },
+    unique: true,
     source: '大型任務/律動之章',
   },
   {
@@ -9673,6 +9688,7 @@ export default [
       TEN: 29,
       CRT: 41,
     },
+    unique: true,
     source: '迷宮挑戰/塞爾法特爾溪谷、圖書館',
   },
   {
@@ -9745,6 +9761,7 @@ export default [
       CRT: 41,
       SKS: 29,
     },
+    unique: true,
     source: '迷宮挑戰/塞爾法特爾溪谷、圖書館',
   },
   {
@@ -9817,6 +9834,7 @@ export default [
       CRT: 41,
       SKS: 29,
     },
+    unique: true,
     source: '迷宮挑戰/塞爾法特爾溪谷、圖書館',
   },
   {
@@ -9889,6 +9907,7 @@ export default [
       DET: 41,
       SPS: 29,
     },
+    unique: true,
     source: '迷宮挑戰/塞爾法特爾溪谷、圖書館',
   },
   {
@@ -9961,6 +9980,7 @@ export default [
       DET: 41,
       SPS: 29,
     },
+    unique: true,
     source: '迷宮挑戰/塞爾法特爾溪谷、圖書館',
   },
   {
@@ -11349,6 +11369,7 @@ export default [
       DHT: 29,
       SKS: 42,
     },
+    unique: true,
     source: '點數/傳承→已廢棄',
     obsolete: true,
   },
@@ -11368,6 +11389,7 @@ export default [
       DET: 42,
       SKS: 29,
     },
+    unique: true,
     source: '點數/傳承→已廢棄',
     obsolete: true,
   },
@@ -11387,6 +11409,7 @@ export default [
       CRT: 29,
       DET: 42,
     },
+    unique: true,
     source: '點數/傳承→已廢棄',
     obsolete: true,
   },
@@ -11406,6 +11429,7 @@ export default [
       CRT: 29,
       SPS: 42,
     },
+    unique: true,
     source: '點數/傳承→已廢棄',
     obsolete: true,
   },
@@ -11425,6 +11449,7 @@ export default [
       CRT: 29,
       SPS: 42,
     },
+    unique: true,
     source: '點數/傳承→已廢棄',
     obsolete: true,
   },
@@ -15823,6 +15848,7 @@ export default [
       DET: 42,
       SKS: 29,
     },
+    unique: true,
     source: '狼印戰績/牙狼聯動',
   },
   {
@@ -15895,6 +15921,7 @@ export default [
       DET: 29,
       SKS: 42,
     },
+    unique: true,
     source: '狼印戰績/牙狼聯動',
   },
   {
@@ -15967,6 +15994,7 @@ export default [
       DET: 29,
       SKS: 42,
     },
+    unique: true,
     source: '狼印戰績/牙狼聯動',
   },
   {
@@ -16039,6 +16067,7 @@ export default [
       CRT: 29,
       DET: 42,
     },
+    unique: true,
     source: '狼印戰績/牙狼聯動',
   },
   {
@@ -16111,6 +16140,7 @@ export default [
       CRT: 42,
       DET: 29,
     },
+    unique: true,
     source: '狼印戰績/牙狼聯動',
   },
   {
@@ -19226,6 +19256,7 @@ export default [
       DHT: 43,
       DET: 30,
     },
+    unique: true,
     source: '零式/律動之章',
   },
   {
@@ -19244,6 +19275,7 @@ export default [
       DHT: 43,
       CRT: 30,
     },
+    unique: true,
     source: '零式/律動之章',
   },
   {
@@ -19262,6 +19294,7 @@ export default [
       DHT: 30,
       SKS: 43,
     },
+    unique: true,
     source: '零式/律動之章',
   },
   {
@@ -19280,6 +19313,7 @@ export default [
       PIE: 43,
       DET: 30,
     },
+    unique: true,
     source: '零式/律動之章',
   },
   {
@@ -19298,6 +19332,7 @@ export default [
       DHT: 43,
       DET: 30,
     },
+    unique: true,
     source: '零式/律動之章',
   },
   {
@@ -20697,6 +20732,7 @@ export default [
       CRT: 43,
       SKS: 30,
     },
+    unique: true,
     source: '迷宮挑戰/巴埃薩長城、索姆阿爾靈峰',
   },
   {
@@ -20769,6 +20805,7 @@ export default [
       CRT: 30,
       SKS: 43,
     },
+    unique: true,
     source: '迷宮挑戰/巴埃薩長城、索姆阿爾靈峰',
   },
   {
@@ -20841,6 +20878,7 @@ export default [
       CRT: 43,
       SKS: 30,
     },
+    unique: true,
     source: '迷宮挑戰/巴埃薩長城、索姆阿爾靈峰',
   },
   {
@@ -20913,6 +20951,7 @@ export default [
       CRT: 43,
       SPS: 30,
     },
+    unique: true,
     source: '迷宮挑戰/巴埃薩長城、索姆阿爾靈峰',
   },
   {
@@ -20985,6 +21024,7 @@ export default [
       CRT: 30,
       DET: 43,
     },
+    unique: true,
     source: '迷宮挑戰/巴埃薩長城、索姆阿爾靈峰',
   },
   {
@@ -22409,6 +22449,7 @@ export default [
       DET: 31,
       SKS: 44,
     },
+    unique: true,
     source: '大型任務/天動之章',
   },
   {
@@ -22427,6 +22468,7 @@ export default [
       CRT: 44,
       SKS: 31,
     },
+    unique: true,
     source: '大型任務/天動之章',
   },
   {
@@ -22445,6 +22487,7 @@ export default [
       CRT: 31,
       SKS: 44,
     },
+    unique: true,
     source: '大型任務/天動之章',
   },
   {
@@ -22463,6 +22506,7 @@ export default [
       CRT: 44,
       SPS: 31,
     },
+    unique: true,
     source: '大型任務/天動之章',
   },
   {
@@ -22481,6 +22525,7 @@ export default [
       CRT: 44,
       DET: 31,
     },
+    unique: true,
     source: '大型任務/天動之章',
   },
   {
