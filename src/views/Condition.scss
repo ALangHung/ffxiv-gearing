@@ -4,6 +4,21 @@
   position: relative;
   margin-top: 10px;
   overflow: visible;
+  // 與下方的 .summary 一樣貼齊畫面邊緣固定，捲動時只捲動中間的裝備列表
+  @media (min-width: 1080px) {
+    .app-edit & {
+      position: sticky;
+      top: 0;
+      margin-top: 0;
+      padding: 0 12px;
+      margin-left: -12px;
+      margin-right: -12px;
+      z-index: 7;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      @include elevation(4);
+    }
+  }
 }
 .condition_divider {
   display: inline-block;

@@ -61,11 +61,18 @@ const DropdownPopper = mobxReact.observer<DropdownProps & {
   const popperContainer = document.getElementById('popper');
   React.useLayoutEffect(() => {
     if (labelElement === null || popperElement === null) return;
-    if (popperOptions.strategy !== 'fixed') {
+    // 固定在畫面上的按鈕（如上方導航列）展開的彈窗改用 fixed 定位：
+    // absolute 定位的彈窗捲動時會先隨頁面移動，再由 popper 重新定位回按鈕下方，造成抖動
+    const sticky = popperOptions.strategy !== 'fixed' && hasStickyAncestor(labelElement);
+    if (popperOptions.strategy !== 'fixed' && !sticky) {
       popperOptions.modifiers.push({ name: 'flip', options: { padding: { bottom: 50 } }});
     }
-    const popperInstance = PopperJS.createPopper(labelElement, popperElement, popperOptions);
-    if (popperOptions.strategy === 'fixed') {
+    const popperInstance = PopperJS.createPopper(labelElement, popperElement,
+      sticky ? { ...popperOptions, strategy: 'fixed' } : popperOptions);
+    if (sticky) {
+      // 高於導航列（.condition 的 z-index: 7），彈窗不會被導航列蓋住；其他 absolute 彈窗捲動時則會被導航列蓋住
+      popperElement.style.zIndex = '8';  // for search: z-index: 8;
+    } else if (popperOptions.strategy === 'fixed') {
       popperElement.style.zIndex = '7';  // for search: z-index: 7;
     }
     return () => popperInstance.destroy();
@@ -102,6 +109,13 @@ const DropdownPopper = mobxReact.observer<DropdownProps & {
     />
   ), popperContainer);
 });
+
+function hasStickyAncestor(element: HTMLElement) {
+  for (let e: HTMLElement | null = element; e !== null; e = e.parentElement) {
+    if (getComputedStyle(e).position === 'sticky') return true;
+  }
+  return false;
+}
 
 let onGlobalClick: ((e: MouseEvent) => void) | undefined;
 window.addEventListener('click', e => onGlobalClick?.(e), true);
