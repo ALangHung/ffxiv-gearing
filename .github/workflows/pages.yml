@@ -28,6 +28,10 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          # 配裝最佳化的問題回報，未設定時不啟用（Settings → Secrets and variables → Actions → Variables）
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
 
       - uses: actions/configure-pages@v5
 

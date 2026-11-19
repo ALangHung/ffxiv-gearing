@@ -10,6 +10,7 @@ import { Radio } from './@rmwc/radio';
 import { TextField } from './@rmwc/textfield';
 import type { MateriaOvermeldLimit } from '../stores/Setting';
 import * as G from '../game';
+import { optimizerReportEnabled, SLOW_THRESHOLD } from '../optimizerReport';
 import type { IGear } from '../stores';
 import { useStore } from './components/contexts';
 
@@ -263,6 +264,12 @@ const GearOptimization = mobxReact.observer(() => {
         <p>{`魔晶石只鑲嵌暴擊、信念、直擊與${speedName}（${speedName}只鑲嵌到達成 GCD 目標所需的量），不鑲嵌堅韌；` +
             '裝備上已鑲嵌的其他屬性魔晶石維持不變。'}</p>
         <p>幻境武器的自訂屬性不參與最佳化，沿用已填入的數值。品級範圍較寬且 GCD 目標較低時計算量較大，可能需要數秒。</p>
+        {optimizerReportEnabled && (
+          <p className="gear-optimization_report-note">
+            {`計算失敗或超過 ${SLOW_THRESHOLD / 1000} 秒時，會自動回報本次計算的條件（候選裝備、魔晶石與設定）` +
+              '及瀏覽器資訊，用於改善演算法。'}
+          </p>
+        )}
       </div>
       <div className="materia-det-dht-optimization_option">
         <span className="materia-det-dht-optimization_option-title">GCD</span>

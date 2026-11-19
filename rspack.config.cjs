@@ -5,8 +5,28 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // require('browserslist')() can't match lightningcss built-in browserslist-rs
 const targets = fs.readFileSync('./.browserslistrc', 'utf8').split(/\r?\n/).filter(Boolean);
 
+// 配裝最佳化的問題回報（見 src/optimizerReport.ts）：設定 SUPABASE_URL 與 SUPABASE_ANON_KEY 才會啟用。
+// 本機可寫在 .env.local（不納入版本控制）；部署時由 GitHub Actions 的 repository variables 提供。
+// 只取這兩個變數寫入前端，.env.local 中的 SUPABASE_SERVICE_ROLE_KEY（重播腳本使用）不會被打包。
+// 回報是自動送出的，為免開發中的程式碼污染資料，開發模式（rspack serve）預設不啟用；
+// 要在開發模式測試回報時，另外設定環境變數 SUPABASE_REPORT_IN_DEV=1。
+try {
+  process.loadEnvFile('./.env.local');
+} catch {
+  // 沒有 .env.local
+}
+const commit = (() => {
+  if (process.env.GITHUB_SHA) return process.env.GITHUB_SHA;
+  try {
+    return require('child_process').execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
+  } catch {
+    return '';
+  }
+})();
+
 module.exports = function (env, argv) {
   const prod = argv && argv.mode === 'production';
+  const report = prod || process.env.SUPABASE_REPORT_IN_DEV === '1';
   return {
     mode: prod ? 'production' : 'development',
     entry: {
@@ -130,6 +150,10 @@ module.exports = function (env, argv) {
         __PATCH__: JSON.stringify(/更新游戏数据至(\d+\.\d+)/.exec(changelog)[1]),
         __VERSION__: JSON.stringify(/### `([^`]+)`/.exec(changelog)[1]),
         __BUILD_DATE__: Date.now(),
+        __COMMIT__: JSON.stringify(commit),
+        // 後台顯示的 API URL 結尾帶有 /rest/v1/，貼上時一併去掉
+        __SUPABASE_URL__: JSON.stringify(report ? (process.env.SUPABASE_URL ?? '').replace(/(\/rest\/v1)?\/*$/, '') : ''),
+        __SUPABASE_ANON_KEY__: JSON.stringify(report ? process.env.SUPABASE_ANON_KEY ?? '' : ''),
       }))(fs.readFileSync('./CHANGELOG.md', 'utf8'))),
       new rspack.HtmlRspackPlugin({
         template: './src/index.html',

@@ -3,6 +3,10 @@ import * as mst from 'mobx-state-tree';
 import * as G from '../game';
 import * as share from '../share';
 import type { OptimizerGear, OptimizerInput, OptimizerResult } from '../optimizer';
+import { optimizerReportEnabled, optimizerReportApp, optimizerReportClient, newOptimizerRunId,
+  sendOptimizerReport, SLOW_THRESHOLD } from '../optimizerReport';
+import { serializeOptimizerInput } from '../optimizerReportFormat';
+import type { OptimizerReportRow } from '../optimizerReportFormat';
 import { floor, ceil, Setting, Promotion, GearUnion, GearUnionReference,
   gearData, gearDataOrdered, gearDataLoading, loadGearDataOfGearId, loadGearDataOfLevelRange } from '.';
 import type { IGear, IFood, IGearUnion, IMateria } from '.';
@@ -46,6 +50,38 @@ export type GearOptimizationState =
   { status: 'done', job: G.Job, result: OptimizerResult } |
   { status: 'error', job: G.Job, error: string };
 
+/** 最近一次配裝最佳化的輸入與時間，供問題回報使用 */
+interface GearOptimizationRun {
+  id: string,
+  input: OptimizerInput,
+  startTime: number,
+  finishTime?: number,
+  /** 已自動回報 slow 或 error（附計算輸入）；slow 之後的結果會再補送 */
+  reported?: boolean,
+  /** 計算超過 SLOW_THRESHOLD 時回報 slow 的計時器 */
+  slowTimer?: ReturnType<typeof setTimeout>,
+}
+
+/**
+ * 自動回報配裝最佳化的問題（見 src/optimizerReport.ts）；失敗時只記錄於主控台。
+ * withInput 為 true 時附上計算輸入並標記此次計算已回報，否則為已回報計算的後續結果（完成、失敗、取消、關閉頁面）。
+ */
+function sendGearOptimizationReport(
+  run: GearOptimizationRun,
+  row: Pick<OptimizerReportRow, 'kind' | 'elapsed_ms' | 'error' | 'result'>,
+  { withInput = false, keepalive = false } = {},
+): void {
+  if (!optimizerReportEnabled) return;
+  if (withInput) run.reported = true;
+  sendOptimizerReport({
+    run_id: run.id,
+    app: optimizerReportApp,
+    client: optimizerReportClient(),
+    ...row,
+    ...(withInput ? { input: serializeOptimizerInput(run.input) } : {}),
+  }, keepalive).catch(error => console.warn('配裝最佳化的問題回報送出失敗', error));
+}
+
 export interface SourceFilterGroup {
   group: string,
   label: string,
@@ -81,6 +117,7 @@ export const Store = mst.types
     autoSelectScheduled: false,
     gearOptimization: { status: 'idle' } as GearOptimizationState,
     gearOptimizationWorker: undefined as Worker | undefined,
+    gearOptimizationRun: undefined as GearOptimizationRun | undefined,
   }))
   .views(self => ({
     get hiddenSourceSet(): Set<string> {
@@ -910,6 +947,20 @@ export const Store = mst.types
       worker.terminate();
       self.gearOptimizationWorker = undefined;
       self.gearOptimization = state;
+      const run = self.gearOptimizationRun;
+      if (run === undefined) return;
+      clearTimeout(run.slowTimer);
+      run.finishTime = Date.now();
+      const elapsed = run.finishTime - run.startTime;
+      if (state.status === 'done') {
+        if (!run.reported) return;
+        const { damage, gcd, gcdUnmet } = state.result;
+        sendGearOptimizationReport(run, { kind: 'done', elapsed_ms: elapsed, result: { damage, gcd, gcdUnmet } });
+      } else if (state.status === 'error') {
+        // 已回報 slow 的計算不再重複附上輸入
+        sendGearOptimizationReport(run, { kind: 'error', elapsed_ms: elapsed, error: state.error },
+          { withInput: !run.reported });
+      }
     },
     setFilterFocus(filterFocus: FilterFocus) {
       self.filterFocus = filterFocus;
@@ -1019,7 +1070,17 @@ export const Store = mst.types
     cancelGearOptimization(): void {
       self.gearOptimizationWorker?.terminate();
       self.gearOptimizationWorker = undefined;
-      if (self.gearOptimization.status === 'running') self.setGearOptimization({ status: 'idle' });
+      if (self.gearOptimization.status === 'running') {
+        const run = self.gearOptimizationRun;
+        if (run !== undefined) {
+          clearTimeout(run.slowTimer);
+          run.finishTime = Date.now();
+          if (run.reported) {
+            sendGearOptimizationReport(run, { kind: 'cancelled', elapsed_ms: run.finishTime - run.startTime });
+          }
+        }
+        self.setGearOptimization({ status: 'idle' });
+      }
     },
     startGearOptimization(): void {
       if (self.gearOptimizationUnavailableReason !== undefined) return;
@@ -1027,8 +1088,17 @@ export const Store = mst.types
       const job = self.job!;
       const input = self.gearOptimizationInput;
       const worker = new Worker(new URL('../optimizer.worker.ts', import.meta.url));
+      const startTime = Date.now();
       self.gearOptimizationWorker = worker;
-      self.setGearOptimization({ status: 'running', job, startTime: Date.now() });
+      const run: GearOptimizationRun = { id: newOptimizerRunId(), input, startTime };
+      self.gearOptimizationRun = run;
+      if (optimizerReportEnabled) {
+        run.slowTimer = setTimeout(() => {
+          if (self.gearOptimizationRun !== run || self.gearOptimization.status !== 'running') return;
+          sendGearOptimizationReport(run, { kind: 'slow', elapsed_ms: Date.now() - startTime }, { withInput: true });
+        }, SLOW_THRESHOLD);
+      }
+      self.setGearOptimization({ status: 'running', job, startTime });
       const finish = (state: GearOptimizationState) => self.finishGearOptimization(worker, state);
       worker.onmessage = (e: MessageEvent<{ result?: OptimizerResult, error?: string }>) => {
         const { result, error } = e.data;
@@ -1073,6 +1143,13 @@ export const Store = mst.types
       });
       mobx.reaction(() => self.filteredIds, self.createGears, { fireImmediately: true });
       mobx.reaction(() => self.autoSelectScheduled && self.groupedGears, self.autoSelect);
+      // 已回報的計算在關閉頁面時仍未完成，補送 abandoned（keepalive 讓請求在頁面關閉後繼續送出）
+      window.addEventListener('pagehide', () => {
+        const run = self.gearOptimizationRun;
+        if (run === undefined || self.gearOptimization.status !== 'running' || !run.reported) return;
+        sendGearOptimizationReport(run, { kind: 'abandoned', elapsed_ms: Date.now() - run.startTime },
+          { keepalive: true });
+      });
     },
   }));
 

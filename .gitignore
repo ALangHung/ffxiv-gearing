@@ -1,6 +1,9 @@
 # NPM
 node_modules/
 
+# Local secrets（Supabase 金鑰等）
+.env.local
+
 # Build
 /dist/
 /test/optimizer/dist/
