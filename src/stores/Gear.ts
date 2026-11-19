@@ -38,6 +38,8 @@ export const Gear = mst.types
     get materiaAdvanced() { return self.data.materiaAdvanced; },
     get hq() { return self.data.hq; },
     get customizable() { return self.data.customizable; },
+    /** 幻境武器最終階段的屬性分配規則，其他裝備為 undefined（自訂屬性可自由填寫） */
+    get relicRule(): G.RelicRule | undefined { return G.getRelicRule(self.data, self.store.schema.stats); },
     get source() { return self.data.source; },
     get color(): GearColor {
       const { gearColorScheme } = self.store.setting;
@@ -109,6 +111,16 @@ export const Gear = mst.types
         self.customStats!.set(stat, value <= G.customStatMax ? value : G.customStatMax);
       } else {
         self.customStats!.delete(stat);
+      }
+    },
+    /** 幻境武器最終階段：將某屬性設為「大」「小」或不選，維持兩大一小的規則 */
+    setRelicTier(stat: G.Stat, tier: G.RelicTier | undefined) {
+      this.setCustomStats(G.setRelicTier(self.relicRule!, self.customStats!.toJSON(), stat, tier));
+    },
+    setCustomStats(stats: G.Stats) {
+      self.customStats!.clear();
+      for (const [ stat, value ] of Object.entries(stats) as G.StatPairs) {
+        self.customStats!.set(stat, value);
       }
     },
     initialize() {

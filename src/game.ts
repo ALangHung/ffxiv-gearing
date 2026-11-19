@@ -120,6 +120,79 @@ export const baseStats: { [index in Stat]?: 'main' | 'sub' | number } = {
 
 export const customStatMax = 1000;
 
+/** 幻境武器最終階段（795 品級）的屬性分配規則：兩種屬性為「大」（該屬性上限值）、一種為「小」（固定值） */
+export interface RelicRule {
+  stats: Stat[],  // 可選的屬性
+  large: Stats,  // 各屬性選為「大」時的數值
+  small: number,  // 選為「小」時的數值
+}
+export type RelicTier = 'large' | 'small';
+const relicRuleLevel = 795;
+const relicSmallValues: { [index: number]: number } = { 13: 108, 1: 76, 2: 32 };  // 雙手武器、單手武器、盾
+const relicLargeCount = 2;
+const relicSmallCount = 1;
+
+/** 取得裝備的屬性分配規則，不是幻境武器最終階段時為 undefined。
+ *  可選屬性為職業顯示的副屬性；坦克與治療（顯示七種屬性的職能）不能選直擊。
+ *  數值與 xivgear.app 相同：雙手 447／108，騎士劍 319／76，騎士盾 128／32（大＝該部位的屬性上限） */
+export function getRelicRule(gear: Gear, schemaStats: Stat[]): RelicRule | undefined {
+  if (!gear.customizable || gear.level !== relicRuleLevel) return undefined;
+  const small = relicSmallValues[gear.slot];
+  if (small === undefined) return undefined;
+  const caps = getCaps(gear);
+  const stats = schemaStats.filter(stat => stat in materias && !(stat === 'DHT' && schemaStats.length >= 7));
+  const large: Stats = {};
+  for (const stat of stats) large[stat] = caps[stat];
+  return { stats, large, small };
+}
+
+/** 自訂屬性中某屬性屬於「大」或「小」，數值不符規則時為 undefined */
+export function relicTierOf(rule: RelicRule, stat: Stat, value: number | undefined): RelicTier | undefined {
+  if (!rule.stats.includes(stat) || value === undefined) return undefined;
+  return value === rule.large[stat] ? 'large' : value === rule.small ? 'small' : undefined;
+}
+
+/** 自訂屬性是否完全符合規則（恰好兩大一小、沒有其他屬性） */
+export function isRelicComplete(rule: RelicRule, customStats: Stats): boolean {
+  let large = 0;
+  let small = 0;
+  for (const [ stat, value ] of Object.entries(customStats) as StatPairs) {
+    const tier = relicTierOf(rule, stat, value);
+    if (tier === 'large') large++; else if (tier === 'small') small++; else return false;
+  }
+  return large === relicLargeCount && small === relicSmallCount;
+}
+
+/** 將某屬性設為「大」「小」或不選，回傳新的自訂屬性；不符規則的既有數值會被移除，
+ *  同一級距超出數量時移除最早選的屬性（依物件的插入順序） */
+export function setRelicTier(rule: RelicRule, customStats: Stats, stat: Stat, tier: RelicTier | undefined): Stats {
+  const entries = (Object.entries(customStats) as StatPairs)
+    .filter(([ s, value ]) => s !== stat && relicTierOf(rule, s, value) !== undefined);
+  if (tier !== undefined && rule.stats.includes(stat)) {
+    const limit = tier === 'large' ? relicLargeCount : relicSmallCount;
+    const sameTier = entries.filter(([ s, value ]) => relicTierOf(rule, s, value) === tier);
+    for (const [ s ] of sameTier.slice(0, Math.max(0, sameTier.length - limit + 1))) {
+      entries.splice(entries.findIndex(([ x ]) => x === s), 1);
+    }
+    entries.push([ stat, tier === 'large' ? rule.large[stat]! : rule.small ]);
+  }
+  return Object.fromEntries(entries);
+}
+
+/** 從指定屬性中列舉所有「兩大一小」的分配 */
+export function relicAllocations(rule: RelicRule, stats: Stat[] = rule.stats): Stats[] {
+  const allocations: Stats[] = [];
+  for (let i = 0; i < stats.length; i++) {
+    for (let j = i + 1; j < stats.length; j++) {
+      for (const small of stats) {
+        if (small === stats[i] || small === stats[j]) continue;
+        allocations.push({ [stats[i]]: rule.large[stats[i]], [stats[j]]: rule.large[stats[j]], [small]: rule.small });
+      }
+    }
+  }
+  return allocations;
+}
+
 const statSchemas: { [index: string]: Stat[] } = {
   tank: ['STR', 'CRT', 'DET', 'DHT', 'SKS', 'TEN', 'VIT'],
   healer: ['MND', 'CRT', 'DET', 'DHT', 'SPS', 'PIE', 'VIT'],

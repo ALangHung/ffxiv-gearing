@@ -29,9 +29,12 @@
 //
 // 已知的限制：
 // - 堅韌魔晶石一律不鑲嵌（每點收益明顯低於其他屬性）；裝備本身的堅韌會精確計入傷害。
-// - 幻境武器（可自訂屬性的裝備）不參與屬性分配最佳化，沿用使用者已填入的自訂屬性。
-//   依 Console Games Wiki，795 品級幻境武器為「兩種屬性 447、第三種 108」，
-//   可選屬性為暴擊、信念及依職能而定的兩種；但此規則未經確認，騎士劍與盾的數值也不明，暫不實作。
+// - 幻境武器最終階段（795 品級，規則見 G.getRelicRule）的屬性分配一併最佳化：每種「兩大一小」的分配
+//   各自是一個選項，與魔晶石選項一樣參與剔除與搜尋。可選屬性為受管理的屬性加上堅韌（坦克）：
+//   魔晶石不鑲堅韌是因為每點收益低，但幻武的分配是在固定的幾種屬性中挑選，速度超出需求時
+//   選堅韌可能比選技速更好，因此納入比較；信仰不影響傷害，不選。和目前已填入的分配不同時，
+//   每個不同的屬性計為一次改動。
+//   其他可自訂屬性的裝備（舊版本的幻境武器）沿用使用者已填入的自訂屬性。
 // - 不支援等級同步；品級同步下被同步的裝備魔晶石失效，維持原有魔晶石不變。
 
 import * as G from './game';
@@ -74,6 +77,7 @@ export interface OptimizerGearResult {
   slot: number,
   id: G.GearId,
   materiaStats?: (G.Stat | undefined)[],  // undefined 表示不更動此裝備的魔晶石
+  customStats?: G.Stats,  // 幻境武器最終階段的屬性分配，undefined 表示不更動
 }
 
 export interface OptimizerResult {
@@ -103,6 +107,7 @@ interface Choice {
   slot: number,
   id: G.GearId,
   materiaStats?: (G.Stat | undefined)[],
+  customStats?: G.Stats,
 }
 
 interface Option {
@@ -299,17 +304,34 @@ export function optimize(input: OptimizerInput): OptimizerResult {
   const wdStat: G.Stat = mainStat === 'MND' || mainStat === 'INT' ? 'MDMG' : 'PDMG';
   const speedStat: G.Stat = schema.stats.includes('SPS') ? 'SPS' : 'SKS';
   const managedStats: G.Stat[] = ['CRT', 'DET', 'DHT', speedStat];
+  const relicStats: G.Stat[] = [...managedStats, 'TEN'];  // 幻境武器最終階段可分配的屬性（實際再依職業篩選）
   const dimStats: G.Stat[] = [attackMainStat, wdStat, speedStat, 'CRT', 'DET', 'DHT', 'TEN'];
 
   // ---- 1. 每件裝備的選項
 
   const gearOptions = (slot: number, gear: OptimizerGear): Option[] => {
+    const relicRule = G.getRelicRule(gear.data, schema.stats);
+    if (relicRule === undefined) return materiaOptions(slot, gear, gear.customStats, 0);
+    // 幻境武器最終階段：每種分配各自列舉（沒有魔晶石孔，每種分配只有一個選項）
+    const current = gear.customStats ?? {};
+    const options = G.relicAllocations(relicRule, relicRule.stats.filter(stat => relicStats.includes(stat)))
+      .flatMap(customStats => {
+        const stats = new Set([...Object.keys(current), ...Object.keys(customStats)] as G.Stat[]);
+        const changes = Array.from(stats).filter(stat => current[stat] !== customStats[stat]).length;
+        return materiaOptions(slot, gear, customStats, changes)
+          .map(option => ({ ...option, choices: option.choices.map(choice => ({ ...choice, customStats })) }));
+      });
+    return paretoOptions(options);
+  };
+
+  const materiaOptions = (slot: number, gear: OptimizerGear, customStats: G.Stats | undefined,
+    customChanges: number): Option[] => {
     const { data } = gear;
     const syncedLevel = G.calcSyncedLevel(data, jobLevel, syncLevel);
-    const statsOptions = { mainStat, secondaryStat: schema.secondaryStat, customStats: gear.customStats, syncedLevel };
+    const statsOptions = { mainStat, secondaryStat: schema.secondaryStat, customStats, syncedLevel };
     // 基礎屬性中沒有的屬性（非坦克職業的堅韌）與介面的屬性合計一致，一律忽略
     const vectorOf = (stats: G.Stats) => dimStats.map(stat => baseStats[stat] === undefined ? 0 : stats[stat] ?? 0);
-    const gearChange = gear.equipped ? 0 : CHANGE_GEAR;
+    const gearChange = (gear.equipped ? 0 : CHANGE_GEAR) + customChanges;
 
     const currentStats = gear.materias.map(m => m.stat);
     const fixedMateriaStats: G.Stats = {};

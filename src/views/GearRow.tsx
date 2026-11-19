@@ -10,6 +10,7 @@ import { IconButton } from './components/IconButton';
 import { Dropdown } from './components/Dropdown';
 import { GearMenu } from './GearMenu';
 import { Materia } from './Materia';
+import { RelicAllocation } from './RelicPanel';
 
 export const GearRow = mobxReact.observer<{
   gear?: IGearUnion,
@@ -71,6 +72,7 @@ export const GearRow = mobxReact.observer<{
         {!gear.isFood && gear.materias.map((materia, i) => (
           <Materia key={i} materia={materia} />
         ))}
+        {!store.isViewing && !gear.isFood && gear.relicRule !== undefined && <RelicAllocation gear={gear} />}
         {gear.isFood && (
           store.isViewing ? (
             <span className="gears_food-utilization">利用率{gear.utilization}%</span>
@@ -89,8 +91,8 @@ export const GearRow = mobxReact.observer<{
       </td>
       {store.schema.stats.map(stat => (
         <td key={stat} className={classNames('gears_stat', store.schema.skeletonGears && '-skeleton')}>
-          {!store.isViewing && !gear.isFood && gear.customizable && !(stat in gear.bareStats) &&
-          (stat !== 'DHT' || gear.equipLevel <= 60 || store.schema.stats.length < 7) ? (
+          {!store.isViewing && !gear.isFood && gear.customizable && gear.relicRule === undefined &&
+          !(stat in gear.bareStats) && (stat !== 'DHT' || gear.equipLevel <= 60 || store.schema.stats.length < 7) ? (
             <CustomStatInput
               displayValue={gear.stats[stat]}
               editValue={gear.customStats!.get(stat)}

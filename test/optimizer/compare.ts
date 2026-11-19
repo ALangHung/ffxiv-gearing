@@ -1,5 +1,6 @@
 // 自動配裝最佳化的新舊版比對：以真實裝備資料建立多種情境，分別用 src/optimizer.ts（新版）與
 // test/optimizer/reference.ts（舊版）計算，確認兩者的每威力傷害期望完全相同，並列出耗時與記憶體。
+// 舊版的堅韌只在平手時比較，坦克新版較高時，改以幻武固定為新版分配的備份（current-backup.ts）重算確認。
 //
 // 用法：
 //   npm run test-optimizer                          一般情境
@@ -13,6 +14,7 @@
 //
 // 舊版的演算法不再變動，其結果記錄於 reference-results.json 並直接沿用，不必每次重跑。
 // 記錄附有輸入指紋（情境設定與裝備、食物資料的雜湊）；指紋不符（例如遊戲資料更新）時會自動重新執行舊版並更新記錄。
+// 舊版、備份與外部求解器不會分配幻境武器最終階段的屬性，輸入會先展開成各種分配的候選（見 relic.ts）。
 //
 // 每次計算都在獨立的 Node 程序中執行（堆積上限 4 GB，接近瀏覽器的限制），單一情境記憶體不足不會中斷整體比對。
 
@@ -24,6 +26,7 @@ import * as G from '../../src/game';
 import * as current from '../../src/optimizer';
 import * as reference from './reference';
 import * as backup from './current-backup';
+import { expandRelics, sameStats } from './relic';
 import type { OptimizerInput, OptimizerResult } from '../../src/optimizer';
 
 interface Scenario {
@@ -101,9 +104,12 @@ function buildInput(scenario: Scenario): OptimizerInput {
 
 // ---- 子程序：執行單一計算
 
+/** 新版為幻境武器最終階段選的分配（坦克比對時用來固定備份的候選） */
+interface RelicChoice { slot: number, id: G.GearId, customStats: G.Stats }
+
 interface RunOutput {
   result?: Partial<Pick<OptimizerResult, 'gcd' | 'gcdUnmet' | 'stats' | 'foodId'>> &
-    { damage: number, elapsed: number, gears?: string, error?: string },
+    { damage: number, elapsed: number, gears?: string, error?: string, relics?: RelicChoice[] },
   error?: string,
   rssMB?: number,
 }
@@ -116,25 +122,38 @@ interface ExternalOptimizer {
 declare const __non_webpack_require__: (id: string) => unknown;  // 執行時才載入的外部模組，不經打包
 
 if (process.argv[2] === '--run') {
-  const [ , , , impl, json, externalPath ] = process.argv as [string, string, string, Impl, string, string?];
+  const [ , , , impl, json, extraArg ] = process.argv as [string, string, string, Impl, string, string?];  // extraArg：bis 為轉接程式路徑，其他為固定的幻武分配
   const scenario = JSON.parse(json) as Scenario;
   (async () => {
     let output: RunOutput;
     try {
       if (impl === 'bis') {
-        const external = __non_webpack_require__(externalPath!) as ExternalOptimizer;
-        const result = await external.optimize(buildInput(scenario), G);
+        const external = __non_webpack_require__(extraArg!) as ExternalOptimizer;
+        const result = await external.optimize(expandRelics(buildInput(scenario)), G);
         output = result.error !== undefined || result.damage === undefined ?
           { error: result.error ?? '沒有結果' } :
           { result: { damage: result.damage, elapsed: result.elapsed } };
       } else {
         const optimize = impl === 'reference' ? reference.optimize : impl === 'backup' ? backup.optimize : current.optimize;
-        const result = optimize(buildInput(scenario)) as OptimizerResult & { error?: string };
+        // 舊版與備份不會分配幻境武器最終階段的屬性，改為展開成各種分配的候選；
+        // 第三個參數有值時，只保留新版選的分配（見主程序的坦克比對）
+        let input = impl === 'current' ? buildInput(scenario) : expandRelics(buildInput(scenario));
+        if (extraArg !== undefined) {
+          const relics = JSON.parse(extraArg) as RelicChoice[];
+          input = { ...input, slots: input.slots.map(s => {
+            const pick = relics.find(r => r.slot === s.slot);
+            return pick === undefined ? s : { ...s, gears: s.gears.filter(g =>
+              Math.trunc(g.id / 100) === pick.id && sameStats(g.customStats ?? {}, pick.customStats)) };
+          }) };
+        }
+        const result = optimize(input) as OptimizerResult & { error?: string };
         output = {
           result: {
             damage: result.damage, gcd: result.gcd, gcdUnmet: result.gcdUnmet, stats: result.stats,
             elapsed: result.elapsed, foodId: result.foodId, error: result.error,
             gears: result.gears.map(g => `${g.slot}:${Math.abs(g.id)}:${(g.materiaStats ?? []).join('/')}`).join(' '),
+            relics: result.gears.flatMap(({ slot, id, customStats }) =>
+              customStats === undefined ? [] : [{ slot, id, customStats }]),
           },
         };
       }
@@ -149,10 +168,10 @@ if (process.argv[2] === '--run') {
 
 // ---- 主程序
 
-function runChild(impl: Impl, scenario: Scenario, externalPath?: string): RunOutput {
+function runChild(impl: Impl, scenario: Scenario, extraArg?: string): RunOutput {
   const ret = childProcess.spawnSync(process.execPath,
     ['--max-old-space-size=4096', __filename, '--run', impl, JSON.stringify(scenario),
-      ...(externalPath !== undefined ? [externalPath] : [])],
+      ...(extraArg !== undefined ? [extraArg] : [])],
     { encoding: 'utf8', timeout: 600_000, maxBuffer: 16 * 1024 * 1024 });
   if (ret.status !== 0 || !ret.stdout) {
     const reason = ret.error?.message.includes('ETIMEDOUT') ? '逾時' :
@@ -176,7 +195,7 @@ const saveRecords = () => fs.writeFileSync(recordPath, JSON.stringify({
   results: records,
 }, null, 2) + '\n');
 const fingerprintOf = (scenario: Scenario) =>
-  crypto.createHash('sha1').update(JSON.stringify(buildInput(scenario))).digest('hex').slice(0, 16);
+  crypto.createHash('sha1').update(JSON.stringify(expandRelics(buildInput(scenario)))).digest('hex').slice(0, 16);
 
 const heavy = process.argv.includes('--heavy');
 const refreshReference = process.argv.includes('--refresh-reference');
@@ -218,8 +237,24 @@ if (process.argv[2] !== '--run') for (const scenario of scenarios) {
   }
   const ref = record.output;
   let verdict: string;
+  let exactNote: string | undefined;
   if (now.result !== undefined && ref.result !== undefined && now.result.error === undefined) {
     verdict = now.result.damage === ref.result.damage ? '一致' : '★ 不一致';
+    // 舊版的堅韌只在平手時比較，坦克在幻境武器選堅韌時新版可能較高；備份在展開大量分配後
+    // 也可能找不到該解（實測如此）。此時把幻境武器固定為新版選的分配，以備份重算，
+    // 傷害完全相同即確認新版的結果可行且數值正確（最佳性另由 fuzz 的精確對照涵蓋）
+    const isTank = (G.jobSchemas[scenario.job] as G.JobSchema).stats.includes('TEN');
+    const relics = now.result.relics ?? [];
+    if (isTank && now.result.damage > ref.result.damage && relics.length > 0) {
+      const check = runChild('backup', scenario, JSON.stringify(relics));
+      const fixed = relics.map(r => Object.entries(r.customStats).map(([ k, v ]) => `${k}${v}`).join('/')).join('、');
+      if (check.result !== undefined && check.result.error === undefined && check.result.damage === now.result.damage) {
+        verdict = '坦克新版較高';
+        exactNote = `備份（幻武固定為 ${fixed}）：${describe(check)}（與新版一致）`;
+      } else {
+        exactNote = `備份（幻武固定為 ${fixed}）：${describe(check)}${compareTo(check, now, true)}`;
+      }
+    }
   } else if (now.result !== undefined && now.result.error === undefined) {
     verdict = scenario.heavy ? '舊版無法完成，僅記錄新版' : '★ 舊版無法完成';
   } else {
@@ -229,6 +264,7 @@ if (process.argv[2] !== '--run') for (const scenario of scenarios) {
   console.log(`${verdict.padEnd(14)} ${scenario.name}`);
   console.log(`    新版：${describe(now)}`);
   console.log(`    舊版：${describe(ref)}（記錄於 ${record.recordedAt}）`);
+  if (exactNote !== undefined) console.log(`    ${exactNote}`);
   const extras: [string, Impl, boolean][] = [];
   if (runBackup) extras.push([ '備份', 'backup', true ]);
   if (bisDir !== undefined) extras.push([ 'bis', 'bis', false ]);

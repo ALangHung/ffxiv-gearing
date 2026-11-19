@@ -1,6 +1,27 @@
 {
   "說明": "精確對照（fuzz.ts 的 exhaustive）在各隨機情境的結果，索引為「種子#情境編號」，由 fuzz.ts 自動維護；fingerprint 為輸入的雜湊，不符時會重新執行",
   "results": {
+    "1#67": {
+      "fingerprint": "02cb3b9a65d1d57c",
+      "description": "#67 PLD 752-770 GCD2.21 禁斷2 食物1 候選0/1/5/2/3/0/4/3/2/4/0/4",
+      "exact": 8.258467952725958,
+      "elapsed": 11,
+      "recordedAt": "2026-11-19"
+    },
+    "1#216": {
+      "fingerprint": "639b414cced451a7",
+      "description": "#216 WAR 749-770 GCD2.39 禁斷1 食物4 候選2/2/2/0/5/1/1/1/2/2/3",
+      "exact": 54.16819455156569,
+      "elapsed": 2261,
+      "recordedAt": "2026-11-19"
+    },
+    "1#243": {
+      "fingerprint": "bc84606a16c5e736",
+      "description": "#243 WAR 756-760 GCD2.20 禁斷3 食物3 候選4/1/0/2/2/3/1/2/2/2/2",
+      "exact": 52.01744356732762,
+      "elapsed": 13,
+      "recordedAt": "2026-11-19"
+    },
     "11#78": {
       "fingerprint": "43550c6dc0a8d467",
       "description": "#78 DRK 667-690 GCD2.30 禁斷5 同步670 食物1 候選3/2/5/2/2/2/2/3/2/1/0",

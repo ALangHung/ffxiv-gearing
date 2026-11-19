@@ -7,6 +7,8 @@
 // 隨機情境涵蓋固定情境沒有的條件：已裝備且已鑲有魔晶石（含堅韌、信仰等非管理屬性）的裝備、
 // 篩選範圍外的已裝備裝備、幻境武器的自訂屬性、品級同步、任意食物組合、各種 GCD 目標與禁斷孔數。
 // 每個部位只隨機取少量候選裝備，讓舊版也能在合理時間內算完。
+// 幻境武器最終階段的屬性分配由新版最佳化；舊版與精確對照改用展開成各種分配的候選（見 relic.ts），
+// 驗證時也確認新版結果帶有符合規則的分配。
 //
 // 精確對照的結果記錄於 exhaustive-results.json（以種子與情境編號為索引，並附上輸入的雜湊）並直接沿用，
 // 跑過的情境不必重跑；輸入改變（遊戲資料更新、情境產生方式改變）時雜湊不符，會重新執行。
@@ -22,6 +24,7 @@ import * as path from 'path';
 import * as G from '../../src/game';
 import * as current from '../../src/optimizer';
 import * as reference from './reference';
+import { expandRelics, relicAllocationsFor, sameStats } from './relic';
 import type { OptimizerGear, OptimizerInput, OptimizerResult } from '../../src/optimizer';
 
 /* eslint-disable @typescript-eslint/no-require-imports */
@@ -163,7 +166,7 @@ function buildRandomInput(rand: () => number, caseSeed: number): OptimizerInput 
 
 /** 依「套用此配置」的規則計算一件裝備的屬性：受管理屬性鑲該孔最高等級，其餘魔晶石保留原等級；materiaStats 為 undefined 時不更動 */
 function gearStatsOf(input: OptimizerInput, gear: OptimizerGear, materiaStats: (G.Stat | undefined)[] | undefined,
-  managedStats: G.Stat[], problems?: string[]): G.Stats {
+  managedStats: G.Stat[], problems?: string[], customStats = gear.customStats): G.Stats {
   const schema = G.jobSchemas[input.job] as G.JobSchema;
   const materiaTotals: G.Stats = {};
   gear.materias.forEach((materia, index) => {
@@ -192,7 +195,7 @@ function gearStatsOf(input: OptimizerInput, gear: OptimizerGear, materiaStats: (
   return G.calcGearStats(gear.data, {
     mainStat: schema.mainStat,
     secondaryStat: schema.secondaryStat,
-    customStats: gear.customStats,
+    customStats,
     syncedLevel: G.calcSyncedLevel(gear.data, input.jobLevel, input.syncLevel),
     materiaStats: materiaTotals,
   });
@@ -219,7 +222,7 @@ function validate(input: OptimizerInput, result: OptimizerResult): string[] {
   const problems: string[] = [];
   const totals: G.Stats = {};
   const usedSlots = new Set<number>();
-  for (const { slot, id, materiaStats } of result.gears) {
+  for (const { slot, id, materiaStats, customStats } of result.gears) {
     const gear = input.slots.find(s => s.slot === slot)?.gears.find(g => g.id === id);
     if (gear === undefined) {
       problems.push(`部位 ${slot} 選了不在候選中的裝備 ${id}`);
@@ -228,7 +231,13 @@ function validate(input: OptimizerInput, result: OptimizerResult): string[] {
     if (usedSlots.has(slot)) problems.push(`部位 ${slot} 選了兩次`);
     usedSlots.add(slot);
     const gearProblems: string[] = [];
-    const stats = gearStatsOf(input, gear, materiaStats, result.managedStats, gearProblems);
+    // 幻境武器最終階段必須帶有符合規則的分配（展開後的候選本身已帶有固定的分配），其他裝備不得更動自訂屬性
+    const allocations = relicAllocationsFor(input.job, gear.data);
+    const effective = customStats ?? gear.customStats ?? {};
+    if (allocations === undefined ? customStats !== undefined : !allocations.some(a => sameStats(a, effective))) {
+      gearProblems.push(`自訂屬性 ${JSON.stringify(effective)} 不符規則`);
+    }
+    const stats = gearStatsOf(input, gear, materiaStats, result.managedStats, gearProblems, customStats ?? gear.customStats);
     problems.push(...gearProblems.map(problem => `部位 ${slot} ${problem}`));
     for (const [ stat, value ] of Object.entries(stats) as [G.Stat, number][]) {
       totals[stat] = (totals[stat] ?? 0) + value;
@@ -418,7 +427,9 @@ for (let k = 0; k < caseCount; k++) {
     }
   };
   const nowRun = run('新版', current.optimize);
-  const refRun = run('舊版', reference.optimize as unknown as (input: OptimizerInput) => OptimizerResult);
+  // 舊版與精確對照不會分配幻境武器最終階段的屬性，改為展開成各種分配的候選
+  const expanded = expandRelics(input);
+  const refRun = run('舊版', () => (reference.optimize as unknown as (input: OptimizerInput) => OptimizerResult)(expanded));
   currentTime += nowRun.elapsed;
   if (nowRun.elapsed > slowest.elapsed) slowest = { elapsed: nowRun.elapsed, description: input.description };
   if (nowRun.elapsed > 5000) console.log(`慢：新版 ${(nowRun.elapsed / 1000).toFixed(1)} 秒，舊版 ${(refRun.elapsed / 1000).toFixed(1)} 秒（${input.description}）`);
@@ -450,7 +461,8 @@ for (let k = 0; k < caseCount; k++) {
     const restrict = (slots: number[]) => ({
       ...input,
       slots: input.slots.map(s => !slots.includes(s.slot) ? s :
-        { ...s, gears: s.gears.filter(g => ref.gears.some(r => r.slot === s.slot && r.id === g.id)) }),
+        { ...s, gears: s.gears.filter(g => ref.gears.some(r => r.slot === s.slot && (r.id === g.id ||  // 展開的幻境武器
+          relicAllocationsFor(input.job, g.data) !== undefined && Math.trunc(r.id / 100) === g.id))) }),
     });
     const all = run('新版', () => current.optimize(restrict(input.slots.map(s => s.slot))));
     console.log(`  全部部位限制為舊版選擇：新版 ${all.result?.damage ?? all.error}`);
@@ -477,14 +489,14 @@ for (let k = 0; k < caseCount; k++) {
   let exactTimedOut = false;
   if (needExhaustive) {
     const key = `${seed}#${k}`;
-    const fingerprint = fingerprintOf(input);
+    const fingerprint = fingerprintOf(expanded);
     const record = exhaustiveRecords[key];
     if (!refreshExhaustive && record?.fingerprint === fingerprint) {
       exact = record.exact;
       exhaustiveReused++;
     } else {
       try {
-        exact = exhaustive(input, now.damage, exhaustiveTimeLimitMs);
+        exact = exhaustive(expanded, now.damage, exhaustiveTimeLimitMs);
       } catch (error) {
         if (error !== EXHAUSTIVE_TIMEOUT) throw error;
         exactTimedOut = true;
@@ -510,7 +522,7 @@ for (let k = 0; k < caseCount; k++) {
   }
   if (now.gcdUnmet !== ref.gcdUnmet) report(`GCD 是否達成的判斷不同（新版 ${now.gcdUnmet}，舊版 ${ref.gcdUnmet}）`);
   for (const problem of validate(input, now)) report(`新版結果有誤：${problem}`);
-  for (const problem of validate(input, ref)) report(`舊版結果有誤：${problem}`);
+  for (const problem of validate(expanded, ref)) report(`舊版結果有誤：${problem}`);
   if ((k + 1) % 50 === 0) console.log(`已完成 ${k + 1} / ${caseCount}`);
 }
 console.log(`種子 ${seed}：比對 ${compared} 個情境（其中 ${gcdUnmetCount} 個 GCD 目標無法達成），` +

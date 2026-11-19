@@ -1208,11 +1208,12 @@ export const Store = mst.types
       if (state.status !== 'done' || state.job !== self.job) return;
       const { result } = state;
       const gearMateriaStats = new Map<G.GearId, (G.Stat | undefined)[]>();
-      for (const { slot, id, materiaStats } of result.gears) {
+      for (const { slot, id, materiaStats, customStats } of result.gears) {
         const gear = self.gears.get(id.toString());
         if (gear === undefined) continue;
         self.equippedGears.set(slot.toString(), gear);
         if (materiaStats !== undefined) gearMateriaStats.set(id, materiaStats);
+        if (customStats !== undefined) (gear as IGear).setCustomStats(customStats);
       }
       self.applyMateriaOptimization(gearMateriaStats, result.managedStats);
       if (result.foodId !== undefined) {

@@ -30,59 +30,59 @@
       }
     },
     "PLD 780-795 GCD2.50": {
-      "fingerprint": "dbb0b3a98c8cbbf9",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "7f90a65b6a119747",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 80.04385409477085,
+          "damage": 80.23146566638532,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
-            "STR": 6447,
+            "STR": 6449,
             "PDMG": 158,
             "SKS": 420,
-            "CRT": 3594,
-            "DET": 3103,
+            "CRT": 3595,
+            "DET": 3104,
             "DHT": 1338,
-            "TEN": 568
+            "TEN": 600
           },
-          "elapsed": 253,
+          "elapsed": 242,
           "foodId": 49240,
-          "gears": "7:49683:DHT/DHT 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49607:CRT/DHT 12:49653:DHT/DHT -12:49730:CRT/DHT 4:49604:DHT/DHT 11:49648:CRT/DHT 9:49715:DHT/DHT 10:49643:CRT/DHT 1:52299:DET/DHT/DHT 2:50999:"
+          "gears": "7:49683:DHT/DHT 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49607:CRT/DHT 12:49653:DHT/DHT -12:49730:CRT/DHT 4:49604:DHT/DHT 1:52299:DHT/DHT/DHT 11:49648:CRT/DHT 9:49715:DET/DHT 10:49643:CRT/DHT 2:5102102:"
         },
-        "rssMB": 102
+        "rssMB": 105
       }
     },
     "PLD 780-795 GCD2.40": {
-      "fingerprint": "88ff227b00772f5c",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "da9af8ea1e8352e7",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 77.20711184928277,
+          "damage": 77.41786477695702,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
-            "STR": 6447,
+            "STR": 6449,
             "PDMG": 158,
-            "SKS": 1215,
-            "CRT": 3604,
-            "DET": 2568,
+            "SKS": 1220,
+            "CRT": 3665,
+            "DET": 2514,
             "DHT": 1068,
-            "TEN": 568
+            "TEN": 600
           },
-          "elapsed": 2937,
-          "foodId": 49240,
-          "gears": "12:49653:SKS/SKS -12:49730:CRT/SKS 3:49680:SKS/SKS 5:49682:CRT/SKS 8:49684:CRT/DHT 7:49683:DHT/SKS 4:49604:DHT/DHT 11:49725:DHT/DHT 1:52299:DHT/DHT/DHT 9:49715:DHT/DHT 10:49643:CRT/DHT 2:50999:"
+          "elapsed": 11552,
+          "foodId": 49239,
+          "gears": "12:49653:SKS/SKS -12:49730:CRT/SKS 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49684:CRT/DHT 7:49683:DHT/DHT 1:5100001: 4:49604:DHT/DHT 11:49725:DHT/DHT 2:5102102: 9:49715:DHT/DHT 10:49643:CRT/SKS"
         },
-        "rssMB": 397
+        "rssMB": 1443
       }
     },
     "WAR 780-795 GCD2.50": {
-      "fingerprint": "3254110dc29937d0",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "ab9dccf768c77689",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 81.00722825610417,
+          "damage": 81.01951246091336,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
@@ -90,47 +90,47 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3595,
-            "DET": 3066,
-            "DHT": 1338,
-            "TEN": 568
+            "DET": 3605,
+            "DHT": 744,
+            "TEN": 676
           },
-          "elapsed": 236,
+          "elapsed": 262,
           "foodId": 49240,
-          "gears": "7:49683:DHT/DHT 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49607:CRT/DHT 12:49653:DHT/DHT -12:49730:CRT/DHT 4:49604:DHT/DHT 11:49648:CRT/DHT 9:49715:DHT/DHT 10:49643:CRT/DHT 13:52301:DET/DHT/DHT"
+          "gears": "7:49683:DET/DET 3:49680:DET/DET 5:49682:CRT/DHT 8:49607:CRT/DHT 12:49653:DET/DET -12:49730:CRT/DHT 4:49604:DET/DET 13:5100202: 11:49648:CRT/DHT 9:49715:DET/DHT 10:49643:CRT/DHT"
         },
-        "rssMB": 102
+        "rssMB": 105
       }
     },
     "WAR 780-795 GCD2.40": {
-      "fingerprint": "06b424d3ffa043ba",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "a89d555037656c83",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 78.13633438607799,
+          "damage": 78.44956044710518,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "STR": 6471,
             "PDMG": 158,
-            "SKS": 1215,
-            "CRT": 3605,
-            "DET": 2585,
+            "SKS": 1214,
+            "CRT": 3665,
+            "DET": 2606,
             "DHT": 1014,
             "TEN": 568
           },
-          "elapsed": 3065,
-          "foodId": 49240,
-          "gears": "12:49653:SKS/SKS -12:49730:CRT/SKS 3:49680:SKS/SKS 5:49682:CRT/SKS 8:49684:CRT/DHT 7:49683:DHT/SKS 4:49604:DHT/DHT 11:49725:DHT/DHT 13:52301:DHT/DHT/DHT 9:49715:DET/DHT 10:49643:CRT/DHT"
+          "elapsed": 3720,
+          "foodId": 49239,
+          "gears": "12:49653:DHT/SKS -12:49730:CRT/DHT 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49607:CRT/SKS 7:49683:DHT/DHT 4:49604:DET/DET 13:5100203: 11:49725:DET/DHT 9:49715:DHT/DHT 10:49643:CRT/DHT"
         },
-        "rssMB": 396
+        "rssMB": 388
       }
     },
     "GNB 780-795 GCD2.50": {
-      "fingerprint": "9a7a4ab9c937ae5b",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "7d369af621da8c22",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 79.93089750058228,
+          "damage": 79.94301848702533,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
@@ -138,44 +138,44 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3595,
-            "DET": 3066,
-            "DHT": 1338,
-            "TEN": 568
+            "DET": 3605,
+            "DHT": 744,
+            "TEN": 676
           },
-          "elapsed": 233,
+          "elapsed": 267,
           "foodId": 49240,
-          "gears": "7:49683:DHT/DHT 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49607:CRT/DHT 12:49653:DHT/DHT -12:49730:CRT/DHT 4:49604:DHT/DHT 11:49648:CRT/DHT 9:49715:DHT/DHT 10:49643:CRT/DHT 13:52314:DET/DHT/DHT"
+          "gears": "7:49683:DET/DET 3:49680:DET/DET 5:49682:CRT/DHT 8:49607:CRT/DHT 12:49653:DET/DET -12:49730:CRT/DHT 4:49604:DET/DET 13:5101502: 11:49648:CRT/DHT 9:49715:DET/DHT 10:49643:CRT/DHT"
         },
-        "rssMB": 102
+        "rssMB": 104
       }
     },
     "GNB 780-795 GCD2.40": {
-      "fingerprint": "11729f151fb71c7a",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "8f6a2ba3d8843344",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 77.09814876198041,
+          "damage": 77.40721303584155,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "STR": 6449,
             "PDMG": 158,
-            "SKS": 1215,
-            "CRT": 3605,
-            "DET": 2585,
+            "SKS": 1214,
+            "CRT": 3665,
+            "DET": 2606,
             "DHT": 1014,
             "TEN": 568
           },
-          "elapsed": 3015,
-          "foodId": 49240,
-          "gears": "12:49653:SKS/SKS -12:49730:CRT/SKS 3:49680:SKS/SKS 5:49682:CRT/SKS 8:49684:CRT/DHT 7:49683:DHT/SKS 4:49604:DHT/DHT 11:49725:DHT/DHT 13:52314:DHT/DHT/DHT 9:49715:DET/DHT 10:49643:CRT/DHT"
+          "elapsed": 3544,
+          "foodId": 49239,
+          "gears": "12:49653:DHT/SKS -12:49730:CRT/DHT 3:49680:DHT/DHT 5:49682:CRT/DHT 8:49607:CRT/SKS 7:49683:DHT/DHT 4:49604:DET/DET 13:5101503: 11:49725:DET/DHT 9:49715:DHT/DHT 10:49643:CRT/DHT"
         },
-        "rssMB": 398
+        "rssMB": 387
       }
     },
     "WHM 780-795 GCD2.50": {
-      "fingerprint": "3ff3ee4892d2c27b",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "58b5fb2b9c15b575",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
           "damage": 131.58778711230204,
@@ -189,39 +189,39 @@
             "DET": 3007,
             "DHT": 1230
           },
-          "elapsed": 207,
+          "elapsed": 221,
           "foodId": 49240,
           "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49630:CRT/DHT 3:49628:DET/DHT 4:49629:DHT/DHT 7:49708:DHT/DHT 11:49728:DHT/DHT 13:52304:CRT/CRT/DHT 8:49709:CRT/DHT 9:49641:DHT/DHT 10:49723:CRT/DHT"
         },
-        "rssMB": 102
+        "rssMB": 95
       }
     },
     "WHM 780-795 GCD2.40": {
-      "fingerprint": "b34f2bb1fb5d8712",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "1a0865d57636c76b",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 128.4872162114266,
+          "damage": 129.00113890945306,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "MND": 6492,
             "MDMG": 158,
-            "SPS": 1237,
-            "CRT": 3388,
-            "DET": 2866,
-            "DHT": 1068
+            "SPS": 1214,
+            "CRT": 3354,
+            "DET": 3165,
+            "DHT": 906
           },
-          "elapsed": 857,
-          "foodId": 49244,
-          "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49707:DHT/DHT 3:49705:CRT/CRT 4:49629:DHT/DHT 8:49709:CRT/SPS 13:52304:CRT/CRT/DHT 7:49708:DHT/DHT 9:49718:DHT/DHT 11:49651:CRT/CRT 10:49723:CRT/DHT"
+          "elapsed": 975,
+          "foodId": 49240,
+          "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49707:DHT/DHT 3:49705:CRT/CRT 4:49629:DHT/DHT 8:49709:CRT/SPS 13:5100501: 7:49708:DHT/DHT 9:49641:SPS/SPS 11:49651:CRT/CRT 10:49723:CRT/DHT"
         },
-        "rssMB": 166
+        "rssMB": 138
       }
     },
     "AST 780-795 GCD2.50": {
-      "fingerprint": "9aac1f242ae20753",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "1b84f792acf3fc9b",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
           "damage": 131.58778711230204,
@@ -235,42 +235,42 @@
             "DET": 3007,
             "DHT": 1230
           },
-          "elapsed": 203,
+          "elapsed": 245,
           "foodId": 49240,
           "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49630:CRT/DHT 3:49628:DET/DHT 4:49629:DHT/DHT 7:49708:DHT/DHT 11:49728:DHT/DHT 13:52311:CRT/CRT/DHT 8:49709:CRT/DHT 9:49641:DHT/DHT 10:49723:CRT/DHT"
         },
-        "rssMB": 102
+        "rssMB": 94
       }
     },
     "AST 780-795 GCD2.40": {
-      "fingerprint": "5d47c23d5330a595",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "43982268e0239afc",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 128.4872162114266,
+          "damage": 129.00113890945306,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "MND": 6492,
             "MDMG": 158,
-            "SPS": 1237,
-            "CRT": 3388,
-            "DET": 2866,
-            "DHT": 1068
+            "SPS": 1214,
+            "CRT": 3354,
+            "DET": 3165,
+            "DHT": 906
           },
-          "elapsed": 800,
-          "foodId": 49244,
-          "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49707:DHT/DHT 3:49705:CRT/CRT 4:49629:DHT/DHT 8:49709:CRT/SPS 13:52311:CRT/CRT/DHT 7:49708:DHT/DHT 9:49718:DHT/DHT 11:49651:CRT/CRT 10:49723:CRT/DHT"
+          "elapsed": 768,
+          "foodId": 49240,
+          "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49707:DHT/DHT 3:49705:CRT/CRT 4:49629:DHT/DHT 8:49709:CRT/SPS 13:5101201: 7:49708:DHT/DHT 9:49641:SPS/SPS 11:49651:CRT/CRT 10:49723:CRT/DHT"
         },
-        "rssMB": 158
+        "rssMB": 134
       }
     },
     "SAM 780-795 GCD2.50": {
-      "fingerprint": "e81fd258282af70b",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "56a8d5e2c2a4cf14",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 102.64110800900406,
+          "damage": 103.01626058666265,
           "gcd": 2.17,
           "gcdUnmet": false,
           "stats": {
@@ -278,22 +278,22 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3605,
-            "DET": 2587,
-            "DHT": 1955
+            "DET": 2328,
+            "DHT": 2294
           },
-          "elapsed": 482,
+          "elapsed": 654,
           "foodId": 49240,
-          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 3:49690:DET/DET 4:49614:DET/DET 5:49692:CRT/DHT 7:49693:DHT/DHT 13:52312:DHT/DHT/DHT 9:49639:CRT/DET 11:49726:DHT/DHT 8:49617:CRT/DHT 10:49644:DET/DET"
+          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 3:49690:DET/DET 4:49614:DET/DHT 5:49692:CRT/DHT 7:49693:DHT/DHT 9:49639:CRT/DET 11:49726:DHT/DHT 8:49617:CRT/DHT 13:5101303: 10:49644:DET/DET"
         },
-        "rssMB": 130
+        "rssMB": 123
       }
     },
     "SAM 780-795 GCD2.40": {
-      "fingerprint": "588d32eac38d5d2d",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "7bbe687226f3ffb7",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 102.64110800900406,
+          "damage": 103.01626058666265,
           "gcd": 2.17,
           "gcdUnmet": false,
           "stats": {
@@ -301,22 +301,22 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3605,
-            "DET": 2587,
-            "DHT": 1955
+            "DET": 2328,
+            "DHT": 2294
           },
-          "elapsed": 472,
+          "elapsed": 603,
           "foodId": 49240,
-          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 3:49690:DET/DET 4:49614:DET/DET 5:49692:CRT/DHT 7:49693:DHT/DHT 13:52312:DHT/DHT/DHT 9:49639:CRT/DET 11:49726:DHT/DHT 8:49617:CRT/DHT 10:49644:DET/DET"
+          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 3:49690:DET/DET 4:49614:DET/DHT 5:49692:CRT/DHT 7:49693:DHT/DHT 9:49639:CRT/DET 11:49726:DHT/DHT 8:49617:CRT/DHT 13:5101303: 10:49644:DET/DET"
         },
-        "rssMB": 130
+        "rssMB": 124
       }
     },
     "DRG 780-795 GCD2.50": {
-      "fingerprint": "100ee4da8be7b6ea",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "8ab50428f6381ab7",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 103.3799024193185,
+          "damage": 103.7544672831566,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
@@ -324,45 +324,45 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3605,
-            "DET": 2506,
+            "DET": 2586,
             "DHT": 2036
           },
-          "elapsed": 1080,
+          "elapsed": 1348,
           "foodId": 49240,
-          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 7:49611:DET/DHT 5:49610:CRT/DET 8:49689:DHT/DHT 4:49686:DET/DHT 9:49639:CRT/DET 11:49726:DHT/DHT 13:52302:DET/DHT/DHT 3:49608:CRT/DHT 10:49644:DET/DET"
+          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 7:49611:DET/DHT 5:49610:CRT/DET 8:49689:DHT/DHT 4:49686:DET/DHT 9:49639:CRT/DET 11:49726:DHT/DHT 3:49608:CRT/DHT 13:5100301: 10:49644:DET/DET"
         },
-        "rssMB": 190
+        "rssMB": 176
       }
     },
     "DRG 780-795 GCD2.40": {
-      "fingerprint": "ad54fed5a67cecd8",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "894105ec6df7e6df",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 99.7051748455077,
+          "damage": 100.08069749391166,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "STR": 6515,
             "PDMG": 158,
-            "SKS": 1212,
+            "SKS": 1214,
             "CRT": 3645,
-            "DET": 1733,
-            "DHT": 1977
+            "DET": 1851,
+            "DHT": 1937
           },
-          "elapsed": 9208,
+          "elapsed": 10873,
           "foodId": 49239,
-          "gears": "12:49654:DET/DET -12:49731:CRT/SKS 7:49688:CRT/CRT 5:49610:CRT/DET 8:49689:DET/SKS 3:49685:CRT/DET 4:49686:DET/DET 11:49726:DET/SKS 13:52302:SKS/SKS/SKS 9:49639:CRT/SKS 10:49644:DHT/SKS"
+          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 7:49688:CRT/CRT 5:49610:CRT/DET 8:49689:DET/DHT 3:49608:CRT/SKS 13:5100305: 4:49686:DET/DET 11:49726:DHT/SKS 9:49639:CRT/DET 10:49721:DET/DET"
         },
-        "rssMB": 1175
+        "rssMB": 1515
       }
     },
     "NIN 780-795 GCD2.50": {
-      "fingerprint": "edb635aa0dc302a4",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "c568d3b230941b6c",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 101.9795879591034,
+          "damage": 102.34874483859336,
           "gcd": 2.12,
           "gcdUnmet": false,
           "stats": {
@@ -370,22 +370,22 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3605,
-            "DET": 2527,
+            "DET": 2607,
             "DHT": 2015
           },
-          "elapsed": 1689,
+          "elapsed": 1228,
           "foodId": 49240,
-          "gears": "12:49655:CRT/DHT -12:49732:DET/DET 4:49624:DET/DET 3:49700:DET/DHT 8:49627:CRT/DET 5:49625:CRT/DHT 7:49703:DET/DET 9:49717:DET/DHT 10:49722:CRT/DHT 11:49650:DET/DHT 13:52308:DET/DHT/DHT"
+          "gears": "12:49655:CRT/DHT -12:49732:DET/DET 4:49624:DET/DET 3:49700:DET/DHT 8:49627:CRT/DET 5:49625:CRT/DHT 7:49703:DET/DET 9:49717:DET/DHT 10:49722:CRT/DHT 11:49650:DET/DHT 13:5100901:"
         },
-        "rssMB": 290
+        "rssMB": 182
       }
     },
     "NIN 780-795 GCD2.40": {
-      "fingerprint": "b082fdcd3c0d843b",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "ffb616eb98263fee",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 101.9795879591034,
+          "damage": 102.34874483859336,
           "gcd": 2.12,
           "gcdUnmet": false,
           "stats": {
@@ -393,206 +393,206 @@
             "PDMG": 158,
             "SKS": 420,
             "CRT": 3605,
-            "DET": 2527,
+            "DET": 2607,
             "DHT": 2015
           },
-          "elapsed": 1653,
+          "elapsed": 1250,
           "foodId": 49240,
-          "gears": "12:49655:CRT/DHT -12:49732:DET/DET 4:49624:DET/DET 3:49700:DET/DHT 8:49627:CRT/DET 5:49625:CRT/DHT 7:49703:DET/DET 9:49717:DET/DHT 10:49722:CRT/DHT 11:49650:DET/DHT 13:52308:DET/DHT/DHT"
+          "gears": "12:49655:CRT/DHT -12:49732:DET/DET 4:49624:DET/DET 3:49700:DET/DHT 8:49627:CRT/DET 5:49625:CRT/DHT 7:49703:DET/DET 9:49717:DET/DHT 10:49722:CRT/DHT 11:49650:DET/DHT 13:5100901:"
         },
-        "rssMB": 298
+        "rssMB": 182
       }
     },
     "BRD 780-795 GCD2.50": {
-      "fingerprint": "300784e5208bc7a2",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "660386b087cbfc04",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 123.93053770500002,
+          "damage": 124.37440260633961,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
             "DEX": 6512,
             "PDMG": 158,
             "SKS": 420,
-            "CRT": 3549,
-            "DET": 2347,
-            "DHT": 2251
+            "CRT": 3585,
+            "DET": 2426,
+            "DHT": 2216
           },
-          "elapsed": 1318,
+          "elapsed": 1918,
           "foodId": 49240,
-          "gears": "12:49655:CRT/DHT -12:49732:DET/DHT 7:49621:DHT/DHT 3:49618:CRT/DET 4:49696:CRT/CRT 5:49697:DHT/DHT 8:49622:CRT/DET 9:49640:CRT/DET 13:52303:CRT/CRT/DHT 10:49722:CRT/DHT 11:49650:DET/DHT"
+          "gears": "12:49655:CRT/DHT -12:49732:DET/DET 7:49621:DET/DET 3:49618:CRT/DET 4:49696:CRT/CRT 5:49697:DET/DHT 8:49622:CRT/DET 9:49717:DET/DHT 10:49722:CRT/DHT 11:49650:DET/DET 13:5100403:"
         },
-        "rssMB": 211
+        "rssMB": 221
       }
     },
     "BRD 780-795 GCD2.40": {
-      "fingerprint": "82da106f0db0eabf",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "2e60c984776feb12",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 119.5463819772768,
+          "damage": 120.04280278701984,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "DEX": 6512,
             "PDMG": 158,
             "SKS": 1213,
-            "CRT": 3619,
+            "CRT": 3645,
             "DET": 2128,
-            "DHT": 1607
+            "DHT": 1661
           },
-          "elapsed": 6217,
+          "elapsed": 20778,
           "foodId": 49239,
-          "gears": "12:49655:CRT/SKS -12:49732:DET/DHT 4:49696:CRT/CRT 7:49621:SKS/SKS 3:49618:CRT/SKS 8:49622:CRT/SKS 5:49697:SKS/SKS 13:52303:CRT/CRT/SKS 9:49717:SKS/SKS 10:49722:CRT/SKS 11:49650:SKS/SKS"
+          "gears": "12:49655:CRT/SKS -12:49732:SKS/SKS 4:49696:CRT/CRT 7:49621:SKS/SKS 3:49618:CRT/SKS 8:49622:CRT/SKS 5:49697:SKS/SKS 13:5100402: 9:49717:SKS/SKS 10:49722:CRT/DHT 11:49650:DET/DHT"
         },
-        "rssMB": 729
+        "rssMB": 2328
       }
     },
     "DNC 780-795 GCD2.50": {
-      "fingerprint": "d3503d82c1c53194",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "dca226c962ce0dff",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 123.93053770500002,
+          "damage": 124.37440260633961,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
             "DEX": 6512,
             "PDMG": 158,
             "SKS": 420,
-            "CRT": 3549,
-            "DET": 2347,
-            "DHT": 2251
+            "CRT": 3585,
+            "DET": 2426,
+            "DHT": 2216
           },
-          "elapsed": 1229,
+          "elapsed": 2177,
           "foodId": 49240,
-          "gears": "12:49655:CRT/DHT -12:49732:DET/DHT 7:49621:DHT/DHT 3:49618:CRT/DET 4:49696:CRT/CRT 13:52315:CRT/CRT/DHT 5:49697:DHT/DHT 8:49622:CRT/DET 9:49640:CRT/DET 10:49722:CRT/DHT 11:49650:DET/DHT"
+          "gears": "12:49655:CRT/DHT -12:49732:DET/DET 7:49621:DET/DET 3:49618:CRT/DET 4:49696:CRT/CRT 5:49697:DET/DHT 8:49622:CRT/DET 9:49717:DET/DHT 10:49722:CRT/DHT 11:49650:DET/DET 13:5101603:"
         },
-        "rssMB": 189
+        "rssMB": 222
       }
     },
     "DNC 780-795 GCD2.40": {
-      "fingerprint": "e51d3de41a325bbe",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "8a94a005e3d4b3e4",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 119.5463819772768,
+          "damage": 120.04280278701984,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "DEX": 6512,
             "PDMG": 158,
             "SKS": 1213,
-            "CRT": 3619,
+            "CRT": 3645,
             "DET": 2128,
-            "DHT": 1607
+            "DHT": 1661
           },
-          "elapsed": 4667,
+          "elapsed": 20601,
           "foodId": 49239,
-          "gears": "12:49655:CRT/SKS -12:49732:DET/DHT 4:49696:CRT/CRT 7:49621:SKS/SKS 3:49618:CRT/SKS 13:52315:CRT/CRT/SKS 8:49622:CRT/SKS 5:49697:SKS/SKS 9:49717:SKS/SKS 10:49722:CRT/SKS 11:49650:SKS/SKS"
+          "gears": "12:49655:CRT/SKS -12:49732:SKS/SKS 4:49696:CRT/CRT 7:49621:SKS/SKS 3:49618:CRT/SKS 8:49622:CRT/SKS 5:49697:SKS/SKS 13:5101602: 9:49717:SKS/SKS 10:49722:CRT/DHT 11:49650:DET/DHT"
         },
-        "rssMB": 713
+        "rssMB": 2517
       }
     },
     "BLM 780-795 GCD2.50": {
-      "fingerprint": "b0520cb4f40cda5f",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "941300f43e93895b",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 132.43052109787502,
-          "gcd": 2.46,
-          "gcdUnmet": false,
-          "stats": {
-            "INT": 6516,
-            "MDMG": 158,
-            "SPS": 733,
-            "CRT": 3548,
-            "DET": 2287,
-            "DHT": 1999
-          },
-          "elapsed": 324,
-          "foodId": 49240,
-          "gears": "3:49710:CRT/DHT 12:49657:DET/DHT -12:49734:CRT/DET 8:49637:DHT/DHT 4:49711:DHT/DHT 5:49712:DET/DHT 7:49636:CRT/CRT 11:49652:CRT/DHT 13:52305:DET/DET/DET 10:49647:DHT/DHT 9:49719:DET/DET"
-        },
-        "rssMB": 120
-      }
-    },
-    "BLM 780-795 GCD2.40": {
-      "fingerprint": "0589f950664e2706",
-      "recordedAt": "2026-11-18",
-      "output": {
-        "result": {
-          "damage": 129.482160702375,
-          "gcd": 2.4,
-          "gcdUnmet": false,
-          "stats": {
-            "INT": 6516,
-            "MDMG": 158,
-            "SPS": 1219,
-            "CRT": 3548,
-            "DET": 2287,
-            "DHT": 1513
-          },
-          "elapsed": 1620,
-          "foodId": 49240,
-          "gears": "12:49657:DET/DHT -12:49734:CRT/DET 5:49712:DET/DET 7:49636:CRT/CRT 8:49637:DET/SPS 13:52305:DET/DET/DET 4:49711:SPS/SPS 3:49710:CRT/SPS 9:49719:CRT/SPS 11:49652:SPS/SPS 10:49647:SPS/SPS"
-        },
-        "rssMB": 227
-      }
-    },
-    "PCT 780-795 GCD2.50": {
-      "fingerprint": "a8cb988082d7c6b5",
-      "recordedAt": "2026-11-18",
-      "output": {
-        "result": {
-          "damage": 134.35691090659586,
+          "damage": 134.83336963078128,
           "gcd": 2.5,
           "gcdUnmet": false,
           "stats": {
             "INT": 6516,
             "MDMG": 158,
             "SPS": 420,
-            "CRT": 3576,
-            "DET": 2287,
-            "DHT": 2284
+            "CRT": 3548,
+            "DET": 2626,
+            "DHT": 2053
           },
-          "elapsed": 249,
+          "elapsed": 278,
           "foodId": 49240,
-          "gears": "3:49710:CRT/DHT 12:49657:DET/DHT -12:49734:CRT/DET 8:49637:DET/DHT 4:49711:DET/DHT 5:49712:DET/DHT 7:49636:CRT/CRT 11:49652:CRT/DHT 13:52319:CRT/CRT/DET 10:49647:DET/DHT 9:49719:CRT/DET"
+          "gears": "3:49710:CRT/DHT 12:49657:DET/DHT -12:49734:CRT/DET 8:49637:DET/DHT 4:49711:DHT/DHT 5:49712:DET/DHT 7:49636:CRT/CRT 11:49652:CRT/DHT 10:49647:DHT/DHT 13:5100601: 9:49719:DET/DET"
         },
-        "rssMB": 114
+        "rssMB": 106
       }
     },
-    "PCT 780-795 GCD2.40": {
-      "fingerprint": "e517e493eb0cb5e8",
-      "recordedAt": "2026-11-18",
+    "BLM 780-795 GCD2.40": {
+      "fingerprint": "c8f7ec9eede09f23",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 129.55007832528375,
+          "damage": 130.09517137769822,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "INT": 6516,
             "MDMG": 158,
             "SPS": 1213,
-            "CRT": 3636,
-            "DET": 1812,
-            "DHT": 1906
+            "CRT": 3662,
+            "DET": 2151,
+            "DHT": 1621
           },
-          "elapsed": 4090,
+          "elapsed": 5007,
           "foodId": 49244,
-          "gears": "12:49657:SPS/SPS -12:49734:CRT/SPS 5:49712:SPS/SPS 7:49636:CRT/CRT 8:49637:SPS/SPS 4:49711:SPS/SPS 3:49710:CRT/SPS 13:52319:CRT/CRT/SPS 9:49719:CRT/DET 11:49652:CRT/SPS 10:49647:DET/SPS"
+          "gears": "12:49657:SPS/SPS -12:49734:CRT/SPS 5:49712:SPS/SPS 7:49636:CRT/CRT 8:49637:SPS/SPS 4:49711:SPS/SPS 3:49710:CRT/SPS 13:5100602: 9:49719:CRT/SPS 11:49652:CRT/DHT 10:49647:DHT/DHT"
         },
-        "rssMB": 634
+        "rssMB": 789
+      }
+    },
+    "PCT 780-795 GCD2.50": {
+      "fingerprint": "f1e6fbe527e6fd3e",
+      "recordedAt": "2026-11-19",
+      "output": {
+        "result": {
+          "damage": 134.83336963078128,
+          "gcd": 2.5,
+          "gcdUnmet": false,
+          "stats": {
+            "INT": 6516,
+            "MDMG": 158,
+            "SPS": 420,
+            "CRT": 3548,
+            "DET": 2626,
+            "DHT": 2053
+          },
+          "elapsed": 277,
+          "foodId": 49240,
+          "gears": "3:49710:CRT/DHT 12:49657:DET/DHT -12:49734:CRT/DET 8:49637:DET/DHT 4:49711:DHT/DHT 5:49712:DET/DHT 7:49636:CRT/CRT 11:49652:CRT/DHT 10:49647:DHT/DHT 13:5102001: 9:49719:DET/DET"
+        },
+        "rssMB": 106
+      }
+    },
+    "PCT 780-795 GCD2.40": {
+      "fingerprint": "91ae16572f4600c4",
+      "recordedAt": "2026-11-19",
+      "output": {
+        "result": {
+          "damage": 130.09517137769822,
+          "gcd": 2.4,
+          "gcdUnmet": false,
+          "stats": {
+            "INT": 6516,
+            "MDMG": 158,
+            "SPS": 1213,
+            "CRT": 3662,
+            "DET": 2151,
+            "DHT": 1621
+          },
+          "elapsed": 4926,
+          "foodId": 49244,
+          "gears": "12:49657:SPS/SPS -12:49734:CRT/SPS 5:49712:SPS/SPS 7:49636:CRT/CRT 8:49637:SPS/SPS 4:49711:SPS/SPS 3:49710:CRT/SPS 13:5102002: 9:49719:CRT/SPS 11:49652:CRT/DHT 10:49647:DHT/DHT"
+        },
+        "rssMB": 746
       }
     },
     "SAM 780-795 GCD2.14": {
-      "fingerprint": "4853d96e6240760d",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "e2b8391b1f7af749",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 101.40271268722998,
+          "damage": 101.77144982427447,
           "gcd": 2.14,
           "gcdUnmet": false,
           "stats": {
@@ -600,152 +600,152 @@
             "PDMG": 158,
             "SKS": 689,
             "CRT": 3605,
-            "DET": 2426,
+            "DET": 2506,
             "DHT": 1847
           },
-          "elapsed": 1458,
+          "elapsed": 1951,
           "foodId": 49240,
-          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 5:49692:CRT/DHT 3:49690:DET/DET 8:49694:CRT/DET 7:49693:DET/DET 13:52312:DET/DET/DHT 4:49614:DHT/DHT 11:49726:DHT/DHT 9:49639:CRT/DET 10:49644:DET/DHT"
+          "gears": "12:49654:DET/DET -12:49731:CRT/DHT 5:49692:CRT/DHT 3:49690:DET/DET 8:49694:CRT/DET 7:49693:DET/DET 13:5101301: 4:49614:DET/DHT 11:49726:DHT/DHT 9:49639:CRT/DET 10:49644:DET/DHT"
         },
-        "rssMB": 214
+        "rssMB": 249
       }
     },
     "SAM 780-795 GCD2.50 隱藏零式與絕境": {
-      "fingerprint": "72ea4886143b0f14",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "5716747083effb60",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 100.72514644833763,
+          "damage": 101.3384885259915,
           "gcd": 2.17,
           "gcdUnmet": false,
           "stats": {
-            "STR": 6424,
-            "PDMG": 157,
+            "STR": 6431,
+            "PDMG": 158,
             "SKS": 420,
-            "CRT": 3173,
-            "DET": 2527,
-            "DHT": 2491
+            "CRT": 3177,
+            "DET": 2704,
+            "DHT": 2318
           },
-          "elapsed": 330,
+          "elapsed": 501,
           "foodId": 49240,
-          "gears": "12:49577:DET/DET -12:49654:DET/DET 3:50863:CRT/DHT 4:49614:DET/DHT 5:50865:DET/DHT 7:49616:CRT/CRT 9:49639:CRT/DET 11:49649:CRT/CRT 13:50991:DET/DET 8:49617:CRT/DHT 10:49644:DET/DET"
+          "gears": "12:49577:DET/DHT -12:49654:DET/DHT 3:50863:CRT/DHT 4:49614:DHT/DHT 5:50865:DET/DHT 7:49616:CRT/CRT 9:49639:CRT/DET 11:49649:CRT/CRT 8:49617:CRT/DHT 13:5101301: 10:49644:DET/DET"
         },
-        "rssMB": 121
+        "rssMB": 116
       }
     },
     "BLM 780-795 GCD2.40 不禁斷": {
-      "fingerprint": "5462a0fa8e185ba2",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "64b23d6f3af04aae",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 129.482160702375,
+          "damage": 130.09517137769822,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "INT": 6516,
             "MDMG": 158,
-            "SPS": 1219,
-            "CRT": 3548,
-            "DET": 2287,
-            "DHT": 1513
+            "SPS": 1213,
+            "CRT": 3662,
+            "DET": 2151,
+            "DHT": 1621
           },
-          "elapsed": 1572,
-          "foodId": 49240,
-          "gears": "12:49657:DET/DHT -12:49734:CRT/DET 5:49712:DET/DET 7:49636:CRT/CRT 8:49637:DET/SPS 13:52305:DET/DET/DET 4:49711:SPS/SPS 3:49710:CRT/SPS 9:49719:CRT/SPS 11:49652:SPS/SPS 10:49647:SPS/SPS"
+          "elapsed": 4934,
+          "foodId": 49244,
+          "gears": "12:49657:SPS/SPS -12:49734:CRT/SPS 5:49712:SPS/SPS 7:49636:CRT/CRT 8:49637:SPS/SPS 4:49711:SPS/SPS 3:49710:CRT/SPS 13:5100602: 9:49719:CRT/SPS 11:49652:CRT/DHT 10:49647:DHT/DHT"
         },
-        "rssMB": 226
+        "rssMB": 797
       }
     },
     "WHM 780-795 GCD2.40 食物上限740": {
-      "fingerprint": "b929f2ba4c9c5a2f",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "911b478da9ad9bb7",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 128.39039871689286,
+          "damage": 128.79086041851497,
           "gcd": 2.4,
           "gcdUnmet": false,
           "stats": {
             "MND": 6492,
             "MDMG": 158,
-            "SPS": 1231,
-            "CRT": 3379,
-            "DET": 2866,
-            "DHT": 1068
+            "SPS": 1214,
+            "CRT": 3348,
+            "DET": 3156,
+            "DHT": 906
           },
-          "elapsed": 1236,
-          "foodId": 46007,
-          "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49707:DHT/DHT 3:49705:CRT/CRT 4:49629:DHT/DHT 8:49709:CRT/SPS 13:52304:CRT/CRT/DHT 7:49708:DHT/DHT 9:49718:DHT/DHT 11:49651:CRT/CRT 10:49723:CRT/DHT"
+          "elapsed": 1132,
+          "foodId": 46003,
+          "gears": "12:49579:CRT/DHT -12:49656:CRT/DHT 5:49707:DHT/DHT 3:49705:CRT/CRT 4:49629:DHT/DHT 8:49709:CRT/SPS 13:5100501: 7:49708:DHT/DHT 9:49641:SPS/SPS 11:49651:CRT/CRT 10:49723:CRT/DHT"
         },
-        "rssMB": 192
+        "rssMB": 163
       }
     },
     "PCT 780-795 GCD1.50（無法達成）": {
-      "fingerprint": "4bac6bcd88a7ab3a",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "b38cb943485e3e43",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 117.99035507347297,
-          "gcd": 2.19,
+          "damage": 117.25634328224702,
+          "gcd": 2.15,
           "gcdUnmet": true,
           "stats": {
             "INT": 6516,
             "MDMG": 158,
-            "SPS": 3075,
-            "CRT": 1093,
-            "DET": 1934,
-            "DHT": 2367
+            "SPS": 3360,
+            "CRT": 780,
+            "DET": 2327,
+            "DHT": 2082
           },
-          "elapsed": 180,
+          "elapsed": 198,
           "foodId": 49245,
-          "gears": "12:49657:SPS/SPS -12:49734:SPS/SPS 5:49635:SPS/SPS 7:49713:SPS/SPS 8:49714:SPS/SPS 4:49634:DET/DET 3:49633:DET/DET 13:52319:SPS/SPS/SPS 9:49642:DET/DHT 11:49729:SPS/SPS 10:49724:DHT/DHT"
+          "gears": "12:49657:SPS/SPS -12:49734:SPS/SPS 5:49635:SPS/SPS 7:49713:SPS/SPS 8:49714:SPS/SPS 4:49634:DET/DET 3:49633:DET/DHT 13:5102010: 9:49642:DET/DHT 11:49729:SPS/SPS 10:49724:DHT/DHT"
         },
-        "rssMB": 91
+        "rssMB": 84
       }
     },
     "PCT 780-795 GCD2.30": {
-      "fingerprint": "9ad802d21b0b0088",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "8187cd2b2ec45a98",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 123.92625866237636,
+          "damage": 124.63245985113318,
           "gcd": 2.3,
           "gcdUnmet": false,
           "stats": {
             "INT": 6516,
             "MDMG": 158,
-            "SPS": 2067,
-            "CRT": 3035,
-            "DET": 1435,
-            "DHT": 2030
+            "SPS": 2070,
+            "CRT": 3370,
+            "DET": 1600,
+            "DHT": 1607
           },
-          "elapsed": 19466,
+          "elapsed": 44569,
           "foodId": 49244,
-          "gears": "12:49657:SPS/SPS -12:49734:SPS/SPS 5:49712:SPS/SPS 7:49636:CRT/CRT 8:49637:SPS/SPS 4:49634:CRT/CRT 3:49633:CRT/CRT 13:52319:CRT/CRT/SPS 9:49642:CRT/CRT 11:49652:CRT/SPS 10:49647:SPS/SPS"
+          "gears": "12:49657:SPS/SPS -12:49734:CRT/SPS 5:49712:SPS/SPS 7:49636:CRT/CRT 8:49637:SPS/SPS 4:49711:SPS/SPS 3:49710:CRT/SPS 13:5102005: 9:49642:CRT/CRT 11:49729:CRT/CRT 10:49724:CRT/CRT"
         },
-        "rssMB": 2141
+        "rssMB": 3246
       }
     },
     "AST 780-795 GCD2.30": {
-      "fingerprint": "fd60eb09b0c2fdc6",
-      "recordedAt": "2026-11-18",
+      "fingerprint": "fc59978f50c39440",
+      "recordedAt": "2026-11-19",
       "output": {
         "result": {
-          "damage": 123.06418550255682,
+          "damage": 123.91345856604003,
           "gcd": 2.3,
           "gcdUnmet": false,
           "stats": {
             "MND": 6492,
             "MDMG": 158,
-            "SPS": 2074,
-            "CRT": 3118,
-            "DET": 2866,
-            "DHT": 474
+            "SPS": 2076,
+            "CRT": 3414,
+            "DET": 2729,
+            "DHT": 420
           },
-          "elapsed": 810,
+          "elapsed": 1064,
           "foodId": 49244,
-          "gears": "12:49579:SPS/SPS -12:49656:SPS/SPS 5:49707:SPS/SPS 3:49705:CRT/SPS 4:49629:SPS/SPS 8:49709:SPS/SPS 13:52311:CRT/SPS/SPS 7:49708:SPS/SPS 9:49718:DHT/SPS 11:49651:CRT/CRT 10:49723:CRT/SPS"
+          "gears": "12:49579:CRT/SPS -12:49656:CRT/SPS 5:49707:DET/SPS 3:49705:CRT/CRT 4:49629:SPS/SPS 8:49709:CRT/SPS 13:5101202: 7:49708:SPS/SPS 9:49641:SPS/SPS 11:49651:CRT/CRT 10:49723:CRT/SPS"
         },
-        "rssMB": 134
+        "rssMB": 148
       }
     }
   }
