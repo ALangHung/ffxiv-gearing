@@ -179,6 +179,12 @@
     padding-top: 4px;
     padding-bottom: 4px;
   }
+  td:first-child {
+    padding-left: 16px;
+  }
+  td:last-child {
+    padding-right: 16px;
+  }
 }
 .gear-optimization_slot {
   white-space: nowrap;
