@@ -2,8 +2,9 @@ import * as mobx from 'mobx';
 import * as mst from 'mobx-state-tree';
 import * as G from '../game';
 import * as share from '../share';
+import type { OptimizerGear, OptimizerInput, OptimizerResult } from '../optimizer';
 import { floor, ceil, Setting, Promotion, GearUnion, GearUnionReference,
-  gearDataOrdered, gearDataLoading, loadGearDataOfGearId, loadGearDataOfLevelRange } from '.';
+  gearData, gearDataOrdered, gearDataLoading, loadGearDataOfGearId, loadGearDataOfLevelRange } from '.';
 import type { IGear, IFood, IGearUnion, IMateria } from '.';
 
 const clanStorageKey = 'ffxiv-gearing.dt.clan';
@@ -39,6 +40,12 @@ function sourcePatchGroupLabel(group: string): string {
   return minor === 'x' ? `${expansionNames[Number(major)] ?? major + '.x'}（未標記版本）` : `${group} 版本`;
 }
 
+export type GearOptimizationState =
+  { status: 'idle' } |
+  { status: 'running', job: G.Job, startTime: number } |
+  { status: 'done', job: G.Job, result: OptimizerResult } |
+  { status: 'error', job: G.Job, error: string };
+
 export interface SourceFilterGroup {
   group: string,
   label: string,
@@ -72,6 +79,8 @@ export const Store = mst.types
     tiersShown: localStorage.getItem(tiersShownStorageKey) === 'true',
     materiaOverallActiveTab: 0,
     autoSelectScheduled: false,
+    gearOptimization: { status: 'idle' } as GearOptimizationState,
+    gearOptimizationWorker: undefined as Worker | undefined,
   }))
   .views(self => ({
     get hiddenSourceSet(): Set<string> {
@@ -130,6 +139,13 @@ export const Store = mst.types
           sources: Array.from(sources.entries(), ([ source, count ]) => ({ key: `${group}|${source}`, source, count })),
         }));
     },
+    /** 是否符合目前的品級範圍、食物品級上限與裝備來源篩選（不含「已裝備的一律顯示」的例外） */
+    isGearShown(gear: G.GearBase): boolean {
+      const { hiddenSourceSet } = self;
+      return self.isGearInRange(gear) &&
+        !(hiddenSourceSet.size > 0 && self.isSourceFilterable(gear) &&
+          hiddenSourceSet.has(sourceFilterKeyOf(gear as G.Gear)));
+    },
     get filteredIds(): G.GearId[] {
       console.debug('filteredIds');
       if (self.job === undefined) return [];
@@ -137,14 +153,9 @@ export const Store = mst.types
         return Array.from(self.gears.keys(), id => Number(id) as G.GearId);
       }
       const unobservableEquippedGears = mobx.untracked(() => self.equippedGears.toJSON());
-      const { hiddenSourceSet } = self;
       const ret: G.GearId[] = [];
       for (const gear of gearDataOrdered.get()) {
-        if (
-          self.isGearInRange(gear) &&
-          !(hiddenSourceSet.size > 0 && self.isSourceFilterable(gear) &&
-            hiddenSourceSet.has(sourceFilterKeyOf(gear as G.Gear)))
-        ) {
+        if (this.isGearShown(gear)) {
           ret.push(gear.id);
           if (gear.slot === 12) {
             ret.push(-gear.id as G.GearId);
@@ -775,6 +786,65 @@ export const Store = mst.types
       return `${self.schema.name}(${glance}) - ${suffix}`;
     },
   }))
+  .views(self => ({
+    /** 無法執行配裝最佳化的原因，可執行時為 undefined */
+    get gearOptimizationUnavailableReason(): string | undefined {
+      if (self.job === undefined || self.isViewing) return '僅在編輯配裝時可用';
+      const { schema } = self;
+      if (schema.mainStat === undefined || schema.traitDamageMultiplier === undefined) return '此職業不適用';
+      if (self.jobLevel !== schema.jobLevel) return '暫不支援等級同步';
+      if (gearDataLoading.get()) return '裝備資料載入中';
+      return undefined;
+    },
+    /** 配裝最佳化的輸入：目前篩選範圍內的裝備與食物，並帶入各裝備實例上已鑲嵌的魔晶石 */
+    get gearOptimizationInput(): OptimizerInput {
+      const job = self.job!;
+      const slotGears = new Map<number, OptimizerGear[]>();
+      for (const slot of self.schema.slots) {
+        if (slot.slot > 0 || slot.slot === -12) slotGears.set(slot.slot, []);
+      }
+      const foods: OptimizerInput['foods'] = [];
+      for (const id of self.filteredIds) {
+        const gear = self.gears.get(id.toString());
+        if (gear === undefined || !gearData.has(Math.abs(id))) continue;
+        if (!self.isGearShown(gear.data)) continue;  // 只是因為已裝備而顯示的裝備不列入候選
+        if (gear.isFood) {
+          if (gear.slot === -1) foods.push({ data: gear.data, equipped: gear.isEquipped });
+          continue;
+        }
+        slotGears.get(gear.slot)?.push({
+          id: gear.id,
+          data: gear.data,
+          customStats: gear.customizable ? gear.customStats!.toJSON() : undefined,
+          materias: gear.materias.map(m => ({ stat: m.stat, grade: m.grade })),
+          equipped: gear.isEquipped,
+        });
+      }
+      // 篩選後沒有任何候選的部位，維持目前的裝備
+      for (const [ slot, gears ] of slotGears) {
+        const equipped = self.equippedGears.get(slot.toString());
+        if (gears.length === 0 && equipped !== undefined && !equipped.isFood) {
+          gears.push({
+            id: equipped.id,
+            data: equipped.data,
+            customStats: equipped.customizable ? equipped.customStats!.toJSON() : undefined,
+            materias: equipped.materias.map(m => ({ stat: m.stat, grade: m.grade })),
+            equipped: true,
+          });
+        }
+      }
+      return {
+        job,
+        jobLevel: self.jobLevel,
+        syncLevel: self.syncLevel,
+        baseStats: self.baseStats,
+        slots: Array.from(slotGears, ([ slot, gears ]) => ({ slot, gears })),
+        foods,
+        gcdTarget: self.setting.materiaGcdTarget,
+        overmeldLimit: self.setting.materiaOvermeldLimit,
+      };
+    },
+  }))
   .actions(self => ({
     createGears(): void {
       console.debug('createGears');
@@ -830,6 +900,16 @@ export const Store = mst.types
     },
     setFoodMaxLevel(level: number | undefined): void {
       self.foodMaxLevel = level;
+    },
+    setGearOptimization(state: GearOptimizationState): void {
+      self.gearOptimization = state;
+    },
+    /** Worker 回傳結果時呼叫；若此 Worker 已被取消或被新的執行取代則忽略 */
+    finishGearOptimization(worker: Worker, state: GearOptimizationState): void {
+      if (self.gearOptimizationWorker !== worker) return;
+      worker.terminate();
+      self.gearOptimizationWorker = undefined;
+      self.gearOptimization = state;
     },
     setFilterFocus(filterFocus: FilterFocus) {
       self.filterFocus = filterFocus;
@@ -933,6 +1013,46 @@ export const Store = mst.types
     },
     unprotect(): void {
       mst.unprotect(self);
+    },
+  }))
+  .actions(self => ({
+    cancelGearOptimization(): void {
+      self.gearOptimizationWorker?.terminate();
+      self.gearOptimizationWorker = undefined;
+      if (self.gearOptimization.status === 'running') self.setGearOptimization({ status: 'idle' });
+    },
+    startGearOptimization(): void {
+      if (self.gearOptimizationUnavailableReason !== undefined) return;
+      this.cancelGearOptimization();
+      const job = self.job!;
+      const input = self.gearOptimizationInput;
+      const worker = new Worker(new URL('../optimizer.worker.ts', import.meta.url));
+      self.gearOptimizationWorker = worker;
+      self.setGearOptimization({ status: 'running', job, startTime: Date.now() });
+      const finish = (state: GearOptimizationState) => self.finishGearOptimization(worker, state);
+      worker.onmessage = (e: MessageEvent<{ result?: OptimizerResult, error?: string }>) => {
+        const { result, error } = e.data;
+        finish(result !== undefined ? { status: 'done', job, result } : { status: 'error', job, error: error! });
+      };
+      worker.onerror = e => finish({ status: 'error', job, error: e.message || '計算過程發生錯誤' });
+      worker.postMessage(input);
+    },
+    applyGearOptimization(): void {
+      const state = self.gearOptimization;
+      if (state.status !== 'done' || state.job !== self.job) return;
+      const { result } = state;
+      const gearMateriaStats = new Map<G.GearId, (G.Stat | undefined)[]>();
+      for (const { slot, id, materiaStats } of result.gears) {
+        const gear = self.gears.get(id.toString());
+        if (gear === undefined) continue;
+        self.equippedGears.set(slot.toString(), gear);
+        if (materiaStats !== undefined) gearMateriaStats.set(id, materiaStats);
+      }
+      self.applyMateriaOptimization(gearMateriaStats, result.managedStats);
+      if (result.foodId !== undefined) {
+        const food = self.gears.get(result.foodId.toString());
+        if (food !== undefined) self.equippedGears.set('-1', food);
+      }
     },
   }))
   .actions(self => ({

@@ -10,13 +10,14 @@ import { Radio } from './@rmwc/radio';
 import { TextField } from './@rmwc/textfield';
 import type { MateriaOvermeldLimit } from '../stores/Setting';
 import * as G from '../game';
+import type { IGear } from '../stores';
 import { useStore } from './components/contexts';
 
 export const MateriaOverallPanel = mobxReact.observer(() => {
   const store = useStore();
   const materiaDetDhtOptimizationAvailable = !store.isViewing && store.schema.mainStat !== undefined;
   let activeTab = store.materiaOverallActiveTab;
-  if (activeTab === 1 && !materiaDetDhtOptimizationAvailable) {
+  if (activeTab >= 1 && !materiaDetDhtOptimizationAvailable) {
     activeTab = 0;
   }
   return (
@@ -38,6 +39,7 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
               <Badge className="badge-button_badge" exited={!store.promotion.get('materiaDetDhtOptimization')} />
             </Tab>
           )}
+          {materiaDetDhtOptimizationAvailable && <Tab>配裝最佳化</Tab>}
         </TabBar>
       </div>
       {activeTab === 0 && (
@@ -102,6 +104,9 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
       )}
       {activeTab === 1 && (
         <MateriaDetDhtOptimization />
+      )}
+      {activeTab === 2 && (
+        <GearOptimization />
       )}
     </div>
   );
@@ -226,6 +231,149 @@ const MateriaDetDhtOptimization = mobxReact.observer(() => {
       <div className="materia-det-dht-optimization_tip">
         方案依增傷期望由高到低排序，最多列出差距小於萬分之三的前 10 個方案。
       </div>
+    </div>
+  );
+});
+
+const GearOptimization = mobxReact.observer(() => {
+  const store = useStore();
+  const { gearOptimization: state, schema } = store;
+  const overmeldLimit = store.setting.materiaOvermeldLimit;
+  const unavailableReason = store.gearOptimizationUnavailableReason;
+  const speedStat: G.Stat = schema.stats.includes('SPS') ? 'SPS' : 'SKS';
+  const speedName = G.statNames[speedStat];
+  const running = state.status === 'running';
+  const [ now, setNow ] = React.useState(Date.now());
+  React.useEffect(() => {
+    if (!running) return;
+    const timer = setInterval(() => setNow(Date.now()), 500);
+    return () => clearInterval(timer);
+  }, [running]);
+  const result = state.status === 'done' && state.job === store.job ? state.result : undefined;
+  const currentDamage = store.equippedEffects?.damage;
+  const useStatName = store.setting.materiaDisplayName === 'stat';
+  const applied = result !== undefined &&
+    result.gears.every(({ slot, id }) => store.equippedGears.get(slot.toString())?.id === id) &&
+    (result.foodId === undefined || store.equippedGears.get('-1')?.id === result.foodId) &&
+    currentDamage === result.damage;
+  return (
+    <div className="materia-det-dht-optimization gear-optimization">
+      <div className="materia-det-dht-optimization_introduce">
+        <p>在目前的品級範圍、裝備來源篩選與食物品級上限內，自動選擇裝備、魔晶石與食物，找出每威力傷害期望最高的配置。</p>
+        <p>{`魔晶石只鑲嵌暴擊、信念、直擊與${speedName}（${speedName}只鑲嵌到達成 GCD 目標所需的量），不鑲嵌堅韌；` +
+            '裝備上已鑲嵌的其他屬性魔晶石維持不變。'}</p>
+        <p>幻境武器的自訂屬性不參與最佳化，沿用已填入的數值。品級範圍較寬且 GCD 目標較低時計算量較大，可能需要數秒。</p>
+      </div>
+      <div className="materia-det-dht-optimization_option">
+        <span className="materia-det-dht-optimization_option-title">GCD</span>
+        <MateriaGcdInput />
+        <span className="materia-det-dht-optimization_option-sub">與信念／直擊分配最佳化共用此設定</span>
+      </div>
+      <div className="materia-det-dht-optimization_option">
+        <span className="materia-det-dht-optimization_option-title">禁斷孔</span>
+        {overmeldLimitOptions.map(({ value, label }) => (
+          <Radio
+            key={value}
+            label={label}
+            checked={overmeldLimit === value}
+            onChange={() => store.setting.setMateriaOvermeldLimit(value)}
+          />
+        ))}
+      </div>
+      <div className="materia-det-dht-optimization_option gear-optimization_actions">
+        {running ? (
+          <>
+            <span className="gear-optimization_running">
+              {`處理中…（已經過 ${Math.max(0, Math.floor((now - state.startTime) / 1000))} 秒）`}
+            </span>
+            <Button className="gear-optimization_button" onClick={store.cancelGearOptimization} children="取消" />
+          </>
+        ) : (
+          <Button
+            className="gear-optimization_button"
+            raised
+            disabled={unavailableReason !== undefined}
+            onClick={store.startGearOptimization}
+            children="開始最佳化"
+          />
+        )}
+        {!running && unavailableReason !== undefined && (
+          <span className="materia-det-dht-optimization_option-sub">{unavailableReason}</span>
+        )}
+      </div>
+      {state.status === 'error' && state.job === store.job && (
+        <div className="materia-det-dht-optimization_summary -warning">{`最佳化失敗：${state.error}`}</div>
+      )}
+      {result !== undefined && (
+        <>
+          <div className={classNames('materia-det-dht-optimization_summary', result.gcdUnmet && '-warning')}>
+            {`每威力傷害期望 ${result.damage.toFixed(2)}`}
+            {currentDamage !== undefined && !applied && (
+              <span className="gear-optimization_compare">
+                {`（目前 ${currentDamage.toFixed(2)}，${result.damage >= currentDamage ? '+' : ''}` +
+                  `${((result.damage / currentDamage - 1) * 100).toFixed(2)}%）`}
+              </span>
+            )}
+            <div className="gear-optimization_stats">
+              {`暴擊 ${result.stats['CRT']}　信念 ${result.stats['DET']}　直擊 ${result.stats['DHT']}　` +
+                `${speedName} ${result.stats[speedStat] ?? '-'}　GCD ${result.gcd.toFixed(2)}`}
+            </div>
+            {result.gcdUnmet && (
+              <div>
+                {`在目前的篩選範圍內無法達到 GCD ${store.setting.materiaGcdTarget.toFixed(2)}，已改為${speedName}最大化的配置`}
+              </div>
+            )}
+          </div>
+          <table className="gear-optimization_gears table">
+            <tbody>
+            {schema.slots.map(({ slot, name }) => {
+              if (slot === -1) {
+                const food = result.foodId === undefined ? undefined : store.gears.get(result.foodId.toString());
+                return (
+                  <tr key={slot}>
+                    <td className="gear-optimization_slot">{name}</td>
+                    <td colSpan={2}>{food?.name ?? '-'}</td>
+                  </tr>
+                );
+              }
+              const item = result.gears.find(g => g.slot === slot);
+              if (item === undefined) return null;
+              const gear = store.gears.get(item.id.toString()) as IGear | undefined;
+              if (gear === undefined) return null;
+              const materias = gear.materias.map((materia, i) => {
+                const stat = item.materiaStats === undefined ? materia.stat : item.materiaStats[i];
+                if (stat === undefined) return undefined;
+                const grade = item.materiaStats !== undefined && result.managedStats.includes(stat) ?
+                  G.materiaTopGrade(gear.data, i) : materia.grade;
+                return grade === undefined ? undefined : G.getMateriaName(stat, grade, useStatName);
+              }).filter(Boolean);
+              return (
+                <tr key={slot}>
+                  <td className="gear-optimization_slot">{name}</td>
+                  <td className={classNames('gear-optimization_gear', gear.isEquipped && '-equipped')}>
+                    {gear.name}
+                  </td>
+                  <td className="gear-optimization_materias">{materias.join(' ')}</td>
+                </tr>
+              );
+            })}
+            </tbody>
+          </table>
+          <div className="materia-det-dht-optimization_tip gear-optimization_footer">
+            <span>{`計算耗時 ${(result.elapsed / 1000).toFixed(1)} 秒，結果依執行當時的條件計算。`}</span>
+            {applied ? (
+              <span className="gear-optimization_applied">已套用此配置</span>
+            ) : (
+              <Button
+                className="gear-optimization_button"
+                raised
+                onClick={store.applyGearOptimization}
+                children="套用此配置"
+              />
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 });
