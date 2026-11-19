@@ -26,6 +26,9 @@ npm run data-convert
 
 # 检查打包后的资源大小
 npm run analyze
+
+# 型別檢查（根目錄、src、test/optimizer 各有自己的 tsconfig，不要直接在根目錄執行 tsc）
+npm run typecheck
 ```
 
 

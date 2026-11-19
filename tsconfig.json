@@ -7,5 +7,7 @@
     "rewriteRelativeImportExtensions": true,
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true
-  }
+  },
+  // 只涵蓋直接以 Node 執行的腳本；src 與 test/optimizer 經打包執行，各有自己的 tsconfig
+  "include": ["*.ts", "data/*.ts", "test/*.ts"]
 }
