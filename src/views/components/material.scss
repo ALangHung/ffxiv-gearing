@@ -71,6 +71,10 @@
     background-color: transparent;
     .mdc-text-field__input {
       color: inherit;
+      // MDC 的提示文字顏色編譯時寫死為黑色，改為跟隨主題的文字顏色，深色模式才看得清楚
+      &::placeholder {
+        color: rgb(var(--color-text-base), .54);
+      }
     }
   }
 }
