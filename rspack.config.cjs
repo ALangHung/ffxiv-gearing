@@ -216,6 +216,8 @@ module.exports = function (env, argv) {
     },
     devtool: !prod && 'cheap-source-map',
     devServer: {
+      // 固定埠號，避免與其他專案常用的 8080 衝突；被占用時直接啟動失敗，不自動改用其他埠
+      port: 8714,
       client: false,
       hot: false,
       liveReload: false,

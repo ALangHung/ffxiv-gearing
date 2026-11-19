@@ -5,6 +5,7 @@
     "types": ["@rspack/core/module"],
     "jsx": "react-jsx",
     "noEmit": true,
+    "skipLibCheck": true,
     "verbatimModuleSyntax": true,
     "noUncheckedSideEffectImports": false,
     "strictPropertyInitialization": false,
