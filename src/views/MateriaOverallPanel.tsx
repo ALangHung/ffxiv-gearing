@@ -8,6 +8,7 @@ import { Switch } from './@rmwc/switch';
 import { Badge } from './@rmwc/badge';
 import { Radio } from './@rmwc/radio';
 import { TextField } from './@rmwc/textfield';
+import { Icon } from './components/Icon';
 import type { MateriaOvermeldLimit } from '../stores/Setting';
 import * as G from '../game';
 import { optimizerReportEnabled, SLOW_THRESHOLD } from '../optimizerReport';
@@ -378,7 +379,14 @@ const GearOptimization = mobxReact.observer(() => {
                 return (
                   <tr key={slot}>
                     <td className="gear-optimization_slot">{name}</td>
-                    <td colSpan={2}>{food?.name ?? '-'}</td>
+                    <td colSpan={2}>
+                      {food === undefined ? '-' : (
+                        <>
+                          {food.name}
+                          {food.hq && <Icon className="gear-optimization_hq" name="hq" />}
+                        </>
+                      )}
+                    </td>
                   </tr>
                 );
               }
@@ -397,7 +405,12 @@ const GearOptimization = mobxReact.observer(() => {
                 <tr key={slot}>
                   <td className="gear-optimization_slot">{name}</td>
                   <td className={classNames('gear-optimization_gear', gear.isEquipped && '-equipped')}>
-                    {gear.name}
+                    {store.setting.gearDisplayName === 'source' && gear.source ? gear.source : (
+                      <>
+                        {gear.name}
+                        {gear.hq && <Icon className="gear-optimization_hq" name="hq" />}
+                      </>
+                    )}
                   </td>
                   <td className="gear-optimization_materias">{materias.join(' ')}</td>
                 </tr>
