@@ -3,6 +3,7 @@ node_modules/
 
 # Build
 /dist/
+/test/optimizer/dist/
 
 # Fetched data
 /data/in/*.*
