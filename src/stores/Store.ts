@@ -888,7 +888,6 @@ export const Store = mst.types
       if (self.job === undefined || self.isViewing) return '僅在編輯配裝時可用';
       const { schema } = self;
       if (schema.mainStat === undefined || schema.traitDamageMultiplier === undefined) return '此職業不適用';
-      if (self.jobLevel !== schema.jobLevel) return '暫不支援等級同步';
       if (gearDataLoading.get()) return '裝備資料載入中';
       return undefined;
     },

@@ -5,7 +5,8 @@
 // 傷害與 GCD，確認結果確實可行且數值正確。
 //
 // 隨機情境涵蓋固定情境沒有的條件：已裝備且已鑲有魔晶石（含堅韌、信仰等非管理屬性）的裝備、
-// 篩選範圍外的已裝備裝備、幻境武器的自訂屬性、品級同步、任意食物組合、各種 GCD 目標與禁斷孔數。
+// 篩選範圍外的已裝備裝備、幻境武器的自訂屬性、品級同步、等級同步（約兩成情境，職業等級 60 級以上）、
+// 任意食物組合、各種 GCD 目標與禁斷孔數。
 // 每個部位只隨機取少量候選裝備，讓舊版也能在合理時間內算完。
 // 幻境武器最終階段的屬性分配由新版最佳化；舊版與精確對照改用展開成各種分配的候選（見 relic.ts），
 // 驗證時也確認新版結果帶有符合規則的分配。
@@ -28,9 +29,14 @@ import { expandRelics, relicAllocationsFor, sameStats } from './relic';
 import type { OptimizerGear, OptimizerInput, OptimizerResult } from '../../src/optimizer';
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const gearData: G.Gear[] = Array.from(new Map(['gears-recent', 'gears-730', 'gears-661', 'gears-645']
+const loadGears = (files: string[]): G.Gear[] => Array.from(new Map(files
   .flatMap(file => require(`../../data/out/${file}`).default as G.Gear[])
   .map(gear => [gear.id, gear])).values());
+const recentGearFiles = ['gears-recent', 'gears-730', 'gears-661', 'gears-645'];
+const gearData = loadGears(recentGearFiles);
+// 等級同步情境另外載入 60 級以後的舊裝備（一般情境沿用上面的資料，避免改變既有情境的輸入）
+const syncGearData = loadGears([...recentGearFiles,
+  'gears-600', 'gears-531', 'gears-515', 'gears-470', 'gears-401', 'gears-385', 'gears-340', 'gears-271']);
 const foodData = require('../../data/out/foods').default as G.Food[];
 /* eslint-enable @typescript-eslint/no-require-imports */
 
@@ -86,7 +92,11 @@ const jobs = (Object.keys(G.jobSchemas) as G.Job[]).filter(job => {
 });
 const maxLevels = [795, 790, 780, 770, 760, 750, 740, 730, 720, 710, 700, 690, 680, 665];
 
-function buildRandomInput(rand: () => number, caseSeed: number): OptimizerInput & { description: string } {
+/**
+ * levelSynced 為 true 時產生等級同步情境：職業等級低於該職業的上限，並隨機搭配該等級的品級同步或僅同步等級，
+ * 候選裝備取同步品級附近（已裝備的裝備可能是會被同步的高品級裝備）。為 false 時的亂數使用順序與先前完全相同。
+ */
+function buildRandomInput(rand: () => number, caseSeed: number, levelSynced = false): OptimizerInput & { description: string } {
   const pick = <T>(list: readonly T[]) => list[Math.floor(rand() * list.length)];
   const randInt = (min: number, max: number) => min + Math.floor(rand() * (max - min + 1));
   const shuffled = <T>(list: T[]) => {
@@ -98,9 +108,10 @@ function buildRandomInput(rand: () => number, caseSeed: number): OptimizerInput 
     return copy;
   };
 
-  const job = pick(jobs);
+  const job = pick(levelSynced ? jobs.filter(j => (G.jobSchemas[j] as G.JobSchema).jobLevel > 60) : jobs);
   const schema = G.jobSchemas[job] as G.JobSchema;
-  const jobLevel = schema.jobLevel;
+  const jobLevel = levelSynced ? pick(G.jobLevels.filter(level => level >= 60 && level < schema.jobLevel)) :
+    schema.jobLevel;
   const levelModifier = G.jobLevelModifiers[jobLevel];
   const baseStats: G.Stats = { PDMG: 0, MDMG: 0, DLY: 0 };
   for (const stat of schema.stats) {
@@ -112,15 +123,26 @@ function buildRandomInput(rand: () => number, caseSeed: number): OptimizerInput 
   const speedStat: G.Stat = schema.stats.includes('SPS') ? 'SPS' : 'SKS';
   const meldStats: G.Stat[] = ['CRT', 'DET', 'DHT', speedStat, speedStat === 'SPS' ? 'SKS' : 'SPS', 'TEN', 'PIE'];
 
-  const maxLevel = pick(maxLevels);
-  const minLevel = maxLevel - randInt(0, 30);
+  let maxLevel: number;
+  let minLevel: number;
+  let syncLevel: number | undefined;
   // 品級同步只能選介面提供的同步品級（G.syncLevels），其他品級沒有對應的屬性上限表
-  const syncCandidates = G.syncLevels[jobLevel].filter(level => level <= maxLevel && level >= maxLevel - 60);
-  const syncLevel = rand() < 0.2 ? pick(syncCandidates.length > 0 ? syncCandidates : [undefined]) : undefined;
-  const gcdTarget = randInt(200, 250) / 100;
+  if (levelSynced) {
+    syncLevel = rand() < 0.7 && G.syncLevels[jobLevel].length > 0 ? pick(G.syncLevels[jobLevel]) : undefined;
+    const center = syncLevel ?? G.syncLevelOfJobLevels[jobLevel];
+    maxLevel = center + randInt(0, 40);
+    minLevel = center - randInt(0, 30);
+  } else {
+    maxLevel = pick(maxLevels);
+    minLevel = maxLevel - randInt(0, 30);
+    const syncCandidates = G.syncLevels[jobLevel].filter(level => level <= maxLevel && level >= maxLevel - 60);
+    syncLevel = rand() < 0.2 ? pick(syncCandidates.length > 0 ? syncCandidates : [undefined]) : undefined;
+  }
+  const gcdTarget = randInt(levelSynced ? 225 : 200, 250) / 100;
   const overmeldLimit = randInt(0, 5);
-  const jobGears = gearData.filter(gear => G.jobCategories[gear.jobCategory][job] &&
-    gear.equipLevel <= jobLevel && !gear.obsolete);
+  // 與介面相同，可裝備等級只受職業等級上限限制（等級同步時高於同步等級的裝備會被同步）
+  const jobGears = (levelSynced ? syncGearData : gearData).filter(gear => G.jobCategories[gear.jobCategory][job] &&
+    gear.equipLevel <= schema.jobLevel && !gear.obsolete);
 
   let nextInstance = 1;
   const makeGear = (data: G.Gear, slot: number, equipped: boolean): OptimizerGear => {
@@ -153,12 +175,13 @@ function buildRandomInput(rand: () => number, caseSeed: number): OptimizerInput 
     return { slot, gears };
   });
 
+  const foodCenter = syncLevel ?? G.syncLevelOfJobLevels[jobLevel];
   const jobFoods = foodData.filter(food => food.slot === -1 && G.jobCategories[food.jobCategory][job] &&
-    food.level >= 600);
+    (levelSynced ? food.level >= foodCenter - 120 && food.level <= foodCenter + 40 : food.level >= 600));
   const foodCount = randInt(0, 5);
   const foods = shuffled(jobFoods).slice(0, foodCount).map((data, k) => ({ data, equipped: k === 0 && rand() < 0.3 }));
 
-  const description = `#${caseSeed} ${job} ${minLevel}-${maxLevel} GCD${gcdTarget.toFixed(2)} 禁斷${overmeldLimit}` +
+  const description = `#${caseSeed} ${job}${levelSynced ? ` ${jobLevel}級` : ''} ${minLevel}-${maxLevel} GCD${gcdTarget.toFixed(2)} 禁斷${overmeldLimit}` +
     `${syncLevel !== undefined ? ` 同步${syncLevel}` : ''} 食物${foods.length} ` +
     `候選${slots.map(s => s.gears.length).join('/')}`;
   return { job, jobLevel, syncLevel, baseStats, slots, foods, gcdTarget, overmeldLimit, description };
@@ -412,7 +435,10 @@ let exhaustiveReused = 0;
 let tankBetter = 0;
 let maxRelativeGap = 0;
 for (let k = 0; k < caseCount; k++) {
-  const input = buildRandomInput(rand, k);
+  // 約兩成情境改為等級同步：主亂數照常產生一般情境（後續情境的輸入不受影響），再以此情境專屬的亂數重新產生
+  const syncRand = mulberry32(seed * 1000003 + k);
+  const normalInput = buildRandomInput(rand, k);
+  const input = syncRand() < 0.2 ? buildRandomInput(syncRand, k, true) : normalInput;
   if (only !== undefined && !only.includes(k)) continue;
   const report = (message: string) => {
     failures++;
