@@ -1,4 +1,4 @@
-// 將自動配裝比對與隨機驗證腳本打包成 Node 可直接執行的檔案（原始碼使用 require 載入資料與 TypeScript，無法直接以 Node 執行）
+// 將自動配裝比對、隨機驗證與回報重播腳本打包成 Node 可直接執行的檔案（原始碼使用 require 載入資料與 TypeScript，無法直接以 Node 執行）
 const path = require('path');
 
 module.exports = {
@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     compare: path.resolve(__dirname, 'compare.ts'),
     fuzz: path.resolve(__dirname, 'fuzz.ts'),
+    replay: path.resolve(__dirname, 'replay.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

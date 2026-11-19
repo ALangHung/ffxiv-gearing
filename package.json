@@ -20,7 +20,8 @@
     "lint": "eslint --ext .js,.cjs,.ts,.tsx .",
     "test": "playwright test -c test/",
     "test-optimizer": "rspack build -c test/optimizer/rspack.config.cjs && node test/optimizer/dist/compare.cjs",
-    "test-optimizer-fuzz": "rspack build -c test/optimizer/rspack.config.cjs && node --max-old-space-size=4096 test/optimizer/dist/fuzz.cjs"
+    "test-optimizer-fuzz": "rspack build -c test/optimizer/rspack.config.cjs && node --max-old-space-size=4096 test/optimizer/dist/fuzz.cjs",
+    "test-optimizer-replay": "rspack build -c test/optimizer/rspack.config.cjs && node --env-file-if-exists=.env.local test/optimizer/dist/replay.cjs"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
