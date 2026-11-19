@@ -28,7 +28,7 @@ export const Materia = mst.types
       return self.index >= self.gear.materiaSlot;
     },
     get canRestricted(): boolean {
-      return self.index <= self.gear.materiaSlot && self.gear.level >= 290;
+      return G.materiaCanRestricted(self.gear.data, self.index);
     },
     get meldableGrades(): G.MateriaGrade[] {
       const { level } = self.gear;

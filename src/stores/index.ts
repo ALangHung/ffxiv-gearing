@@ -10,12 +10,7 @@ declare global {
   }
 }
 
-export function floor(value: number) {
-  return Math.trunc(value + 1e-7);
-}
-export function ceil(value: number) {
-  return Math.ceil(value - 1e-7);
-}
+export { floor, ceil } from '../game';
 
 export { Setting } from './Setting';
 export type { ISetting } from './Setting';

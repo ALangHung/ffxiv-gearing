@@ -672,3 +672,129 @@ export const syncLevelIsPopular: { [index: number]: boolean } = {
 export const syncLevelOfJobLevels = { 50: 130, 60: 270, 70: 400, 80: 530, 90: 660, 100: 790 };
 
 export const bluMdmgAdditions = require('../data/out/bluMdmgAdditions').default as number[];
+
+// ↓ 以下為不依賴 MobX 狀態的純計算，Store 與自動配裝（Web Worker）共用，確保兩邊結果一致
+
+export function floor(value: number) {
+  return Math.trunc(value + 1e-7);
+}
+export function ceil(value: number) {
+  return Math.ceil(value - 1e-7);
+}
+
+/** 此孔洞是否可鑲嵌限制等級（偶數等級）的魔晶石 */
+export function materiaCanRestricted(gear: Gear, index: number): boolean {
+  return index <= gear.materiaSlot && gear.level >= 290;
+}
+
+/** 此孔洞可鑲嵌的最高等級魔晶石，與 Materia.meldableGrades[0] 相同 */
+export function materiaTopGrade(gear: Gear, index: number): MateriaGrade | undefined {
+  const canRestricted = materiaCanRestricted(gear, index);
+  return materiaGrades.find(grade => gear.level >= materiaGradeRequiredLevels[grade - 1] &&
+    (canRestricted || !materiaGradeIsRestricted[grade]));
+}
+
+/** 品級／等級同步後裝備的實際品級，未發生同步時為 undefined */
+export function calcSyncedLevel(gear: Gear, jobLevel: JobLevel, targetSyncLevel?: number): number | undefined {
+  let syncLevel = targetSyncLevel ?? Infinity;
+  // 品級可變裝備，常駐同步至當前等級對應品級
+  if (gear.equipLevelVariable) {
+    syncLevel = Math.min(syncLevel, syncLevelOfJobLevels[jobLevel]);
+  }
+  // 先判定品級同步，目標品級低於此裝備品級時，同步至目標品級，不再進行後續判定
+  //   如：700品級裝備在阿羅阿羅島中會被同步至665品級
+  if (syncLevel < gear.level) {
+    return syncLevel;
+  }
+  // 未發生直接的品級同步，但目標等級低於此裝備可裝備等級時，同步至目標等級對應品級
+  //   如：700品級裝備在P12S中會被同步至660品級
+  //       663HQ白裝在阿羅阿羅島中會被同步至660品級
+  // 如果對應品級高於此裝備品級，雖裝備屬性值不變，但魔晶石仍然失效
+  //   如：655HQ白裝在P12S中屬性值不變，魔晶石失效
+  if (jobLevel < gear.equipLevel) {
+    return Math.min(gear.level, syncLevelOfJobLevels[jobLevel]);
+  }
+}
+
+export interface GearStatsOptions {
+  mainStat?: Stat,
+  secondaryStat?: Stat,
+  customStats?: Stats,
+  syncedLevel?: number,
+  materiaStats: Stats,  // 各屬性魔晶石數值合計
+}
+
+/** 裝備的實際屬性值（套用自訂屬性、同步上限、魔晶石上限與額外加成） */
+export function calcGearStats(gear: Gear, options: GearStatsOptions): Stats {
+  const { mainStat, secondaryStat, customStats, syncedLevel, materiaStats } = options;
+  const concretize = (stat: Stat): Stat => stat === 'main' ? mainStat! : stat === 'secondary' ? secondaryStat! : stat;
+  const stats: Stats = {};
+  for (const [ stat, value ] of Object.entries(gear.stats) as StatPairs) {
+    stats[concretize(stat)] = value;
+  }
+  if (gear.customizable && customStats !== undefined) {
+    Object.assign(stats, customStats);
+  }
+  if (syncedLevel !== undefined) {
+    const caps = getCaps(gear, syncedLevel);
+    for (const [ stat, value ] of Object.entries(stats) as StatPairs) {
+      stats[stat] = Math.min(value, caps[stat]!);
+    }
+  } else if (gear.materiaSlot > 0) {
+    const caps = getCaps(gear);
+    for (const [ stat, value ] of Object.entries(materiaStats) as StatPairs) {
+      const base = stats[stat] ?? 0;
+      stats[stat] = Math.min(base + value, Math.max(base, caps[stat]!));
+    }
+  }
+  if (gear.bonusStats !== undefined) {
+    if (gear.bonusType === 9 && syncedLevel === 700 || gear.bonusType === 11) {
+      for (const [ stat, value ] of Object.entries(gear.bonusStats) as StatPairs) {
+        stats[concretize(stat)]! += value;
+      }
+    }
+  }
+  return stats;
+}
+
+/** 技速／詠速對應的 GCD 秒數（含職業特性的 GCD 縮短） */
+export function calcGcd(job: Job, jobLevel: JobLevel, speed: number): number {
+  const { sub, div } = jobLevelModifiers[jobLevel];
+  const gcdModifier = jobLevel >= 80 && (jobSchemas[job] as JobSchema).statModifiers?.gcd || 100;
+  return floor(floor((1000 - floor(130 * (speed - sub) / div)) * 2500 / 1000) * gcdModifier / 1000) / 100;
+}
+
+/** 暴擊、信念、直擊、堅韌造成的傷害倍率 */
+export function calcSubStatDamage(job: Job, jobLevel: JobLevel, stats: Stats) {
+  const { main, sub, div, det, detTrunc } = jobLevelModifiers[jobLevel];
+  const { CRT, DET, DHT, TEN } = stats;
+  const bluAetherialMimicry = job === 'BLU' ? 200 : 0;
+  const crtChance = floor(200 * (CRT! - sub) / div + 50 + bluAetherialMimicry) / 1000;
+  const crtDamage = floor(200 * (CRT! - sub) / div + 1400) / 1000;
+  const detDamage = floor((140 * (DET! - main) / det + 1000) / detTrunc) * detTrunc / 1000;
+  const dhtChance = floor(550 * (DHT! - sub) / div + bluAetherialMimicry) / 1000;
+  const tenDamage = floor(112 * ((TEN ?? sub) - sub) / div + 1000) / 1000;
+  const multiplier = detDamage * tenDamage * ((crtDamage - 1) * crtChance + 1) * (0.25 * dhtChance + 1);
+  return { crtChance, crtDamage, detDamage, dhtChance, tenDamage, multiplier };
+}
+
+/** 每威力傷害期望，baseStats 用於青魔法師的魔法基本性能加成 */
+export function calcDamage(job: Job, jobLevel: JobLevel, stats: Stats, baseStats: Stats) {
+  const { statModifiers, mainStat, traitDamageMultiplier, partyBonus } = jobSchemas[job] as JobSchema;
+  if (statModifiers === undefined || mainStat === undefined || traitDamageMultiplier === undefined) return;
+  const levelMod = jobLevelModifiers[jobLevel];
+  const { main } = levelMod;
+  const { PDMG, MDMG } = stats;
+  const attackMainStat = mainStat === 'VIT' ? 'STR' : mainStat;
+  const subStatDamage = calcSubStatDamage(job, jobLevel, stats);
+  const weaponDamage = floor(main * statModifiers[attackMainStat]! / 1000) +
+    ((mainStat === 'MND' || mainStat === 'INT' ? MDMG : PDMG) ?? 0) +
+    (job === 'BLU' ? bluMdmgAdditions[stats['INT']! - baseStats['INT']!] ?? 0 : 0);
+  const mainDamage = floor((mainStat === 'VIT' ? levelMod.apTank : levelMod.ap) *
+    (floor((stats[attackMainStat] ?? 0) * (partyBonus ?? 1.05)) - main) / main + 100) / 100;
+  // 維持原本的乘法順序，避免浮點誤差造成顯示值與舊版不同
+  const { crtChance, crtDamage, detDamage, dhtChance, tenDamage } = subStatDamage;
+  const damage = 0.01 * weaponDamage * mainDamage * detDamage * tenDamage * traitDamageMultiplier *
+    ((crtDamage - 1) * crtChance + 1) * (0.25 * dhtChance + 1);
+  return { ...subStatDamage, weaponDamage, mainDamage, damage };
+}

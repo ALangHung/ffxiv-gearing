@@ -356,28 +356,15 @@ export const Store = mst.types
     get equippedEffects() {
       console.debug('equippedEffects');
       if (self.job === undefined) return;
-      const { statModifiers, mainStat, traitDamageMultiplier, partyBonus } = self.schema;
-      if (statModifiers === undefined || mainStat === undefined || traitDamageMultiplier === undefined) return;
+      const { statModifiers, mainStat } = self.schema;
+      const damageEffects = G.calcDamage(self.job, self.jobLevel, self.equippedStats, self.baseStats);
+      if (statModifiers === undefined || mainStat === undefined || damageEffects === undefined) return;
       const levelMod = G.jobLevelModifiers[self.jobLevel];
-      const { main, sub, div, det, detTrunc } = levelMod;
-      const { CRT, DET, DHT, TEN, SKS, SPS, VIT, PIE, PDMG, MDMG } = self.equippedStats;
-      const attackMainStat = mainStat === 'VIT' ? 'STR' : mainStat;
-      const bluAetherialMimicry = self.job === 'BLU' ? 200 : 0;
-      const crtChance = floor(200 * (CRT! - sub) / div + 50 + bluAetherialMimicry) / 1000;
-      const crtDamage = floor(200 * (CRT! - sub) / div + 1400) / 1000;
-      const detDamage = floor((140 * (DET! - main) / det + 1000) / detTrunc) * detTrunc / 1000;
-      const dhtChance = floor(550 * (DHT! - sub) / div + bluAetherialMimicry) / 1000;
-      const tenDamage = floor(112 * ((TEN ?? sub) - sub) / div + 1000) / 1000;
+      const { main, sub, div } = levelMod;
+      const { TEN, SKS, SPS, VIT, PIE } = self.equippedStats;
+      const { crtChance, crtDamage, detDamage, dhtChance, tenDamage, damage } = damageEffects;
       const tenMitigation = floor(200 * ((TEN ?? sub) - sub) / div) / 1000;
-      const weaponDamage = floor(main * statModifiers[attackMainStat]! / 1000) +
-        ((mainStat === 'MND' || mainStat === 'INT' ? MDMG : PDMG) ?? 0) +
-        (self.job === 'BLU' ? G.bluMdmgAdditions[self.equippedStats['INT']! - self.baseStats['INT']!] ?? 0 : 0);
-      const mainDamage = floor((mainStat === 'VIT' ? levelMod.apTank : levelMod.ap) *
-        (floor((self.equippedStats[attackMainStat] ?? 0) * (partyBonus ?? 1.05)) - main) / main + 100) / 100;
-      const damage = 0.01 * weaponDamage * mainDamage * detDamage * tenDamage * traitDamageMultiplier *
-        ((crtDamage - 1) * crtChance + 1) * (0.25 * dhtChance + 1);
-      const gcd = floor(floor((1000 - floor(130 * ((SKS ?? SPS)! - sub) / div)) * 2500 / 1000) *
-        (self.jobLevel >= 80 && statModifiers.gcd || 100) / 1000) / 100;
+      const gcd = G.calcGcd(self.job, self.jobLevel, (SKS ?? SPS)!);
       const ssDamage = floor(130 * ((SKS ?? SPS)! - sub) / div + 1000) / 1000;
       const hp = levelMod.hp * statModifiers.hp +
         floor((mainStat === 'VIT' ? levelMod.vitTank : levelMod.vit) * (VIT! - main));
@@ -436,19 +423,10 @@ export const Store = mst.types
       const originalStatOf = (materia: IMateria) =>
         (self.gears.get(materia.gear.id as any) as IGear).materias[materia.index].stat;
 
-      const { main, sub, div, det, detTrunc } = G.jobLevelModifiers[self.jobLevel];
-      const bluAetherialMimicry = self.job === 'BLU' ? 200 : 0;
-      const gcdModifier = self.jobLevel >= 80 && self.schema.statModifiers?.gcd || 100;
-      const gcdOf = (speed: number) =>
-        floor(floor((1000 - floor(130 * (speed - sub) / div)) * 2500 / 1000) * gcdModifier / 1000) / 100;
+      const gcdOf = (speed: number) => G.calcGcd(self.job!, self.jobLevel, speed);
       const gcdMet = (speed: number) => Math.round(gcdOf(speed) * 100) <= Math.round(gcdTarget * 100);
-      const damageOf = ([ CRT, DET, DHT ]: Triple) => {
-        const crtChance = floor(200 * (CRT - sub) / div + 50 + bluAetherialMimicry) / 1000;
-        const crtDamage = floor(200 * (CRT - sub) / div + 1400) / 1000;
-        const detDamage = floor((140 * (DET - main) / det + 1000) / detTrunc) * detTrunc / 1000;
-        const dhtChance = floor(550 * (DHT - sub) / div + bluAetherialMimicry) / 1000;
-        return detDamage * ((crtDamage - 1) * crtChance + 1) * (0.25 * dhtChance + 1);
-      };
+      const damageOf = ([ CRT, DET, DHT ]: Triple) =>
+        G.calcSubStatDamage(self.job!, self.jobLevel, { CRT, DET, DHT }).multiplier;
 
       let food: IFood | undefined;
       const foodStat = (stat: G.Stat, value: number) => {

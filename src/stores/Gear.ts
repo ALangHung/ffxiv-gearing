@@ -46,24 +46,7 @@ export const Gear = mst.types
       return gearColorScheme === 'source' && sourceColors[(source).slice(0, 2)] || rarityColors[rarity];
     },
     get syncedLevel(): number | undefined {
-      let { jobLevel, syncLevel=Infinity } = self.store;
-      // 品级可变装备，常驻同步至当前等级对应品级
-      if (this.equipLevelVariable) {
-        syncLevel = Math.min(syncLevel, G.syncLevelOfJobLevels[jobLevel]);
-      }
-      // 先判定品级同步，目标品级低于此装备品级时，同步至目标品级，不再进行后续判定
-      //   如：700品级装备在阿罗阿罗岛中会被同步至665品级
-      if (syncLevel < this.level) {
-        return syncLevel;
-      }
-      // 未发生直接的品级同步，但目标等级低于此装备可装备等级时，同步至目标等级对应品级
-      //   如：700品级装备在P12S中会被同步至660品级
-      //       663HQ白装在阿罗阿罗岛中会被同步至660品级
-      // 如果对应品级高于此装备品级，虽装备属性值不变，但魔晶石仍然失效
-      //   如：655HQ白装在P12S中属性值不变，魔晶石失效
-      if (jobLevel < this.equipLevel) {
-        return Math.min(this.level, G.syncLevelOfJobLevels[jobLevel]);
-      }
+      return G.calcSyncedLevel(self.data, self.store.jobLevel, self.store.syncLevel);
     },
     get caps(): G.Stats { return G.getCaps(self.data); },
     get bareStats(): G.Stats { return self.data.stats; },
@@ -78,32 +61,14 @@ export const Gear = mst.types
       return stats;
     },
     get stats(): G.Stats {
-      const stats: G.Stats = {};
-      for (const [ stat, value ] of Object.entries(this.bareStats) as G.StatPairs) {
-        stats[self.concretizeStat(stat)] = value;
-      }
-      if (this.customizable) {
-        Object.assign(stats, self.customStats!.toJSON());
-      }
-      if (this.syncedLevel !== undefined) {
-        const caps = G.getCaps(self.data, this.syncedLevel);
-        for (const [ stat, value ] of Object.entries(stats) as G.StatPairs) {
-          stats[stat] = Math.min(value, caps[stat]!);
-        }
-      } else if (this.materiaSlot > 0) {
-        for (const [ stat, value ] of Object.entries(this.materiaStats) as G.StatPairs) {
-          const base = stats[stat] ?? 0;
-          stats[stat] = Math.min(base + value, Math.max(base, this.caps[stat]));
-        }
-      }
-      if (self.data.bonusStats !== undefined) {
-        if (self.data.bonusType === 9 && this.syncedLevel === 700 || self.data.bonusType === 11) {
-          for (const [ stat, value ] of Object.entries(self.data.bonusStats) as G.StatPairs) {
-            stats[self.concretizeStat(stat)]! += value;
-          }
-        }
-      }
-      return stats;
+      const { schema } = self.store;
+      return G.calcGearStats(self.data, {
+        mainStat: schema.mainStat,
+        secondaryStat: schema.secondaryStat,
+        customStats: this.customizable ? self.customStats!.toJSON() : undefined,
+        syncedLevel: this.syncedLevel,
+        materiaStats: this.materiaStats,
+      });
     },
     get totalMeldableStats(): G.Stats {
       const stats: G.Stats = {};
