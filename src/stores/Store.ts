@@ -127,12 +127,15 @@ export const Store = mst.types
     isSourceFilterable(gear: G.GearBase): boolean {
       return gear.slot > 0 && gear.slot !== 17 && !(gear.slot === 2 && self.job === 'FSH');
     },
-    /** 食物最高品級以內、不被其他食物完全壓制的食物（與 data/convert.ts 中 best 標記的規則相同） */
-    get bestFoodIdsWithinLimit(): Set<G.GearId> | undefined {
-      const { foodMaxLevel } = self;
-      if (foodMaxLevel === undefined) return undefined;
+    /**
+     * 目前職業可用、食物最高品級以內、不被其他食物完全壓制的食物。
+     * 必須先篩選職業再比較，否則共用食物會被多一項他職屬性（堅韌、信仰、詠唱速度）的專用食物壓制而消失。
+     */
+    get bestFoodIds(): Set<G.GearId> {
+      const { job, foodMaxLevel } = self;
       const foods = gearDataOrdered.get()
-        .filter(gear => gear.slot === -1 && gear.level <= foodMaxLevel && gear.id !== 4745)
+        .filter(gear => gear.slot === -1 && gear.id !== 4745 && !!G.jobCategories[gear.jobCategory][job!] &&
+          (foodMaxLevel === undefined || gear.level <= foodMaxLevel))
         .sort((a, b) => b.id - a.id);
       const bestFoods: G.GearBase[] = [];
       for (const food of foods) {
@@ -147,8 +150,8 @@ export const Store = mst.types
       const { job, minLevel, maxLevel, foodMaxLevel } = self;
       const maxJobLevel = G.jobSchemas[job!].jobLevel;
       return !!G.jobCategories[gear.jobCategory][job!] &&
-        (gear.slot === -1 ? (foodMaxLevel === undefined ? (self.showAllFoods || 'best' in gear) :  // Foods
-          gear.level <= foodMaxLevel && (self.showAllFoods || this.bestFoodIdsWithinLimit!.has(gear.id))) :
+        (gear.slot === -1 ? (foodMaxLevel === undefined || gear.level <= foodMaxLevel) &&  // Foods
+          (self.showAllFoods || this.bestFoodIds.has(gear.id)) :
           gear.slot === -2 ? (self.showAllPotions || 'best' in gear) :  // Potions
             gear.slot === 17 || (gear.slot === 2 && job === 'FSH') ||  // Soul crystal and spearfishing gig
             (gear.level >= minLevel && gear.level <= maxLevel &&
