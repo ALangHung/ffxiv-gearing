@@ -61,9 +61,9 @@ export const Summary = mobxReact.observer(() => {
             <span
               className="summary_damage-tip"
               aria-label={
-                store.job === 'BST' ? '包括食品，不包括組隊加成，不包括其他各種臨時增益' :
-                store.job === 'BLU' ? '包括食品和1%組隊加成，包括「以太複製：進攻」，不包括其他各種臨時增益' :
-                '包括食品和5%組隊加成，不包括其他各種臨時增益（如爆發藥、連環計、身形、天語等）'
+                store.job === 'BST' ? '包括食物，不包括組隊加成，不包括其他各種臨時增益' :
+                store.job === 'BLU' ? '包括食物和1%組隊加成，包括「以太複製：進攻」，不包括其他各種臨時增益' :
+                '包括食物和5%組隊加成，不包括其他各種臨時增益（如爆發藥、連環計、身形、天語等）'
               }
               role="tooltip"
               children={<Icon name="help" />}

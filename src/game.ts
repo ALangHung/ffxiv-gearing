@@ -148,7 +148,7 @@ const slotSchemaCommon: SlotSchema[] = [
   { slot: 11, name: '手鐲', uiGroup: 'right' },
   { slot: 12, name: '戒指', uiGroup: 'right' },
   { slot: -12, name: '戒指', uiGroup: 'right' },
-  { slot: -1, name: '食品', levelWeight: 0, uiGroup: 'misc' },
+  { slot: -1, name: '食物', levelWeight: 0, uiGroup: 'misc' },
 ];
 const slotSchemaCombat = [
   { slot: 13, name: '武器', levelWeight: 2, uiGroup: 'weapon' },
