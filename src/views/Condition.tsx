@@ -140,7 +140,7 @@ export const Condition = mobxReact.observer(() => {
         <Dropdown
           label={({ ref, toggle }) => (
             <Button ref={ref} className="condition_button badge-button" onClick={toggle}>
-              魔晶石
+              最佳化
               <Badge
                 className="badge-button_badge"
                 exited={store.isViewing || !store.promotion.get('materiaDetDhtOptimization')}

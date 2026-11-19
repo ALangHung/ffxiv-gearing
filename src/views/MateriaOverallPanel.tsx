@@ -16,34 +16,37 @@ import { useStore } from './components/contexts';
 
 export const MateriaOverallPanel = mobxReact.observer(() => {
   const store = useStore();
-  const materiaDetDhtOptimizationAvailable = !store.isViewing && store.schema.mainStat !== undefined;
-  let activeTab = store.materiaOverallActiveTab;
-  if (activeTab >= 1 && !materiaDetDhtOptimizationAvailable) {
-    activeTab = 0;
+  const optimizationAvailable = !store.isViewing && store.schema.mainStat !== undefined;
+  const tabs: ('gear' | 'materia' | 'consumption')[] = optimizationAvailable ?
+    ['gear', 'materia', 'consumption'] : ['consumption'];
+  let activeTabIndex = store.materiaOverallActiveTab;
+  if (activeTabIndex >= tabs.length) {
+    activeTabIndex = 0;
   }
+  const activeTab = tabs[activeTabIndex];
   return (
     <div className="materia-overall card">
       <div className="materia-overall_tabbar">
         <TabBar
-          activeTabIndex={activeTab}
+          activeTabIndex={activeTabIndex}
           onActivate={e => {
             store.setMateriaOverallActiveTab(e.detail.index);
-            if (activeTab === 1) {
+            if (activeTab === 'materia') {
               store.promotion.off('materiaDetDhtOptimization');
             }
           }}
         >
-          <Tab>用量預估</Tab>
-          {materiaDetDhtOptimizationAvailable && (
+          {optimizationAvailable && <Tab>配裝最佳化</Tab>}
+          {optimizationAvailable && (
             <Tab>
-              信念／直擊分配最佳化
+              魔晶石最佳化
               <Badge className="badge-button_badge" exited={!store.promotion.get('materiaDetDhtOptimization')} />
             </Tab>
           )}
-          {materiaDetDhtOptimizationAvailable && <Tab>配裝最佳化</Tab>}
+          <Tab>魔晶石用量預估</Tab>
         </TabBar>
       </div>
-      {activeTab === 0 && (
+      {activeTab === 'consumption' && (
         <table className="materia-consumption table">
           <thead>
           <tr>
@@ -103,10 +106,10 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
           </tbody>
         </table>
       )}
-      {activeTab === 1 && (
+      {activeTab === 'materia' && (
         <MateriaDetDhtOptimization />
       )}
-      {activeTab === 2 && (
+      {activeTab === 'gear' && (
         <GearOptimization />
       )}
     </div>
@@ -274,7 +277,7 @@ const GearOptimization = mobxReact.observer(() => {
       <div className="materia-det-dht-optimization_option">
         <span className="materia-det-dht-optimization_option-title">GCD</span>
         <MateriaGcdInput />
-        <span className="materia-det-dht-optimization_option-sub">與信念／直擊分配最佳化共用此設定</span>
+        <span className="materia-det-dht-optimization_option-sub">與魔晶石最佳化共用此設定</span>
       </div>
       <div className="materia-det-dht-optimization_option">
         <span className="materia-det-dht-optimization_option-title">禁斷孔</span>
