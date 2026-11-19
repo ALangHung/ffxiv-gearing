@@ -17,12 +17,14 @@
     "publish": "node publish.ts",
     "data-fetch": "node data/fetch.ts",
     "data-convert": "node data/convert.ts",
-    "typecheck": "tsc -p . && tsc -p src && tsc -p test/optimizer",
+    "typecheck": "tsc -p . && tsc -p src && tsc -p test/optimizer && tsc -p test/materia-target",
     "lint": "eslint --ext .js,.cjs,.ts,.tsx .",
     "test": "playwright test -c test/",
     "test-optimizer": "rspack build -c test/optimizer/rspack.config.cjs && node test/optimizer/dist/compare.cjs",
     "test-optimizer-fuzz": "rspack build -c test/optimizer/rspack.config.cjs && node --max-old-space-size=4096 test/optimizer/dist/fuzz.cjs",
-    "test-optimizer-replay": "rspack build -c test/optimizer/rspack.config.cjs && node --env-file-if-exists=.env.local test/optimizer/dist/replay.cjs"
+    "test-optimizer-replay": "rspack build -c test/optimizer/rspack.config.cjs && node --env-file-if-exists=.env.local test/optimizer/dist/replay.cjs",
+    "test-materia-target": "rspack build -c test/materia-target/rspack.config.cjs && node test/materia-target/dist/compare.cjs",
+    "test-materia-target-fuzz": "rspack build -c test/materia-target/rspack.config.cjs && node test/materia-target/dist/fuzz.cjs"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

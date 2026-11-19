@@ -7,6 +7,7 @@ node_modules/
 # Build
 /dist/
 /test/optimizer/dist/
+/test/materia-target/dist/
 
 # Fetched data
 /data/in/*.*

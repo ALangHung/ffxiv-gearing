@@ -19,6 +19,8 @@ export const Setting = mst.types
     appTheme: mst.types.optional(mst.types.string as mst.ISimpleType<AppTheme>, 'light'),
     materiaOvermeldLimit: mst.types.optional(mst.types.number as mst.ISimpleType<MateriaOvermeldLimit>, 5),
     materiaGcdTarget: mst.types.optional(mst.types.number, 2.5),
+    // 生產／採集職業魔晶石最佳化的目標數值（含食物、藥品加成），未設定的屬性不要求
+    materiaStatTargets: mst.types.optional(mst.types.map(mst.types.number), {}),
   })
   .actions(self => ({
     afterCreate(): void {
@@ -52,6 +54,13 @@ export const Setting = mst.types
     },
     setMateriaGcdTarget(materiaGcdTarget: number): void {
       self.materiaGcdTarget = materiaGcdTarget;
+    },
+    setMateriaStatTarget(stat: string, value: number | undefined): void {
+      if (value === undefined) {
+        self.materiaStatTargets.delete(stat);
+      } else {
+        self.materiaStatTargets.set(stat, value);
+      }
     },
   }));
 

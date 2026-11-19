@@ -13,13 +13,16 @@ import type { MateriaOvermeldLimit } from '../stores/Setting';
 import * as G from '../game';
 import { optimizerReportEnabled, SLOW_THRESHOLD } from '../optimizerReport';
 import type { IGear } from '../stores';
+import type { MateriaTargetResult, MateriaTargetSolution } from '../materiaTarget';
 import { useStore } from './components/contexts';
 
 export const MateriaOverallPanel = mobxReact.observer(() => {
   const store = useStore();
   const optimizationAvailable = !store.isViewing && store.schema.mainStat !== undefined;
-  const tabs: ('gear' | 'materia' | 'consumption')[] = optimizationAvailable ?
-    ['gear', 'materia', 'consumption'] : ['consumption'];
+  // 生產／採集職業沒有主屬性，改提供依目標數值計算魔晶石的最佳化
+  const targetAvailable = !store.isViewing && store.schema.mainStat === undefined;
+  const tabs: ('gear' | 'materia' | 'target' | 'consumption')[] = optimizationAvailable ?
+    ['gear', 'materia', 'consumption'] : targetAvailable ? ['target', 'consumption'] : ['consumption'];
   let activeTabIndex = store.materiaOverallActiveTab;
   if (activeTabIndex >= tabs.length) {
     activeTabIndex = 0;
@@ -39,6 +42,7 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
             }
           }}
         >
+          {targetAvailable && <Tab>魔晶石最佳化</Tab>}
           {optimizationAvailable && <Tab>配裝最佳化</Tab>}
           {optimizationAvailable && (
             <Tab>
@@ -115,6 +119,9 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
         )}
         {activeTab === 'gear' && (
           <GearOptimization />
+        )}
+        {activeTab === 'target' && (
+          <MateriaTargetOptimization />
         )}
       </div>
     </div>
@@ -433,6 +440,229 @@ const GearOptimization = mobxReact.observer(() => {
           </div>
         </>
       )}
+    </div>
+  );
+});
+
+const MateriaTargetInput = mobxReact.observer(({ stat }: { stat: G.Stat }) => {
+  const store = useStore();
+  const value = store.setting.materiaStatTargets.get(stat);
+  const text = value === undefined ? '' : value.toString();
+  const [ inputValue, setInputValue ] = React.useState(text);
+  const [ prevText, setPrevText ] = React.useState(text);
+  if (text !== prevText) {
+    setInputValue(text);
+    setPrevText(text);
+  }
+  const submit = () => {
+    const trimmed = inputValue.trim();
+    const parsed = Math.floor(Number(trimmed));
+    const next = trimmed === '' || !Number.isFinite(parsed) || parsed <= 0 ? undefined : Math.min(parsed, 99999);
+    setInputValue(next === undefined ? '' : next.toString());
+    if (next !== value) store.setting.setMateriaStatTarget(stat, next);
+  };
+  return (
+    <TextField
+      className="materia-target_input mdc-text-field--compact"
+      type="number"
+      step="1"
+      min="0"
+      placeholder="不要求"
+      value={inputValue}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
+      onFocus={(e: React.FocusEvent<HTMLInputElement>) => e.target.select()}
+      onBlur={submit}
+      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') (e.target as HTMLInputElement).blur();
+      }}
+    />
+  );
+});
+
+type MateriaTargetSolutionKey = 'minimal' | 'maximal';
+const materiaTargetSolutionNames: { [index in MateriaTargetSolutionKey]: string } = {
+  minimal: '最少魔晶石',
+  maximal: '最高數值',
+};
+
+const MateriaTargetOptimization = mobxReact.observer(() => {
+  const store = useStore();
+  const { schema, setting } = store;
+  const overmeldLimit = setting.materiaOvermeldLimit;
+  // 輸入（目標、禁斷孔、裝備與魔晶石）改變時在 Web Worker 中重新計算，計算中仍顯示上一次的結果
+  React.useEffect(() => mobx.reaction(
+    () => store.materiaTargetInput?.key,
+    () => store.updateMateriaTarget(),
+    { fireImmediately: true },
+  ), [store]);
+  const [ detail, setDetail ] = React.useState<MateriaTargetSolutionKey>('minimal');
+  const { stats } = schema;
+  const state = store.materiaTarget;
+  // 切換職業後，上一個職業的結果不顯示
+  const result = state.result !== undefined && stats.every(stat => stat in state.result!.minimal.stats) ?
+    state.result : undefined;
+  const stale = state.running || state.key !== store.materiaTargetInput?.key;
+  return (
+    <div className="materia-det-dht-optimization materia-target">
+      <div className="materia-det-dht-optimization_introduce">
+        <p>{`依目標數值自動配置${stats.map(stat => G.statNames[stat]).join('、')}魔晶石。` +
+            '目標為含食物與藥品加成的最終數值，未填寫的屬性不要求。'}</p>
+        <p>{'「最少魔晶石」為達成全部目標所需魔晶石最少的組合（禁斷孔依成功率換算為期望消耗量）；' +
+            '「最高數值」為達成目標後，禁斷孔數量限制內的孔洞全部鑲嵌、數值最高的組合，超出目標的部分盡量平均分配。'}</p>
+        <p>{'選取的裝備中，已鑲嵌上述屬性魔晶石的孔洞和空置的孔洞將被重新配置，每個孔洞鑲嵌可鑲嵌的最高等級魔晶石，' +
+            '會超出裝備數值上限時改用數值相同而超出最少的較低等級魔晶石；' +
+            '並依遊戲規則由前往後依序鑲嵌，其他屬性的魔晶石維持不變。'}</p>
+      </div>
+      <div className="materia-det-dht-optimization_option materia-target_targets">
+        <span className="materia-det-dht-optimization_option-title">目標</span>
+        {stats.map(stat => (
+          <span key={stat} className="materia-target_target">
+            {G.statNames[stat]}
+            <MateriaTargetInput stat={stat} />
+          </span>
+        ))}
+      </div>
+      <div className="materia-det-dht-optimization_option">
+        <span className="materia-det-dht-optimization_option-title">禁斷孔</span>
+        {overmeldLimitOptions.map(({ value, label }) => (
+          <Radio
+            key={value}
+            label={label}
+            checked={overmeldLimit === value}
+            onChange={() => store.setting.setMateriaOvermeldLimit(value)}
+          />
+        ))}
+      </div>
+      {state.running && (
+        <div className="materia-det-dht-optimization_summary materia-target_running">計算中…</div>
+      )}
+      {!state.running && state.error !== undefined && (
+        <div className="materia-det-dht-optimization_summary -warning">{`計算失敗：${state.error}`}</div>
+      )}
+      {result !== undefined && (
+        <MateriaTargetResultView
+          result={result}
+          stale={stale}
+          detail={detail}
+          setDetail={setDetail}
+        />
+      )}
+    </div>
+  );
+});
+
+const MateriaTargetResultView = mobxReact.observer(({ result, stale, detail, setDetail }: {
+  result: MateriaTargetResult,
+  stale: boolean,
+  detail: MateriaTargetSolutionKey,
+  setDetail: (detail: MateriaTargetSolutionKey) => void,
+}) => {
+  const store = useStore();
+  const { schema, setting } = store;
+  const { stats } = schema;
+  const useStatName = setting.materiaDisplayName === 'stat';
+  const solutionKeys: MateriaTargetSolutionKey[] = ['minimal', 'maximal'];
+  const isApplied = (solution: MateriaTargetSolution) => {
+    for (const [ gearId, materias ] of solution.gearMaterias) {
+      const gear = store.gears.get(gearId.toString()) as IGear | undefined;
+      if (gear === undefined) return false;
+      for (let i = 0; i < gear.materias.length; i++) {
+        const { stat, grade } = gear.materias[i];
+        if (stat !== materias[i]?.stat || stat !== undefined && grade !== materias[i]?.grade) return false;
+      }
+    }
+    return true;
+  };
+  const unmet = Object.keys(result.minimal.shortfalls).length > 0;
+  const selected = result[detail];
+  return (
+    <div className={classNames('materia-target_result', stale && '-stale')}>
+      {unmet && (
+        <div className="materia-det-dht-optimization_summary -warning">
+          無法達成全部目標
+          <div>禁斷孔數量限制內的孔洞全部鑲嵌仍無法達成，以下為未達量（換算成魔晶石顆數）最少的組合。</div>
+        </div>
+      )}
+      <table className="materia-target_solutions table">
+        <thead>
+        <tr>
+          <th>方案</th>
+          {stats.map(stat => <th key={stat}>{G.statNames[stat]}</th>)}
+          <th title="鑲嵌的孔洞數，括號內為其中的禁斷孔數">魔晶石</th>
+          <th title="依各孔洞的鑲嵌成功率計算的期望消耗數量（一套裝備）">期望消耗</th>
+          <th />
+        </tr>
+        </thead>
+        <tbody>
+        <tr className="materia-target_current">
+          <td>目前</td>
+          {stats.map(stat => <td key={stat}>{store.equippedStats[stat]}</td>)}
+          <td colSpan={3} />
+        </tr>
+        {solutionKeys.map(key => {
+          const solution = result[key];
+          return (
+            <tr key={key}>
+              <td>
+                <Radio label={materiaTargetSolutionNames[key]} checked={detail === key} onChange={() => setDetail(key)} />
+              </td>
+              {stats.map(stat => (
+                <td key={stat}>
+                  {solution.stats[stat]}
+                  {solution.shortfalls[stat] !== undefined && (
+                    <span className="materia-target_shortfall">{`-${solution.shortfalls[stat]}`}</span>
+                  )}
+                </td>
+              ))}
+              <td>{`${solution.slotCount}（${solution.overmeldCount}）`}</td>
+              <td>{solution.expectedConsumption.toFixed(1)}</td>
+              <td>
+                {!stale && isApplied(solution) ? (
+                  <span className="materia-target_applied">已使用</span>
+                ) : (
+                  <Button
+                    className="materia-det-dht-optimization_use-solution"
+                    disabled={stale}
+                    onClick={() => store.applyMateriaTargetSolution(solution.gearMaterias)}
+                    children="使用此方案"
+                  />
+                )}
+              </td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+      <table className="gear-optimization_gears table">
+        <tbody>
+        {schema.slots.map(({ slot, name }) => {
+          const gear = store.equippedGears.get(slot.toString());
+          if (gear === undefined || gear.isFood) return null;
+          const gearMaterias = selected.gearMaterias.get(gear.id);
+          if (gearMaterias === undefined) return null;
+          const materias = gearMaterias.filter(m => m !== undefined)
+            .map(({ stat, grade }) => G.getMateriaName(stat, grade, useStatName));
+          return (
+            <tr key={slot}>
+              <td className="gear-optimization_slot">{name}</td>
+              <td className="gear-optimization_gear">
+                {setting.gearDisplayName === 'source' && gear.source ? gear.source : (
+                  <>
+                    {gear.name}
+                    {gear.hq && <Icon className="gear-optimization_hq" name="hq" />}
+                  </>
+                )}
+              </td>
+              <td className="gear-optimization_materias">{materias.length > 0 ? materias.join(' ') : '-'}</td>
+            </tr>
+          );
+        })}
+        </tbody>
+      </table>
+      <div className="materia-det-dht-optimization_tip">
+        {`上表為「${materiaTargetSolutionNames[detail]}」方案的魔晶石。` +
+          '期望消耗只計算一套裝備，使用方案後可在「魔晶石用量預估」查看詳細用量。'}
+      </div>
     </div>
   );
 });

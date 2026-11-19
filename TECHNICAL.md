@@ -27,8 +27,14 @@ npm run data-convert
 # 检查打包后的资源大小
 npm run analyze
 
-# 型別檢查（根目錄、src、test/optimizer 各有自己的 tsconfig，不要直接在根目錄執行 tsc）
+# 型別檢查（根目錄、src、test/optimizer、test/materia-target 各有自己的 tsconfig，不要直接在根目錄執行 tsc）
 npm run typecheck
+
+# 生產／採集職業魔晶石最佳化：與 test/materia-target/results.json 記錄的結果比對（確認結果正確後加 -- --update 更新記錄）
+npm run test-materia-target
+
+# 生產／採集職業魔晶石最佳化：隨機小型情境與暴力列舉比對（可加 -- <情境數> <亂數種子>）
+npm run test-materia-target-fuzz
 ```
 
 

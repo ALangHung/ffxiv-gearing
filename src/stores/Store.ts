@@ -6,6 +6,8 @@ import type { OptimizerGear, OptimizerInput, OptimizerResult } from '../optimize
 import { optimizerReportEnabled, optimizerReportApp, optimizerReportClient, newOptimizerRunId,
   sendOptimizerReport, SLOW_THRESHOLD } from '../optimizerReport';
 import { serializeOptimizerInput } from '../optimizerReportFormat';
+import type { MateriaTargetGear, MateriaTargetConsumable, MateriaTargetInput, MateriaTargetMateria,
+  MateriaTargetResult } from '../materiaTarget';
 import type { OptimizerReportRow } from '../optimizerReportFormat';
 import { floor, ceil, Setting, Promotion, GearUnion, GearUnionReference,
   gearData, gearDataOrdered, gearDataLoading, loadGearDataOfGearId, loadGearDataOfLevelRange } from '.';
@@ -49,6 +51,17 @@ export type GearOptimizationState =
   { status: 'running', job: G.Job, startTime: number } |
   { status: 'done', job: G.Job, result: OptimizerResult } |
   { status: 'error', job: G.Job, error: string };
+
+/**
+ * 生產／採集職業魔晶石最佳化的狀態：key 為最近一次計算的輸入；計算中仍保留上一次的結果供顯示，
+ * key 與目前輸入不同或 running 時，結果已過期
+ */
+export interface MateriaTargetState {
+  key?: string,
+  running: boolean,
+  result?: MateriaTargetResult,
+  error?: string,
+}
 
 /** 最近一次配裝最佳化的輸入與時間，供問題回報使用 */
 interface GearOptimizationRun {
@@ -118,6 +131,8 @@ export const Store = mst.types
     gearOptimization: { status: 'idle' } as GearOptimizationState,
     gearOptimizationWorker: undefined as Worker | undefined,
     gearOptimizationRun: undefined as GearOptimizationRun | undefined,
+    materiaTarget: { running: false } as MateriaTargetState,
+    materiaTargetWorker: undefined as Worker | undefined,
   }))
   .views(self => ({
     get hiddenSourceSet(): Set<string> {
@@ -468,6 +483,47 @@ export const Store = mst.types
         SPS: calcGcdTier(SPS! - sub, div / 130, (statModifiers.gcd ?? 100) / 1000),
         PIE: calcTier(PIE! - main, div / 150),
       };
+    },
+    /**
+     * 生產／採集職業魔晶石最佳化（依目標數值計算需要鑲嵌的魔晶石）的輸入，以及用來判斷輸入是否改變的 key。
+     * 計算在 Web Worker 中進行，見 updateMateriaTarget。
+     */
+    get materiaTargetInput(): { input: MateriaTargetInput, key: string } | undefined {
+      if (self.job === undefined || self.schema.mainStat !== undefined) return undefined;
+      const gears: MateriaTargetGear[] = [];
+      const consumables: MateriaTargetConsumable[] = [];
+      for (const gear of self.equippedGears.values()) {
+        if (gear === undefined) continue;
+        if (gear.isFood) {
+          consumables.push({ stats: gear.stats, statRates: gear.statRates });
+        } else {
+          gears.push({
+            id: gear.id,
+            data: gear.data,
+            materias: gear.materias.map(({ stat, grade }) => ({ stat, grade })),
+            syncedLevel: gear.syncedLevel,
+          });
+        }
+      }
+      const targets: G.Stats = {};
+      for (const stat of self.schema.stats) {
+        const value = self.setting.materiaStatTargets.get(stat);
+        if (value !== undefined) targets[stat] = value;
+      }
+      const input: MateriaTargetInput = {
+        stats: self.schema.stats,
+        baseStats: self.baseStats,
+        gears,
+        consumables,
+        targets,
+        overmeldLimit: self.setting.materiaOvermeldLimit,
+      };
+      // 裝備資料由 ID 決定，key 只記錄 ID 以縮短字串
+      const key = JSON.stringify({
+        ...input,
+        gears: gears.map(({ id, materias, syncedLevel }) => ({ id, materias, syncedLevel })),
+      });
+      return { input, key };
     },
     get materiaOptimized() {
       console.debug('materiaOptimized');
@@ -1002,6 +1058,31 @@ export const Store = mst.types
         }
       }
     },
+    /** 生產／採集職業魔晶石最佳化的 Worker 開始計算時呼叫 */
+    startMateriaTarget(worker: Worker, key: string): void {
+      self.materiaTargetWorker?.terminate();
+      self.materiaTargetWorker = worker;
+      self.materiaTarget = { key, running: true, result: self.materiaTarget.result };
+    },
+    /** Worker 回傳結果時呼叫；若此 Worker 已被新的計算取代則忽略 */
+    finishMateriaTarget(worker: Worker, key: string, result?: MateriaTargetResult, error?: string): void {
+      if (self.materiaTargetWorker !== worker) return;
+      worker.terminate();
+      self.materiaTargetWorker = undefined;
+      self.materiaTarget = { key, running: false, result: result ?? self.materiaTarget.result, error };
+    },
+    /** 套用生產／採集職業魔晶石最佳化的方案，各孔洞改為方案中的魔晶石（含等級） */
+    applyMateriaTargetSolution(gearMaterias: Map<G.GearId, (MateriaTargetMateria | undefined)[]>): void {
+      for (const [ gearId, materias ] of gearMaterias.entries()) {
+        const gear = self.gears.get(gearId as any) as IGear;
+        for (let i = 0; i < gear.materias.length; i++) {
+          const materia = gear.materias[i];
+          const target = materias[i];
+          if (materia.stat === target?.stat && materia.grade === target?.grade) continue;
+          materia.meld(target?.stat, target?.grade);
+        }
+      }
+    },
     toggleShowAllMaterias(): void {
       self.showAllMaterias = !self.showAllMaterias;
     },
@@ -1084,6 +1165,18 @@ export const Store = mst.types
         }
         self.setGearOptimization({ status: 'idle' });
       }
+    },
+    /** 輸入改變時在 Web Worker 中重新計算生產／採集職業魔晶石最佳化，進行中的舊計算直接中止 */
+    updateMateriaTarget(): void {
+      const current = self.materiaTargetInput;
+      if (current === undefined || current.key === self.materiaTarget.key) return;
+      const { key } = current;
+      const worker = new Worker(new URL('../materiaTarget.worker.ts', import.meta.url));
+      self.startMateriaTarget(worker, key);
+      worker.onmessage = (e: MessageEvent<{ result?: MateriaTargetResult, error?: string }>) =>
+        self.finishMateriaTarget(worker, key, e.data.result, e.data.error);
+      worker.onerror = e => self.finishMateriaTarget(worker, key, undefined, e.message || '計算過程發生錯誤');
+      worker.postMessage(current.input);
     },
     startGearOptimization(): void {
       if (self.gearOptimizationUnavailableReason !== undefined) return;

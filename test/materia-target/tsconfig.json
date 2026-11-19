@@ -1,0 +1,8 @@
+{
+  // 這些腳本會匯入 src 的程式碼並以 rspack 打包後執行，模組設定沿用 src，另外加上 Node 的型別
+  "extends": "../../src/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "@rspack/core/module"]
+  },
+  "include": ["*.ts"]
+}
