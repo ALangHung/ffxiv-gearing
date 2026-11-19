@@ -24,6 +24,8 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
     activeTabIndex = 0;
   }
   const activeTab = tabs[activeTabIndex];
+  const contentRef = React.useRef<HTMLDivElement>(null);
+  const contentMaxHeight = useContentMaxHeight(contentRef);
   return (
     <div className="materia-overall card">
       <div className="materia-overall_tabbar">
@@ -46,75 +48,109 @@ export const MateriaOverallPanel = mobxReact.observer(() => {
           <Tab>魔晶石用量預估</Tab>
         </TabBar>
       </div>
-      {activeTab === 'consumption' && (
-        <table className="materia-consumption table">
-          <thead>
-          <tr>
-            <th>魔晶石</th>
-            <th>安全孔</th>
-            <th>期望</th>
-            <th>90%*</th>
-            <th>99%*</th>
-          </tr>
-          </thead>
-          <tbody>
-          {(() => {
-            const ret = [];
-            const stats = store.schema.stats.filter(stat => stat in store.materiaConsumption);
-            for (const stat of stats) {
-              for (const grade of G.materiaGrades) {
-                const consumptionItem = store.materiaConsumption[stat]![grade];
-                if (consumptionItem === undefined) continue;
-                ret.push((
-                  <tr key={stat + grade}>
-                    <td>{G.getMateriaName(stat, grade, store.setting.materiaDisplayName === 'stat')}</td>
-                    <td>{consumptionItem.safe}</td>
-                    <td>{consumptionItem.expectation}</td>
-                    <td>{consumptionItem.confidence90}</td>
-                    <td>{consumptionItem.confidence99}</td>
-                  </tr>
-                ));
-              }
-            }
-            return ret;
-          })()}
-          {Object.keys(store.materiaConsumption).length === 0 && (
-            <tr className="materia-consumption_empty">
-              <td colSpan={5}>未鑲嵌魔晶石</td>
+      <div ref={contentRef} className="materia-overall_content" style={{ maxHeight: contentMaxHeight }}>
+        {activeTab === 'consumption' && (
+          <table className="materia-consumption table">
+            <thead>
+            <tr>
+              <th>魔晶石</th>
+              <th>安全孔</th>
+              <th>期望</th>
+              <th>90%*</th>
+              <th>99%*</th>
             </tr>
-          )}
-          <tr className="materia-consumption_tip">
-            <td colSpan={5}>
-              *以此整體成功率完成全部鑲嵌所需的數量
-              {store.schema.toolMateriaDuplicates! > 1 && (
-                <div
-                  className={classNames(
-                    'materia-consumption_tool-duplicates',
-                    !store.duplicateToolMateria && '-disabled',
-                  )}
-                >
-                  {`主副手的用量按照${store.schema.toolMateriaDuplicates}套計算`}
-                  <Switch
-                    className="materia-consumption_tool-duplicates-switch"
-                    checked={store.duplicateToolMateria}
-                    onChange={store.toggleDuplicateToolMateria}
-                  />
-                </div>
-              )}
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      )}
-      {activeTab === 'materia' && (
-        <MateriaDetDhtOptimization />
-      )}
-      {activeTab === 'gear' && (
-        <GearOptimization />
-      )}
+            </thead>
+            <tbody>
+            {(() => {
+              const ret = [];
+              const stats = store.schema.stats.filter(stat => stat in store.materiaConsumption);
+              for (const stat of stats) {
+                for (const grade of G.materiaGrades) {
+                  const consumptionItem = store.materiaConsumption[stat]![grade];
+                  if (consumptionItem === undefined) continue;
+                  ret.push((
+                    <tr key={stat + grade}>
+                      <td>{G.getMateriaName(stat, grade, store.setting.materiaDisplayName === 'stat')}</td>
+                      <td>{consumptionItem.safe}</td>
+                      <td>{consumptionItem.expectation}</td>
+                      <td>{consumptionItem.confidence90}</td>
+                      <td>{consumptionItem.confidence99}</td>
+                    </tr>
+                  ));
+                }
+              }
+              return ret;
+            })()}
+            {Object.keys(store.materiaConsumption).length === 0 && (
+              <tr className="materia-consumption_empty">
+                <td colSpan={5}>未鑲嵌魔晶石</td>
+              </tr>
+            )}
+            <tr className="materia-consumption_tip">
+              <td colSpan={5}>
+                *以此整體成功率完成全部鑲嵌所需的數量
+                {store.schema.toolMateriaDuplicates! > 1 && (
+                  <div
+                    className={classNames(
+                      'materia-consumption_tool-duplicates',
+                      !store.duplicateToolMateria && '-disabled',
+                    )}
+                  >
+                    {`主副手的用量按照${store.schema.toolMateriaDuplicates}套計算`}
+                    <Switch
+                      className="materia-consumption_tool-duplicates-switch"
+                      checked={store.duplicateToolMateria}
+                      onChange={store.toggleDuplicateToolMateria}
+                    />
+                  </div>
+                )}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        )}
+        {activeTab === 'materia' && (
+          <MateriaDetDhtOptimization />
+        )}
+        {activeTab === 'gear' && (
+          <GearOptimization />
+        )}
+      </div>
     </div>
   );
 });
+
+/**
+ * 彈窗內容區的最大高度：從內容區上緣到畫面下緣（下方固定的屬性列上緣）為止，超出時在彈窗內捲動。
+ * 彈窗跟著固定在畫面上方的導航列，頁面捲動時不會移動，因此需要限制高度才能看到完整內容。
+ */
+function useContentMaxHeight(contentRef: React.RefObject<HTMLDivElement | null>) {
+  const [ maxHeight, setMaxHeight ] = React.useState<number>();
+  React.useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      // 等 popper 完成定位後再量測
+      frame = requestAnimationFrame(() => {
+        const content = contentRef.current;
+        if (content === null) return;
+        const summary = document.querySelector('.summary');
+        const bottom = summary !== null && getComputedStyle(summary).position === 'fixed' ?
+          summary.getBoundingClientRect().top : window.innerHeight;
+        setMaxHeight(Math.max(160, Math.floor(bottom - content.getBoundingClientRect().top - 8)));
+      });
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    };
+  }, [contentRef]);
+  return maxHeight;
+}
 
 const overmeldLimitOptions: { value: MateriaOvermeldLimit, label: string }[] = [
   { value: 5, label: '滿禁斷' },

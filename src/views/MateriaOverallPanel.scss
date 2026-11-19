@@ -24,6 +24,12 @@
     position: relative;
   }
 }
+.materia-overall_content {
+  overflow-y: auto;
+  overscroll-behavior: contain;  // 捲到底時不帶動後方的頁面
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
 .materia-overall_badge {
   top: -3px;
   right: -8px;
