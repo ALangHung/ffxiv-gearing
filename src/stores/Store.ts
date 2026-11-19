@@ -57,6 +57,7 @@ export const Store = mst.types
     syncLevel: mst.types.maybe(mst.types.number),
     filterFocus: mst.types.optional(mst.types.string as mst.ISimpleType<FilterFocus>, 'no'),
     hiddenSources: mst.types.array(mst.types.string),
+    foodMaxLevel: mst.types.maybe(mst.types.number),  // 食物最高品級，undefined 表示不限
     showAllMaterias: mst.types.optional(mst.types.boolean, false),
     showAllFoods: mst.types.optional(mst.types.boolean, false),
     showAllPotions: mst.types.optional(mst.types.boolean, false),
@@ -80,11 +81,28 @@ export const Store = mst.types
     isSourceFilterable(gear: G.GearBase): boolean {
       return gear.slot > 0 && gear.slot !== 17 && !(gear.slot === 2 && self.job === 'FSH');
     },
+    /** 食物最高品級以內、不被其他食物完全壓制的食物（與 data/convert.ts 中 best 標記的規則相同） */
+    get bestFoodIdsWithinLimit(): Set<G.GearId> | undefined {
+      const { foodMaxLevel } = self;
+      if (foodMaxLevel === undefined) return undefined;
+      const foods = gearDataOrdered.get()
+        .filter(gear => gear.slot === -1 && gear.level <= foodMaxLevel && gear.id !== 4745)
+        .sort((a, b) => b.id - a.id);
+      const bestFoods: G.GearBase[] = [];
+      for (const food of foods) {
+        if (!bestFoods.some(bestFood => (Object.keys(food.stats) as G.Stat[])
+          .every(stat => food.stats[stat]! <= (bestFood.stats[stat] ?? -Infinity)))) {
+          bestFoods.push(food);
+        }
+      }
+      return new Set(bestFoods.map(food => food.id));
+    },
     isGearInRange(gear: G.GearBase): boolean {
-      const { job, minLevel, maxLevel } = self;
+      const { job, minLevel, maxLevel, foodMaxLevel } = self;
       const maxJobLevel = G.jobSchemas[job!].jobLevel;
       return !!G.jobCategories[gear.jobCategory][job!] &&
-        (gear.slot === -1 ? (self.showAllFoods || 'best' in gear) :  // Foods
+        (gear.slot === -1 ? (foodMaxLevel === undefined ? (self.showAllFoods || 'best' in gear) :  // Foods
+          gear.level <= foodMaxLevel && (self.showAllFoods || this.bestFoodIdsWithinLimit!.has(gear.id))) :
           gear.slot === -2 ? (self.showAllPotions || 'best' in gear) :  // Potions
             gear.slot === 17 || (gear.slot === 2 && job === 'FSH') ||  // Soul crystal and spearfishing gig
             (gear.level >= minLevel && gear.level <= maxLevel &&
@@ -809,6 +827,9 @@ export const Store = mst.types
     setSyncLevel(level: number | undefined, jobLevel: G.JobLevel | undefined): void {
       self.syncLevel = level;
       self.jobLevel = jobLevel ?? self.schema.jobLevel;
+    },
+    setFoodMaxLevel(level: number | undefined): void {
+      self.foodMaxLevel = level;
     },
     setFilterFocus(filterFocus: FilterFocus) {
       self.filterFocus = filterFocus;

@@ -151,6 +151,15 @@ export const Condition = mobxReact.observer(() => {
           placement="bottom-start"
         />
       )}
+      {editing && (
+        <span className="condition_level condition_food-level" title="食物只列出此品級以下的項目，配裝最佳化也只會從中挑選">
+          食物上限
+          <span className="condition_level-value">
+            <FoodMaxLevelInput />
+          </span>
+          品級
+        </span>
+      )}
       <span className="condition_right">
         {editing && (
           <Dropdown
@@ -276,3 +285,35 @@ const ConditionLevelInput = (() => {
     );
   });
 })();
+
+const FoodMaxLevelInput = mobxReact.observer(() => {
+  const store = useStore();
+  const value = store.foodMaxLevel;
+  const [ inputValue, setInputValue ] = React.useState(value?.toString() ?? '');
+  const [ prevValue, setPrevValue ] = React.useState(value);
+  if (value !== prevValue) {
+    setInputValue(value?.toString() ?? '');
+    setPrevValue(value);
+  }
+  const submit = () => {
+    const parsed = parseInt(inputValue, 10);
+    const level = parsed > 0 ? parsed : undefined;
+    setInputValue(level?.toString() ?? '');
+    if (level !== value) store.setFoodMaxLevel(level);
+  };
+  return (
+    <TextField
+      className="condition_level-input condition_food-level-input mdc-text-field--compact"
+      type="number"
+      step="5"
+      placeholder="不限"
+      value={inputValue}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
+      onFocus={(e: React.FocusEvent<HTMLInputElement>) => e.target.select()}
+      onBlur={submit}
+      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') (e.target as HTMLInputElement).blur();
+      }}
+    />
+  );
+});
