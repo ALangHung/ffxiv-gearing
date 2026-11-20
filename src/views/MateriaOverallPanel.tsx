@@ -309,7 +309,7 @@ const GearOptimization = mobxReact.observer(() => {
       <div className="materia-det-dht-optimization_introduce">
         <p>在目前的品級範圍、裝備來源篩選與食物品級上限內，自動選擇裝備、魔晶石與食物，找出每威力傷害期望最高的配置。</p>
         <p>{`魔晶石只鑲嵌暴擊、信念、直擊與${speedName}（${speedName}只鑲嵌到達成 GCD 目標所需的量），不鑲嵌堅韌；` +
-            '裝備上已鑲嵌的其他屬性魔晶石維持不變。'}</p>
+            '裝備上已鑲嵌的其他屬性魔晶石維持不變；品級同步中魔晶石失效的裝備，魔晶石會全部清除。'}</p>
         <p>{'幻境武器最終階段的屬性一併最佳化（兩大一小，坦克也會考慮堅韌）；其他幻境武器的自訂屬性沿用已填入的數值。' +
             '品級範圍較寬且 GCD 目標較低時計算量較大，可能需要數秒。'}</p>
         {optimizerReportEnabled && (

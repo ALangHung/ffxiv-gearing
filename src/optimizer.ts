@@ -335,17 +335,12 @@ export function optimize(input: OptimizerInput): OptimizerResult {
     const gearChange = (gear.equipped ? 0 : CHANGE_GEAR) + customChanges;
 
     const currentStats = gear.materias.map(m => m.stat);
-    const fixedMateriaStats: G.Stats = {};
-    for (const materia of gear.materias) {
-      if (materia.stat !== undefined && materia.grade !== undefined) {
-        fixedMateriaStats[materia.stat] = (fixedMateriaStats[materia.stat] ?? 0) +
-          G.materias[materia.stat]![materia.grade - 1];
-      }
-    }
     if (syncedLevel !== undefined) {
-      // 魔晶石已失效，不更動
-      const stats = G.calcGearStats(data, { ...statsOptions, materiaStats: fixedMateriaStats });
-      return [{ v: vectorOf(stats), changes: gearChange, choices: [{ slot, id: gear.id }] }];
+      // 魔晶石已失效，全部清除（屬性值不受影響，清除的顆數計入改動數）
+      const stats = G.calcGearStats(data, { ...statsOptions, materiaStats: {} });
+      const changes = gearChange + currentStats.filter(stat => stat !== undefined).length;
+      const materiaStats = currentStats.map(() => undefined);
+      return [{ v: vectorOf(stats), changes, choices: [{ slot, id: gear.id, materiaStats }] }];
     }
 
     // 未受管理屬性的魔晶石維持不變；受管理屬性及空孔中，在禁斷孔限制內的為可使用孔洞，超出的移除

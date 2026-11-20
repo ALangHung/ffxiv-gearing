@@ -530,6 +530,7 @@ export const Store = mst.types
       // 配置順序：先以技速／詠速魔晶石達成 GCD 目標，剩餘孔洞依增傷期望最佳化暴擊、信念、直擊的分配
       // 受管理的屬性（暴擊、信念、直擊、技速／詠速）會被重新分配，其他屬性的魔晶石維持不變
       // 禁斷孔數量限制：超出限制的孔洞不參與最佳化，其上受管理屬性的魔晶石會被移除
+      // 品級同步中魔晶石失效的裝備：所有魔晶石（含其他屬性）都會被移除
       type DamageStat = 'CRT' | 'DET' | 'DHT';
       type Triple = [number, number, number];  // CRT, DET, DHT
       interface GearOption { stats: Triple, materiaStats: (G.Stat | undefined)[], distance: number }
@@ -592,11 +593,15 @@ export const Store = mst.types
           a.index - b.index);
 
         // step 0: clear all managed slots, collect usable slots as the pool
+        // 品級同步中的裝備魔晶石已失效，全部清除且不參與分配
         const pools = new Map<IGear, IMateria[]>();
         for (const gear of gears) {
           const pool: IMateria[] = [];
+          const synced = gear.syncedLevel !== undefined;
           for (const materia of gear.materias) {
-            if (isManaged(materia.stat) || materia.stat === undefined) {
+            if (synced) {
+              materia.meld(undefined);
+            } else if (isManaged(materia.stat) || materia.stat === undefined) {
               materia.meld(undefined);
               if (isUsable(materia) && materia.meldableGrades.length > 0) pool.push(materia);
             }
