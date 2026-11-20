@@ -90,8 +90,8 @@ export const Condition = mobxReact.observer(() => {
           label={({ ref, toggle }) => (
             <Button ref={ref} className="condition_button condition_source-filter" onClick={toggle}>
               裝備來源
-              {store.hiddenSources.length > 0 && (
-                <span className="condition_source-filter-hidden">{`隱藏 ${store.hiddenSources.length}`}</span>
+              {store.hiddenGearCount > 0 && (
+                <span className="condition_source-filter-hidden">{`隱藏 ${store.hiddenGearCount}`}</span>
               )}
             </Button>
           )}

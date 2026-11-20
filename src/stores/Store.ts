@@ -98,7 +98,14 @@ function sendGearOptimizationReport(
 export interface SourceFilterGroup {
   group: string,
   label: string,
-  sources: { key: string, source: string, count: number }[],
+  sources: SourceFilterSource[],
+}
+
+export interface SourceFilterSource {
+  key: string,
+  source: string,
+  count: number,
+  gears: { id: G.GearId, name: string, level: number }[],
 }
 
 export const Store = mst.types
@@ -113,6 +120,7 @@ export const Store = mst.types
     syncLevel: mst.types.maybe(mst.types.number),
     filterFocus: mst.types.optional(mst.types.string as mst.ISimpleType<FilterFocus>, 'no'),
     hiddenSources: mst.types.array(mst.types.string),
+    hiddenGears: mst.types.array(mst.types.number as mst.ISimpleType<G.GearId>),  // 個別隱藏的裝備（其來源未整個隱藏）
     foodMaxLevel: mst.types.maybe(mst.types.number),  // 食物最高品級，undefined 表示不限
     showAllMaterias: mst.types.optional(mst.types.boolean, false),
     showAllFoods: mst.types.optional(mst.types.boolean, false),
@@ -137,6 +145,9 @@ export const Store = mst.types
   .views(self => ({
     get hiddenSourceSet(): Set<string> {
       return new Set(self.hiddenSources);
+    },
+    get hiddenGearSet(): Set<G.GearId> {
+      return new Set(self.hiddenGears);
     },
     /** 符合職業與品級範圍，且屬於裝備來源篩選對象的裝備 */
     isSourceFilterable(gear: G.GearBase): boolean {
@@ -177,13 +188,16 @@ export const Store = mst.types
   .views(self => ({
     get sourceFilterGroups(): SourceFilterGroup[] {
       if (self.job === undefined || self.mode === 'view') return [];
-      const groups = new Map<string, Map<string, number>>();
+      const groups = new Map<string, Map<string, SourceFilterSource>>();
       for (const gear of gearDataOrdered.get()) {
         if (!self.isSourceFilterable(gear) || !self.isGearInRange(gear)) continue;
         const group = sourcePatchGroupOf(gear as G.Gear);
         const source = (gear as G.Gear).source ?? '';
-        const sources = groups.get(group) ?? new Map<string, number>();
-        sources.set(source, (sources.get(source) ?? 0) + 1);
+        const sources = groups.get(group) ?? new Map<string, SourceFilterSource>();
+        const entry = sources.get(source) ?? { key: `${group}|${source}`, source, count: 0, gears: [] };
+        entry.count++;
+        entry.gears.push({ id: gear.id, name: gear.name, level: gear.level });
+        sources.set(source, entry);
         groups.set(group, sources);
       }
       return Array.from(groups.entries())
@@ -191,15 +205,27 @@ export const Store = mst.types
         .map(([ group, sources ]) => ({
           group,
           label: sourcePatchGroupLabel(group),
-          sources: Array.from(sources.entries(), ([ source, count ]) => ({ key: `${group}|${source}`, source, count })),
+          sources: Array.from(sources.values()),
         }));
+    },
+    /** 目前品級範圍內，因整個來源隱藏或個別取消勾選而不顯示的裝備件數 */
+    get hiddenGearCount(): number {
+      const { hiddenSourceSet, hiddenGearSet } = self;
+      let count = 0;
+      const groups: SourceFilterGroup[] = this.sourceFilterGroups;
+      for (const { sources } of groups) {
+        for (const { key, gears } of sources) {
+          count += hiddenSourceSet.has(key) ? gears.length : gears.filter(gear => hiddenGearSet.has(gear.id)).length;
+        }
+      }
+      return count;
     },
     /** 是否符合目前的品級範圍、食物品級上限與裝備來源篩選（不含「已裝備的一律顯示」的例外） */
     isGearShown(gear: G.GearBase): boolean {
-      const { hiddenSourceSet } = self;
+      const { hiddenSourceSet, hiddenGearSet } = self;
       return self.isGearInRange(gear) &&
-        !(hiddenSourceSet.size > 0 && self.isSourceFilterable(gear) &&
-          hiddenSourceSet.has(sourceFilterKeyOf(gear as G.Gear)));
+        !((hiddenSourceSet.size > 0 || hiddenGearSet.size > 0) && self.isSourceFilterable(gear) &&
+          (hiddenGearSet.has(gear.id) || hiddenSourceSet.has(sourceFilterKeyOf(gear as G.Gear))));
     },
     get filteredIds(): G.GearId[] {
       console.debug('filteredIds');
@@ -1028,7 +1054,9 @@ export const Store = mst.types
     setFilterFocus(filterFocus: FilterFocus) {
       self.filterFocus = filterFocus;
     },
+    /** 整個顯示或隱藏指定的來源，並清除這些來源中個別隱藏的裝備 */
     setSourcesHidden(keys: string[], hidden: boolean): void {
+      const keySet = new Set(keys);
       const hiddenSources = new Set(self.hiddenSources);
       for (const key of keys) {
         if (hidden) {
@@ -1038,9 +1066,43 @@ export const Store = mst.types
         }
       }
       self.hiddenSources.replace(Array.from(hiddenSources));
+      const hiddenGears = self.hiddenGears.filter(id => {
+        const gear = gearData.get(id);
+        return gear === undefined || !keySet.has(sourceFilterKeyOf(gear as G.Gear));
+      });
+      if (hiddenGears.length !== self.hiddenGears.length) {
+        self.hiddenGears.replace(hiddenGears);
+      }
+    },
+    /**
+     * 顯示或隱藏來源中的單一裝備。來源整個隱藏時勾選其中一件，改為只顯示該件；
+     * 來源中目前列出的裝備全部被取消勾選時，改為整個隱藏該來源。
+     */
+    setGearHidden(id: G.GearId, hidden: boolean): void {
+      const gear = gearData.get(id);
+      if (gear === undefined) return;
+      const key = sourceFilterKeyOf(gear as G.Gear);
+      const sourceGearIds = self.sourceFilterGroups
+        .flatMap(g => g.sources).find(s => s.key === key)?.gears.map(g => g.id) ?? [ id ];
+      const hiddenGears = new Set(self.hiddenGears);
+      if (hidden) {
+        hiddenGears.add(id);
+        if (sourceGearIds.every(gearId => hiddenGears.has(gearId))) {
+          this.setSourcesHidden([ key ], true);
+          return;
+        }
+      } else {
+        if (self.hiddenSourceSet.has(key)) {
+          self.hiddenSources.remove(key);
+          for (const gearId of sourceGearIds) hiddenGears.add(gearId);
+        }
+        hiddenGears.delete(id);
+      }
+      self.hiddenGears.replace(Array.from(hiddenGears));
     },
     showAllSources(): void {
       self.hiddenSources.clear();
+      self.hiddenGears.clear();
     },
     setMateriaOverallActiveTab(activeTab: number) {
       self.materiaOverallActiveTab = activeTab;
