@@ -8,6 +8,7 @@
 // - 計算超過 SLOW_THRESHOLD 仍未完成時送出 slow（附計算輸入）；
 //   之後該次計算完成、失敗、被取消或關閉頁面時，再補送 done／error／cancelled／abandoned（不附輸入）。
 // - 計算在 SLOW_THRESHOLD 內失敗時送出 error（附計算輸入）。
+//   例外：Worker 腳本載入失敗（多半是分頁開著期間網站部署了新版）與計算輸入無關，送出的 error 不附輸入。
 
 import type { OptimizerReportRow } from './optimizerReportFormat';
 

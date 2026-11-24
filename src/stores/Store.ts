@@ -63,6 +63,17 @@ export interface MateriaTargetState {
   error?: string,
 }
 
+/**
+ * Web Worker 腳本載入失敗時的訊息。
+ * 計算中拋出的例外都會在 Worker 內攔截並以訊息傳回，onerror 只會在 Worker 本身無法執行時觸發；
+ * 實際案例：分頁開著期間網站部署了新版，舊版頁面要載入的 Worker 檔案（檔名含 contenthash）已不存在。
+ * 此時瀏覽器給的錯誤沒有任何訊息，與計算輸入無關，重新整理頁面即可解決。
+ */
+const WORKER_LOAD_FAILED_MESSAGE = '無法載入計算程式，網站可能已更新，請重新整理頁面後再試';
+
+const workerErrorMessage = (e: Event) =>
+  e instanceof ErrorEvent && e.message ? e.message : WORKER_LOAD_FAILED_MESSAGE;
+
 /** 最近一次配裝最佳化的輸入與時間，供問題回報使用 */
 interface GearOptimizationRun {
   id: string,
@@ -1046,9 +1057,9 @@ export const Store = mst.types
         const { damage, gcd, gcdUnmet } = state.result;
         sendGearOptimizationReport(run, { kind: 'done', elapsed_ms: elapsed, result: { damage, gcd, gcdUnmet } });
       } else if (state.status === 'error') {
-        // 已回報 slow 的計算不再重複附上輸入
+        // 已回報 slow 的計算不再重複附上輸入；Worker 載入失敗與計算輸入無關，只回報發生次數不附輸入
         sendGearOptimizationReport(run, { kind: 'error', elapsed_ms: elapsed, error: state.error },
-          { withInput: !run.reported });
+          { withInput: !run.reported && state.error !== WORKER_LOAD_FAILED_MESSAGE });
       }
     },
     setFilterFocus(filterFocus: FilterFocus) {
@@ -1241,7 +1252,7 @@ export const Store = mst.types
       self.startMateriaTarget(worker, key);
       worker.onmessage = (e: MessageEvent<{ result?: MateriaTargetResult, error?: string }>) =>
         self.finishMateriaTarget(worker, key, e.data.result, e.data.error);
-      worker.onerror = e => self.finishMateriaTarget(worker, key, undefined, e.message || '計算過程發生錯誤');
+      worker.onerror = e => self.finishMateriaTarget(worker, key, undefined, workerErrorMessage(e));
       worker.postMessage(current.input);
     },
     startGearOptimization(): void {
@@ -1266,7 +1277,7 @@ export const Store = mst.types
         const { result, error } = e.data;
         finish(result !== undefined ? { status: 'done', job, result } : { status: 'error', job, error: error! });
       };
-      worker.onerror = e => finish({ status: 'error', job, error: e.message || '計算過程發生錯誤' });
+      worker.onerror = e => finish({ status: 'error', job, error: workerErrorMessage(e) });
       worker.postMessage(input);
     },
     applyGearOptimization(): void {
